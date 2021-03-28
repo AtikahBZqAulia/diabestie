@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC1D6C402610B57B0072A479 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1D6C3F2610B57B0072A479 /* TableViewController.swift */; };
+		BC1D6C442610B6AB0072A479 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1D6C432610B6AB0072A479 /* DiaryViewController.swift */; };
+		BC1D6C482610BC840072A479 /* PrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1D6C472610BC7D0072A479 /* PrepareViewController.swift */; };
 		BC68A5D1260B09040007F846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68A5D0260B09040007F846 /* AppDelegate.swift */; };
 		BC68A5D3260B09040007F846 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68A5D2260B09040007F846 /* SceneDelegate.swift */; };
 		BC68A5D5260B09040007F846 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68A5D4260B09040007F846 /* ViewController.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC1D6C3F2610B57B0072A479 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		BC1D6C432610B6AB0072A479 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		BC1D6C472610BC7D0072A479 /* PrepareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareViewController.swift; sourceTree = "<group>"; };
 		BC68A5CD260B09040007F846 /* Diabestie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diabestie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC68A5D0260B09040007F846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC68A5D2260B09040007F846 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 				BCC7CD24260B0A63009A7837 /* Profile */,
 				BCC7CD23260B0A5B009A7837 /* Reminder */,
 				BCC7CD22260B0A57009A7837 /* Home */,
+				BC1D6C3F2610B57B0072A479 /* TableViewController.swift */,
+				BC1D6C472610BC7D0072A479 /* PrepareViewController.swift */,
+				BC1D6C432610B6AB0072A479 /* DiaryViewController.swift */,
 				BC68A5D4260B09040007F846 /* ViewController.swift */,
 			);
 			path = Presentation;
@@ -392,10 +401,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC68A5DB260B09040007F846 /* Diabestie.xcdatamodeld in Sources */,
+				BC1D6C402610B57B0072A479 /* TableViewController.swift in Sources */,
 				BC68A5D5260B09040007F846 /* ViewController.swift in Sources */,
+				BC1D6C482610BC840072A479 /* PrepareViewController.swift in Sources */,
 				BC68A5D1260B09040007F846 /* AppDelegate.swift in Sources */,
 				BCDE8A3B260E07A800E5E193 /* UIImage+Extension.swift in Sources */,
 				BC68A5D3260B09040007F846 /* SceneDelegate.swift in Sources */,
+				BC1D6C442610B6AB0072A479 /* DiaryViewController.swift in Sources */,
 				BCDE8A36260E02EE00E5E193 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
