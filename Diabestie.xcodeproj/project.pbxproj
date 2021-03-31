@@ -21,9 +21,11 @@
 		BCDE8A2D260DFA0200E5E193 /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = BCDE8A2C260DFA0200E5E193 /* food.json */; };
 		BCDE8A36260E02EE00E5E193 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDE8A35260E02EE00E5E193 /* UIColor+Extension.swift */; };
 		BCDE8A3B260E07A800E5E193 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDE8A3A260E07A800E5E193 /* UIImage+Extension.swift */; };
+		E298B3E69F1D0BE82D5E12F9 /* Pods_Diabestie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB56ABED86169DFBDEA320CE /* Pods_Diabestie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		065BFA4ACABF3EB21038C5BE /* Pods-Diabestie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diabestie.release.xcconfig"; path = "Target Support Files/Pods-Diabestie/Pods-Diabestie.release.xcconfig"; sourceTree = "<group>"; };
 		BC1D6C3F2610B57B0072A479 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BC1D6C432610B6AB0072A479 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		BC1D6C472610BC7D0072A479 /* PrepareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,8 @@
 		BCDE8A2C260DFA0200E5E193 /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		BCDE8A35260E02EE00E5E193 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		BCDE8A3A260E07A800E5E193 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		C36C3DC393D12C8C6BF690BB /* Pods-Diabestie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diabestie.debug.xcconfig"; path = "Target Support Files/Pods-Diabestie/Pods-Diabestie.debug.xcconfig"; sourceTree = "<group>"; };
+		EB56ABED86169DFBDEA320CE /* Pods_Diabestie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diabestie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +51,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E298B3E69F1D0BE82D5E12F9 /* Pods_Diabestie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32B23079259A815364858E86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB56ABED86169DFBDEA320CE /* Pods_Diabestie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BC68A5C4260B09040007F846 = {
 			isa = PBXGroup;
 			children = (
 				BC68A5CF260B09040007F846 /* Diabestie */,
 				BC68A5CE260B09040007F846 /* Products */,
+				D7282374928BA8F84FE78E8C /* Pods */,
+				32B23079259A815364858E86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -307,6 +322,16 @@
 			path = Diary;
 			sourceTree = "<group>";
 		};
+		D7282374928BA8F84FE78E8C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C36C3DC393D12C8C6BF690BB /* Pods-Diabestie.debug.xcconfig */,
+				065BFA4ACABF3EB21038C5BE /* Pods-Diabestie.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,10 +339,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC68A5E4260B09050007F846 /* Build configuration list for PBXNativeTarget "Diabestie" */;
 			buildPhases = (
+				5C67870A9FD343001EF953F9 /* [CP] Check Pods Manifest.lock */,
 				BC68A5C9260B09040007F846 /* Sources */,
 				BC68A5CA260B09040007F846 /* Frameworks */,
 				BC68A5CB260B09040007F846 /* Resources */,
 				BC3E8FA0260B0F9F00B69440 /* ShellScript */,
+				AFB375C449FCCF117E32D046 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -376,6 +403,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5C67870A9FD343001EF953F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Diabestie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFB375C449FCCF117E32D046 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Diabestie/Pods-Diabestie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Diabestie/Pods-Diabestie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Diabestie/Pods-Diabestie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BC3E8FA0260B0F9F00B69440 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -552,6 +618,7 @@
 		};
 		BC68A5E5260B09050007F846 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C36C3DC393D12C8C6BF690BB /* Pods-Diabestie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -572,6 +639,7 @@
 		};
 		BC68A5E6260B09050007F846 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 065BFA4ACABF3EB21038C5BE /* Pods-Diabestie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
