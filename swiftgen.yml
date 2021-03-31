@@ -1,0 +1,21 @@
+xcassets:
+  inputs:
+    - Diabestie/Resources/Colors.xcassets
+  outputs:
+    - templatePath: asset-to-color-extension.stencil
+      output: Diabestie/Helpers/Extensions/UIColor+Extension.swift
+      params:
+        enumName: UIColor
+        publicAccess: true
+        allValues: true
+
+xcassets:
+  inputs:
+    - Diabestie/Resources/Assets.xcassets
+  outputs:
+    - templatePath: asset-to-image-extension.stencil
+      output: Diabestie/Helpers/Extensions/UIImage+Extension.swift
+      params:
+        enumName: UIImage
+        publicAccess: true
+        allValues: true
