@@ -9,6 +9,8 @@ import UIKit
 
 class MedicineTableCell: UITableViewCell {
 
+    static let identifier = "MedicineTableCell"
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

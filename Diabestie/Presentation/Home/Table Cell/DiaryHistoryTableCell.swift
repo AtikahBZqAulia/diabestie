@@ -9,6 +9,8 @@ import UIKit
 
 class DiaryHistoryTableCell: UITableViewCell {
 
+    static let identifier = "DiaryHistoryTableCell"
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
