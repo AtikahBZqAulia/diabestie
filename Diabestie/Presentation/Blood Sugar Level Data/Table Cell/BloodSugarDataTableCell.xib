@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProText-Regular.ttf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BSDataCell" rowHeight="60" id="KGk-i7-Jjw" customClass="BloodSugarDataTableCell" customModule="Diabestie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="365" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0p-o3-1Zt">
+                        <rect key="frame" x="16" y="9" width="136" height="20.5"/>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY4-Vt-Ymd">
+                        <rect key="frame" x="16" y="30" width="56" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="oCE-h5-MxB"/>
+                            <constraint firstAttribute="height" constant="21" id="w7K-zh-cbx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
+                        <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mg/dl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5f-15-Lnx">
+                        <rect key="frame" x="274" y="19" width="46" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="1vw-7Y-F2g"/>
+                            <constraint firstAttribute="width" constant="46" id="RzD-e3-2Ls"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                        <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wxY-Nk-g1X">
+                        <rect key="frame" x="329" y="20.5" width="20" height="19"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="green_light"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="Azf-pY-Nka"/>
+                            <constraint firstAttribute="height" constant="20" id="DCW-7r-q0J"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="239" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xt-aa-eA9">
+                        <rect key="frame" x="242" y="19" width="32" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="P1N-JQ-oKd"/>
+                            <constraint firstAttribute="height" constant="22" id="hor-iK-h4v"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                        <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Y0p-o3-1Zt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="1z8-Eu-fQb"/>
+                    <constraint firstAttribute="bottom" secondItem="6Xt-aa-eA9" secondAttribute="bottom" constant="19" id="2qv-hx-p5n"/>
+                    <constraint firstItem="Y0p-o3-1Zt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6Z9-wv-LET"/>
+                    <constraint firstItem="H5f-15-Lnx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="9Mf-9z-62G"/>
+                    <constraint firstItem="H5f-15-Lnx" firstAttribute="leading" secondItem="6Xt-aa-eA9" secondAttribute="trailing" id="Alh-dc-hhA"/>
+                    <constraint firstItem="6Xt-aa-eA9" firstAttribute="leading" secondItem="xY4-Vt-Ymd" secondAttribute="trailing" constant="170" id="Bg1-UX-aoD"/>
+                    <constraint firstAttribute="bottom" secondItem="xY4-Vt-Ymd" secondAttribute="bottom" constant="9" id="C7G-Sj-1Cu"/>
+                    <constraint firstAttribute="bottom" secondItem="H5f-15-Lnx" secondAttribute="bottom" constant="19" id="EQN-nC-fC2"/>
+                    <constraint firstItem="xY4-Vt-Ymd" firstAttribute="top" secondItem="Y0p-o3-1Zt" secondAttribute="bottom" constant="0.5" id="NJ7-yB-zR3"/>
+                    <constraint firstItem="xY4-Vt-Ymd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="S6O-Il-4VB"/>
+                    <constraint firstItem="6Xt-aa-eA9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="X7D-vA-CEM"/>
+                    <constraint firstItem="6Xt-aa-eA9" firstAttribute="leading" secondItem="Y0p-o3-1Zt" secondAttribute="trailing" constant="90" id="ZQY-tZ-awE"/>
+                    <constraint firstItem="wxY-Nk-g1X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="fTQ-Ut-gXy"/>
+                    <constraint firstAttribute="bottom" secondItem="wxY-Nk-g1X" secondAttribute="bottom" constant="20" symbolic="YES" id="n2J-9G-zTl"/>
+                    <constraint firstAttribute="trailing" secondItem="wxY-Nk-g1X" secondAttribute="trailing" constant="16" id="ttz-Qs-dfN"/>
+                    <constraint firstItem="wxY-Nk-g1X" firstAttribute="leading" secondItem="H5f-15-Lnx" secondAttribute="trailing" constant="9" id="y0C-dg-tO0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bloodLevel" destination="6Xt-aa-eA9" id="KG0-Vy-Kau"/>
+                <outlet property="eatName" destination="Y0p-o3-1Zt" id="fcS-10-hsW"/>
+                <outlet property="eatTime" destination="xY4-Vt-Ymd" id="B7G-Sc-II8"/>
+                <outlet property="iconStatus" destination="wxY-Nk-g1X" id="K0h-gQ-nzW"/>
+            </connections>
+            <point key="canvasLocation" x="109.42028985507247" y="115.84821428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="green_light">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

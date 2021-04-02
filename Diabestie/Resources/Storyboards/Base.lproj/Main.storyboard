@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hAf-x2-FTb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -9,6 +9,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProText-Regular.ttf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Diary-->
         <scene sceneID="tne-QT-ifu">
@@ -807,6 +812,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P7Q-1O-n9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="110.49107142857143"/>
+        </scene>
+        <!--Blood Sugar Data View Controller-->
+        <scene sceneID="D73-jW-sgk">
+            <objects>
+                <viewController id="b7X-yQ-Gp9" customClass="BloodSugarDataViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iuD-0z-rA9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Sugar Level Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMq-qk-Hmw">
+                                <rect key="frame" x="29" y="97" width="369" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="BpY-Oj-YJb"/>
+                                    <constraint firstAttribute="width" constant="369" id="y5g-8P-8po"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                                <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Muj-6l-yqT">
+                                <rect key="frame" x="16" y="127" width="382" height="235"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="O4W-jQ-XQq">
+                                        <rect key="frame" x="0.0" y="28" width="382" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O4W-jQ-XQq" id="28P-nZ-nMs">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VD9-yW-xKa"/>
+                        <color key="backgroundColor" name="gray_background"/>
+                        <constraints>
+                            <constraint firstItem="Muj-6l-yqT" firstAttribute="leading" secondItem="VD9-yW-xKa" secondAttribute="leading" constant="16" id="4gf-e5-wfL"/>
+                            <constraint firstItem="VD9-yW-xKa" firstAttribute="trailing" secondItem="Muj-6l-yqT" secondAttribute="trailing" constant="16" id="4kq-VN-dtL"/>
+                            <constraint firstItem="Muj-6l-yqT" firstAttribute="top" secondItem="OMq-qk-Hmw" secondAttribute="bottom" constant="7" id="83W-Y1-O3M"/>
+                            <constraint firstItem="OMq-qk-Hmw" firstAttribute="leading" secondItem="VD9-yW-xKa" secondAttribute="leading" constant="29" id="Cf5-i4-uzB"/>
+                            <constraint firstItem="VD9-yW-xKa" firstAttribute="bottom" secondItem="Muj-6l-yqT" secondAttribute="bottom" constant="500" id="T9h-WM-rtY"/>
+                            <constraint firstItem="OMq-qk-Hmw" firstAttribute="top" secondItem="VD9-yW-xKa" secondAttribute="top" constant="53" id="YaF-dD-C99"/>
+                            <constraint firstItem="VD9-yW-xKa" firstAttribute="trailing" secondItem="OMq-qk-Hmw" secondAttribute="trailing" constant="16" id="mzZ-db-R4C"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bloodDataView" destination="Muj-6l-yqT" id="MQQ-Rf-m2W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DHu-Mw-4Fd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2569.5652173913045" y="109.82142857142857"/>
         </scene>
     </scenes>
     <resources>
