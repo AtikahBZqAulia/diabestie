@@ -86,6 +86,11 @@
                     <constraint firstAttribute="trailing" secondItem="wxY-Nk-g1X" secondAttribute="trailing" constant="16" id="ttz-Qs-dfN"/>
                     <constraint firstItem="wxY-Nk-g1X" firstAttribute="leading" secondItem="H5f-15-Lnx" secondAttribute="trailing" constant="9" id="y0C-dg-tO0"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                        <real key="value" value="12"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

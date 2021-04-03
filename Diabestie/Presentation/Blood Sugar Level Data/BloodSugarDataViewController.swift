@@ -12,15 +12,15 @@ class BloodSugarDataViewController: UIViewController {
     @IBOutlet weak var bloodDataView: UITableView!
     
     //data dummy
-    var after = ["After Dinner", "After Lunch", "After Breakfast"]
-    var time = ["21.00", "14.00", "08.00"]
-    var bloodLevel = [120, 60, 152]
+    let after = ["After Dinner", "After Lunch", "After Breakfast"]
+    let time = ["21.00", "14.00", "08.00"]
+    let bloodLevel = [120, 60, 152]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bloodDataView.dataSource = self
         bloodDataView.register(UINib(nibName: "BloodSugarDataTableCell", bundle: nil), forCellReuseIdentifier: "BSDataCell")
-        bloodDataView.layer.cornerRadius = 12
+        
     }
 }
 
@@ -35,6 +35,15 @@ extension BloodSugarDataViewController: UITableViewDataSource {
             dataCell.eatName.text = after[indexPath.row]
             dataCell.eatTime.text = time[indexPath.row]
             dataCell.bloodLevel.text = String(bloodLevel[indexPath.row])
+            
+            switch indexPath.row {
+            case 0:
+                setBorder(dataCell , .layerMaxXMinYCorner, .layerMinXMinYCorner)
+            case time.count - 1:
+                setBorder(dataCell, .layerMaxXMaxYCorner, .layerMinXMaxYCorner)
+            default:
+                self.bloodDataView.layer.cornerRadius = 0
+            }
             
             if bloodLevel[indexPath.row] < 100 {
                 dataCell.iconStatus.image = UIImage(systemName: "arrow.down.circle")
@@ -53,5 +62,11 @@ extension BloodSugarDataViewController: UITableViewDataSource {
         else {
             return UITableViewCell()
         }
+    }
+    
+    private func setBorder(_ dataCell:BloodSugarDataTableCell  , _ left: CACornerMask, _ right: CACornerMask) -> Void {
+        dataCell.clipsToBounds = true
+        dataCell.layer.cornerRadius = 12
+        dataCell.layer.maskedCorners = [left, right]
     }
 }
