@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b7X-yQ-Gp9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="syY-mv-JYV">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -869,7 +869,116 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHu-Mw-4Fd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2569.5652173913045" y="109.82142857142857"/>
+            <point key="canvasLocation" x="2254" y="110"/>
+        </scene>
+        <!--Food Intake Detail View Controller-->
+        <scene sceneID="Dao-yp-81N">
+            <objects>
+                <viewController id="syY-mv-JYV" customClass="FoodIntakeDetailViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7TV-VJ-ZNa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="QJM-gA-6Sr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="sectionIndexBackgroundColor" name="gray_background"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="calculatedCell" rowHeight="125" id="YBM-19-dW4">
+                                        <rect key="frame" x="20" y="55.333332061767578" width="374" height="125"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YBM-19-dW4" id="dz4-mC-MJJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="125"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVN-no-51V" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="10" width="342" height="96"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPw-bp-MiF">
+                                                            <rect key="frame" x="16" y="39" width="62" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ms-WA-iRs">
+                                                            <rect key="frame" x="130" y="39" width="45" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="HhY-HI-n5b">
+                                                            <rect key="frame" x="16" y="13" width="15" height="14"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="382" id="PPu-gX-2W6"/>
+                                                        <constraint firstAttribute="height" constant="96" id="VZe-ob-TA3"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" name="gray_background"/>
+                                            <constraints>
+                                                <constraint firstItem="PVN-no-51V" firstAttribute="leading" secondItem="dz4-mC-MJJ" secondAttribute="leading" constant="16" id="AjV-3H-Fd7"/>
+                                                <constraint firstAttribute="trailing" secondItem="PVN-no-51V" secondAttribute="trailing" constant="16" id="J9W-7b-vcQ"/>
+                                                <constraint firstItem="PVN-no-51V" firstAttribute="top" secondItem="dz4-mC-MJJ" secondAttribute="top" constant="10" id="K89-a2-eHa"/>
+                                                <constraint firstAttribute="bottom" secondItem="PVN-no-51V" secondAttribute="bottom" constant="19" id="PXR-tz-uIe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="labelCell" rowHeight="37" id="zIb-mh-dHI">
+                                        <rect key="frame" x="20" y="180.33333206176758" width="374" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zIb-mh-dHI" id="kcW-d0-aA9">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="37"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FOOD LIST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqH-M4-x9r">
+                                                    <rect key="frame" x="20" y="8" width="68" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="13"/>
+                                                    <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="gray_background"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodIntake" rowHeight="87" id="WHy-Gn-GnH" customClass="FoodIntakeDetailCell" customModule="Diabestie" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="217.33333206176758" width="374" height="87"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WHy-Gn-GnH" id="gfG-1i-WM6">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" name="gray_background"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XyP-e8-9RJ"/>
+                        <color key="backgroundColor" name="gray_background"/>
+                        <constraints>
+                            <constraint firstItem="QJM-gA-6Sr" firstAttribute="leading" secondItem="XyP-e8-9RJ" secondAttribute="leading" id="5tX-IW-iZ6"/>
+                            <constraint firstItem="QJM-gA-6Sr" firstAttribute="top" secondItem="XyP-e8-9RJ" secondAttribute="top" id="PJY-Pn-SVn"/>
+                            <constraint firstItem="XyP-e8-9RJ" firstAttribute="bottom" secondItem="QJM-gA-6Sr" secondAttribute="bottom" constant="-34" id="Zck-5S-nyF"/>
+                            <constraint firstItem="XyP-e8-9RJ" firstAttribute="trailing" secondItem="QJM-gA-6Sr" secondAttribute="trailing" id="lbr-fB-nx2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="foodDetailTableView" destination="QJM-gA-6Sr" id="bA2-Fx-iPm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VG7-nv-fzw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3318.840579710145" y="109.82142857142857"/>
         </scene>
     </scenes>
     <resources>

@@ -35,6 +35,9 @@
 		BCDE8A2D260DFA0200E5E193 /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = BCDE8A2C260DFA0200E5E193 /* food.json */; };
 		BCDE8A36260E02EE00E5E193 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDE8A35260E02EE00E5E193 /* UIColor+Extension.swift */; };
 		BCDE8A3B260E07A800E5E193 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDE8A3A260E07A800E5E193 /* UIImage+Extension.swift */; };
+		F700649B26185E0200300E70 /* FoodIntakeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700649A26185E0200300E70 /* FoodIntakeDetailViewController.swift */; };
+		F70064A126185E2B00300E70 /* FoodIntakeDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */; };
+		F70064A226185E2B00300E70 /* FoodIntakeDetailTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70064A026185E2B00300E70 /* FoodIntakeDetailTableCell.xib */; };
 		F70F8554261779D0009FED50 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F70F8553261779D0009FED50 /* SFProText-Regular.ttf */; };
 		F70F855A26177E15009FED50 /* BloodSugarDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70F855926177E15009FED50 /* BloodSugarDataViewController.swift */; };
 		F70F855E26177E99009FED50 /* BloodSugarDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70F855C26177E99009FED50 /* BloodSugarDataTableCell.swift */; };
@@ -73,6 +76,9 @@
 		BCDE8A2C260DFA0200E5E193 /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		BCDE8A35260E02EE00E5E193 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		BCDE8A3A260E07A800E5E193 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		F700649A26185E0200300E70 /* FoodIntakeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIntakeDetailViewController.swift; sourceTree = "<group>"; };
+		F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIntakeDetailTableCell.swift; sourceTree = "<group>"; };
+		F70064A026185E2B00300E70 /* FoodIntakeDetailTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodIntakeDetailTableCell.xib; sourceTree = "<group>"; };
 		F70F8553261779D0009FED50 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFProText-Regular.ttf"; path = "Diabestie/Resources/Fonts/SFProText-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 		F70F855926177E15009FED50 /* BloodSugarDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarDataViewController.swift; sourceTree = "<group>"; };
 		F70F855C26177E99009FED50 /* BloodSugarDataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarDataTableCell.swift; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 		BCC7CD1E260B0A2E009A7837 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F700649926185DDD00300E70 /* Food Intake Detail */,
 				F70F855626177C09009FED50 /* Blood Sugar Level Data */,
 				BCC7CD22260B0A57009A7837 /* Home */,
 				BC68A5D4260B09040007F846 /* ViewController.swift */,
@@ -321,6 +328,24 @@
 			path = "Notification Center";
 			sourceTree = "<group>";
 		};
+		F700649926185DDD00300E70 /* Food Intake Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F700649E26185E0D00300E70 /* Table Cell */,
+				F700649A26185E0200300E70 /* FoodIntakeDetailViewController.swift */,
+			);
+			path = "Food Intake Detail";
+			sourceTree = "<group>";
+		};
+		F700649E26185E0D00300E70 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */,
+				F70064A026185E2B00300E70 /* FoodIntakeDetailTableCell.xib */,
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
 		F70F855626177C09009FED50 /* Blood Sugar Level Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCBBD01D261486E2008E56F4 /* Sample.xib in Resources */,
+				F70064A226185E2B00300E70 /* FoodIntakeDetailTableCell.xib in Resources */,
 				BC68A5E0260B09050007F846 /* LaunchScreen.storyboard in Resources */,
 				F70F855F26177E99009FED50 /* BloodSugarDataTableCell.xib in Resources */,
 				BCCDCFB3261484D900602352 /* samplefonts in Resources */,
@@ -446,6 +472,7 @@
 				BC68A5D5260B09040007F846 /* ViewController.swift in Sources */,
 				BC6F4FD62615838400643603 /* HighlightTableCell.swift in Sources */,
 				BC6F4FCF2615835500643603 /* AddDiaryTableCell copy.swift in Sources */,
+				F70064A126185E2B00300E70 /* FoodIntakeDetailTableCell.swift in Sources */,
 				BC68A5D1260B09040007F846 /* AppDelegate.swift in Sources */,
 				BCBBD01726148698008E56F4 /* NotificationCenter+Delegate.swift in Sources */,
 				BCDE8A3B260E07A800E5E193 /* UIImage+Extension.swift in Sources */,
@@ -456,6 +483,7 @@
 				BC6F4FCC2615834E00643603 /* MedicineTableCell.swift in Sources */,
 				BC68A5D3260B09040007F846 /* SceneDelegate.swift in Sources */,
 				BC6F4FBE261580D600643603 /* UIView+Extension.swift in Sources */,
+				F700649B26185E0200300E70 /* FoodIntakeDetailViewController.swift in Sources */,
 				BCDE8A36260E02EE00E5E193 /* UIColor+Extension.swift in Sources */,
 				F70F855E26177E99009FED50 /* BloodSugarDataTableCell.swift in Sources */,
 				BC6F4FD32615836C00643603 /* DiaryHistoryTableCell.swift in Sources */,
