@@ -761,6 +761,10 @@
                                             </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="gray_background"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="yYl-6C-XbS" appends="YES" id="ySJ-dW-sQg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -782,10 +786,11 @@
                     <navigationItem key="navigationItem" title="Diary" largeTitleDisplayMode="always" id="puu-M2-mfc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jet-We-1nO">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
+                <tapGestureRecognizer id="yYl-6C-XbS">
+                    <connections>
+                        <segue destination="iXx-1C-I3t" kind="show" id="WFa-1A-YXy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="110.49107142857143"/>
         </scene>
@@ -808,8 +813,52 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="110.49107142857143"/>
         </scene>
+        <!--History-->
+        <scene sceneID="V69-CH-QIv">
+            <objects>
+                <viewController id="iXx-1C-I3t" customClass="HistoryViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dOd-mm-OQv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5UE-lh-P0D" customClass="ExtendedNavBarView" customModule="Diabestie" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This label appears as part of the navigation bar." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="183" translatesAutoresizingMaskIntoConstraints="NO" id="lcf-Et-lOl">
+                                        <rect key="frame" x="115.5" y="10.5" width="183" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="lcf-Et-lOl" firstAttribute="centerY" secondItem="5UE-lh-P0D" secondAttribute="centerY" id="L2V-oi-s9y"/>
+                                    <constraint firstAttribute="height" constant="50" id="Mbh-IG-c22"/>
+                                    <constraint firstItem="lcf-Et-lOl" firstAttribute="centerX" secondItem="5UE-lh-P0D" secondAttribute="centerX" id="Typ-W6-1K3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wzz-cm-xP0"/>
+                        <color key="backgroundColor" name="gray_background"/>
+                        <constraints>
+                            <constraint firstItem="5UE-lh-P0D" firstAttribute="leading" secondItem="Wzz-cm-xP0" secondAttribute="leading" id="2oD-hx-Oiv"/>
+                            <constraint firstItem="Wzz-cm-xP0" firstAttribute="trailing" secondItem="5UE-lh-P0D" secondAttribute="trailing" id="fyF-xb-IEc"/>
+                            <constraint firstItem="5UE-lh-P0D" firstAttribute="top" secondItem="Wzz-cm-xP0" secondAttribute="top" id="xbE-0D-OJ8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="History" largeTitleDisplayMode="never" id="Owh-gG-u6K">
+                        <barButtonItem key="rightBarButtonItem" image="calendar" catalog="system" id="aae-dd-G8K">
+                            <color key="tintColor" name="blue_blue"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sAt-Tl-0YS" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="877"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="drop.fill" catalog="system" width="101" height="128"/>
         <image name="food" width="52" height="48"/>
