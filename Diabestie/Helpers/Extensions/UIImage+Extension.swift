@@ -14,6 +14,7 @@ extension UIImage {
 
     static let food = UIImage.image(named: "food")
     static let placeholderPerson = UIImage.image(named: "placeholder_person")
+    static let transparentPixel = UIImage.image(named: "transparent_pixel")
 
     private static func image(named: String) -> UIImage {
         return UIImage(named: named)!
