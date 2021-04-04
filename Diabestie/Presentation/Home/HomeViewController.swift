@@ -17,67 +17,69 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableviewIdentifier() -> [String] {
+        var identifiers = [String]()
+        
+//        identifiers.append(AddDiaryTableCell.identifier)
+        identifiers.append(BloodSugarTableCell.identifier)
+        identifiers.append(FoodTableCell.identifier)
+        identifiers.append(MedicineTableCell.identifier)
+        identifiers.append(DiaryHistoryTableCell.identifier)
+
+        return identifiers
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat(Constants.footerHeight)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tableviewIdentifier().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
+        let identifier = self.tableviewIdentifier()[indexPath.row]
         
-        if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddDiaryTableCell.identifier) else {
-                return UITableViewCell()
-            }
-            
-            cell.selectionStyle = .none
-            
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
+            return UITableViewCell()
         }
         
-        if indexPath.row == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BloodSugarTableCell.identifier) else {
+        switch identifier {
+        case AddDiaryTableCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? AddDiaryTableCell else {
                 return UITableViewCell()
             }
-            
-            cell.selectionStyle = .none
-            
             return cell
-        }
-        
-        if indexPath.row == 2 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: FoodTableCell.identifier) else {
+        case BloodSugarTableCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? BloodSugarTableCell else {
                 return UITableViewCell()
             }
-            
-            cell.selectionStyle = .none
-            
             return cell
-        }
-        
-        if indexPath.row == 3 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineTableCell.identifier) else {
+        case FoodTableCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? FoodTableCell else {
                 return UITableViewCell()
             }
-            
-            cell.selectionStyle = .none
-            
             return cell
-        }
-        
-        if indexPath.row == 4 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryHistoryTableCell.identifier) else {
+        case MedicineTableCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineTableCell else {
                 return UITableViewCell()
             }
-            
-            cell.selectionStyle = .none
-            
+            return cell
+        case DiaryHistoryTableCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? DiaryHistoryTableCell else {
+                return UITableViewCell()
+            }
+            return cell
+        default:
             return cell
         }
-        
-        return cell
     }
     
     
 }
-

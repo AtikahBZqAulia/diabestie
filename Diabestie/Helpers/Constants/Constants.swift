@@ -10,5 +10,6 @@ import Foundation
 class Constants  {
     
     static let APP_VERSION = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    static let footerHeight = 100
     
 }
