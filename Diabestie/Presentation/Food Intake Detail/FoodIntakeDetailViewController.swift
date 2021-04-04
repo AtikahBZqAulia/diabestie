@@ -29,14 +29,13 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         if indexPath.row > 1 {
             if let cell = foodDetailTableView.dequeueReusableCell(withIdentifier: "foodDetailCell", for: indexPath) as? FoodIntakeDetailTableCell {
 
                 cell.foodName.text = food[indexPath.row]
                 cell.foodGram.text = "100 g"
                 cell.foodCal.text = "125 kcal"
-                cell.foodSugar.text = "146 mg sugar"
+                cell.foodSugar.text = "100 mg sugar"
                 return cell
             }
             else {
@@ -46,11 +45,17 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
         }
         
         else if indexPath.row == 0 {
-            guard let cell = foodDetailTableView.dequeueReusableCell(withIdentifier: "calculatedCell") else {
+            if let cell = foodDetailTableView.dequeueReusableCell(withIdentifier: CalculatedFoodTableCell.identifier) as? CalculatedFoodTableCell {
+                cell.eatName.text = "Dinner"
+                cell.calories.text = String(625)
+                cell.sugar.text = String(500)
+                cell.eatTime.text = "19.00"
+                hideSeparator(cell)
+                return cell
+            }
+            else {
                 return UITableViewCell()
             }
-            hideSeparator(cell)
-            return cell
         }
         
         else if indexPath.row == 1 {

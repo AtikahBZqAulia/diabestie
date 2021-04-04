@@ -42,6 +42,7 @@
 		F70F855A26177E15009FED50 /* BloodSugarDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70F855926177E15009FED50 /* BloodSugarDataViewController.swift */; };
 		F70F855E26177E99009FED50 /* BloodSugarDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70F855C26177E99009FED50 /* BloodSugarDataTableCell.swift */; };
 		F70F855F26177E99009FED50 /* BloodSugarDataTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70F855D26177E99009FED50 /* BloodSugarDataTableCell.xib */; };
+		F75FEB76261998D60091702D /* CalculatedFoodTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FEB75261998D60091702D /* CalculatedFoodTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		F70F855926177E15009FED50 /* BloodSugarDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarDataViewController.swift; sourceTree = "<group>"; };
 		F70F855C26177E99009FED50 /* BloodSugarDataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarDataTableCell.swift; sourceTree = "<group>"; };
 		F70F855D26177E99009FED50 /* BloodSugarDataTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BloodSugarDataTableCell.xib; sourceTree = "<group>"; };
+		F75FEB75261998D60091702D /* CalculatedFoodTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedFoodTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 			children = (
 				F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */,
 				F70064A026185E2B00300E70 /* FoodIntakeDetailTableCell.xib */,
+				F75FEB75261998D60091702D /* CalculatedFoodTableCell.swift */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC68A5DB260B09040007F846 /* Diabestie.xcdatamodeld in Sources */,
+				F75FEB76261998D60091702D /* CalculatedFoodTableCell.swift in Sources */,
 				BC6F4FC92615834100643603 /* FoodTableCell.swift in Sources */,
 				BC68A5D5260B09040007F846 /* ViewController.swift in Sources */,
 				BC6F4FD62615838400643603 /* HighlightTableCell.swift in Sources */,
