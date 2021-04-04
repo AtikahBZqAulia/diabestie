@@ -18,11 +18,11 @@ public class HorizontalCalendar: UIView {
     
     static var dateFormat = "EEEE, MMM d"
     
-    static var selectedColor = UIColor(red: 0/255, green: 133/255, blue: 154/255, alpha: 1)
-    static var todayColor = UIColor(red: 255/255, green: 62/255, blue: 85/255, alpha: 1)
-    static var textDark = UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1)
-    static var textLight = UIColor(red: 155/255, green: 155/255, blue: 155/255, alpha: 1)
-    static var dateColor = UIColor(red: 34/255, green: 34/255, blue: 34/255, alpha: 1)
+    static var selectedColor = UIColor.blueBlue
+    static var todayColor = UIColor.blueBlue
+    static var textDark = UIColor.black
+    static var textLight = UIColor.charcoalGrey
+    static var dateColor = UIColor.charcoalGrey
 
     let border = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
 
@@ -144,7 +144,7 @@ public class HorizontalCalendar: UIView {
             self?.collectionView.isHidden = shouldShow
             self?.weekDays.isHidden = shouldShow
             self?.arrow.transform = CGAffineTransform(rotationAngle: shouldShow ? .pi : 0)
-            self?.dateViewToBottom.isActive = shouldShow
+//            self?.dateViewToBottom.isActive = shouldShow
             self?.collectionViewToBottom.isActive = !shouldShow
         })
     }
@@ -154,23 +154,23 @@ public class HorizontalCalendar: UIView {
 extension HorizontalCalendar {
     private func setupViews() {
         
-        addSubview(dateLabel)
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateViewToBottom = dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
-        NSLayoutConstraint.activate([
-            dateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            dateViewToBottom
-        ])
-        
-        arrow.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(arrow)
-        NSLayoutConstraint.activate([
-            arrow.widthAnchor.constraint(equalTo: dateLabel.heightAnchor),
-            arrow.heightAnchor.constraint(equalTo: dateLabel.heightAnchor),
-            arrow.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 8),
-            arrow.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor)
-        ])
+//        addSubview(dateLabel)
+//        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+//        dateViewToBottom = dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+//        NSLayoutConstraint.activate([
+//            dateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+//            dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
+//            dateViewToBottom
+//        ])
+//
+//        arrow.translatesAutoresizingMaskIntoConstraints = false
+//        addSubview(arrow)
+//        NSLayoutConstraint.activate([
+//            arrow.widthAnchor.constraint(equalTo: dateLabel.heightAnchor),
+//            arrow.heightAnchor.constraint(equalTo: dateLabel.heightAnchor),
+//            arrow.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 8),
+//            arrow.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor)
+//        ])
         
 //        [dateLabel, arrow].forEach {
 //            $0.addTapGestureRecognizer { [weak self] in
@@ -178,27 +178,27 @@ extension HorizontalCalendar {
 //            }
 //        }
         
-        todayButton.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(todayButton)
-        NSLayoutConstraint.activate([
-            todayButton.heightAnchor.constraint(equalToConstant: 25),
-            todayButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            todayButton.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor)
-        ])
-        
-        todayButton.addTapGestureRecognizer { [weak self] in
-            guard let startOfWeek = self?.today.startOfWeek,
-                  let index = self?.list.firstIndex(of: startOfWeek),
-                let dayOfWeek = self?.today.dayOfTheWeek else {
-                return
-            }
-            
-            self?.selectedWeekDay = dayOfWeek
-            self?.collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
-            if self?.currentIndex == index {
-                self?.collectionView.reloadData()
-            }
-        }
+//        todayButton.translatesAutoresizingMaskIntoConstraints = false
+//        addSubview(todayButton)
+//        NSLayoutConstraint.activate([
+//            todayButton.heightAnchor.constraint(equalToConstant: 25),
+//            todayButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+//            todayButton.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor)
+//        ])
+//
+//        todayButton.addTapGestureRecognizer { [weak self] in
+//            guard let startOfWeek = self?.today.startOfWeek,
+//                  let index = self?.list.firstIndex(of: startOfWeek),
+//                let dayOfWeek = self?.today.dayOfTheWeek else {
+//                return
+//            }
+//
+//            self?.selectedWeekDay = dayOfWeek
+//            self?.collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
+//            if self?.currentIndex == index {
+//                self?.collectionView.reloadData()
+//            }
+//        }
         
         weekDays.translatesAutoresizingMaskIntoConstraints = false
         addSubview(weekDays)
@@ -206,7 +206,7 @@ extension HorizontalCalendar {
             weekDays.heightAnchor.constraint(equalToConstant: 30),
             weekDays.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             weekDays.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            weekDays.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16)
+            weekDays.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0)
         ])
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -316,13 +316,13 @@ class DateViewCell: UICollectionViewCell {
     
     private lazy var datesView: UIView = { [unowned self] in
         let stackView = UIStackView()
-        stackView.addArrangedSubview(WeekDayLabel(with: "7", isDark: false))
-        stackView.addArrangedSubview(WeekDayLabel(with: "8"))
-        stackView.addArrangedSubview(WeekDayLabel(with: "9"))
-        stackView.addArrangedSubview(WeekDayLabel(with: "10"))
-        stackView.addArrangedSubview(WeekDayLabel(with: "11"))
-        stackView.addArrangedSubview(WeekDayLabel(with: "12"))
-        stackView.addArrangedSubview(WeekDayLabel(with: "13", isDark: false))
+        stackView.addArrangedSubview(WeekDayLabel(with: "7", isDark: false, isDay: true))
+        stackView.addArrangedSubview(WeekDayLabel(with: "8", isDay: true))
+        stackView.addArrangedSubview(WeekDayLabel(with: "9", isDay: true))
+        stackView.addArrangedSubview(WeekDayLabel(with: "10", isDay: true))
+        stackView.addArrangedSubview(WeekDayLabel(with: "11", isDay: true))
+        stackView.addArrangedSubview(WeekDayLabel(with: "12", isDay: true))
+        stackView.addArrangedSubview(WeekDayLabel(with: "13", isDark: false, isDay: true))
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         return stackView
@@ -385,12 +385,13 @@ class WeekDayLabel: UIView {
         label.layer.cornerRadius = dateCellHeight / 2
         label.layer.masksToBounds = true
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 12)
+        label.font = .systemFont(ofSize: 11)
         return label
     }()
     
     private var isDark: Bool
-    
+    private var isDay: Bool
+
     var isSelected: Bool = false {
         didSet {
             label.backgroundColor = isSelected ? HorizontalCalendar.selectedColor : .clear
@@ -404,8 +405,9 @@ class WeekDayLabel: UIView {
         }
     }
     
-    init(with text: String, isDark: Bool = true) {
+    init(with text: String, isDark: Bool = true, isDay: Bool = false) {
         self.isDark = isDark
+        self.isDay = isDay
         super.init(frame: .zero)
         
         label.textColor = isDark ? HorizontalCalendar.textDark : HorizontalCalendar.textLight
@@ -416,6 +418,12 @@ class WeekDayLabel: UIView {
     
     private func setupViews() {
         addSubview(label)
+        
+        if isDay {
+            label.font = .systemFont(ofSize: 19, weight: .medium)
+            label.textColor = HorizontalCalendar.textDark
+        }
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
