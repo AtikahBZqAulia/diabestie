@@ -36,6 +36,7 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
                 cell.foodGram.text = "100 g"
                 cell.foodCal.text = "125 kcal"
                 cell.foodSugar.text = "100 mg sugar"
+                
                 return cell
             }
             else {
