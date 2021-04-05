@@ -1,22 +1,56 @@
 //
-//  ViewController.swift
+//  HistoryViewController.swift
 //  Diabestie
 //
-//  Created by Dhiky Aldwiansyah on 24/03/21.
+//  Created by Dhiky Aldwiansyah on 01/04/21.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HistoryViewController: UIViewController {
+    
+    @IBOutlet weak var viewCalendar: ExtendedNavBarView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage.transparentPixel
+        //        self.navigationController?.navigationBar.barTintColor = .purple
+        //        self.navigationController?.navigationBar.tintColor = .blueBlue
+        
+        let calendar = HorizontalCalendar()
+        
+        viewCalendar.addSubview(calendar)
+        calendar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            calendar.topAnchor.constraint(equalTo: viewCalendar.safeAreaLayoutGuide.topAnchor, constant: 0),
+            calendar.leftAnchor.constraint(equalTo: viewCalendar.leftAnchor),
+            calendar.rightAnchor.constraint(equalTo: viewCalendar.rightAnchor)
+        ])
+        
+        //        calendar.onSelectionChanged = { date in
+        //            print(date)
+        //        }
+        
     }
     
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+
+        let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = .systemFont(ofSize: 21, weight: .bold)
+        header.textLabel?.textColor = .black
+        header.textLabel?.text =  header.textLabel?.text?.capitalized
+
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String?
+    {
+        return "Today, 6 April"
+    }
     
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
@@ -83,3 +117,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
