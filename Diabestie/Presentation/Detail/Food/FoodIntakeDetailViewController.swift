@@ -2,7 +2,7 @@
 //  FoodIntakeDetailViewController.swift
 //  Diabestie
 //
-//  Created by Revarino Putra on 03/04/21.
+//  Created by Dhiky Aldwiansyah on 05/04/21.
 //
 
 import UIKit

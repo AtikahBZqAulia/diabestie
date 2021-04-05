@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gj2-BE-6rq">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Medicine Diary View Controller-->
+        <scene sceneID="cBq-Ci-hUF">
+            <objects>
+                <viewController id="gj2-BE-6rq" customClass="MedicineDiaryViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZLn-TN-mGS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eqp-0I-vdB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" name="gray_background"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="101" id="wYn-VZ-Qxc">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="101"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wYn-VZ-Qxc" id="IEk-d3-slZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Af2-L3-xfO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvK-eJ-KXS">
+                                                            <rect key="frame" x="16" y="8" width="89" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" name="charcoal_grey"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pp5-VK-pML">
+                                                            <rect key="frame" x="0.0" y="31" width="414" height="58"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9n5-Eq-rgJ">
+                                                                    <rect key="frame" x="-4" y="18" width="155" height="22"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="tintColor" red="0.1450980392" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                                    <inset key="imageEdgeInsets" minX="135" minY="2" maxX="0.0" maxY="0.0"/>
+                                                                    <state key="normal" title="Add Category">
+                                                                        <color key="titleColor" name="black"/>
+                                                                        <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large" renderingMode="template"/>
+                                                                    </state>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="gray_background"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Af2-L3-xfO" firstAttribute="top" secondItem="IEk-d3-slZ" secondAttribute="top" id="2vw-OI-i0I"/>
+                                                <constraint firstAttribute="trailing" secondItem="Af2-L3-xfO" secondAttribute="trailing" id="d1g-OO-INb"/>
+                                                <constraint firstItem="Af2-L3-xfO" firstAttribute="leading" secondItem="IEk-d3-slZ" secondAttribute="leading" id="fa4-39-gix"/>
+                                                <constraint firstAttribute="bottom" secondItem="Af2-L3-xfO" secondAttribute="bottom" id="orp-mZ-UoG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="96" id="lIR-qB-idW">
+                                        <rect key="frame" x="0.0" y="129" width="414" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lIR-qB-idW" id="qE6-SW-pUm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2M-LJ-23P">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfd-AS-Zfk" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
+                                                            <rect key="frame" x="16" y="33" width="382" height="44"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa9-gg-IOq">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="382" id="OeD-Yo-3D5"/>
+                                                                        <constraint firstAttribute="height" constant="44" id="Rml-UX-3Ng"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                    <color key="tintColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <inset key="imageEdgeInsets" minX="-14" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    <state key="normal" title="Add Medicine" image="plus.circle.fill" catalog="system">
+                                                                        <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    </state>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="Xa9-gg-IOq" secondAttribute="bottom" id="6V8-7u-9QY"/>
+                                                                <constraint firstItem="Xa9-gg-IOq" firstAttribute="leading" secondItem="mfd-AS-Zfk" secondAttribute="leading" id="LLp-ks-cES"/>
+                                                                <constraint firstItem="Xa9-gg-IOq" firstAttribute="top" secondItem="mfd-AS-Zfk" secondAttribute="top" id="cY3-58-9ym"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Xa9-gg-IOq" secondAttribute="trailing" id="lFE-hg-tEB"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="12"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="gray_background"/>
+                                                    <constraints>
+                                                        <constraint firstItem="mfd-AS-Zfk" firstAttribute="top" secondItem="O2M-LJ-23P" secondAttribute="top" constant="33" id="5v9-VD-ie3"/>
+                                                        <constraint firstItem="mfd-AS-Zfk" firstAttribute="centerX" secondItem="O2M-LJ-23P" secondAttribute="centerX" id="BEY-BC-OuS"/>
+                                                        <constraint firstItem="mfd-AS-Zfk" firstAttribute="leading" secondItem="O2M-LJ-23P" secondAttribute="leading" constant="16" id="cmk-xd-DTd"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MEDICINE LIST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYa-x1-fx2">
+                                                    <rect key="frame" x="16" y="10" width="93" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" name="charcoal_grey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="O2M-LJ-23P" secondAttribute="bottom" id="Ah7-Nv-F7S"/>
+                                                <constraint firstAttribute="trailing" secondItem="O2M-LJ-23P" secondAttribute="trailing" id="Bur-O4-pdV"/>
+                                                <constraint firstItem="O2M-LJ-23P" firstAttribute="leading" secondItem="qE6-SW-pUm" secondAttribute="leading" id="CIM-sk-dDd"/>
+                                                <constraint firstItem="O2M-LJ-23P" firstAttribute="top" secondItem="qE6-SW-pUm" secondAttribute="top" id="KbP-qm-frR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Nwp-ez-5Fm">
+                                        <rect key="frame" x="0.0" y="225" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nwp-ez-5Fm" id="FYa-wR-l5R">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5n-GX-caU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="z5n-GX-caU" secondAttribute="bottom" id="4R8-Iw-GU0"/>
+                                                <constraint firstItem="z5n-GX-caU" firstAttribute="top" secondItem="FYa-wR-l5R" secondAttribute="top" id="FY4-86-36p"/>
+                                                <constraint firstAttribute="trailing" secondItem="z5n-GX-caU" secondAttribute="trailing" id="IcA-if-gdC"/>
+                                                <constraint firstItem="z5n-GX-caU" firstAttribute="leading" secondItem="FYa-wR-l5R" secondAttribute="leading" id="ZQo-yP-4Qf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="gray_background"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dTK-Yv-vEc"/>
+                        <color key="backgroundColor" name="gray_background"/>
+                        <constraints>
+                            <constraint firstItem="eqp-0I-vdB" firstAttribute="top" secondItem="dTK-Yv-vEc" secondAttribute="top" id="1aZ-xp-zjF"/>
+                            <constraint firstItem="eqp-0I-vdB" firstAttribute="leading" secondItem="dTK-Yv-vEc" secondAttribute="leading" id="cig-Kw-10D"/>
+                            <constraint firstItem="dTK-Yv-vEc" firstAttribute="trailing" secondItem="eqp-0I-vdB" secondAttribute="trailing" id="mRq-5u-DTp"/>
+                            <constraint firstItem="dTK-Yv-vEc" firstAttribute="bottom" secondItem="eqp-0I-vdB" secondAttribute="bottom" id="xNx-ok-jBE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="613-89-O9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3672" y="735"/>
+        </scene>
+        <!--Add Medicine Diary View Controller-->
+        <scene sceneID="ARb-CB-pls">
+            <objects>
+                <viewController storyboardIdentifier="AddMedicineDiaryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AOT-fS-H4b" customClass="AddMedicineDiaryViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Yc-tZ-Yyq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add/Create medicine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eS-Kq-EaS">
+                                <rect key="frame" x="155" y="438" width="160" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l5f-Gj-d8q"/>
+                        <color key="backgroundColor" name="gray_background"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2i-yh-1Ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4598.5507246376819" y="734.59821428571422"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="charcoal_grey">
+            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray_background">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

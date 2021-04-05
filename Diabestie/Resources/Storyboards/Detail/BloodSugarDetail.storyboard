@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mRm-DT-1ek">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProText-Regular.ttf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Blood Sugar Data View Controller-->
+        <scene sceneID="FC8-v0-M4D">
+            <objects>
+                <viewController id="zU6-SB-rlB" customClass="BloodSugarDataViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tz0-eW-RiK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Sugar Level Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dic-KZ-V1u">
+                                <rect key="frame" x="29" y="97" width="369" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="369" id="ccp-pW-1U6"/>
+                                    <constraint firstAttribute="height" constant="23" id="fa0-lQ-6VV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v4g-Qc-atL">
+                                <rect key="frame" x="16" y="127" width="382" height="735"/>
+                                <color key="backgroundColor" name="gray_background"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="U1t-cz-TBZ">
+                                    <rect key="frame" x="0.0" y="116" width="382" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" name="gray_background"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="EO9-zU-a0P">
+                                        <rect key="frame" x="0.0" y="28" width="382" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EO9-zU-a0P" id="Jjs-Nd-bm2">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GJc-Cf-2yN"/>
+                        <color key="backgroundColor" name="gray_background"/>
+                        <constraints>
+                            <constraint firstItem="v4g-Qc-atL" firstAttribute="leading" secondItem="GJc-Cf-2yN" secondAttribute="leading" constant="16" id="DdS-sF-dC7"/>
+                            <constraint firstItem="GJc-Cf-2yN" firstAttribute="trailing" secondItem="v4g-Qc-atL" secondAttribute="trailing" constant="16" id="Tbr-zs-Fhi"/>
+                            <constraint firstItem="v4g-Qc-atL" firstAttribute="bottom" secondItem="GJc-Cf-2yN" secondAttribute="bottom" id="ZnO-U6-whL"/>
+                            <constraint firstItem="v4g-Qc-atL" firstAttribute="top" secondItem="dic-KZ-V1u" secondAttribute="bottom" constant="7" id="bBf-pj-AwK"/>
+                            <constraint firstItem="dic-KZ-V1u" firstAttribute="top" secondItem="GJc-Cf-2yN" secondAttribute="top" constant="53" id="bmL-0e-AAo"/>
+                            <constraint firstItem="GJc-Cf-2yN" firstAttribute="trailing" secondItem="dic-KZ-V1u" secondAttribute="trailing" constant="16" id="hog-5H-Yq0"/>
+                            <constraint firstItem="dic-KZ-V1u" firstAttribute="leading" secondItem="GJc-Cf-2yN" secondAttribute="leading" constant="29" id="oKy-Mf-Jej"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bloodDataView" destination="v4g-Qc-atL" id="sqv-Yf-Ig2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IYz-jw-qXk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2644.9275362318845" y="737.94642857142856"/>
+        </scene>
+        <!--Blood Sugar View Controller-->
+        <scene sceneID="uqI-Tr-0dj">
+            <objects>
+                <viewController storyboardIdentifier="BloodSugarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mRm-DT-1ek" customClass="BloodSugarViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m4D-nZ-aKm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yang ada chart nya itu lho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idx-kd-2FD">
+                                <rect key="frame" x="109" y="438" width="196" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4QK-Bt-vTb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="46q-sY-Qgp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48C-5y-kjc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1102.8985507246377" y="737.94642857142856"/>
+        </scene>
+        <!--Blood Sugar Select DateVC-->
+        <scene sceneID="l0I-HM-Hpb">
+            <objects>
+                <viewController storyboardIdentifier="BloodSugarSelectDateVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A31-ac-HML" customClass="BloodSugarSelectDateVC" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sSs-Vs-xEI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ini yg datepicker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDV-kb-2MN">
+                                <rect key="frame" x="145" y="438" width="125" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bYt-5Z-bra"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6rf-F9-kpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836.2318840579712" y="737.94642857142856"/>
+        </scene>
+        <!--Blood Sugar Level GoalVC-->
+        <scene sceneID="bAA-mx-QHe">
+            <objects>
+                <viewController storyboardIdentifier="BloodSugarLevelGoalVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mw4-vk-jCm" customClass="BloodSugarLevelGoalVC" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lih-Oe-4D0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add blood sugar level goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtf-mW-8Im">
+                                <rect key="frame" x="102" y="438" width="210" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xcl-Q6-p3A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sdS-OQ-Ji7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1125" y="1447"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="gray_background">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
