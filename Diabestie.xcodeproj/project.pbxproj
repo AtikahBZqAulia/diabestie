@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30E2EC2D261C93C9008F3508 /* AddBloodSugarTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EC2C261C93C9008F3508 /* AddBloodSugarTableCell.swift */; };
+		30E2EC34261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EC33261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift */; };
 		BC68A5D1260B09040007F846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68A5D0260B09040007F846 /* AppDelegate.swift */; };
 		BC68A5D3260B09040007F846 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68A5D2260B09040007F846 /* SceneDelegate.swift */; };
 		BC68A5D8260B09040007F846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC68A5D6260B09040007F846 /* Main.storyboard */; };
@@ -70,6 +72,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30E2EC2C261C93C9008F3508 /* AddBloodSugarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBloodSugarTableCell.swift; sourceTree = "<group>"; };
+		30E2EC33261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBloodSugarCategoryTableCell.swift; sourceTree = "<group>"; };
 		BC68A5CD260B09040007F846 /* Diabestie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diabestie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC68A5D0260B09040007F846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC68A5D2260B09040007F846 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30E2EC2F261C93CE008F3508 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				30E2EC2C261C93C9008F3508 /* AddBloodSugarTableCell.swift */,
+				30E2EC33261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift */,
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
 		BC68A5C4260B09040007F846 = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +298,7 @@
 		BCC764BD261AE3E600306229 /* Blood Sugar */ = {
 			isa = PBXGroup;
 			children = (
+				30E2EC2F261C93CE008F3508 /* Table Cell */,
 				BCC76500261AEEEF00306229 /* AddBloodSugarDiaryViewController.swift */,
 			);
 			path = "Blood Sugar";
@@ -647,6 +661,7 @@
 				BCC76503261AEF0E00306229 /* AddBloodSugarDiaryViewController.swift in Sources */,
 				BCC76506261AEF4F00306229 /* AddMedicineDiaryViewController.swift in Sources */,
 				BC6F4FCF2615835500643603 /* AddDiaryTableCell copy.swift in Sources */,
+				30E2EC2D261C93C9008F3508 /* AddBloodSugarTableCell.swift in Sources */,
 				F70064A126185E2B00300E70 /* FoodIntakeDetailTableCell.swift in Sources */,
 				BCC764EF261AEE3F00306229 /* MedicineListViewController.swift in Sources */,
 				BC68A5D1260B09040007F846 /* AppDelegate.swift in Sources */,
@@ -660,6 +675,7 @@
 				BCBBD0102614855D008E56F4 /* Constants.swift in Sources */,
 				BC6F4FCC2615834E00643603 /* MedicineTableCell.swift in Sources */,
 				BCC764D5261AEC6700306229 /* BloodSugarLevelGoalVC.swift in Sources */,
+				30E2EC34261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift in Sources */,
 				BC68A5D3260B09040007F846 /* SceneDelegate.swift in Sources */,
 				F7E9CCA62619FBD700497E13 /* MedicineDiaryViewController.swift in Sources */,
 				BCC764CE261AEA7500306229 /* BloodSugarSelectDateVC.swift in Sources */,
