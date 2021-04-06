@@ -56,6 +56,7 @@
 		BCDE8A2D260DFA0200E5E193 /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = BCDE8A2C260DFA0200E5E193 /* food.json */; };
 		BCDE8A36260E02EE00E5E193 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDE8A35260E02EE00E5E193 /* UIColor+Extension.swift */; };
 		BCDE8A3B260E07A800E5E193 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDE8A3A260E07A800E5E193 /* UIImage+Extension.swift */; };
+		D4370EE8261C37B500A690B9 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4370EE7261C37B500A690B9 /* EntryController.swift */; };
 		F700649B26185E0200300E70 /* FoodIntakeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700649A26185E0200300E70 /* FoodIntakeDetailViewController.swift */; };
 		F70064A126185E2B00300E70 /* FoodIntakeDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */; };
 		F70064A226185E2B00300E70 /* FoodIntakeDetailTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70064A026185E2B00300E70 /* FoodIntakeDetailTableCell.xib */; };
@@ -122,6 +123,7 @@
 		BCDE8A2C260DFA0200E5E193 /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		BCDE8A35260E02EE00E5E193 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		BCDE8A3A260E07A800E5E193 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		D4370EE7261C37B500A690B9 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		F700649A26185E0200300E70 /* FoodIntakeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIntakeDetailViewController.swift; sourceTree = "<group>"; };
 		F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIntakeDetailTableCell.swift; sourceTree = "<group>"; };
 		F70064A026185E2B00300E70 /* FoodIntakeDetailTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodIntakeDetailTableCell.xib; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				BCC764BD261AE3E600306229 /* Blood Sugar */,
 				BCC764BC261AE3DB00306229 /* Food */,
 				BCC764BB261AE3D200306229 /* Medicine */,
+				D4370EE7261C37B500A690B9 /* EntryController.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4370EE8261C37B500A690B9 /* EntryController.swift in Sources */,
 				BCC764F1261AEE3F00306229 /* MedicineIntakeDataViewController.swift in Sources */,
 				BC68A5DB260B09040007F846 /* Diabestie.xcdatamodeld in Sources */,
 				F75FEB76261998D60091702D /* CalculatedFoodTableCell.swift in Sources */,
