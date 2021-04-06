@@ -157,6 +157,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6eo-Ca-O4L" id="XMV-uz-CX1"/>
+                                    <outlet property="delegate" destination="6eo-Ca-O4L" id="KkF-Z2-Ikv"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MPQ-SI-Hbo"/>
