@@ -9,7 +9,7 @@ import UIKit
 
 class AddBloodSugarCategoryTableCell: UITableViewCell {
     
-    static let identifier = "AddBloodSugarTableCell"
+    static let identifier = "AddBloodSugarCategoryTableCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
