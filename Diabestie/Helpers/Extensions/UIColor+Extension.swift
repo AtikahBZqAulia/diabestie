@@ -12,6 +12,7 @@ import UIKit
 extension UIColor {
 
     static let black = UIColor.color(named: "black")
+    static let blueBackground = UIColor.color(named: "blue_background")
     static let blueBlue = UIColor.color(named: "blue_blue")
     static let blueGreen = UIColor.color(named: "blue_green")
     static let bluePurple = UIColor.color(named: "blue_purple")
