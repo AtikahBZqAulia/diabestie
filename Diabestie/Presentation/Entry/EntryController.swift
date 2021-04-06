@@ -8,6 +8,8 @@
 import UIKit
 class EntryController: UIViewController {
 
+    @IBOutlet weak var EntryCategoryView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Select Entry Category"
