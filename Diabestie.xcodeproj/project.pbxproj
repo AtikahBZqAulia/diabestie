@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC560ECF261B6D44009A9A7E /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC560ECE261B6D44009A9A7E /* BarChart.swift */; };
+		BC560ED2261B6D5B009A9A7E /* BarChartEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC560ED1261B6D5B009A9A7E /* BarChartEntry.swift */; };
+		BC560ED7261B6DB7009A9A7E /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC560ED6261B6DB7009A9A7E /* UIBezierPath+Extension.swift */; };
+		BC560EDA261B6DC2009A9A7E /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC560ED9261B6DC2009A9A7E /* CALayer+Extension.swift */; };
+		BC560EDD261B6DCF009A9A7E /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC560EDC261B6DCF009A9A7E /* Array+Extension.swift */; };
+		BC560EE0261B6E07009A9A7E /* BarChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC560EDF261B6E07009A9A7E /* BarChartPresenter.swift */; };
 		BC68A5D1260B09040007F846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68A5D0260B09040007F846 /* AppDelegate.swift */; };
 		BC68A5D3260B09040007F846 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC68A5D2260B09040007F846 /* SceneDelegate.swift */; };
 		BC68A5D8260B09040007F846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC68A5D6260B09040007F846 /* Main.storyboard */; };
@@ -31,6 +37,11 @@
 		BC8832752615B7CE003CC151 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8832742615B7CE003CC151 /* HistoryViewController.swift */; };
 		BC8832792615BBDB003CC151 /* HorizontalCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8832782615BBDB003CC151 /* HorizontalCalendar.swift */; };
 		BC88327C2615BC09003CC151 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88327B2615BC09003CC151 /* Date+Extension.swift */; };
+		BCB77131261C463E00255805 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB77130261C463E00255805 /* Int+Extension.swift */; };
+		BCB7713B261C5EF600255805 /* BloodSugarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB7713A261C5EF600255805 /* BloodSugarChartCell.swift */; };
+		BCB7713F261C642000255805 /* BloodSugarThresholdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB7713E261C641F00255805 /* BloodSugarThresholdCell.swift */; };
+		BCB77143261C64CE00255805 /* BloodSugarInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB77142261C64CE00255805 /* BloodSugarInfoCell.swift */; };
+		BCB77147261C69FB00255805 /* BloodSugarOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB77146261C69FB00255805 /* BloodSugarOptionCell.swift */; };
 		BCBBD0102614855D008E56F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBD00F2614855D008E56F4 /* Constants.swift */; };
 		BCBBD01726148698008E56F4 /* NotificationCenter+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBD01626148698008E56F4 /* NotificationCenter+Delegate.swift */; };
 		BCC764CB261AEA6500306229 /* BloodSugarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC764CA261AEA6500306229 /* BloodSugarViewController.swift */; };
@@ -70,6 +81,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC560ECE261B6D44009A9A7E /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		BC560ED1261B6D5B009A9A7E /* BarChartEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartEntry.swift; sourceTree = "<group>"; };
+		BC560ED6261B6DB7009A9A7E /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
+		BC560ED9261B6DC2009A9A7E /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		BC560EDC261B6DCF009A9A7E /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		BC560EDF261B6E07009A9A7E /* BarChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartPresenter.swift; sourceTree = "<group>"; };
 		BC68A5CD260B09040007F846 /* Diabestie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diabestie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC68A5D0260B09040007F846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC68A5D2260B09040007F846 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +112,11 @@
 		BC8832742615B7CE003CC151 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BC8832782615BBDB003CC151 /* HorizontalCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCalendar.swift; sourceTree = "<group>"; };
 		BC88327B2615BC09003CC151 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		BCB77130261C463E00255805 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		BCB7713A261C5EF600255805 /* BloodSugarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarChartCell.swift; sourceTree = "<group>"; };
+		BCB7713E261C641F00255805 /* BloodSugarThresholdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarThresholdCell.swift; sourceTree = "<group>"; };
+		BCB77142261C64CE00255805 /* BloodSugarInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarInfoCell.swift; sourceTree = "<group>"; };
+		BCB77146261C69FB00255805 /* BloodSugarOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarOptionCell.swift; sourceTree = "<group>"; };
 		BCBBD00F2614855D008E56F4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BCBBD01626148698008E56F4 /* NotificationCenter+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Delegate.swift"; sourceTree = "<group>"; };
 		BCBBD01A261486AD008E56F4 /* WatchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchOS+Extension.swift"; sourceTree = "<group>"; };
@@ -146,6 +168,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC560ED4261B6D60009A9A7E /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				BC560ECE261B6D44009A9A7E /* BarChart.swift */,
+				BC560ED1261B6D5B009A9A7E /* BarChartEntry.swift */,
+				BC560EDF261B6E07009A9A7E /* BarChartPresenter.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		BC68A5C4260B09040007F846 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +256,17 @@
 				BC8832742615B7CE003CC151 /* HistoryViewController.swift */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		BCB77135261C5EAB00255805 /* Blood Sugar  */ = {
+			isa = PBXGroup;
+			children = (
+				BCB7713E261C641F00255805 /* BloodSugarThresholdCell.swift */,
+				BCB77146261C69FB00255805 /* BloodSugarOptionCell.swift */,
+				BCB77142261C64CE00255805 /* BloodSugarInfoCell.swift */,
+				BCB7713A261C5EF600255805 /* BloodSugarChartCell.swift */,
+			);
+			path = "Blood Sugar ";
 			sourceTree = "<group>";
 		};
 		BCBBD01B261486B8008E56F4 /* WatchOS */ = {
@@ -419,6 +462,10 @@
 				BCDE8A35260E02EE00E5E193 /* UIColor+Extension.swift */,
 				BC6F4FBD261580D600643603 /* UIView+Extension.swift */,
 				BC88327B2615BC09003CC151 /* Date+Extension.swift */,
+				BC560ED6261B6DB7009A9A7E /* UIBezierPath+Extension.swift */,
+				BC560ED9261B6DC2009A9A7E /* CALayer+Extension.swift */,
+				BC560EDC261B6DCF009A9A7E /* Array+Extension.swift */,
+				BCB77130261C463E00255805 /* Int+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -453,6 +500,7 @@
 		BCDE8A20260DF76B00E5E193 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BC560ED4261B6D60009A9A7E /* Chart */,
 				BCCDCFB9261484F300602352 /* library */,
 				BC8832782615BBDB003CC151 /* HorizontalCalendar.swift */,
 			);
@@ -512,6 +560,7 @@
 		F70F855726177C1B009FED50 /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
+				BCB77135261C5EAB00255805 /* Blood Sugar  */,
 				F70F855C26177E99009FED50 /* BloodSugarDataTableCell.swift */,
 				F70F855D26177E99009FED50 /* BloodSugarDataTableCell.xib */,
 			);
@@ -644,32 +693,43 @@
 				BC6F4FD62615838400643603 /* HighlightTableCell.swift in Sources */,
 				BCC764E4261AECFF00306229 /* FoodIntakeViewController.swift in Sources */,
 				BCC764DF261AECE200306229 /* FoodIntakeDataViewController.swift in Sources */,
+				BC560ECF261B6D44009A9A7E /* BarChart.swift in Sources */,
 				BCC76503261AEF0E00306229 /* AddBloodSugarDiaryViewController.swift in Sources */,
 				BCC76506261AEF4F00306229 /* AddMedicineDiaryViewController.swift in Sources */,
 				BC6F4FCF2615835500643603 /* AddDiaryTableCell copy.swift in Sources */,
+				BC560ED7261B6DB7009A9A7E /* UIBezierPath+Extension.swift in Sources */,
 				F70064A126185E2B00300E70 /* FoodIntakeDetailTableCell.swift in Sources */,
 				BCC764EF261AEE3F00306229 /* MedicineListViewController.swift in Sources */,
 				BC68A5D1260B09040007F846 /* AppDelegate.swift in Sources */,
 				F7E9CCB22619FC6000497E13 /* EmptyTableCell.swift in Sources */,
+				BC560ED2261B6D5B009A9A7E /* BarChartEntry.swift in Sources */,
 				BCBBD01726148698008E56F4 /* NotificationCenter+Delegate.swift in Sources */,
 				BCDE8A3B260E07A800E5E193 /* UIImage+Extension.swift in Sources */,
 				BC6F4FC62615833100643603 /* BloodSugarTableCell.swift in Sources */,
+				BCB7713B261C5EF600255805 /* BloodSugarChartCell.swift in Sources */,
 				BC6F4FB9261573E800643603 /* HomeViewController.swift in Sources */,
 				BCC764CB261AEA6500306229 /* BloodSugarViewController.swift in Sources */,
 				F70F855A26177E15009FED50 /* BloodSugarDataViewController.swift in Sources */,
+				BC560EDA261B6DC2009A9A7E /* CALayer+Extension.swift in Sources */,
 				BCBBD0102614855D008E56F4 /* Constants.swift in Sources */,
 				BC6F4FCC2615834E00643603 /* MedicineTableCell.swift in Sources */,
 				BCC764D5261AEC6700306229 /* BloodSugarLevelGoalVC.swift in Sources */,
 				BC68A5D3260B09040007F846 /* SceneDelegate.swift in Sources */,
 				F7E9CCA62619FBD700497E13 /* MedicineDiaryViewController.swift in Sources */,
+				BC560EE0261B6E07009A9A7E /* BarChartPresenter.swift in Sources */,
+				BCB77131261C463E00255805 /* Int+Extension.swift in Sources */,
 				BCC764CE261AEA7500306229 /* BloodSugarSelectDateVC.swift in Sources */,
 				BC6F4FBE261580D600643603 /* UIView+Extension.swift in Sources */,
+				BCB77147261C69FB00255805 /* BloodSugarOptionCell.swift in Sources */,
 				BCC764EE261AEE3F00306229 /* MedicineIntakeViewController.swift in Sources */,
+				BCB77143261C64CE00255805 /* BloodSugarInfoCell.swift in Sources */,
 				F700649B26185E0200300E70 /* FoodIntakeDetailViewController.swift in Sources */,
 				BCC764F4261AEE8500306229 /* SearchFoodViewController.swift in Sources */,
 				BCC764F7261AEE9800306229 /* AddFoodDiaryViewController.swift in Sources */,
+				BCB7713F261C642000255805 /* BloodSugarThresholdCell.swift in Sources */,
 				BCDE8A36260E02EE00E5E193 /* UIColor+Extension.swift in Sources */,
 				BC8832792615BBDB003CC151 /* HorizontalCalendar.swift in Sources */,
+				BC560EDD261B6DCF009A9A7E /* Array+Extension.swift in Sources */,
 				BC8832752615B7CE003CC151 /* HistoryViewController.swift in Sources */,
 				BC88327C2615BC09003CC151 /* Date+Extension.swift in Sources */,
 				F70F855E26177E99009FED50 /* BloodSugarDataTableCell.swift in Sources */,
