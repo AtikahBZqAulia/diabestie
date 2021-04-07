@@ -17,8 +17,21 @@ class AddMedicineDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addMedicineTableView.dataSource = self
+        
     }
 
+    @IBAction func backToPreviousModal(_ sender: UIBarButtonItem) {
+        self.popBack(2)
+    }
+    
+    private func popBack(_ nb: Int) {
+        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
+            guard viewControllers.count < nb else {
+                self.navigationController?.popToViewController(viewControllers[viewControllers.count - nb], animated: true)
+                return
+            }
+        }
+    }
 }
 
 extension AddMedicineDiaryViewController: UITableViewDataSource {
@@ -61,4 +74,6 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
         separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
         cell.contentView.addSubview(separatorView)
     }
+    
+    
 }
