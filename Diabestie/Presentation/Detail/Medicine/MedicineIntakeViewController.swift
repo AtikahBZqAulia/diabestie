@@ -8,22 +8,74 @@
 import UIKit
 
 class MedicineIntakeViewController: UIViewController {
-
+    
+    @IBOutlet weak var viewCalendar: ExtendedNavBarView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage.transparentPixel
+        
+        let calendar = HorizontalCalendar()
+        
+        viewCalendar.addSubview(calendar)
+        calendar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            calendar.topAnchor.constraint(equalTo: viewCalendar.safeAreaLayoutGuide.topAnchor, constant: 0),
+            calendar.leftAnchor.constraint(equalTo: viewCalendar.leftAnchor),
+            calendar.rightAnchor.constraint(equalTo: viewCalendar.rightAnchor)
+        ])
+        
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableviewIdentifier() -> [String] {
+        var identifiers = [String]()
+        
+        identifiers.append(MedicineIntakeCell.identifier)
+        identifiers.append(MedicineIntakeCell.identifier)
+        identifiers.append(MedicineIntakeCell.identifier)
+        identifiers.append(MedicineIntakeInfoCell.identifier)
+        identifiers.append(MedicineIntakeOptionCell.identifier)
+        
+        return identifiers
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat(Constants.footerHeight)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableviewIdentifier().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let identifier = self.tableviewIdentifier()[indexPath.row]
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
+            return UITableViewCell()
+        }
+        
+        switch identifier {
+        case MedicineIntakeCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineIntakeCell else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            
+            return cell
+        default:
+            cell.selectionStyle = .none
+            return cell
+        }
+    }
+    
+    
 }

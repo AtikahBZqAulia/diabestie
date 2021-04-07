@@ -33,6 +33,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Select Entry Category" leftItemsSupplementBackButton="YES" id="8rs-f3-OGa">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="GVP-Z3-gdV">
+                            <color key="tintColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="CancelPressed:" destination="Snc-Fb-3LP" id="EdR-ZE-xfd"/>
                             </connections>
