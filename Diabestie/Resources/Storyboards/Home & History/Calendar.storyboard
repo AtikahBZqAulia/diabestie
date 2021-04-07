@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="46P-kz-H9r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProText-Regular.ttf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Select Date-->
+        <scene sceneID="FQI-41-hOY">
+            <objects>
+                <navigationController title="Select Date" id="46P-kz-H9r" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2uY-Ep-0m9">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ht8-XV-QbT" kind="presentation" id="jAo-uY-olR"/>
+                        <segue destination="ht8-XV-QbT" kind="relationship" relationship="rootViewController" id="urd-Mc-1b2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IwM-81-N5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34" y="244"/>
+        </scene>
+        <!--Select Date-->
+        <scene sceneID="XME-6p-JLJ">
+            <objects>
+                <viewController id="ht8-XV-QbT" customClass="CalendarController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CoH-an-Njo">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="xcG-aL-w7u">
+                                <rect key="frame" x="16" y="108" width="358" height="216"/>
+                                <color key="tintColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <locale key="locale" localeIdentifier="id"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pQw-Ng-nfs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pQw-Ng-nfs" firstAttribute="trailing" secondItem="xcG-aL-w7u" secondAttribute="trailing" constant="16" id="2Nh-se-vEo"/>
+                            <constraint firstItem="xcG-aL-w7u" firstAttribute="top" secondItem="pQw-Ng-nfs" secondAttribute="top" constant="20" id="K5G-va-jAE"/>
+                            <constraint firstItem="xcG-aL-w7u" firstAttribute="leading" secondItem="pQw-Ng-nfs" secondAttribute="leading" constant="16" id="hxb-i0-uZe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Date" leftItemsSupplementBackButton="YES" id="8Am-Dg-jxo">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" style="plain" id="Xey-dF-CDh">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VA4-Ij-yp5">
+                                <rect key="frame" x="16" y="5.6666666666666679" width="86" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.12941176470588234" green="0.29019607843137252" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="CancelPressed:" destination="ht8-XV-QbT" eventType="touchUpInside" id="W2y-mF-02g"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="CalendarPicker" destination="xcG-aL-w7u" id="9qf-Ua-0QV"/>
+                        <outlet property="CancelAction" destination="VA4-Ij-yp5" id="D2L-7T-VcH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GqU-xf-5fi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1018.4615384615385" y="243.12796208530804"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="urd-Mc-1b2"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
