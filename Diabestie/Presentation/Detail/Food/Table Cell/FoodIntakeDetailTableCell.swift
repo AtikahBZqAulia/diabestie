@@ -13,6 +13,7 @@ class FoodIntakeDetailTableCell: UITableViewCell {
     @IBOutlet weak var foodGram: UILabel!
     @IBOutlet weak var foodCal: UILabel!
     @IBOutlet weak var foodSugar: UILabel!
+    @IBOutlet weak var foodListView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
