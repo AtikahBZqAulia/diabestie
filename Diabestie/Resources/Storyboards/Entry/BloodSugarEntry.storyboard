@@ -36,7 +36,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddBloodSugarCategoryTableCell" rowHeight="58" id="VXo-aJ-xr5" userLabel="AddBloodSugarCategoryTableCell" customClass="AddBloodSugarCategoryTableCell" customModule="Diabestie" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddBloodSugarCategoryTableCell" rowHeight="58" id="VXo-aJ-xr5" userLabel="AddBloodSugarCategoryTableCell" customClass="AddBloodSugarCategoryTableCell" customModule="Diabestie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VXo-aJ-xr5" id="IXz-lF-prm">
@@ -50,9 +50,9 @@
                                                             <rect key="frame" x="0.0" y="13" width="158" height="33"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMk-l8-kBc">
-                                                                    <rect key="frame" x="133" y="4" width="79" height="24"/>
+                                                                    <rect key="frame" x="133" y="4" width="25" height="24"/>
                                                                     <color key="tintColor" name="blue_blue"/>
-                                                                    <state key="normal" title="Button">
+                                                                    <state key="normal">
                                                                         <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large" renderingMode="template"/>
                                                                     </state>
                                                                 </button>
@@ -79,9 +79,12 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xbK-IB-wQD" firstAttribute="centerY" secondItem="IXz-lF-prm" secondAttribute="centerY" id="zUJ-87-yXw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddBloodSugarTableCell" rowHeight="58" id="jXU-hL-vNv" userLabel="AddBloodSugarTableCell" customClass="AddBloodSugarTableCell" customModule="Diabestie" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddBloodSugarTableCell" rowHeight="58" id="jXU-hL-vNv" userLabel="AddBloodSugarTableCell" customClass="AddBloodSugarTableCell" customModule="Diabestie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="86" width="414" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jXU-hL-vNv" id="9zP-QR-V60">
@@ -153,6 +156,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ONP-rW-ILH" firstAttribute="centerY" secondItem="9zP-QR-V60" secondAttribute="centerY" id="NJ0-ZL-pD0"/>
+                                                <constraint firstItem="ONP-rW-ILH" firstAttribute="centerY" secondItem="9zP-QR-V60" secondAttribute="centerY" id="egC-jF-84h"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
