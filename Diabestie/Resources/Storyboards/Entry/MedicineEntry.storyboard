@@ -361,7 +361,9 @@
                             <constraint firstItem="dTK-Yv-vEc" firstAttribute="bottom" secondItem="eqp-0I-vdB" secondAttribute="bottom" constant="-34" id="xNx-ok-jBE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Medicine Entry" id="Qck-OW-ZcH"/>
+                    <navigationItem key="navigationItem" title="Add Medicine Entry" id="Qck-OW-ZcH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="y2s-cL-j1o"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="medicineTableView" destination="eqp-0I-vdB" id="NVB-1i-W11"/>
@@ -371,7 +373,7 @@
             </objects>
             <point key="canvasLocation" x="3670.7692307692305" y="734.36018957345971"/>
         </scene>
-        <!--Add Medicine Diary View Controller-->
+        <!--Add Medicine-->
         <scene sceneID="ARb-CB-pls">
             <objects>
                 <viewController storyboardIdentifier="AddMedicineDiaryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AOT-fS-H4b" customClass="AddMedicineDiaryViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
@@ -383,21 +385,21 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="756"/>
                                 <color key="backgroundColor" name="gray_background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="createMedicine" rowHeight="73" id="dA5-Ge-BHb">
-                                        <rect key="frame" x="0.0" y="28" width="390" height="73"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="createMedicine" rowHeight="84" id="dA5-Ge-BHb">
+                                        <rect key="frame" x="0.0" y="28" width="390" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dA5-Ge-BHb" id="y4P-fM-b6v">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQm-Sv-mcR" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="13" width="358" height="44"/>
+                                                    <rect key="frame" x="16" y="24" width="358" height="44"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAK-CN-O16">
                                                             <rect key="frame" x="0.0" y="0.0" width="358" height="44"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="44" id="DH1-e9-6IS"/>
-                                                                <constraint firstAttribute="width" constant="358" id="sp3-Fl-nbI"/>
+                                                                <constraint firstAttribute="height" constant="54" id="8dG-JO-woP"/>
+                                                                <constraint firstAttribute="width" constant="358" id="uj2-qc-lRH"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="tintColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -409,10 +411,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="xAK-CN-O16" secondAttribute="bottom" id="MT3-4p-9YR"/>
-                                                        <constraint firstItem="xAK-CN-O16" firstAttribute="top" secondItem="hQm-Sv-mcR" secondAttribute="top" id="Uo1-wh-fLz"/>
-                                                        <constraint firstAttribute="trailing" secondItem="xAK-CN-O16" secondAttribute="trailing" id="ajU-lt-9Bh"/>
-                                                        <constraint firstItem="xAK-CN-O16" firstAttribute="leading" secondItem="hQm-Sv-mcR" secondAttribute="leading" id="kzK-Jl-jmH"/>
+                                                        <constraint firstAttribute="bottom" secondItem="xAK-CN-O16" secondAttribute="bottom" id="Qit-n3-DdX"/>
+                                                        <constraint firstItem="xAK-CN-O16" firstAttribute="leading" secondItem="hQm-Sv-mcR" secondAttribute="leading" id="aKz-S6-lJo"/>
+                                                        <constraint firstItem="xAK-CN-O16" firstAttribute="top" secondItem="hQm-Sv-mcR" secondAttribute="top" id="sxs-SI-pky"/>
+                                                        <constraint firstAttribute="trailing" secondItem="xAK-CN-O16" secondAttribute="trailing" id="zeS-Sd-DYP"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -422,16 +424,16 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hQm-Sv-mcR" firstAttribute="top" secondItem="y4P-fM-b6v" secondAttribute="top" constant="13" id="9KY-nk-P2I"/>
-                                                <constraint firstAttribute="bottom" secondItem="hQm-Sv-mcR" secondAttribute="bottom" constant="16" id="fU4-xf-p2L"/>
-                                                <constraint firstItem="hQm-Sv-mcR" firstAttribute="leading" secondItem="y4P-fM-b6v" secondAttribute="leading" constant="16" id="nd8-SS-IZ4"/>
-                                                <constraint firstAttribute="trailing" secondItem="hQm-Sv-mcR" secondAttribute="trailing" constant="16" id="yoB-os-Ruk"/>
+                                                <constraint firstAttribute="trailing" secondItem="hQm-Sv-mcR" secondAttribute="trailing" constant="16" id="IH1-XS-EhV"/>
+                                                <constraint firstItem="hQm-Sv-mcR" firstAttribute="top" secondItem="y4P-fM-b6v" secondAttribute="top" constant="24" id="Ucx-ND-wPQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="hQm-Sv-mcR" secondAttribute="bottom" constant="16" id="hMV-S7-0yi"/>
+                                                <constraint firstItem="hQm-Sv-mcR" firstAttribute="leading" secondItem="y4P-fM-b6v" secondAttribute="leading" constant="16" id="zm3-K3-6YH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="gray_background"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="medicineList" rowHeight="60" id="cWe-2t-d46" customClass="AddMedicineTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="101" width="390" height="60"/>
+                                        <rect key="frame" x="0.0" y="112" width="390" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cWe-2t-d46" id="G7X-GX-YGP">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
@@ -610,14 +612,14 @@
                             <constraint firstItem="l5f-Gj-d8q" firstAttribute="trailing" secondItem="ZDQ-1I-Rpj" secondAttribute="trailing" id="kv5-pb-gYj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fCl-A6-02n"/>
+                    <navigationItem key="navigationItem" title="Add Medicine" id="gsP-13-OAQ"/>
                     <connections>
                         <outlet property="addMedicineTableView" destination="ZDQ-1I-Rpj" id="AHv-OE-XDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2i-yh-1Ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4598.5507246376819" y="734.59821428571422"/>
+            <point key="canvasLocation" x="4598.4615384615381" y="734.36018957345971"/>
         </scene>
     </scenes>
     <resources>

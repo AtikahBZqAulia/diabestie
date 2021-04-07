@@ -10,7 +10,7 @@ import UIKit
 class MedicineDiaryViewController: UIViewController {
 
     @IBOutlet weak var medicineTableView: UITableView!
-
+    
     var names: [String] = []
     var times: [Int] = []
     
