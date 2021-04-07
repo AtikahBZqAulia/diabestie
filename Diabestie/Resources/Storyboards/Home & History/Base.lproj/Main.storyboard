@@ -1582,6 +1582,9 @@
                     <navigationItem key="navigationItem" title="History" largeTitleDisplayMode="never" id="Owh-gG-u6K">
                         <barButtonItem key="rightBarButtonItem" image="calendar" catalog="system" id="aae-dd-G8K">
                             <color key="tintColor" name="blue_blue"/>
+                            <connections>
+                                <segue destination="9hw-Iq-cjV" kind="show" id="vF9-2h-Xjc"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1591,6 +1594,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAt-Tl-0YS" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2042" y="110"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="eB0-Rm-VGM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="9hw-Iq-cjV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3KV-gN-vWj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fiw-RL-Et5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2808" y="-204"/>
         </scene>
         <!--FoodIntakeDetailViewController-->
         <scene sceneID="J1e-xP-FqO">
