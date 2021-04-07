@@ -658,6 +658,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="bph-PH-qZB" secondAttribute="bottom" id="kLx-dq-YuC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="U1a-H2-D6f" kind="show" id="itr-pr-Bb1"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryHistoryTableCell" id="crC-QN-eLJ" customClass="DiaryHistoryTableCell" customModule="Diabestie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="424" width="414" height="62.333332061767578"/>
@@ -1621,6 +1624,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Plg-vP-Fvh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1889" y="-376"/>
+        </scene>
+        <!--MedicineDetail-->
+        <scene sceneID="WG6-Tu-4Ww">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MedicineDetail" id="U1a-H2-D6f" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WlP-9h-kYF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Npc-tU-j8v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="-332"/>
         </scene>
     </scenes>
     <resources>
