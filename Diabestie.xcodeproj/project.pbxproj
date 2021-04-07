@@ -88,6 +88,7 @@
 		F7E9CCA62619FBD700497E13 /* MedicineDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9CCA52619FBD700497E13 /* MedicineDiaryViewController.swift */; };
 		F7E9CCB22619FC6000497E13 /* EmptyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9CCB02619FC6000497E13 /* EmptyTableCell.swift */; };
 		F7E9CCB32619FC6000497E13 /* EmptyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E9CCB12619FC6000497E13 /* EmptyTableCell.xib */; };
+		F7EC3379261D5FFB00E9886E /* AddMedicineTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EC3378261D5FFB00E9886E /* AddMedicineTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +176,7 @@
 		F7E9CCA52619FBD700497E13 /* MedicineDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDiaryViewController.swift; sourceTree = "<group>"; };
 		F7E9CCB02619FC6000497E13 /* EmptyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableCell.swift; sourceTree = "<group>"; };
 		F7E9CCB12619FC6000497E13 /* EmptyTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableCell.xib; sourceTree = "<group>"; };
+		F7EC3378261D5FFB00E9886E /* AddMedicineTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicineTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -618,6 +620,7 @@
 				F7E9CCB02619FC6000497E13 /* EmptyTableCell.swift */,
 				F7E9CCB12619FC6000497E13 /* EmptyTableCell.xib */,
 				F71D69B9261C8BB100F406E2 /* ChosenMedicine.swift */,
+				F7EC3378261D5FFB00E9886E /* AddMedicineTableCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				BC37746D261D5D9500A01448 /* FoodCalIntakeChartCell.swift in Sources */,
 				BCC764EE261AEE3F00306229 /* MedicineIntakeViewController.swift in Sources */,
 				BCB77143261C64CE00255805 /* BloodSugarInfoCell.swift in Sources */,
+				F7EC3379261D5FFB00E9886E /* AddMedicineTableCell.swift in Sources */,
 				F700649B26185E0200300E70 /* FoodIntakeDetailViewController.swift in Sources */,
 				BCC764F4261AEE8500306229 /* SearchFoodViewController.swift in Sources */,
 				BCC764F7261AEE9800306229 /* AddFoodDiaryViewController.swift in Sources */,

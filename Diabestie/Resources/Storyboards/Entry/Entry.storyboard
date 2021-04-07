@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="746" y="87"/>
         </scene>
-        <!--FoodEntry-->
+        <!--MedicineEntry-->
         <scene sceneID="lsx-ES-TQl">
             <objects>
-                <viewControllerPlaceholder storyboardName="FoodEntry" id="v4w-F1-jBC" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MedicineEntry" id="v4w-F1-jBC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="uvo-wd-0co"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9X-5x-PH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
