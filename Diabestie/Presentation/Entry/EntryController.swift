@@ -68,16 +68,18 @@ extension EntryController: UITableViewDataSource, UITableViewDelegate {
     
     //DECLEARE FUNCTION FOR SELECT ON ROW
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        let storyboard = UIStoryboard.init(name: "FoodEntry", bundle: nil)
+        let storyboardFood = UIStoryboard.init(name: "FoodEntry", bundle: nil)
+        let storyboardMedicine = UIStoryboard.init(name: "MedicineEntry", bundle: nil)
+        let storyboardBloodSugar = UIStoryboard.init(name: "BloodSugarEntry", bundle: nil)
         switch indexPath.row {
             case 0:
-                let viewFoodEntry = storyboard.instantiateViewController(identifier: "AddFoodDiaryViewController")
-                self.navigationController?.pushViewController(viewFoodEntry, animated: true)
+                let viewBloodSugarEntry = storyboardBloodSugar.instantiateViewController(identifier: "AddBloodSugarDiaryViewController")
+                self.navigationController?.pushViewController(viewBloodSugarEntry, animated: true)
             case titleEntry.count - 1:
-                let viewFoodEntry = storyboard.instantiateViewController(identifier: "AddFoodDiaryViewController")
-                self.navigationController?.pushViewController(viewFoodEntry, animated: true)
+                let viewMedicineEntry = storyboardMedicine.instantiateViewController(identifier: "AddMedicineDiaryViewController")
+                self.navigationController?.pushViewController(viewMedicineEntry, animated: true)
             default:
-                let viewFoodEntry = storyboard.instantiateViewController(identifier: "AddFoodDiaryViewController")
+                let viewFoodEntry = storyboardFood.instantiateViewController(identifier: "AddFoodDiaryViewController")
                 self.navigationController?.pushViewController(viewFoodEntry, animated: true)
         }
     }
