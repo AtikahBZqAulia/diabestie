@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		30E2EC2D261C93C9008F3508 /* AddBloodSugarTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EC2C261C93C9008F3508 /* AddBloodSugarTableCell.swift */; };
 		30E2EC34261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EC33261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift */; };
+		BC377469261D5D8900A01448 /* FoodSugarIntakeChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC377468261D5D8900A01448 /* FoodSugarIntakeChartCell.swift */; };
+		BC37746D261D5D9500A01448 /* FoodCalIntakeChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC37746C261D5D9500A01448 /* FoodCalIntakeChartCell.swift */; };
+		BC377470261D5DA300A01448 /* FoodIntakeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC37746F261D5DA300A01448 /* FoodIntakeInfoCell.swift */; };
 		BC560ECF261B6D44009A9A7E /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC560ECE261B6D44009A9A7E /* BarChart.swift */; };
 		BC560ED2261B6D5B009A9A7E /* BarChartEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC560ED1261B6D5B009A9A7E /* BarChartEntry.swift */; };
 		BC560ED7261B6DB7009A9A7E /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC560ED6261B6DB7009A9A7E /* UIBezierPath+Extension.swift */; };
@@ -88,6 +91,9 @@
 /* Begin PBXFileReference section */
 		30E2EC2C261C93C9008F3508 /* AddBloodSugarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBloodSugarTableCell.swift; sourceTree = "<group>"; };
 		30E2EC33261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBloodSugarCategoryTableCell.swift; sourceTree = "<group>"; };
+		BC377468261D5D8900A01448 /* FoodSugarIntakeChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSugarIntakeChartCell.swift; sourceTree = "<group>"; };
+		BC37746C261D5D9500A01448 /* FoodCalIntakeChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCalIntakeChartCell.swift; sourceTree = "<group>"; };
+		BC37746F261D5DA300A01448 /* FoodIntakeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIntakeInfoCell.swift; sourceTree = "<group>"; };
 		BC560ECE261B6D44009A9A7E /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		BC560ED1261B6D5B009A9A7E /* BarChartEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartEntry.swift; sourceTree = "<group>"; };
 		BC560ED6261B6DB7009A9A7E /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
@@ -185,6 +191,16 @@
 				30E2EC33261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift */,
 			);
 			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		BC377467261D5D7300A01448 /* Food Intake */ = {
+			isa = PBXGroup;
+			children = (
+				BC377468261D5D8900A01448 /* FoodSugarIntakeChartCell.swift */,
+				BC37746C261D5D9500A01448 /* FoodCalIntakeChartCell.swift */,
+				BC37746F261D5DA300A01448 /* FoodIntakeInfoCell.swift */,
+			);
+			path = "Food Intake";
 			sourceTree = "<group>";
 		};
 		BC560ED4261B6D60009A9A7E /* Chart */ = {
@@ -573,6 +589,7 @@
 		F700649E26185E0D00300E70 /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
+				BC377467261D5D7300A01448 /* Food Intake */,
 				F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */,
 				F70064A026185E2B00300E70 /* FoodIntakeDetailTableCell.xib */,
 				F75FEB75261998D60091702D /* CalculatedFoodTableCell.swift */,
@@ -721,6 +738,7 @@
 				BC560ECF261B6D44009A9A7E /* BarChart.swift in Sources */,
 				BCC76503261AEF0E00306229 /* AddBloodSugarDiaryViewController.swift in Sources */,
 				BCC76506261AEF4F00306229 /* AddMedicineDiaryViewController.swift in Sources */,
+				BC377470261D5DA300A01448 /* FoodIntakeInfoCell.swift in Sources */,
 				BC6F4FCF2615835500643603 /* AddDiaryTableCell copy.swift in Sources */,
 				30E2EC2D261C93C9008F3508 /* AddBloodSugarTableCell.swift in Sources */,
 				BC560ED7261B6DB7009A9A7E /* UIBezierPath+Extension.swift in Sources */,
@@ -749,6 +767,7 @@
 				BCC764CE261AEA7500306229 /* BloodSugarSelectDateVC.swift in Sources */,
 				BC6F4FBE261580D600643603 /* UIView+Extension.swift in Sources */,
 				BCB77147261C69FB00255805 /* BloodSugarOptionCell.swift in Sources */,
+				BC37746D261D5D9500A01448 /* FoodCalIntakeChartCell.swift in Sources */,
 				BCC764EE261AEE3F00306229 /* MedicineIntakeViewController.swift in Sources */,
 				BCB77143261C64CE00255805 /* BloodSugarInfoCell.swift in Sources */,
 				F700649B26185E0200300E70 /* FoodIntakeDetailViewController.swift in Sources */,
@@ -757,6 +776,7 @@
 				BCB7713F261C642000255805 /* BloodSugarThresholdCell.swift in Sources */,
 				BCDE8A36260E02EE00E5E193 /* UIColor+Extension.swift in Sources */,
 				BC8832792615BBDB003CC151 /* HorizontalCalendar.swift in Sources */,
+				BC377469261D5D8900A01448 /* FoodSugarIntakeChartCell.swift in Sources */,
 				BC560EDD261B6DCF009A9A7E /* Array+Extension.swift in Sources */,
 				BC8832752615B7CE003CC151 /* HistoryViewController.swift in Sources */,
 				BC88327C2615BC09003CC151 /* Date+Extension.swift in Sources */,
