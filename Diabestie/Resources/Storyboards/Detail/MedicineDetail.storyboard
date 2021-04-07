@@ -116,7 +116,7 @@
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaq-Kz-jr0">
                                                                     <rect key="frame" x="0.0" y="16" width="414" height="244"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                                    <state key="normal" title="Show Blood Sugar Entries">
+                                                                    <state key="normal" title="Show Medicine Entries">
                                                                         <color key="titleColor" name="blue_blue"/>
                                                                     </state>
                                                                     <connections>
@@ -212,6 +212,9 @@
                                                 <constraint firstItem="muv-we-w9n" firstAttribute="top" secondItem="w9r-9R-818" secondAttribute="bottom" constant="16" id="v4t-lr-hlz"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="KoI-63-wK3" kind="show" id="skP-eb-YXM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -498,7 +501,7 @@
             </objects>
             <point key="canvasLocation" x="1828.985507246377" y="737.94642857142856"/>
         </scene>
-        <!--Medicine List View Controller-->
+        <!--Medicine List-->
         <scene sceneID="A9V-e1-o47">
             <objects>
                 <viewController storyboardIdentifier="MedicineListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KoI-63-wK3" customClass="MedicineListViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
@@ -506,17 +509,134 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Options - Medicine List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shO-Nl-GQi">
-                                <rect key="frame" x="119" y="438" width="177" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ym7-jf-dB0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" name="gray_background"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="8ZG-IN-BHf">
+                                    <rect key="frame" x="0.0" y="206.5" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" name="gray_background"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="createMedicine" rowHeight="73" id="6tb-Ff-5wl">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6tb-Ff-5wl" id="W4R-8V-JSW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYb-FT-NGi" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="13" width="382" height="44"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGe-BE-07N">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="F1k-4H-X8Z"/>
+                                                                <constraint firstAttribute="width" constant="358" id="t65-Vz-IvJ"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <color key="tintColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <inset key="imageEdgeInsets" minX="-14" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            <state key="normal" title="Create Medicine" image="plus.circle.fill" catalog="system">
+                                                                <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="GGe-BE-07N" secondAttribute="trailing" id="DAt-RO-6bG"/>
+                                                        <constraint firstItem="GGe-BE-07N" firstAttribute="leading" secondItem="dYb-FT-NGi" secondAttribute="leading" id="HOT-lg-VBb"/>
+                                                        <constraint firstItem="GGe-BE-07N" firstAttribute="top" secondItem="dYb-FT-NGi" secondAttribute="top" id="Jro-27-dOl"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GGe-BE-07N" secondAttribute="bottom" id="usu-xE-Efc"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="dYb-FT-NGi" secondAttribute="bottom" constant="16" id="S0V-fN-sQ2"/>
+                                                <constraint firstItem="dYb-FT-NGi" firstAttribute="top" secondItem="W4R-8V-JSW" secondAttribute="top" constant="13" id="pjD-77-Phv"/>
+                                                <constraint firstItem="dYb-FT-NGi" firstAttribute="leading" secondItem="W4R-8V-JSW" secondAttribute="leading" constant="16" id="uH6-Ck-Ged"/>
+                                                <constraint firstAttribute="trailing" secondItem="dYb-FT-NGi" secondAttribute="trailing" constant="16" id="vrj-G4-Pdu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="gray_background"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MedicineListCell" rowHeight="60" id="fmD-2Y-fRC" customClass="MedicineListCell" customModule="Diabestie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="128.5" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fmD-2Y-fRC" id="igO-EW-Qxd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfH-1z-sXh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpR-mS-uOA">
+                                                            <rect key="frame" x="32" y="9" width="154" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="cM3-47-xGI"/>
+                                                                <constraint firstAttribute="width" constant="154" id="lIq-hw-sQr"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6a-yE-aHP">
+                                                            <rect key="frame" x="32" y="33" width="154" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="154" id="N0y-gh-Z2o"/>
+                                                                <constraint firstAttribute="height" constant="18" id="uc3-7e-OKe"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" name="charcoal_grey"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="m6a-yE-aHP" secondAttribute="bottom" constant="9" id="2G2-fG-ArB"/>
+                                                        <constraint firstItem="m6a-yE-aHP" firstAttribute="leading" secondItem="sfH-1z-sXh" secondAttribute="leading" constant="32" id="RYz-Rb-g0I"/>
+                                                        <constraint firstItem="OpR-mS-uOA" firstAttribute="leading" secondItem="sfH-1z-sXh" secondAttribute="leading" constant="32" id="XxW-aj-zxf"/>
+                                                        <constraint firstItem="m6a-yE-aHP" firstAttribute="top" secondItem="OpR-mS-uOA" secondAttribute="bottom" constant="2" id="ibt-gC-Wh1"/>
+                                                        <constraint firstItem="OpR-mS-uOA" firstAttribute="top" secondItem="sfH-1z-sXh" secondAttribute="top" constant="9" id="kmN-zC-uQu"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sfH-1z-sXh" firstAttribute="top" secondItem="igO-EW-Qxd" secondAttribute="top" id="80a-VW-RHZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="sfH-1z-sXh" secondAttribute="bottom" id="Qjm-mm-rSF"/>
+                                                <constraint firstItem="sfH-1z-sXh" firstAttribute="leading" secondItem="igO-EW-Qxd" secondAttribute="leading" id="Rg1-Tb-fex"/>
+                                                <constraint firstAttribute="trailing" secondItem="sfH-1z-sXh" secondAttribute="trailing" id="tWS-FB-HJg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="gray_background"/>
+                                        <connections>
+                                            <outlet property="medicineName" destination="OpR-mS-uOA" id="9m8-1A-MCn"/>
+                                            <outlet property="medicineTimes" destination="m6a-yE-aHP" id="tLy-LH-h5g"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KoI-63-wK3" id="H6D-5D-wzh"/>
+                                    <outlet property="delegate" destination="KoI-63-wK3" id="gMN-lr-g3k"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uCd-bv-adu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uCd-bv-adu" firstAttribute="bottom" secondItem="Ym7-jf-dB0" secondAttribute="bottom" id="Egq-Ut-HI8"/>
+                            <constraint firstItem="Ym7-jf-dB0" firstAttribute="leading" secondItem="uCd-bv-adu" secondAttribute="leading" id="dEZ-y9-f3g"/>
+                            <constraint firstItem="uCd-bv-adu" firstAttribute="trailing" secondItem="Ym7-jf-dB0" secondAttribute="trailing" id="vao-CC-58C"/>
+                            <constraint firstItem="Ym7-jf-dB0" firstAttribute="top" secondItem="uCd-bv-adu" secondAttribute="top" id="y7q-7B-ah3"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Medicine List" largeTitleDisplayMode="never" id="HPQ-Vu-ENL"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XoK-M5-3qZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -551,6 +671,7 @@
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="pills.fill" catalog="system" width="128" height="106"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
