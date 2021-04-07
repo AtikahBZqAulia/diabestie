@@ -27,6 +27,7 @@
 		BC68A5DB260B09040007F846 /* Diabestie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC68A5D9260B09040007F846 /* Diabestie.xcdatamodeld */; };
 		BC68A5DD260B09050007F846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC68A5DC260B09050007F846 /* Assets.xcassets */; };
 		BC68A5E0260B09050007F846 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC68A5DE260B09050007F846 /* LaunchScreen.storyboard */; };
+		BC6DF1E6261D7C6A0085A947 /* MedicineIntakeDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6DF1E5261D7C6A0085A947 /* MedicineIntakeDataCell.swift */; };
 		BC6F4FB9261573E800643603 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDCFA7261484B500602352 /* HomeViewController.swift */; };
 		BC6F4FBE261580D600643603 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F4FBD261580D600643603 /* UIView+Extension.swift */; };
 		BC6F4FC62615833100643603 /* BloodSugarTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6F4FC52615833100643603 /* BloodSugarTableCell.swift */; };
@@ -117,6 +118,7 @@
 		BC68A5DC260B09050007F846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC68A5DF260B09050007F846 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC68A5E1260B09050007F846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC6DF1E5261D7C6A0085A947 /* MedicineIntakeDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineIntakeDataCell.swift; sourceTree = "<group>"; };
 		BC6F4FBD261580D600643603 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BC6F4FC52615833100643603 /* BloodSugarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarTableCell.swift; sourceTree = "<group>"; };
 		BC6F4FC82615834100643603 /* FoodTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableCell.swift; sourceTree = "<group>"; };
@@ -263,6 +265,14 @@
 				BC68A5E1260B09050007F846 /* Info.plist */,
 			);
 			path = Diabestie;
+			sourceTree = "<group>";
+		};
+		BC6DF1E4261D7C550085A947 /* Medicine Intake Data Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BC6DF1E5261D7C6A0085A947 /* MedicineIntakeDataCell.swift */,
+			);
+			path = "Medicine Intake Data Cell";
 			sourceTree = "<group>";
 		};
 		BC6F4FC02615820200643603 /* Table Cell */ = {
@@ -420,6 +430,7 @@
 		BCC764C1261AE41000306229 /* Medicine */ = {
 			isa = PBXGroup;
 			children = (
+				BC6DF1E4261D7C550085A947 /* Medicine Intake Data Cell */,
 				BC238057261D785700360EF0 /* Medicine Intake Cell */,
 				BCC764E9261AED6F00306229 /* MedicineIntakeViewController.swift */,
 				BCC764EA261AED6F00306229 /* MedicineIntakeDataViewController.swift */,
@@ -799,6 +810,7 @@
 				BCC764EE261AEE3F00306229 /* MedicineIntakeViewController.swift in Sources */,
 				BCB77143261C64CE00255805 /* BloodSugarInfoCell.swift in Sources */,
 				F7EC3379261D5FFB00E9886E /* AddMedicineTableCell.swift in Sources */,
+				BC6DF1E6261D7C6A0085A947 /* MedicineIntakeDataCell.swift in Sources */,
 				F700649B26185E0200300E70 /* FoodIntakeDetailViewController.swift in Sources */,
 				BCC764F4261AEE8500306229 /* SearchFoodViewController.swift in Sources */,
 				BCC764F7261AEE9800306229 /* AddFoodDiaryViewController.swift in Sources */,
