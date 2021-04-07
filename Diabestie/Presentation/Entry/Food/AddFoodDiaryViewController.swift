@@ -9,9 +9,11 @@ import UIKit
 
 class AddFoodDiaryViewController: UIViewController {
 
+    @IBOutlet weak var foodEntryTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        foodEntryTableView.register(UINib(nibName: "EmptyTableCell", bundle: nil), forCellReuseIdentifier: "EmptyDataCell")
         // Do any additional setup after loading the view.
     }
     

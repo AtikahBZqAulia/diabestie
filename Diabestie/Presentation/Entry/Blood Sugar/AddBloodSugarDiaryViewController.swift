@@ -12,18 +12,49 @@ class AddBloodSugarDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+
+}
+
+extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableViewIdentifier() -> [String] {
+        var identifiers = [String]()
+        
+        identifiers.append(AddBloodSugarCategoryTableCell.identifier)
+        identifiers.append(AddBloodSugarTableCell.identifier)
+        
+        return identifiers
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewIdentifier().count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let identifier = self.tableViewIdentifier()[indexPath.row]
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
+            return UITableViewCell()
+        }
+        
+        switch identifier {
+        case AddBloodSugarCategoryTableCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? AddBloodSugarCategoryTableCell else {
+                return UITableViewCell()
+            }
+            return cell
+            
+        case AddBloodSugarTableCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? AddBloodSugarTableCell else {
+                return UITableViewCell()
+            }
+            return cell
+            
+        default:
+            return cell
+        }
+    }
+    
 }

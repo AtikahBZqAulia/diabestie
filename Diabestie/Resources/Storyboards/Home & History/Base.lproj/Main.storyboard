@@ -3,7 +3,6 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,58 +21,8 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" name="gray_background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddDiaryTableCell" id="GHs-hb-aea" customClass="AddDiaryTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="55.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GHs-hb-aea" id="J6r-hE-ds2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vz-q9-MMk" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="9.9999999999999964" width="382" height="45.666666666666657"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65b-EX-Y42">
-                                                            <rect key="frame" x="10" y="11.000000000000002" width="362" height="23.666666666666671"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="tintColor" name="blue_blue"/>
-                                                            <inset key="imageEdgeInsets" minX="-14" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                            <state key="normal" title="Add New Diary">
-                                                                <color key="titleColor" name="blue_blue"/>
-                                                                <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="65b-EX-Y42" firstAttribute="leading" secondItem="3Vz-q9-MMk" secondAttribute="leading" constant="10" id="L5B-5C-1k8"/>
-                                                        <constraint firstAttribute="bottom" secondItem="65b-EX-Y42" secondAttribute="bottom" constant="11" id="cTn-nA-SYU"/>
-                                                        <constraint firstItem="65b-EX-Y42" firstAttribute="top" secondItem="3Vz-q9-MMk" secondAttribute="top" constant="11" id="nDU-fi-0dW"/>
-                                                        <constraint firstAttribute="trailing" secondItem="65b-EX-Y42" secondAttribute="trailing" constant="10" id="uwC-ql-zlO"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" name="gray_background"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="3Vz-q9-MMk" secondAttribute="trailing" constant="16" id="4Zj-pi-hVn"/>
-                                                <constraint firstAttribute="bottom" secondItem="3Vz-q9-MMk" secondAttribute="bottom" id="as0-Dl-iEy"/>
-                                                <constraint firstItem="3Vz-q9-MMk" firstAttribute="leading" secondItem="J6r-hE-ds2" secondAttribute="leading" constant="16" id="hoB-fm-XJh"/>
-                                                <constraint firstItem="3Vz-q9-MMk" firstAttribute="top" secondItem="J6r-hE-ds2" secondAttribute="top" constant="10" id="tEG-WI-pxC"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="gray_background"/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BloodSugarTableCell" rowHeight="150" id="aBJ-4a-TeV" customClass="BloodSugarTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="83.666667938232422" width="414" height="150"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aBJ-4a-TeV" id="z7D-Fu-rBq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
@@ -291,9 +240,12 @@
                                                 <constraint firstItem="LKV-mt-9cx" firstAttribute="leading" secondItem="z7D-Fu-rBq" secondAttribute="leading" constant="16" id="y6e-Ta-d9v"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Jmr-tP-wsG" kind="show" id="n4V-cr-iKO"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodTableCell" rowHeight="123" id="NL5-KZ-tk1" userLabel="FoodTableCell" customClass="FoodTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="233.66666793823242" width="414" height="123"/>
+                                        <rect key="frame" x="0.0" y="178" width="414" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NL5-KZ-tk1" id="woQ-7J-3zF">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
@@ -310,7 +262,7 @@
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="AUu-q8-i99">
                                                                             <rect key="frame" x="4" y="2" width="16" height="16"/>
-                                                                            <color key="tintColor" name="red_orange"/>
+                                                                            <color key="tintColor" name="blue_green"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="16" id="A5h-rQ-aMB"/>
                                                                                 <constraint firstAttribute="width" constant="16" id="UwU-of-cyz"/>
@@ -477,9 +429,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="wKp-bg-KRG" secondAttribute="bottom" id="vga-WF-UJy"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gKq-ox-Nmi" kind="show" id="s8Y-AH-Irf"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineTableCell" rowHeight="123" id="G2R-Jv-StK" userLabel="MedicineTableCell" customClass="MedicineTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="356.66666793823242" width="414" height="123"/>
+                                        <rect key="frame" x="0.0" y="301" width="414" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G2R-Jv-StK" id="T0i-JT-VbQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
@@ -705,7 +660,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryHistoryTableCell" id="crC-QN-eLJ" customClass="DiaryHistoryTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="479.66666793823242" width="414" height="62.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="424" width="414" height="62.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="crC-QN-eLJ" id="qTv-Pt-5fl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="62.333332061767578"/>
@@ -766,8 +721,67 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="gray_background"/>
                                         <gestureRecognizers/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddDiaryTableCell" id="GHs-hb-aea" customClass="AddDiaryTableCell" customModule="Diabestie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="486.33333206176758" width="414" height="62.333332061767578"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GHs-hb-aea" id="J6r-hE-ds2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="62.333332061767578"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zz-Xa-O1l" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="10" width="382" height="42.333333333333336"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Diary Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53D-tD-fz6">
+                                                            <rect key="frame" x="15.999999999999993" y="10.999999999999998" width="124.33333333333331" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <color key="textColor" name="blue_blue"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Tc-Io-OVd">
+                                                            <rect key="frame" x="347" y="11.999999999999996" width="20" height="19.333333333333336"/>
+                                                            <color key="tintColor" name="blue_blue"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="fVk-m0-4kz"/>
+                                                                <constraint firstAttribute="height" constant="20" id="meY-XL-ijM"/>
+                                                            </constraints>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="blue_background"/>
+                                                    <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstItem="5Tc-Io-OVd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="53D-tD-fz6" secondAttribute="trailing" constant="10" id="FZG-Ih-qRS"/>
+                                                        <constraint firstItem="53D-tD-fz6" firstAttribute="centerY" secondItem="3zz-Xa-O1l" secondAttribute="centerY" id="FsU-2s-JF2"/>
+                                                        <constraint firstItem="5Tc-Io-OVd" firstAttribute="centerY" secondItem="3zz-Xa-O1l" secondAttribute="centerY" id="MRe-c0-qcM"/>
+                                                        <constraint firstItem="53D-tD-fz6" firstAttribute="top" secondItem="3zz-Xa-O1l" secondAttribute="top" constant="11" id="goO-sv-JoL"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5Tc-Io-OVd" secondAttribute="trailing" constant="15" id="uW4-Rj-wPA"/>
+                                                        <constraint firstItem="53D-tD-fz6" firstAttribute="leading" secondItem="3zz-Xa-O1l" secondAttribute="leading" constant="16" id="wB7-zW-Mc1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="53D-tD-fz6" secondAttribute="bottom" constant="11" id="wtu-1o-vEK"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" name="gray_background"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="3zz-Xa-O1l" secondAttribute="bottom" constant="10" id="17R-Ya-jAp"/>
+                                                <constraint firstItem="3zz-Xa-O1l" firstAttribute="leading" secondItem="J6r-hE-ds2" secondAttribute="leading" constant="16" id="Uio-4Y-hAz"/>
+                                                <constraint firstAttribute="trailing" secondItem="3zz-Xa-O1l" secondAttribute="trailing" constant="16" id="YBg-Dl-1MI"/>
+                                                <constraint firstItem="3zz-Xa-O1l" firstAttribute="top" secondItem="J6r-hE-ds2" secondAttribute="top" constant="10" id="tQi-zM-wKn"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="gray_background"/>
                                         <connections>
-                                            <segue destination="iXx-1C-I3t" kind="show" id="9if-xf-V5V"/>
+                                            <segue destination="TuE-ri-i62" kind="show" id="Ida-Jb-qRI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -777,34 +791,23 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cew-qo-wXq"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjs-al-3mR">
-                                <rect key="frame" x="28" y="812.33333333333337" width="145.33333333333334" height="43.666666666666629"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="tintColor" name="blue_blue"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
-                                <inset key="imageEdgeInsets" minX="-14" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Add New Diary">
-                                    <color key="titleColor" name="blue_blue"/>
-                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
-                                </state>
-                                <connections>
-                                    <segue destination="TuE-ri-i62" kind="show" id="EHk-PQ-a4h"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="gray_background"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="x0Y-IJ-Dbx" secondAttribute="bottom" id="2Pz-r8-GmH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sjs-al-3mR" secondAttribute="bottom" constant="6" id="BUg-yu-Q0C"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sjs-al-3mR" secondAttribute="trailing" constant="16" id="BjH-MA-Je4"/>
                             <constraint firstItem="x0Y-IJ-Dbx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PVA-5E-yyR"/>
-                            <constraint firstItem="sjs-al-3mR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="ZhG-I7-QZ2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x0Y-IJ-Dbx" secondAttribute="trailing" id="ca9-xW-moF"/>
                             <constraint firstItem="x0Y-IJ-Dbx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dVn-Jp-ieo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Diaries" largeTitleDisplayMode="always" id="puu-M2-mfc"/>
+                    <navigationItem key="navigationItem" title="Diaries" largeTitleDisplayMode="always" id="puu-M2-mfc">
+                        <barButtonItem key="rightBarButtonItem" image="timer" catalog="system" id="Wsc-K7-DBl">
+                            <connections>
+                                <segue destination="iXx-1C-I3t" kind="show" id="Cy7-yu-Wxt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ThY-NV-VtX"/>
@@ -1099,7 +1102,7 @@
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="gCX-2j-bYu">
                                                                             <rect key="frame" x="4" y="2" width="16" height="16"/>
-                                                                            <color key="tintColor" name="red_orange"/>
+                                                                            <color key="tintColor" name="blue_green"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="16" id="8fc-QQ-wz0"/>
                                                                                 <constraint firstAttribute="width" constant="16" id="tLT-0D-x5K"/>
@@ -1586,7 +1589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAt-Tl-0YS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="110"/>
+            <point key="canvasLocation" x="2042" y="110"/>
         </scene>
         <!--FoodIntakeDetailViewController-->
         <scene sceneID="J1e-xP-FqO">
@@ -1598,6 +1601,26 @@
             </objects>
             <point key="canvasLocation" x="2672" y="110"/>
         </scene>
+        <!--BloodSugarDetail-->
+        <scene sceneID="xIP-vT-Awu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BloodSugarDetail" id="Jmr-tP-wsG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="d54-RD-TBh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2CP-G3-V7a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870" y="-418"/>
+        </scene>
+        <!--FoodDetail-->
+        <scene sceneID="oCB-Yc-QBu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FoodDetail" id="gKq-ox-Nmi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UhC-UM-UIi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Plg-vP-Fvh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1889" y="-376"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
@@ -1606,9 +1629,12 @@
         <image name="food" width="52" height="48"/>
         <image name="pills.fill" catalog="system" width="128" height="106"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="timer" catalog="system" width="128" height="121"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue_background">
+            <color red="0.12941176470588237" green="0.29019607843137257" blue="0.7803921568627451" alpha="0.11999999731779099" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="blue_blue">
             <color red="0.12941176470588237" green="0.29019607843137257" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

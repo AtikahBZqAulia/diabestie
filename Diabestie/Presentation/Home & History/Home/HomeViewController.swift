@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
 }
@@ -21,12 +21,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
         
-//        identifiers.append(AddDiaryTableCell.identifier)
         identifiers.append(BloodSugarTableCell.identifier)
         identifiers.append(FoodTableCell.identifier)
         identifiers.append(MedicineTableCell.identifier)
-        identifiers.append(DiaryHistoryTableCell.identifier)
-
+        //        identifiers.append(DiaryHistoryTableCell.identifier)
+        identifiers.append(AddDiaryTableCell.identifier)
+        
         return identifiers
     }
     
