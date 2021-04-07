@@ -76,7 +76,7 @@ extension EntryController: UITableViewDataSource, UITableViewDelegate {
                 let viewBloodSugarEntry = storyboardBloodSugar.instantiateViewController(identifier: "AddBloodSugarDiaryViewController")
                 self.navigationController?.pushViewController(viewBloodSugarEntry, animated: true)
             case titleEntry.count - 1:
-                let viewMedicineEntry = storyboardMedicine.instantiateViewController(identifier: "AddMedicineDiaryViewController")
+                let viewMedicineEntry = storyboardMedicine.instantiateViewController(identifier: "AddMedicineEntry")
                 self.navigationController?.pushViewController(viewMedicineEntry, animated: true)
             default:
                 let viewFoodEntry = storyboardFood.instantiateViewController(identifier: "AddFoodDiaryViewController")
