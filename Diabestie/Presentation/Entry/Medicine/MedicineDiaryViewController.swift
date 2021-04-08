@@ -12,7 +12,6 @@ class MedicineDiaryViewController: UIViewController {
     @IBOutlet weak var medicineTableView: UITableView!
     
     
-    var categoryList = ["After Breakfast", "After Lunch", "After Dinner"]
     var names: [String] = []
     var times: [Int] = []
     
@@ -75,28 +74,4 @@ extension MedicineDiaryViewController: UITableViewDataSource {
     }
 }
 
-extension MedicineDiaryViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-    
-    
-    func createPickerView() {
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoryList.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryList[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        <#code#>
-    }
-}
+
