@@ -666,7 +666,7 @@
         <!--Create Medicine-->
         <scene sceneID="9yB-G6-8D4">
             <objects>
-                <tableViewController id="rvA-gg-Iaa" customClass="MedicineCreateViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CreateMedicineTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rvA-gg-Iaa" customClass="MedicineCreateViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Urr-Qn-5Wj">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

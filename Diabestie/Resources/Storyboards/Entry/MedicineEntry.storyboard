@@ -363,6 +363,9 @@
                                                             <state key="normal" title="Create Medicine" image="plus.circle.fill" catalog="system">
                                                                 <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
+                                                            <connections>
+                                                                <segue destination="UEw-qU-QMI" kind="show" id="pbZ-iJ-88b"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -583,6 +586,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2i-yh-1Ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4598.4615384615381" y="734.36018957345971"/>
+        </scene>
+        <!--CreateMedicineTableViewController-->
+        <scene sceneID="EyO-ZA-jAb">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CreateMedicineTableViewController" storyboardName="MedicineDetail" referencedIdentifier="CreateMedicineTableViewController" id="UEw-qU-QMI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Jc3-lD-Eub"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8o-zY-CwV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5367" y="707"/>
         </scene>
     </scenes>
     <resources>
