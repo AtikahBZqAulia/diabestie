@@ -28,7 +28,7 @@
                                 <color key="backgroundColor" name="gray_background"/>
                                 <color key="sectionIndexBackgroundColor" name="gray_background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="informationSection" rowHeight="101" id="wYn-VZ-Qxc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="informationSection" rowHeight="101" id="wYn-VZ-Qxc" customClass="InformationTableCell" customModule="Diabestie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="390" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wYn-VZ-Qxc" id="IEk-d3-slZ">
@@ -50,9 +50,12 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pp5-VK-pML">
                                                             <rect key="frame" x="0.0" y="31" width="390" height="58"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9n5-Eq-rgJ">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9n5-Eq-rgJ">
                                                                     <rect key="frame" x="-8" y="18" width="156" height="22"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="22" id="13g-NV-MEM"/>
+                                                                        <constraint firstAttribute="width" constant="156" id="KeP-SW-SLN"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="tintColor" red="0.1450980392" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
@@ -62,73 +65,20 @@
                                                                         <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large" renderingMode="template"/>
                                                                     </state>
                                                                 </button>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i75-0Q-koA" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
-                                                                    <rect key="frame" x="287" y="12" width="87" height="34"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5R-Px-p4w">
-                                                                            <rect key="frame" x="20" y="7" width="47" height="21"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" constant="47" id="3KA-kt-2FQ"/>
-                                                                                <constraint firstAttribute="height" constant="21" id="46S-RR-R20"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <color key="textColor" name="blue_blue"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="c5R-Px-p4w" firstAttribute="leading" secondItem="i75-0Q-koA" secondAttribute="leading" constant="20" symbolic="YES" id="1Kd-6t-9fn"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="c5R-Px-p4w" secondAttribute="trailing" constant="20" symbolic="YES" id="71Y-Ia-Uh7"/>
-                                                                        <constraint firstItem="c5R-Px-p4w" firstAttribute="top" secondItem="i75-0Q-koA" secondAttribute="top" constant="7" id="Ad1-8C-NCZ"/>
-                                                                        <constraint firstAttribute="width" constant="87" id="IIx-c2-ekp"/>
-                                                                        <constraint firstAttribute="height" constant="34" id="pDj-h2-LSg"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="c5R-Px-p4w" secondAttribute="bottom" constant="6" id="zLV-w0-UCn"/>
-                                                                    </constraints>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                            <real key="value" value="6"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xta-E7-H59" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
-                                                                    <rect key="frame" x="194" y="12" width="87" height="34"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31 March" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh6-k9-4AG">
-                                                                            <rect key="frame" x="9" y="6" width="70" height="21"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="21" id="B0I-Q3-eRa"/>
-                                                                                <constraint firstAttribute="width" constant="70" id="oU7-nh-xEJ"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <color key="textColor" name="blue_blue"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="bottom" secondItem="gh6-k9-4AG" secondAttribute="bottom" constant="7" id="0Ia-bz-yrB"/>
-                                                                        <constraint firstAttribute="height" constant="34" id="ClB-Za-RsJ"/>
-                                                                        <constraint firstItem="gh6-k9-4AG" firstAttribute="top" secondItem="xta-E7-H59" secondAttribute="top" constant="6" id="KTg-AM-cjI"/>
-                                                                        <constraint firstAttribute="width" constant="87" id="dLm-ic-PcG"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="gh6-k9-4AG" secondAttribute="trailing" constant="8" id="dT6-4w-alZ"/>
-                                                                        <constraint firstItem="gh6-k9-4AG" firstAttribute="leading" secondItem="xta-E7-H59" secondAttribute="leading" constant="9" id="vKt-SZ-OIT"/>
-                                                                    </constraints>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                            <real key="value" value="6"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </view>
+                                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="Kdq-bl-6AJ">
+                                                                    <rect key="frame" x="189" y="9" width="193" height="40"/>
+                                                                    <locale key="locale" localeIdentifier="en_ID"/>
+                                                                </datePicker>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="xta-E7-H59" secondAttribute="bottom" constant="12" id="3JD-H9-etI"/>
-                                                                <constraint firstItem="i75-0Q-koA" firstAttribute="top" secondItem="Pp5-VK-pML" secondAttribute="top" constant="12" id="aZf-ZO-4cd"/>
-                                                                <constraint firstItem="xta-E7-H59" firstAttribute="top" secondItem="Pp5-VK-pML" secondAttribute="top" constant="12" id="bTE-vh-DGP"/>
-                                                                <constraint firstAttribute="bottom" secondItem="i75-0Q-koA" secondAttribute="bottom" constant="12" id="dyT-gX-AFE"/>
-                                                                <constraint firstItem="i75-0Q-koA" firstAttribute="leading" secondItem="xta-E7-H59" secondAttribute="trailing" constant="6" id="h12-fs-DAu"/>
-                                                                <constraint firstAttribute="trailing" secondItem="i75-0Q-koA" secondAttribute="trailing" constant="16" id="rl8-ik-Rbq"/>
+                                                                <constraint firstAttribute="bottom" secondItem="9n5-Eq-rgJ" secondAttribute="bottom" constant="18" id="GK7-g5-5zA"/>
+                                                                <constraint firstItem="Kdq-bl-6AJ" firstAttribute="top" secondItem="Pp5-VK-pML" secondAttribute="top" constant="9" id="GiD-Vx-4Bx"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Kdq-bl-6AJ" secondAttribute="bottom" constant="9" id="J4y-Sp-g5g"/>
+                                                                <constraint firstItem="9n5-Eq-rgJ" firstAttribute="leading" secondItem="Pp5-VK-pML" secondAttribute="leading" constant="-8" id="kcE-sO-jul"/>
+                                                                <constraint firstItem="9n5-Eq-rgJ" firstAttribute="top" secondItem="Pp5-VK-pML" secondAttribute="top" constant="18" id="nu3-9r-UP8"/>
+                                                                <constraint firstItem="Kdq-bl-6AJ" firstAttribute="leading" secondItem="9n5-Eq-rgJ" secondAttribute="trailing" constant="41" id="pmA-2a-gdv"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Kdq-bl-6AJ" secondAttribute="trailing" constant="8" id="soB-be-daQ"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -152,6 +102,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="Af2-L3-xfO" secondAttribute="bottom" id="orp-mZ-UoG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datePicker" destination="Kdq-bl-6AJ" id="aBa-6k-8bX"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="medicineButton" rowHeight="96" id="lIR-qB-idW">
                                         <rect key="frame" x="0.0" y="129" width="390" height="96"/>
@@ -642,9 +595,6 @@
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="blue_blue">
-            <color red="0.12941176470588237" green="0.29019607843137257" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="charcoal_grey">
             <color red="0.7686274509803922" green="0.7686274509803922" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
