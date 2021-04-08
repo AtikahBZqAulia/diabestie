@@ -84,6 +84,8 @@
 		D4C34DA2261C51B900CAC02B /* EntryDataTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C34DA1261C51B900CAC02B /* EntryDataTableCell.xib */; };
 		D4E2595C261D747600F1802D /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E2595B261D747600F1802D /* Calendar.storyboard */; };
 		D4E2595F261D754A00F1802D /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2595E261D754900F1802D /* CalendarController.swift */; };
+		E825C0B8261E93FC00D2B51D /* FoodEmptyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E825C0B7261E93FC00D2B51D /* FoodEmptyTableCell.swift */; };
+		E825C0BB261E943700D2B51D /* FoodEmptyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E825C0BA261E943700D2B51D /* FoodEmptyTableCell.xib */; };
 		F700649B26185E0200300E70 /* FoodIntakeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700649A26185E0200300E70 /* FoodIntakeDetailViewController.swift */; };
 		F70064A126185E2B00300E70 /* FoodIntakeDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */; };
 		F70F8554261779D0009FED50 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F70F8553261779D0009FED50 /* SFProText-Regular.ttf */; };
@@ -180,6 +182,8 @@
 		D4C34DA1261C51B900CAC02B /* EntryDataTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntryDataTableCell.xib; sourceTree = "<group>"; };
 		D4E2595B261D747600F1802D /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		D4E2595E261D754900F1802D /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		E825C0B7261E93FC00D2B51D /* FoodEmptyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEmptyTableCell.swift; sourceTree = "<group>"; };
+		E825C0BA261E943700D2B51D /* FoodEmptyTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodEmptyTableCell.xib; sourceTree = "<group>"; };
 		F700649A26185E0200300E70 /* FoodIntakeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIntakeDetailViewController.swift; sourceTree = "<group>"; };
 		F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIntakeDetailTableCell.swift; sourceTree = "<group>"; };
 		F70F8553261779D0009FED50 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFProText-Regular.ttf"; path = "Diabestie/Resources/Fonts/SFProText-Regular.ttf"; sourceTree = SOURCE_ROOT; };
@@ -407,6 +411,7 @@
 		BCC764BC261AE3DB00306229 /* Food */ = {
 			isa = PBXGroup;
 			children = (
+				E825C0B6261E93E200D2B51D /* TableCell */,
 				BCC764F6261AEE9800306229 /* AddFoodDiaryViewController.swift */,
 				BCC764F3261AEE8500306229 /* SearchFoodViewController.swift */,
 			);
@@ -649,6 +654,15 @@
 			path = "Medicine List Cell";
 			sourceTree = "<group>";
 		};
+		E825C0B6261E93E200D2B51D /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				E825C0B7261E93FC00D2B51D /* FoodEmptyTableCell.swift */,
+				E825C0BA261E943700D2B51D /* FoodEmptyTableCell.xib */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
 		F700649E26185E0D00300E70 /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +761,7 @@
 				BCC7CD1A260B098D009A7837 /* Colors.xcassets in Resources */,
 				F70F8554261779D0009FED50 /* SFProText-Regular.ttf in Resources */,
 				D4E2595C261D747600F1802D /* Calendar.storyboard in Resources */,
+				E825C0BB261E943700D2B51D /* FoodEmptyTableCell.xib in Resources */,
 				F7A1783D261C4FE30040B650 /* SFProText-Medium.ttf in Resources */,
 				D4C34DA2261C51B900CAC02B /* EntryDataTableCell.xib in Resources */,
 				BCCDCFC02614850700602352 /* repositories in Resources */,
@@ -834,6 +849,7 @@
 				D4E2595F261D754A00F1802D /* CalendarController.swift in Sources */,
 				F7E9CCA62619FBD700497E13 /* MedicineDiaryViewController.swift in Sources */,
 				BC560EE0261B6E07009A9A7E /* BarChartPresenter.swift in Sources */,
+				E825C0B8261E93FC00D2B51D /* FoodEmptyTableCell.swift in Sources */,
 				BCB77131261C463E00255805 /* Int+Extension.swift in Sources */,
 				BCC764CE261AEA7500306229 /* BloodSugarSelectDateVC.swift in Sources */,
 				BC6F4FBE261580D600643603 /* UIView+Extension.swift in Sources */,
