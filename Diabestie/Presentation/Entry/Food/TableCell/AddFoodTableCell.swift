@@ -36,7 +36,7 @@ class AddFoodTableCell: UITableViewCell{
             stepperValue.text = "\(value + 1)"
         }
     }
-    
+
     @IBAction func decrement2(_ sender: UIButton) {
         if let value = Int(stepperValue.text ?? "1") {
             if value - 1 <= 0 {

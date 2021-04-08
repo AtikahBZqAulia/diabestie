@@ -535,7 +535,7 @@
                                                                 <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="increment2:" destination="AKP-LD-LgV" eventType="touchUpInside" id="lP9-qM-4Gy"/>
+                                                                <action selector="increment2:" destination="AKP-LD-LgV" eventType="touchUpInside" id="Agj-aq-mbv"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7G8-bz-kTf">
@@ -549,7 +549,7 @@
                                                                 <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="decrement2:" destination="AKP-LD-LgV" eventType="touchUpInside" id="eGv-G2-4zl"/>
+                                                                <action selector="decrement2:" destination="AKP-LD-LgV" eventType="touchUpInside" id="9P6-3p-gwR"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YK-DV-7pP">
@@ -602,7 +602,7 @@
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="addFood:" destination="AKP-LD-LgV" eventType="touchUpInside" id="MTk-pf-BBG"/>
+                                                                <action selector="addFood:" destination="AKP-LD-LgV" eventType="touchUpInside" id="c6n-xW-296"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
