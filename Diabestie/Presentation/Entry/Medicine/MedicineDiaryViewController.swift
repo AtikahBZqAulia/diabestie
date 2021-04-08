@@ -11,6 +11,8 @@ class MedicineDiaryViewController: UIViewController {
 
     @IBOutlet weak var medicineTableView: UITableView!
     
+    
+    var categoryList = ["After Breakfast", "After Lunch", "After Dinner"]
     var names: [String] = []
     var times: [Int] = []
     
@@ -70,5 +72,31 @@ extension MedicineDiaryViewController: UITableViewDataSource {
         let separatorView = UIView(frame: CGRect(x: medicineTableView.separatorInset.left, y: 0, width: 390, height: 0.5))
         separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
         cell.contentView.addSubview(separatorView)
+    }
+}
+
+extension MedicineDiaryViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
+    
+    func createPickerView() {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        <#code#>
     }
 }

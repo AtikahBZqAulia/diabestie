@@ -8,17 +8,21 @@
 import UIKit
 
 class InformationTableCell: UITableViewCell {
-
+    
+    @IBOutlet weak var categoryField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    static let identifier = "informationSection"
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        datePicker.tintColor = #colorLiteral(red: 0.1294117647, green: 0.2901960784, blue: 0.7803921569, alpha: 1)
-        
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
 
 }
