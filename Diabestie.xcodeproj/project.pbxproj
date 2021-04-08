@@ -62,7 +62,6 @@
 		BCC764E4261AECFF00306229 /* FoodIntakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC764E3261AECFF00306229 /* FoodIntakeViewController.swift */; };
 		BCC764EE261AEE3F00306229 /* MedicineIntakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC764E9261AED6F00306229 /* MedicineIntakeViewController.swift */; };
 		BCC764EF261AEE3F00306229 /* MedicineListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC764EB261AED6F00306229 /* MedicineListViewController.swift */; };
-		BCC764F0261AEE3F00306229 /* MedicineCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC764EC261AEDBD00306229 /* MedicineCreateViewController.swift */; };
 		BCC764F1261AEE3F00306229 /* MedicineIntakeDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC764EA261AED6F00306229 /* MedicineIntakeDataViewController.swift */; };
 		BCC764F4261AEE8500306229 /* SearchFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC764F3261AEE8500306229 /* SearchFoodViewController.swift */; };
 		BCC764F7261AEE9800306229 /* AddFoodDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC764F6261AEE9800306229 /* AddFoodDiaryViewController.swift */; };
@@ -97,6 +96,9 @@
 		F70F855F26177E99009FED50 /* BloodSugarDataTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70F855D26177E99009FED50 /* BloodSugarDataTableCell.xib */; };
 		F71D69BA261C8BB100F406E2 /* ChosenMedicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D69B9261C8BB100F406E2 /* ChosenMedicine.swift */; };
 		F748EF30261EC56300BA604A /* InformationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748EF2F261EC56300BA604A /* InformationTableCell.swift */; };
+		F748EF39261ED11A00BA604A /* MedicineCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F748EF38261ED11A00BA604A /* MedicineCreateViewController.swift */; };
+		F75D8E45261F3EA8005F49E8 /* InputMedicineNameTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75D8E44261F3EA8005F49E8 /* InputMedicineNameTableCell.swift */; };
+		F75D8E49261F3EC0005F49E8 /* MedicineFrequencyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75D8E48261F3EC0005F49E8 /* MedicineFrequencyTableCell.swift */; };
 		F75FEB76261998D60091702D /* CalculatedFoodTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FEB75261998D60091702D /* CalculatedFoodTableCell.swift */; };
 		F7A1783D261C4FE30040B650 /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7A1783C261C4FE30040B650 /* SFProText-Medium.ttf */; };
 		F7E9CCA62619FBD700497E13 /* MedicineDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E9CCA52619FBD700497E13 /* MedicineDiaryViewController.swift */; };
@@ -164,7 +166,6 @@
 		BCC764E9261AED6F00306229 /* MedicineIntakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineIntakeViewController.swift; sourceTree = "<group>"; };
 		BCC764EA261AED6F00306229 /* MedicineIntakeDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineIntakeDataViewController.swift; sourceTree = "<group>"; };
 		BCC764EB261AED6F00306229 /* MedicineListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListViewController.swift; sourceTree = "<group>"; };
-		BCC764EC261AEDBD00306229 /* MedicineCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCreateViewController.swift; sourceTree = "<group>"; };
 		BCC764F3261AEE8500306229 /* SearchFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodViewController.swift; sourceTree = "<group>"; };
 		BCC764F6261AEE9800306229 /* AddFoodDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodDiaryViewController.swift; sourceTree = "<group>"; };
 		BCC76500261AEEEF00306229 /* AddBloodSugarDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBloodSugarDiaryViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +200,9 @@
 		F70F855D26177E99009FED50 /* BloodSugarDataTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BloodSugarDataTableCell.xib; sourceTree = "<group>"; };
 		F71D69B9261C8BB100F406E2 /* ChosenMedicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenMedicine.swift; sourceTree = "<group>"; };
 		F748EF2F261EC56300BA604A /* InformationTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableCell.swift; sourceTree = "<group>"; };
+		F748EF38261ED11A00BA604A /* MedicineCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCreateViewController.swift; sourceTree = "<group>"; };
+		F75D8E44261F3EA8005F49E8 /* InputMedicineNameTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMedicineNameTableCell.swift; sourceTree = "<group>"; };
+		F75D8E48261F3EC0005F49E8 /* MedicineFrequencyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineFrequencyTableCell.swift; sourceTree = "<group>"; };
 		F75FEB75261998D60091702D /* CalculatedFoodTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedFoodTableCell.swift; sourceTree = "<group>"; };
 		F7A1783C261C4FE30040B650 /* SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFProText-Medium.ttf"; path = "Diabestie/Resources/Fonts/SFProText-Medium.ttf"; sourceTree = SOURCE_ROOT; };
 		F7E9CCA52619FBD700497E13 /* MedicineDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDiaryViewController.swift; sourceTree = "<group>"; };
@@ -461,13 +465,14 @@
 		BCC764C1261AE41000306229 /* Medicine */ = {
 			isa = PBXGroup;
 			children = (
+				F75D8E43261F3E77005F49E8 /* Medicine Create Cell */,
 				BCE25E60261DF511004D6474 /* Medicine List Cell */,
 				BC6DF1E4261D7C550085A947 /* Medicine Intake Data Cell */,
 				BC238057261D785700360EF0 /* Medicine Intake Cell */,
 				BCC764E9261AED6F00306229 /* MedicineIntakeViewController.swift */,
 				BCC764EA261AED6F00306229 /* MedicineIntakeDataViewController.swift */,
-				BCC764EC261AEDBD00306229 /* MedicineCreateViewController.swift */,
 				BCC764EB261AED6F00306229 /* MedicineListViewController.swift */,
+				F748EF38261ED11A00BA604A /* MedicineCreateViewController.swift */,
 			);
 			path = Medicine;
 			sourceTree = "<group>";
@@ -695,6 +700,15 @@
 			path = "Table Cell";
 			sourceTree = "<group>";
 		};
+		F75D8E43261F3E77005F49E8 /* Medicine Create Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F75D8E44261F3EA8005F49E8 /* InputMedicineNameTableCell.swift */,
+				F75D8E48261F3EC0005F49E8 /* MedicineFrequencyTableCell.swift */,
+			);
+			path = "Medicine Create Cell";
+			sourceTree = "<group>";
+		};
 		F7E9CCAE2619FC3A00497E13 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +848,7 @@
 				E825C0BE261E9C5C00D2B51D /* ChosenFood.swift in Sources */,
 				BCC76503261AEF0E00306229 /* AddBloodSugarDiaryViewController.swift in Sources */,
 				BCC76506261AEF4F00306229 /* AddMedicineDiaryViewController.swift in Sources */,
+				F75D8E45261F3EA8005F49E8 /* InputMedicineNameTableCell.swift in Sources */,
 				BC377470261D5DA300A01448 /* FoodIntakeInfoCell.swift in Sources */,
 				BC6F4FCF2615835500643603 /* AddDiaryTableCell copy.swift in Sources */,
 				BC6DF1EB261D8C030085A947 /* FoodIntakeDataCell.swift in Sources */,
@@ -844,6 +859,7 @@
 				BCC764EF261AEE3F00306229 /* MedicineListViewController.swift in Sources */,
 				BC68A5D1260B09040007F846 /* AppDelegate.swift in Sources */,
 				F7E9CCB22619FC6000497E13 /* EmptyTableCell.swift in Sources */,
+				F748EF39261ED11A00BA604A /* MedicineCreateViewController.swift in Sources */,
 				BC560ED2261B6D5B009A9A7E /* BarChartEntry.swift in Sources */,
 				BCBBD01726148698008E56F4 /* NotificationCenter+Delegate.swift in Sources */,
 				BCDE8A3B260E07A800E5E193 /* UIImage+Extension.swift in Sources */,
@@ -883,6 +899,7 @@
 				BC8832792615BBDB003CC151 /* HorizontalCalendar.swift in Sources */,
 				BC377469261D5D8900A01448 /* FoodSugarIntakeChartCell.swift in Sources */,
 				BC560EDD261B6DCF009A9A7E /* Array+Extension.swift in Sources */,
+				F75D8E49261F3EC0005F49E8 /* MedicineFrequencyTableCell.swift in Sources */,
 				BC8832752615B7CE003CC151 /* HistoryViewController.swift in Sources */,
 				BC88327C2615BC09003CC151 /* Date+Extension.swift in Sources */,
 				F71D69BA261C8BB100F406E2 /* ChosenMedicine.swift in Sources */,
@@ -890,7 +907,6 @@
 				BC23805D261D787D00360EF0 /* MedicineIntakeInfoCell.swift in Sources */,
 				BC6F4FD32615836C00643603 /* DiaryHistoryTableCell.swift in Sources */,
 				BC238060261D788B00360EF0 /* MedicineIntakeOptionCell.swift in Sources */,
-				BCC764F0261AEE3F00306229 /* MedicineCreateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
