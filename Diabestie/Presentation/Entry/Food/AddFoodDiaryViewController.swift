@@ -23,6 +23,10 @@ class AddFoodDiaryViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func backPage(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 
