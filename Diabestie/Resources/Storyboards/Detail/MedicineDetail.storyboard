@@ -239,6 +239,9 @@
                     <navigationItem key="navigationItem" title="Medicine" largeTitleDisplayMode="never" id="W3g-48-3K2">
                         <barButtonItem key="rightBarButtonItem" image="calendar" catalog="system" id="NUi-dH-65l">
                             <color key="tintColor" name="blue_blue"/>
+                            <connections>
+                                <segue destination="0jT-Lv-sC8" kind="show" id="dI1-Ng-cCZ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -249,6 +252,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCq-9s-WSg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1102.8985507246377" y="737.94642857142856"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="lHp-dF-Zsm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="0jT-Lv-sC8" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Fso-Qj-jWH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gac-Ht-Gb7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1631" y="292"/>
         </scene>
         <!--Today, 9 March-->
         <scene sceneID="Nd8-7I-KjV">

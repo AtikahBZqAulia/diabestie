@@ -442,6 +442,9 @@
                     <navigationItem key="navigationItem" title="Blood Sugar" largeTitleDisplayMode="never" id="KbT-be-jnW">
                         <barButtonItem key="rightBarButtonItem" image="calendar" catalog="system" id="jQT-Kp-qiV">
                             <color key="tintColor" name="blue_blue"/>
+                            <connections>
+                                <segue destination="raX-nX-WIc" kind="show" id="8af-a1-MZH"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -452,6 +455,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48C-5y-kjc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1102.8985507246377" y="737.94642857142856"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="RkI-XH-AXh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="raX-nX-WIc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GFW-1G-7Mq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W3C-t0-9Ob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1638" y="230"/>
         </scene>
         <!--Blood Sugar Select DateVC-->
         <scene sceneID="l0I-HM-Hpb">
