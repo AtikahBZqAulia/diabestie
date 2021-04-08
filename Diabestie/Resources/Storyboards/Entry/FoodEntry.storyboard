@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -496,9 +497,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 mg sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="959-ld-s6n" userLabel="foodSugar">
-                                                            <rect key="frame" x="156" y="33" width="89" height="18"/>
+                                                            <rect key="frame" x="156" y="33" width="103" height="18"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="89" id="V8T-CB-v7q"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="V8T-CB-v7q"/>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="Y1o-3j-lkc"/>
                                                                 <constraint firstAttribute="height" constant="18" id="YWy-lh-Elp"/>
                                                             </constraints>
@@ -520,19 +521,127 @@
                                                         <constraint firstItem="88S-ij-H4j" firstAttribute="leading" secondItem="3wC-hr-MLT" secondAttribute="trailing" constant="1" id="t2a-b7-N7V"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lpr-ld-WtW" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
+                                                    <rect key="frame" x="278" y="15.666666666666664" width="100" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsn-KU-qio">
+                                                            <rect key="frame" x="74" y="4.0000000000000018" width="18" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="9ea-ZS-xg2"/>
+                                                                <constraint firstAttribute="width" constant="18" id="SLm-Ov-6e0"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="17"/>
+                                                            <state key="normal" title="+">
+                                                                <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="increment2:" destination="AKP-LD-LgV" eventType="touchUpInside" id="lP9-qM-4Gy"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7G8-bz-kTf">
+                                                            <rect key="frame" x="8" y="4.0000000000000018" width="18" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="18" id="GNm-Ju-sJg"/>
+                                                                <constraint firstAttribute="height" constant="20" id="ekc-n3-K8d"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="17"/>
+                                                            <state key="normal" title="-">
+                                                                <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="decrement2:" destination="AKP-LD-LgV" eventType="touchUpInside" id="eGv-G2-4zl"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YK-DV-7pP">
+                                                            <rect key="frame" x="44" y="4.0000000000000018" width="22" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="bKr-NI-VH4"/>
+                                                                <constraint firstAttribute="width" constant="22" id="m9E-BL-arE"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="17"/>
+                                                            <color key="textColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="7G8-bz-kTf" firstAttribute="top" secondItem="Lpr-ld-WtW" secondAttribute="top" constant="4" id="0IQ-Fl-43v"/>
+                                                        <constraint firstAttribute="height" constant="29" id="18f-Ni-M45"/>
+                                                        <constraint firstItem="hsn-KU-qio" firstAttribute="top" secondItem="Lpr-ld-WtW" secondAttribute="top" constant="4" id="7NR-Lx-8Vz"/>
+                                                        <constraint firstItem="7G8-bz-kTf" firstAttribute="leading" secondItem="Lpr-ld-WtW" secondAttribute="leadingMargin" id="ANO-Lm-4LZ"/>
+                                                        <constraint firstItem="8YK-DV-7pP" firstAttribute="top" secondItem="Lpr-ld-WtW" secondAttribute="top" constant="4" id="Nhg-g1-79L"/>
+                                                        <constraint firstItem="hsn-KU-qio" firstAttribute="baseline" secondItem="8YK-DV-7pP" secondAttribute="firstBaseline" id="c2A-Cn-mjP"/>
+                                                        <constraint firstAttribute="bottom" secondItem="hsn-KU-qio" secondAttribute="bottom" constant="5" id="eRp-zS-BwK"/>
+                                                        <constraint firstItem="8YK-DV-7pP" firstAttribute="leading" secondItem="7G8-bz-kTf" secondAttribute="trailing" constant="18" id="hqW-Ah-PiR"/>
+                                                        <constraint firstItem="hsn-KU-qio" firstAttribute="leading" secondItem="8YK-DV-7pP" secondAttribute="trailing" constant="8" id="i2J-yB-iiF"/>
+                                                        <constraint firstItem="7G8-bz-kTf" firstAttribute="baseline" secondItem="hsn-KU-qio" secondAttribute="baseline" id="mBM-21-XKa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8YK-DV-7pP" secondAttribute="bottom" constant="4" id="q8B-5D-p8I"/>
+                                                        <constraint firstAttribute="bottom" secondItem="7G8-bz-kTf" secondAttribute="bottom" constant="5" id="ybR-h6-WOV"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="7.9000000000000004"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPP-hS-P05" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
+                                                    <rect key="frame" x="278" y="15.666666666666664" width="100" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJp-dv-bXK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="29"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="OQX-Q2-RFa"/>
+                                                                <constraint firstAttribute="height" constant="29" id="isq-oe-V0K"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                            <color key="tintColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            <state key="normal" title="Add">
+                                                                <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <imageReference key="image" image="plus" catalog="system" symbolScale="medium"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="addFood:" destination="AKP-LD-LgV" eventType="touchUpInside" id="MTk-pf-BBG"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="9NM-Da-l0j"/>
+                                                        <constraint firstAttribute="trailing" secondItem="MJp-dv-bXK" secondAttribute="trailing" id="AyZ-3b-jEr"/>
+                                                        <constraint firstItem="MJp-dv-bXK" firstAttribute="leading" secondItem="OPP-hS-P05" secondAttribute="leading" id="CLP-up-KVN"/>
+                                                        <constraint firstAttribute="height" constant="29" id="ZgN-GH-xjP"/>
+                                                        <constraint firstAttribute="bottom" secondItem="MJp-dv-bXK" secondAttribute="bottom" id="eJd-yY-hrE"/>
+                                                        <constraint firstItem="MJp-dv-bXK" firstAttribute="top" secondItem="OPP-hS-P05" secondAttribute="top" id="w28-EH-ctz"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="7.9000000000000004"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="UYD-c1-oFs" firstAttribute="centerY" secondItem="45L-dm-qTY" secondAttribute="centerY" id="Fl0-hj-DgQ"/>
+                                                <constraint firstItem="Lpr-ld-WtW" firstAttribute="leading" secondItem="OPP-hS-P05" secondAttribute="leading" id="L0K-50-jAm"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="UYD-c1-oFs" secondAttribute="trailing" constant="-12" id="NuO-iz-7eO"/>
                                                 <constraint firstItem="UYD-c1-oFs" firstAttribute="top" secondItem="45L-dm-qTY" secondAttribute="topMargin" constant="-11" id="O2t-1S-Pxr"/>
+                                                <constraint firstItem="Lpr-ld-WtW" firstAttribute="top" secondItem="OPP-hS-P05" secondAttribute="top" id="VSe-Jr-Whn"/>
+                                                <constraint firstItem="Lpr-ld-WtW" firstAttribute="centerY" secondItem="UYD-c1-oFs" secondAttribute="centerY" id="XMO-Qf-TZE"/>
+                                                <constraint firstItem="Lpr-ld-WtW" firstAttribute="trailing" secondItem="OPP-hS-P05" secondAttribute="trailing" id="eSh-5a-14E"/>
                                                 <constraint firstItem="UYD-c1-oFs" firstAttribute="leading" secondItem="45L-dm-qTY" secondAttribute="leadingMargin" constant="-20" id="pjy-0W-HEU"/>
+                                                <constraint firstItem="Lpr-ld-WtW" firstAttribute="trailing" secondItem="45L-dm-qTY" secondAttribute="trailingMargin" id="q10-kc-VWp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addButtonView" destination="OPP-hS-P05" id="ZjL-OM-CCi"/>
                                             <outlet property="foodCal" destination="YU3-8P-Wb0" id="MfW-PV-18o"/>
                                             <outlet property="foodGram" destination="3wC-hr-MLT" id="RIv-Fb-96b"/>
                                             <outlet property="foodName" destination="7dP-W3-SXu" id="Xyn-FG-fhj"/>
                                             <outlet property="foodSugar" destination="959-ld-s6n" id="7hE-jV-Z8j"/>
+                                            <outlet property="stepperValue" destination="8YK-DV-7pP" id="QEk-wp-fl2"/>
+                                            <outlet property="stepperView" destination="Lpr-ld-WtW" id="Kpt-Ct-Jx0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -554,6 +663,7 @@
     </scenes>
     <resources>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="blue_blue">
             <color red="0.12941176470588237" green="0.29019607843137257" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

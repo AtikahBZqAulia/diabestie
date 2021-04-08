@@ -31,13 +31,13 @@ class AddFoodTableCell: UITableViewCell{
     }
     
     
-    @IBAction func increment(_ sender: UIButton) {
+    @IBAction func increment2(_ sender: UIButton) {
         if let value = Int(stepperValue.text ?? "1") {
             stepperValue.text = "\(value + 1)"
         }
     }
     
-    @IBAction func decrement(_ sender: UIButton) {
+    @IBAction func decrement2(_ sender: UIButton) {
         if let value = Int(stepperValue.text ?? "1") {
             if value - 1 <= 0 {
                 addButtonView.isHidden = false
@@ -48,7 +48,6 @@ class AddFoodTableCell: UITableViewCell{
             }
         }
     }
-    
     
     @IBAction func addFood(_ sender: UIButton) {
         addButtonView.isHidden = true
