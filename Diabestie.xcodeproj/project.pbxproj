@@ -86,6 +86,7 @@
 		D4E2595F261D754A00F1802D /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2595E261D754900F1802D /* CalendarController.swift */; };
 		E825C0B8261E93FC00D2B51D /* FoodEmptyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E825C0B7261E93FC00D2B51D /* FoodEmptyTableCell.swift */; };
 		E825C0BB261E943700D2B51D /* FoodEmptyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E825C0BA261E943700D2B51D /* FoodEmptyTableCell.xib */; };
+		E825C0BE261E9C5C00D2B51D /* ChosenFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E825C0BD261E9C5C00D2B51D /* ChosenFood.swift */; };
 		F700649B26185E0200300E70 /* FoodIntakeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700649A26185E0200300E70 /* FoodIntakeDetailViewController.swift */; };
 		F70064A126185E2B00300E70 /* FoodIntakeDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */; };
 		F70F8554261779D0009FED50 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F70F8553261779D0009FED50 /* SFProText-Regular.ttf */; };
@@ -184,6 +185,7 @@
 		D4E2595E261D754900F1802D /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		E825C0B7261E93FC00D2B51D /* FoodEmptyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEmptyTableCell.swift; sourceTree = "<group>"; };
 		E825C0BA261E943700D2B51D /* FoodEmptyTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodEmptyTableCell.xib; sourceTree = "<group>"; };
+		E825C0BD261E9C5C00D2B51D /* ChosenFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenFood.swift; sourceTree = "<group>"; };
 		F700649A26185E0200300E70 /* FoodIntakeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIntakeDetailViewController.swift; sourceTree = "<group>"; };
 		F700649F26185E2B00300E70 /* FoodIntakeDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodIntakeDetailTableCell.swift; sourceTree = "<group>"; };
 		F70F8553261779D0009FED50 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFProText-Regular.ttf"; path = "Diabestie/Resources/Fonts/SFProText-Regular.ttf"; sourceTree = SOURCE_ROOT; };
@@ -659,6 +661,7 @@
 			children = (
 				E825C0B7261E93FC00D2B51D /* FoodEmptyTableCell.swift */,
 				E825C0BA261E943700D2B51D /* FoodEmptyTableCell.xib */,
+				E825C0BD261E9C5C00D2B51D /* ChosenFood.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				BCC764DF261AECE200306229 /* FoodIntakeDataViewController.swift in Sources */,
 				BCE25E62261DF528004D6474 /* MedicineListCell.swift in Sources */,
 				BC560ECF261B6D44009A9A7E /* BarChart.swift in Sources */,
+				E825C0BE261E9C5C00D2B51D /* ChosenFood.swift in Sources */,
 				BCC76503261AEF0E00306229 /* AddBloodSugarDiaryViewController.swift in Sources */,
 				BCC76506261AEF4F00306229 /* AddMedicineDiaryViewController.swift in Sources */,
 				BC377470261D5DA300A01448 /* FoodIntakeInfoCell.swift in Sources */,
