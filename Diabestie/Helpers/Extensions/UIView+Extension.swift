@@ -32,6 +32,39 @@ class ExtendedNavBarView: UIView {
 
 extension UIView {
     
+    
+    enum Corners {
+        case topLeft
+        case topRight
+        case bottomLeft
+        case bottomRight
+    }
+    
+    func roundedCorners(_ corners: [Corners], radius: CGFloat) {
+        
+        var caCornerMask : CACornerMask = .init()
+
+        for data in corners {
+            if data == Corners.topLeft {
+                caCornerMask.insert(.layerMaxXMinYCorner)
+            }
+            if data == Corners.topRight {
+                caCornerMask.insert(.layerMinXMinYCorner)
+            }
+            if data == Corners.bottomLeft {
+                caCornerMask.insert(.layerMaxXMaxYCorner)
+            }
+            if data == Corners.bottomRight {
+                caCornerMask.insert(.layerMinXMaxYCorner)
+            }
+        }
+                
+        self.clipsToBounds = true
+        self.layer.cornerRadius = radius
+        self.layer.maskedCorners = caCornerMask
+    
+    }
+    
     func addTransitionSlide(type: CATransitionType, position: CATransitionSubtype) {
         let transition = CATransition()
         transition.type = type

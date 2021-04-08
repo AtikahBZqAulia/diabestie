@@ -9,21 +9,43 @@ import UIKit
 
 class FoodIntakeDataViewController: UIViewController {
 
+    let food = ["","","Pisang", "Nasi", "Marugame", "Boba" , "Kol Goreng"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+
+}
+
+extension FoodIntakeDataViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
 
-    /*
-    // MARK: - Navigation
+        let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = .systemFont(ofSize: 18, weight: .regular)
+        header.textLabel?.textColor = .charcoalGrey
+        header.textLabel?.text =  header.textLabel?.text?.capitalized
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String?
+    {
+        return "FOOD ENTRIES"
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return food.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let dataCell = tableView.dequeueReusableCell(withIdentifier: FoodIntakeDataCell.cellIdentifier(), for: indexPath) as? FoodIntakeDataCell {
+            return dataCell
+        }
+        else {
+            return UITableViewCell()
+        }
+    }
+    
 }

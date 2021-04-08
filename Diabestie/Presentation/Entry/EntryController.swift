@@ -9,23 +9,36 @@ import UIKit
 class EntryController: UIViewController {
 
     @IBOutlet weak var EntryCategoryView: UITableView!
-    //data dummy
+    @IBOutlet weak var CancelAction: UIBarButtonItem!
+    //data entry
     let titleEntry = ["Blood Sugar", "Food", "Medicine"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Select Entry Category"
         EntryCategoryView.dataSource = self
+        EntryCategoryView.delegate = self
         EntryCategoryView.register(UINib(nibName: "EntryDataTableCell", bundle: nil), forCellReuseIdentifier: "EDataCell")
-        // Do any additional setup after loading the view.
+        
+        /**CANCEL BUTTON NOT USED
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(backAction))**/
     }
+    
+ 
+    @IBAction func CancelPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
-extension EntryController: UITableViewDataSource {
+extension EntryController: UITableViewDataSource, UITableViewDelegate {
+    //DECLEARE FUNCTION FOR NUMBER OF ROWS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleEntry.count
     }
     
+    //DECLARE FUNCTION FOR GENERATE VIEW OF TABLE CELL
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let dataCell = EntryCategoryView.dequeueReusableCell(withIdentifier: "EDataCell", for: indexPath) as? EntryDataTableCell {
             
@@ -53,6 +66,24 @@ extension EntryController: UITableViewDataSource {
         }
     }
     
+    //DECLEARE FUNCTION FOR SELECT ON ROW
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let storyboardFood = UIStoryboard.init(name: "FoodEntry", bundle: nil)
+        let storyboardMedicine = UIStoryboard.init(name: "MedicineEntry", bundle: nil)
+        let storyboardBloodSugar = UIStoryboard.init(name: "BloodSugarEntry", bundle: nil)
+        switch indexPath.row {
+            case 0:
+                let viewBloodSugarEntry = storyboardBloodSugar.instantiateViewController(identifier: "AddBloodSugarDiaryViewController")
+                self.navigationController?.pushViewController(viewBloodSugarEntry, animated: true)
+            case titleEntry.count - 1:
+                let viewMedicineEntry = storyboardMedicine.instantiateViewController(identifier: "AddMedicineEntry")
+                self.navigationController?.pushViewController(viewMedicineEntry, animated: true)
+            default:
+                let viewFoodEntry = storyboardFood.instantiateViewController(identifier: "AddFoodDiaryViewController")
+                self.navigationController?.pushViewController(viewFoodEntry, animated: true)
+        }
+    }
+    //DECLEARE FUNCTION FOR DATA CELL
     private func setBorder(_ dataCell:EntryDataTableCell  , _ left: CACornerMask, _ right: CACornerMask) -> Void {
         dataCell.clipsToBounds = true
         dataCell.layer.cornerRadius = 10

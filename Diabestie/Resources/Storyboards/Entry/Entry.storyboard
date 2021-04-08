@@ -16,20 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="2" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="b82-dQ-8Wt" userLabel="Entry Category View">
-                                <rect key="frame" x="24" y="102" width="343" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="2" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="b82-dQ-8Wt" userLabel="Entry Category View">
+                                <rect key="frame" x="16" y="76" width="358" height="680"/>
                                 <color key="backgroundColor" name="gray_background"/>
                                 <sections/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="js7-Hb-gK3"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="js7-Hb-gK3" firstAttribute="bottom" secondItem="b82-dQ-8Wt" secondAttribute="bottom" id="4ws-Hc-TC2"/>
+                            <constraint firstItem="b82-dQ-8Wt" firstAttribute="top" secondItem="js7-Hb-gK3" secondAttribute="top" constant="20" id="6Z8-iH-e21"/>
+                            <constraint firstItem="js7-Hb-gK3" firstAttribute="trailing" secondItem="b82-dQ-8Wt" secondAttribute="trailing" constant="16" id="Gdu-Zx-2zU"/>
+                            <constraint firstItem="b82-dQ-8Wt" firstAttribute="leading" secondItem="js7-Hb-gK3" secondAttribute="leading" constant="16" id="x7h-nK-PMr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Entry Category" leftItemsSupplementBackButton="YES" id="8rs-f3-OGa">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="GVP-Z3-gdV"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="GVP-Z3-gdV">
+                            <color key="tintColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="CancelPressed:" destination="Snc-Fb-3LP" id="EdR-ZE-xfd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="CancelAction" destination="GVP-Z3-gdV" id="sfj-5I-4Rg"/>
                         <outlet property="EntryCategoryView" destination="b82-dQ-8Wt" id="sNm-Hw-b3A"/>
                     </connections>
                 </viewController>
@@ -37,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="746" y="87"/>
         </scene>
-        <!--FoodEntry-->
+        <!--MedicineEntry-->
         <scene sceneID="lsx-ES-TQl">
             <objects>
-                <viewControllerPlaceholder storyboardName="FoodEntry" id="v4w-F1-jBC" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MedicineEntry" id="v4w-F1-jBC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="uvo-wd-0co"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9X-5x-PH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
