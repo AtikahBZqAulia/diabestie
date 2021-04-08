@@ -8,7 +8,7 @@
 import UIKit
 
 class AddBloodSugarDiaryViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,11 +50,18 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? AddBloodSugarTableCell else {
                 return UITableViewCell()
             }
+            addSeparator(cell, tableView: tableView)
             return cell
             
         default:
             return cell
         }
+    }
+    
+    private func addSeparator(_ cell: UITableViewCell, tableView: UITableView) -> Void {
+        let separatorView = UIView(frame: CGRect(x: tableView.separatorInset.left, y: 0, width: 390, height: 0.5))
+        separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
+        cell.contentView.addSubview(separatorView)
     }
     
 }
