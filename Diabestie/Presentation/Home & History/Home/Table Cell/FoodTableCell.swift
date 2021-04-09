@@ -10,6 +10,7 @@ import UIKit
 class FoodTableCell: UITableViewCell {
 
     static let identifier = "FoodTableCell"
+    static let emptyStateidentifier = "EmptyFoodHistoryTableCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,6 +10,7 @@ import UIKit
 class MedicineTableCell: UITableViewCell {
 
     static let identifier = "MedicineTableCell"
+    static let emptyStateidentifier = "EmptyMedicineHistoryTableCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

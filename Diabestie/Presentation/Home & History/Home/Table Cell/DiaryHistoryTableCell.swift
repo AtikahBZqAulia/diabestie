@@ -10,6 +10,7 @@ import UIKit
 class DiaryHistoryTableCell: UITableViewCell {
 
     static let identifier = "DiaryHistoryTableCell"
+    static let emptyStateidentifier = "EmptyDiaryHistoryTableCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
