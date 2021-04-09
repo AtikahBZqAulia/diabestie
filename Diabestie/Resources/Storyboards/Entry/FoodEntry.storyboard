@@ -384,32 +384,8 @@
                                 <rect key="frame" x="0.0" y="88" width="398" height="722"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" tag="10" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchFoods" rowHeight="56" id="ugw-xB-mMv">
-                                        <rect key="frame" x="0.0" y="28" width="398" height="56"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ugw-xB-mMv" id="wwc-oR-IPu">
-                                            <rect key="frame" x="0.0" y="0.0" width="398" height="56"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <searchBar tag="100" contentMode="redraw" text="" placeholder="Search foods" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-PP-Yd6">
-                                                    <rect key="frame" x="16" y="0.0" width="360" height="56"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <scopeButtonTitles>
-                                                        <string>Title</string>
-                                                        <string>Title</string>
-                                                    </scopeButtonTitles>
-                                                </searchBar>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="2IE-PP-Yd6" secondAttribute="bottom" id="F5K-Fq-AsZ"/>
-                                                <constraint firstItem="2IE-PP-Yd6" firstAttribute="top" secondItem="wwc-oR-IPu" secondAttribute="top" id="TiT-Iu-xd0"/>
-                                                <constraint firstAttribute="trailing" secondItem="2IE-PP-Yd6" secondAttribute="trailing" constant="22" id="nvZ-GV-3AW"/>
-                                                <constraint firstItem="2IE-PP-Yd6" firstAttribute="leading" secondItem="wwc-oR-IPu" secondAttribute="leading" constant="16" id="qUk-R5-o61"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Recents" rowHeight="60" id="Wie-qW-hs7">
-                                        <rect key="frame" x="0.0" y="84" width="398" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="398" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wie-qW-hs7" id="cQh-E5-fLR">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="60"/>
@@ -444,7 +420,7 @@
                                         <color key="backgroundColor" name="gray_background"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodList" rowHeight="60" id="AKP-LD-LgV" customClass="AddFoodTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="144" width="398" height="60"/>
+                                        <rect key="frame" x="0.0" y="88" width="398" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AKP-LD-LgV" id="45L-dm-qTY">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="60"/>

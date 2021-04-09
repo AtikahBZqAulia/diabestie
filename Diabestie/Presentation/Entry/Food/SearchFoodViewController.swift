@@ -6,16 +6,31 @@
 //
 
 import UIKit
-class SearchFoodViewController: UIViewController{
+
+struct Foods {
+    let foodname : String
+    let grams : String
+    let cal : String
+    let sugar : String
+}
+
+class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
+  
+    func updateSearchResults(for searchController: UISearchController) {
+        if !searchController.searchBar.text!.isEmpty {
+            filterText(searchController.searchBar.text!)
+        } else {
+            filteredData = self.foods
+            filtered = false
+            self.foodTableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
+        }
+    }
+    
     
     @IBOutlet weak var foodTableView: UITableView!
-        
-    struct Foods {
-        let foodname : String
-        let grams : String
-        let cal : String
-        let sugar : String
-    }
+    
+    var resultSearchController = UISearchController()
+
     
     var foods: [Foods] = []
     
@@ -35,6 +50,20 @@ class SearchFoodViewController: UIViewController{
         
         
         foodTableView.dataSource = self
+        
+        
+        resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            
+            foodTableView.tableHeaderView = controller.searchBar
+            
+            return controller
+        })()
+        
+        
 
     }
     
@@ -52,7 +81,7 @@ extension SearchFoodViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            return 2
+            return 1
         }
         
         if section == 1 {
@@ -70,15 +99,15 @@ extension SearchFoodViewController: UITableViewDataSource{
         
         if indexPath.section == 0 {
             
-            if indexPath.row == 0 {
-                let cell = foodTableView.dequeueReusableCell(withIdentifier: "searchFoods", for: indexPath)
-                
-                let searchView = cell.viewWithTag(100) as! UISearchBar
-                searchView.delegate = self
-                
-                return cell
-            }
-            else if indexPath.row == 1{
+//            if indexPath.row == 0 {
+//                let cell = foodTableView.dequeueReusableCell(withIdentifier: "searchFoods", for: indexPath)
+//
+//                let searchView = cell.viewWithTag(100) as! UISearchBar
+//                searchView.delegate = self
+//
+//                return cell
+//            }
+            if indexPath.row == 0{
                 let cell = foodTableView.dequeueReusableCell(withIdentifier: "Recents", for: indexPath)
                 return cell
             }
@@ -145,13 +174,7 @@ extension SearchFoodViewController: UISearchBarDelegate{
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if !searchText.isEmpty {
-            filterText(searchText)
-        } else {
-            filteredData = self.foods
-            filtered = false
-            self.foodTableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
-        }
+    
     }
 }
 
