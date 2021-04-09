@@ -384,16 +384,20 @@
                                 <rect key="frame" x="0.0" y="88" width="398" height="722"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchFoods" rowHeight="56" id="ugw-xB-mMv">
+                                    <tableViewCell clipsSubviews="YES" tag="10" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchFoods" rowHeight="56" id="ugw-xB-mMv">
                                         <rect key="frame" x="0.0" y="28" width="398" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ugw-xB-mMv" id="wwc-oR-IPu">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <searchBar contentMode="redraw" placeholder="Search foods" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-PP-Yd6">
+                                                <searchBar tag="100" contentMode="redraw" text="" placeholder="Search foods" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-PP-Yd6">
                                                     <rect key="frame" x="16" y="0.0" width="360" height="56"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <scopeButtonTitles>
+                                                        <string>Title</string>
+                                                        <string>Title</string>
+                                                    </scopeButtonTitles>
                                                 </searchBar>
                                             </subviews>
                                             <constraints>

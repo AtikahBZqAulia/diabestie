@@ -9,15 +9,33 @@ import UIKit
 class SearchFoodViewController: UIViewController{
     
     @IBOutlet weak var foodTableView: UITableView!
+        
+    struct Foods {
+        let foodname : String
+        let grams : String
+        let cal : String
+        let sugar : String
+    }
     
-    private let foodNames = ["Pisang", "Nasi", "Marugame", "Kol"]
-    private let Grams = ["100", "100", "60", "90"]
-    private let Cal = ["39", "130", "340", "40"]
-    private let Sugar = ["15", "30", "18", "35"]
+    var foods: [Foods] = []
+    
+    var filteredData = [Foods]()
+    var filtered = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        foods.append(Foods(foodname: "Pisang", grams: "100", cal: "39", sugar: "15"))
+        foods.append(Foods(foodname: "Nasi", grams: "10", cal: "10", sugar: "5"))
+        foods.append(Foods(foodname: "Marugame", grams: "20", cal: "10", sugar: "2"))
+        foods.append(Foods(foodname: "Kol", grams: "30", cal: "10", sugar: "3"))
+        
+        self.filteredData.append(contentsOf: foods)
+        
+        
         foodTableView.dataSource = self
+
     }
     
     @IBAction func backToPrevious(_ sender: UIBarButtonItem) {
@@ -26,38 +44,79 @@ class SearchFoodViewController: UIViewController{
 }
 
 extension SearchFoodViewController: UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodNames.count + 1
+        
+        if section == 0 {
+            return 2
+        }
+        
+        if section == 1 {
+            if !filteredData.isEmpty {
+                return filteredData.count
+            }
+            return filtered ? 0 : foods.count
+        }
+        
+        return 0
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = foodTableView.dequeueReusableCell(withIdentifier: "searchFoods", for: indexPath)
-            return cell
+        
+        if indexPath.section == 0 {
+            
+            if indexPath.row == 0 {
+                let cell = foodTableView.dequeueReusableCell(withIdentifier: "searchFoods", for: indexPath)
+                
+                let searchView = cell.viewWithTag(100) as! UISearchBar
+                searchView.delegate = self
+                
+                return cell
+            }
+            else if indexPath.row == 1{
+                let cell = foodTableView.dequeueReusableCell(withIdentifier: "Recents", for: indexPath)
+                return cell
+            }
+            
         }
-        else if indexPath.row == 1{
-            let cell = foodTableView.dequeueReusableCell(withIdentifier: "Recents", for: indexPath)
-            return cell
-        }
-        else {
+        
+        
+        if indexPath.section == 1 {
+            
             if let cell = foodTableView.dequeueReusableCell(withIdentifier: "foodList", for: indexPath) as? AddFoodTableCell
             {
                 
-                let select: Int = indexPath.row - 1
+                if !filteredData.isEmpty{
+                    let data = filteredData[indexPath.row]
+                    cell.foodName.text = "\(data.foodname)"
+                    cell.foodGram.text = "\(data.grams) g"
+                    cell.foodCal.text = "\(data.cal) kcal"
+                    cell.foodSugar.text = "\(data.sugar) mg sugar"
+                } else {
+                    let data = self.foods[indexPath.row]
+                    cell.foodName.text = "\(data.foodname)"
+                    cell.foodGram.text = "\(data.grams) g"
+                    cell.foodCal.text = "\(data.cal) kcal"
+                    cell.foodSugar.text = "\(data.sugar) mg sugar"
+                }
                 
-                cell.foodName.text = foodNames[select]
-                cell.foodGram.text = "\(Grams[select]) g"
-                cell.foodCal.text = "\(Cal[select]) kcal"
-                cell.foodSugar.text = "\(Sugar[select]) mg sugar"
-                if select != 0 && select != foodNames.count {
+                if indexPath.row != 0 && indexPath.row != self.foods.count {
                     addSeparator(cell)
                 }
+                
                 return cell
             }
-            else {
+            else{
                 return UITableViewCell()
             }
+            
         }
+        return UITableViewCell()
     }
     
     private func addSeparator(_ cell: UITableViewCell) -> Void {
@@ -67,6 +126,35 @@ extension SearchFoodViewController: UITableViewDataSource{
     }
     
 }
+
+extension SearchFoodViewController: UISearchBarDelegate{
+    
+    func filterText (_ query: String) {
+        
+        filteredData = []
+        for foodData in foods{
+            if foodData.foodname.lowercased().starts(with: query.lowercased()){
+                filteredData.append(foodData)
+            }
+        }
+        
+        print("Filtered data \(filteredData)")
+        
+        self.foodTableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
+        filtered = true
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+            filterText(searchText)
+        } else {
+            filteredData = self.foods
+            filtered = false
+            self.foodTableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
+        }
+    }
+}
+
 //class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
 //
 //
