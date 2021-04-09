@@ -9,9 +9,16 @@ import UIKit
 
 class AddBloodSugarDiaryViewController: UIViewController {
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //saveButton.isEnabled = false
 
+    }
+    
+    @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
+        self.popBack(2)
     }
 
 }
@@ -64,4 +71,20 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
         cell.contentView.addSubview(separatorView)
     }
     
+    private func popBack(_ nb: Int) {
+        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
+            guard viewControllers.count < nb else {
+                self.navigationController?.popToViewController(viewControllers[viewControllers.count - nb], animated: true)
+                return
+            }
+        }
+    }
+    
 }
+
+//extension AddBloodSugarDiaryViewController: addBloodSugarDelegate {
+//    func setSaveButtonStage(_ stage: Bool) {
+//
+//    }
+//
+//}
