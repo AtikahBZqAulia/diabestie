@@ -1,4 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="BloodSugarConstraints" representedClassName="BloodSugarConstraints" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="am_lower_bound" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="am_upper_bound" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="f_lower_bound" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="f_upper_bound" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Users"/>
+    </entity>
+    <entity name="BloodSugarEntries" representedClassName="BloodSugarEntries" syncable="YES" codeGenerationType="class"/>
+    <entity name="Devices" representedClassName="Devices" syncable="YES" codeGenerationType="class"/>
+    <entity name="FoodBasket" representedClassName="FoodBasket" syncable="YES" codeGenerationType="class"/>
+    <entity name="FoodEntries" representedClassName="FoodEntries" syncable="YES" codeGenerationType="class"/>
+    <entity name="FoodLibrary" representedClassName="FoodLibrary" syncable="YES" codeGenerationType="class"/>
+    <entity name="MedicineBasket" representedClassName="MedicineBasket" syncable="YES" codeGenerationType="class"/>
+    <entity name="MedicineEntries" representedClassName="MedicineEntries" syncable="YES" codeGenerationType="class"/>
+    <entity name="MedicineLibrary" representedClassName="MedicineLibrary" syncable="YES" codeGenerationType="class"/>
+    <entity name="Users" representedClassName="Users" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="first_name" optional="YES" attributeType="String"/>
+        <attribute name="last_name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="bloodsugarconstraint" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="BloodSugarConstraints"/>
+    </entity>
+    <elements>
+        <element name="BloodSugarConstraints" positionX="36" positionY="81" width="128" height="149"/>
+        <element name="BloodSugarEntries" positionX="-9" positionY="36" width="128" height="29"/>
+        <element name="Devices" positionX="-36" positionY="9" width="128" height="29"/>
+        <element name="FoodBasket" positionX="0" positionY="45" width="128" height="29"/>
+        <element name="FoodEntries" positionX="9" positionY="54" width="128" height="29"/>
+        <element name="FoodLibrary" positionX="18" positionY="63" width="128" height="29"/>
+        <element name="MedicineBasket" positionX="-63" positionY="-18" width="128" height="29"/>
+        <element name="MedicineEntries" positionX="-18" positionY="27" width="128" height="29"/>
+        <element name="MedicineLibrary" positionX="0" positionY="45" width="128" height="29"/>
+        <element name="Users" positionX="-54" positionY="-9" width="128" height="134"/>
+    </elements>
 </model>

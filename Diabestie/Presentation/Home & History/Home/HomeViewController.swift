@@ -9,8 +9,21 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    @IBAction func deleteAllLocalData(_ sender: Any) {
+        
+        CommonFunction.shared.showAlertWithCompletion(self, title: "Alert", message: "Delete all data?") {
+            CoreDataManager.sharedManager.deleteAllData()
+             self.tableView.reloadData()
+        } failureBlock: {
+            // no action yet
+        }
         
     }
     

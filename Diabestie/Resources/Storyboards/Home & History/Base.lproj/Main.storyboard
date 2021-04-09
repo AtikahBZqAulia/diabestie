@@ -797,12 +797,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="gray_background"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="x0Y-IJ-Dbx" secondAttribute="bottom" id="2Pz-r8-GmH"/>
                             <constraint firstItem="x0Y-IJ-Dbx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PVA-5E-yyR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x0Y-IJ-Dbx" secondAttribute="trailing" id="ca9-xW-moF"/>
                             <constraint firstItem="x0Y-IJ-Dbx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dVn-Jp-ieo"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="tF9-4l-CVV" appends="YES" id="5rN-GP-Yxf"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Diaries" largeTitleDisplayMode="always" id="puu-M2-mfc">
                         <barButtonItem key="rightBarButtonItem" image="clock.arrow.circlepath" catalog="system" id="Wsc-K7-DBl">
@@ -812,9 +816,17 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="x0Y-IJ-Dbx" id="oU5-6E-5jc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ThY-NV-VtX"/>
+                <tapGestureRecognizer numberOfTapsRequired="5" id="tF9-4l-CVV">
+                    <connections>
+                        <action selector="deleteAllLocalData:" destination="BYZ-38-t0r" id="qgF-zn-FTf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="110.49107142857143"/>
         </scene>
