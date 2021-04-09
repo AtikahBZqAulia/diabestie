@@ -14,6 +14,7 @@ class MedicineCreateViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.leftItemsSupplementBackButton = false
     }
 
 
