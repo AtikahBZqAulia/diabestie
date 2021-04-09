@@ -72,6 +72,22 @@ class CoreDataManager {
         saveContext()
     }
     
+    func preloadFoodLibraryData(){
+//        let baskets = NSMutableSet.init()
+//
+//        for _ in 1..<4 {
+//            let value = (arc4random() % 90) + 100
+//            let foodBasket = FoodBasketRepository.shared.addFoodBasket(qty: Int(value))
+//            baskets.add(foodBasket)
+//        }
+//       FoodEntryRepository.shared.addFoodEntry(eatTime: 1, foodBasket: baskets)
+//       FoodEntryRepository.shared.getAllFoodEntry()
+    }
+    
+    func preloadMedicineLibraryData(){
+        
+    }
+    
     func deleteAllData(){
         
         let storeCoordinator = persistentContainer.persistentStoreCoordinator

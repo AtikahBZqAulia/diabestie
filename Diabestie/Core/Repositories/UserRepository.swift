@@ -11,7 +11,8 @@ import CoreData
 class UserRepository {
     
     static let shared = UserRepository()
-    
+    let entityName = Users.self.description()
+
     func insertUser(email: String,
                     firstName: String,
                     lastName: String,
@@ -19,7 +20,7 @@ class UserRepository {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
-        guard let entity = NSEntityDescription.entity(forEntityName: "Users", in: context) else {
+        guard let entity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
             print("failed")
             return
         }

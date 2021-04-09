@@ -2,7 +2,7 @@
 //  BloodSugarConstraints+CoreDataProperties.swift
 //  Diabestie
 //
-//  Created by Dhiky Aldwiansyah on 08/04/21.
+//  Created by Dhiky Aldwiansyah on 09/04/21.
 //
 //
 
@@ -23,7 +23,7 @@ extension BloodSugarConstraints {
     @NSManaged public var f_lower_bound: Int32
     @NSManaged public var f_upper_bound: Int32
     @NSManaged public var updated_at: Date?
-    @NSManaged public var user: Users?
+    @NSManaged public var ofUser: Users?
 
 }
 

@@ -8,16 +8,61 @@
         <attribute name="f_lower_bound" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="f_upper_bound" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Users"/>
+        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Users" inverseName="bloodsugarconstraint" inverseEntity="Users"/>
     </entity>
-    <entity name="BloodSugarEntries" representedClassName="BloodSugarEntries" syncable="YES" codeGenerationType="class"/>
-    <entity name="Devices" representedClassName="Devices" syncable="YES" codeGenerationType="class"/>
-    <entity name="FoodBasket" representedClassName="FoodBasket" syncable="YES" codeGenerationType="class"/>
-    <entity name="FoodEntries" representedClassName="FoodEntries" syncable="YES" codeGenerationType="class"/>
-    <entity name="FoodLibrary" representedClassName="FoodLibrary" syncable="YES" codeGenerationType="class"/>
-    <entity name="MedicineBasket" representedClassName="MedicineBasket" syncable="YES" codeGenerationType="class"/>
-    <entity name="MedicineEntries" representedClassName="MedicineEntries" syncable="YES" codeGenerationType="class"/>
-    <entity name="MedicineLibrary" representedClassName="MedicineLibrary" syncable="YES" codeGenerationType="class"/>
+    <entity name="BloodSugarEntries" representedClassName="BloodSugarEntries" syncable="YES">
+        <attribute name="blood_sugar" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="time_log" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="bloodsugarentry" inverseEntity="Users"/>
+    </entity>
+    <entity name="FoodBasket" representedClassName="FoodBasket" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="qty" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="time_log" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="foodlibrary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodLibraries" inverseName="ofFoodBasket" inverseEntity="FoodLibraries"/>
+        <relationship name="ofFoodEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodEntries" inverseName="foodbasket" inverseEntity="FoodEntries"/>
+    </entity>
+    <entity name="FoodEntries" representedClassName="FoodEntries" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="eat_time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="time_log" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="foodbasket" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FoodBasket" inverseName="ofFoodEntry" inverseEntity="FoodBasket"/>
+        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="foodentry" inverseEntity="Users"/>
+    </entity>
+    <entity name="FoodLibraries" representedClassName="FoodLibraries" syncable="YES">
+        <attribute name="consumption" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="medicine_name" optional="YES" attributeType="String"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="ofFoodBasket" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="FoodBasket" inverseName="foodlibrary" inverseEntity="FoodBasket"/>
+    </entity>
+    <entity name="MedicineBasket" representedClassName="MedicineBasket" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="qty" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="medicinelibrary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineLibrary" inverseName="ofMedicineBasket" inverseEntity="MedicineLibrary"/>
+        <relationship name="ofMedicineEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineEntries" inverseName="medicinebasket" inverseEntity="MedicineEntries"/>
+    </entity>
+    <entity name="MedicineEntries" representedClassName="MedicineEntries" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="time_log" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="medicinebasket" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MedicineBasket" inverseName="ofMedicineEntry" inverseEntity="MedicineBasket"/>
+        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="medicineentry" inverseEntity="Users"/>
+    </entity>
+    <entity name="MedicineLibrary" representedClassName="MedicineLibrary" syncable="YES">
+        <attribute name="consumption" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="medicine_name" optional="YES" attributeType="String"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="ofMedicineBasket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineBasket" inverseName="medicinelibrary" inverseEntity="MedicineBasket"/>
+    </entity>
     <entity name="Users" representedClassName="Users" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="email" optional="YES" attributeType="String"/>
@@ -25,18 +70,20 @@
         <attribute name="last_name" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="bloodsugarconstraint" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="BloodSugarConstraints"/>
+        <relationship name="bloodsugarconstraint" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BloodSugarConstraints" inverseName="ofUser" inverseEntity="BloodSugarConstraints"/>
+        <relationship name="bloodsugarentry" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BloodSugarEntries" inverseName="ofUser" inverseEntity="BloodSugarEntries"/>
+        <relationship name="foodentry" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FoodEntries" inverseName="ofUser" inverseEntity="FoodEntries"/>
+        <relationship name="medicineentry" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MedicineEntries" inverseName="ofUser" inverseEntity="MedicineEntries"/>
     </entity>
     <elements>
-        <element name="BloodSugarConstraints" positionX="36" positionY="81" width="128" height="149"/>
-        <element name="BloodSugarEntries" positionX="-9" positionY="36" width="128" height="29"/>
-        <element name="Devices" positionX="-36" positionY="9" width="128" height="29"/>
-        <element name="FoodBasket" positionX="0" positionY="45" width="128" height="29"/>
-        <element name="FoodEntries" positionX="9" positionY="54" width="128" height="29"/>
-        <element name="FoodLibrary" positionX="18" positionY="63" width="128" height="29"/>
-        <element name="MedicineBasket" positionX="-63" positionY="-18" width="128" height="29"/>
-        <element name="MedicineEntries" positionX="-18" positionY="27" width="128" height="29"/>
-        <element name="MedicineLibrary" positionX="0" positionY="45" width="128" height="29"/>
-        <element name="Users" positionX="-54" positionY="-9" width="128" height="134"/>
+        <element name="BloodSugarConstraints" positionX="-730.3670654296875" positionY="-542.9372863769531" width="128" height="163"/>
+        <element name="BloodSugarEntries" positionX="-381.9232788085938" positionY="-411.8645477294922" width="128" height="133"/>
+        <element name="FoodBasket" positionX="-69.74749755859375" positionY="37.04400634765625" width="128" height="119"/>
+        <element name="FoodEntries" positionX="-350.16357421875" positionY="60.804931640625" width="128" height="119"/>
+        <element name="MedicineBasket" positionX="-160.0549926757812" positionY="-226.0690612792969" width="128" height="118"/>
+        <element name="MedicineEntries" positionX="-387.3054809570312" positionY="-198" width="128" height="133"/>
+        <element name="MedicineLibrary" positionX="171.6607055664062" positionY="-203.6223754882812" width="128" height="118"/>
+        <element name="Users" positionX="-706.6107482910156" positionY="-244.2263336181641" width="119.2210083007812" height="193"/>
+        <element name="FoodLibraries" positionX="-522" positionY="-378" width="128" height="104"/>
     </elements>
 </model>

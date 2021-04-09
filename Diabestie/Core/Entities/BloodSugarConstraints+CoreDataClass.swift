@@ -2,7 +2,7 @@
 //  BloodSugarConstraints+CoreDataClass.swift
 //  Diabestie
 //
-//  Created by Dhiky Aldwiansyah on 08/04/21.
+//  Created by Dhiky Aldwiansyah on 09/04/21.
 //
 //
 
