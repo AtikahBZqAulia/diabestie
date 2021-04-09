@@ -11,6 +11,7 @@ class MedicineDiaryViewController: UIViewController {
 
     @IBOutlet weak var medicineTableView: UITableView!
     
+    
     var names: [String] = []
     var times: [Int] = []
     
@@ -18,21 +19,12 @@ class MedicineDiaryViewController: UIViewController {
         super.viewDidLoad()
         medicineTableView.dataSource = self
         medicineTableView.register(UINib(nibName: "EmptyTableCell", bundle: nil), forCellReuseIdentifier: "EmptyDataCell")
-        self.navigationController?.navigationBar.topItem?.title = ""
     }
 
     @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
-        self.popBack(2)
+        self.navigationController?.popViewController(animated: true)
     }
     
-    private func popBack(_ nb: Int) {
-        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
-            guard viewControllers.count < nb else {
-                self.navigationController?.popToViewController(viewControllers[viewControllers.count - nb], animated: true)
-                return
-            }
-        }
-    }
 }
 
 extension MedicineDiaryViewController: UITableViewDataSource {
@@ -81,3 +73,5 @@ extension MedicineDiaryViewController: UITableViewDataSource {
         cell.contentView.addSubview(separatorView)
     }
 }
+
+

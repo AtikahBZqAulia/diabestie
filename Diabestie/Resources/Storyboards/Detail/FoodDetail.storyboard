@@ -375,7 +375,7 @@
             </objects>
             <point key="canvasLocation" x="1102.8985507246377" y="737.94642857142856"/>
         </scene>
-        <!--Today-->
+        <!--Today, 9 March-->
         <scene sceneID="ZBp-9Z-szU">
             <objects>
                 <viewController storyboardIdentifier="FoodIntakeDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fbs-tI-OTQ" customClass="FoodIntakeDetailViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
@@ -681,7 +681,7 @@
                             <constraint firstItem="JIc-jS-GO7" firstAttribute="leading" secondItem="nsp-0K-maN" secondAttribute="leading" id="RMB-Yl-lG9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Today" id="xyN-Fq-8Eb"/>
+                    <navigationItem key="navigationItem" title="Today, 9 March" id="xyN-Fq-8Eb"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="foodDetailTableView" destination="JIc-jS-GO7" id="te7-EG-8TR"/>

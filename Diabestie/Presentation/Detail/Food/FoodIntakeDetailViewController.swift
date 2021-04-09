@@ -82,7 +82,7 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
     }
     
     private func addSeparator(_ cell: UITableViewCell) -> Void {
-        let separatorView = UIView(frame: CGRect(x: foodDetailTableView.separatorInset.left, y: 0, width: 390, height: 0.5))
+        let separatorView = UIView(frame: CGRect(x: 32, y: 0, width: 342, height: 0.5))
         separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
         cell.contentView.addSubview(separatorView)
     }
