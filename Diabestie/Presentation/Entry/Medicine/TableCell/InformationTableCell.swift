@@ -11,6 +11,8 @@ class InformationTableCell: UITableViewCell {
     
     @IBOutlet weak var categoryField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var buttonAdd: UIButton!
+    
     var saveButton: UIBarButtonItem!
     
     var selectedCategory: String?
@@ -70,5 +72,6 @@ extension InformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedCategory = categoryList[row]
         categoryField.text = selectedCategory
+        buttonAdd.isHidden = true
     }
 }
