@@ -6,91 +6,239 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
-
+class SearchFoodViewController: UIViewController{
     
-    @IBOutlet var table: UITableView!
-    @IBOutlet var field: UITextField!
+    @IBOutlet weak var foodTableView: UITableView!
+        
+    struct Foods {
+        let foodname : String
+        let grams : String
+        let cal : String
+        let sugar : String
+    }
     
-    var data = [String]()
-    var filteredData = [String]()
+    var foods: [Foods] = []
+    
+    var filteredData = [Foods]()
     var filtered = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupData()
-        table.delegate = self
-        table.dataSource = self
-        field.delegate = self
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let text = textField.text{
-            filterText(text+string)
-        }
         
-        return true
-    }
-    
-    func filterText (_ query: String) {
+        foods.append(Foods(foodname: "Pisang", grams: "100", cal: "39", sugar: "15"))
+        foods.append(Foods(foodname: "Nasi", grams: "10", cal: "10", sugar: "5"))
+        foods.append(Foods(foodname: "Marugame", grams: "20", cal: "10", sugar: "2"))
+        foods.append(Foods(foodname: "Kol", grams: "30", cal: "10", sugar: "3"))
         
-        filteredData.removeAll()
-        for string in data{
-            if string.lowercased().starts(with: query.lowercased()){
-                filteredData.append(string)
-            }
-        }
-        table.reloadData()
-        filtered = true
+        self.filteredData.append(contentsOf: foods)
+        
+        
+        foodTableView.dataSource = self
+
     }
     
-    private func setupData(){
-        data.append("Marugame")
-        data.append("Nasi Uduk")
-        data.append("Nasi Padang")
-        data.append("Nasi Kebuli")
-        data.append("Pisang")
-        data.append("Pisang Bakar")
-        data.append("Nutella")
-        data.append("Hotdog")
-        data.append("Salad")
-        data.append("Tumis Kangkung")
-        data.append("Tahu")
-        data.append("Sayur Asem")
-        data.append("Sayur Sop")
-        data.append("Tempe")
-        data.append("Ayam")
-        data.append("Ayam KFC")
-        data.append("Apel")
-        data.append("Mangga")
-        data.append("Jambu")
-        data.append("Nasi Merah")
-        data.append("Tom Yum")
-        data.append("Sate Ayam")
+    @IBAction func backToPrevious(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension SearchFoodViewController: UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !filteredData.isEmpty {
-            return filteredData.count
+        
+        if section == 0 {
+            return 2
         }
-        return filtered ? 0 : data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if !filteredData.isEmpty{
-            cell.textLabel?.text = filteredData[indexPath.row]
+        
+        if section == 1 {
+            if !filteredData.isEmpty {
+                return filteredData.count
+            }
+            return filtered ? 0 : foods.count
         }
-        else{
-            cell.textLabel?.text = data[indexPath.row]
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        return 0
         
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 0 {
+            
+            if indexPath.row == 0 {
+                let cell = foodTableView.dequeueReusableCell(withIdentifier: "searchFoods", for: indexPath)
+                
+                let searchView = cell.viewWithTag(100) as! UISearchBar
+                searchView.delegate = self
+                
+                return cell
+            }
+            else if indexPath.row == 1{
+                let cell = foodTableView.dequeueReusableCell(withIdentifier: "Recents", for: indexPath)
+                return cell
+            }
+            
+        }
+        
+        
+        if indexPath.section == 1 {
+            
+            if let cell = foodTableView.dequeueReusableCell(withIdentifier: "foodList", for: indexPath) as? AddFoodTableCell
+            {
+                
+                if !filteredData.isEmpty{
+                    let data = filteredData[indexPath.row]
+                    cell.foodName.text = "\(data.foodname)"
+                    cell.foodGram.text = "\(data.grams) g"
+                    cell.foodCal.text = "\(data.cal) kcal"
+                    cell.foodSugar.text = "\(data.sugar) mg sugar"
+                } else {
+                    let data = self.foods[indexPath.row]
+                    cell.foodName.text = "\(data.foodname)"
+                    cell.foodGram.text = "\(data.grams) g"
+                    cell.foodCal.text = "\(data.cal) kcal"
+                    cell.foodSugar.text = "\(data.sugar) mg sugar"
+                }
+                
+                if indexPath.row != 0 && indexPath.row != self.foods.count {
+                    addSeparator(cell)
+                }
+                
+                return cell
+            }
+            else{
+                return UITableViewCell()
+            }
+            
+        }
+        return UITableViewCell()
+    }
+    
+    private func addSeparator(_ cell: UITableViewCell) -> Void {
+        let separatorView = UIView(frame: CGRect(x: foodTableView.separatorInset.left, y: 0, width: 390, height: 0.5))
+        separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
+        cell.contentView.addSubview(separatorView)
+    }
+    
 }
+
+extension SearchFoodViewController: UISearchBarDelegate{
+    
+    func filterText (_ query: String) {
+        
+        filteredData = []
+        for foodData in foods{
+            if foodData.foodname.lowercased().starts(with: query.lowercased()){
+                filteredData.append(foodData)
+            }
+        }
+        
+        print("Filtered data \(filteredData)")
+        
+        self.foodTableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
+        filtered = true
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+            filterText(searchText)
+        } else {
+            filteredData = self.foods
+            filtered = false
+            self.foodTableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
+        }
+    }
+}
+
+//class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
+//
+//
+//    @IBOutlet var table: UITableView!
+//    @IBOutlet var field: UITextField!
+//
+//    var data = [String]()
+//    var filteredData = [String]()
+//    var filtered = false
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        setupData()
+//        table.delegate = self
+//        table.dataSource = self
+//        field.delegate = self
+//    }
+//
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        if let text = textField.text{
+//            filterText(text+string)
+//        }
+//
+//        return true
+//    }
+//
+//    func filterText (_ query: String) {
+//
+//        filteredData.removeAll()
+//        for string in data{
+//            if string.lowercased().starts(with: query.lowercased()){
+//                filteredData.append(string)
+//            }
+//        }
+//        table.reloadData()
+//        filtered = true
+//    }
+//
+//    private func setupData(){
+//        data.append("Marugame")
+//        data.append("Nasi Uduk")
+//        data.append("Nasi Padang")
+//        data.append("Nasi Kebuli")
+//        data.append("Pisang")
+//        data.append("Pisang Bakar")
+//        data.append("Nutella")
+//        data.append("Hotdog")
+//        data.append("Salad")
+//        data.append("Tumis Kangkung")
+//        data.append("Tahu")
+//        data.append("Sayur Asem")
+//        data.append("Sayur Sop")
+//        data.append("Tempe")
+//        data.append("Ayam")
+//        data.append("Ayam KFC")
+//        data.append("Apel")
+//        data.append("Mangga")
+//        data.append("Jambu")
+//        data.append("Nasi Merah")
+//        data.append("Tom Yum")
+//        data.append("Sate Ayam")
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if !filteredData.isEmpty {
+//            return filteredData.count
+//        }
+//        return filtered ? 0 : data.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        if !filteredData.isEmpty{
+//            cell.textLabel?.text = filteredData[indexPath.row]
+//        }
+//        else{
+//            cell.textLabel?.text = data[indexPath.row]
+//        }
+//        return cell
+//    }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    }
+//
+//}
 
