@@ -8,10 +8,17 @@
 import UIKit
 
 class AddBloodSugarDiaryViewController: UIViewController {
-
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //saveButton.isEnabled = false
 
+    }
+    
+    @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
+        self.popBack(2)
     }
 
 }
@@ -50,6 +57,7 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? AddBloodSugarTableCell else {
                 return UITableViewCell()
             }
+            addSeparator(cell, tableView: tableView)
             return cell
             
         default:
@@ -57,4 +65,26 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
         }
     }
     
+    private func addSeparator(_ cell: UITableViewCell, tableView: UITableView) -> Void {
+        let separatorView = UIView(frame: CGRect(x: tableView.separatorInset.left, y: 0, width: 390, height: 0.5))
+        separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
+        cell.contentView.addSubview(separatorView)
+    }
+    
+    private func popBack(_ nb: Int) {
+        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
+            guard viewControllers.count < nb else {
+                self.navigationController?.popToViewController(viewControllers[viewControllers.count - nb], animated: true)
+                return
+            }
+        }
+    }
+    
 }
+
+//extension AddBloodSugarDiaryViewController: addBloodSugarDelegate {
+//    func setSaveButtonStage(_ stage: Bool) {
+//
+//    }
+//
+//}

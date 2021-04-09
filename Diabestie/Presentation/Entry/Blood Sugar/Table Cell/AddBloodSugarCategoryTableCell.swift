@@ -11,14 +11,16 @@ class AddBloodSugarCategoryTableCell: UITableViewCell {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var addCategoryInput: UITextField!
+    @IBOutlet weak var plusButton: UIButton!
     
     static let identifier = "AddBloodSugarCategoryTableCell"
     var selectedCategory: String = ""
     var bloodSugar: String = ""
+    //var delegate: addBloodSugarDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
         customTextFieldView()
         createPickerView()
         dismissPickerView()
@@ -33,7 +35,7 @@ class AddBloodSugarCategoryTableCell: UITableViewCell {
 extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func bloodSugarCategoryChoice() -> [String] {
-        let categoryList = ["Fasting", "After Breakfast", "After Lunch", "After Dinner"]
+        let categoryList = ["Add Category", "Fasting", "After Breakfast", "After Lunch", "After Dinner"]
         
         return categoryList
     }
@@ -47,20 +49,33 @@ extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewData
     func createPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.backgroundColor = UIColor.white
         addCategoryInput.inputView = pickerView
-        addCategoryInput.backgroundColor = UIColor.white
     }
     
-    func dismissPickerView() {
+    func createToolBar() -> UIToolbar {
         let toolBar = UIToolbar()
         toolBar.isUserInteractionEnabled = true
         toolBar.backgroundColor = UIColor.white
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtontapped))
-        toolBar.setItems([doneButton], animated: true)
+        return toolBar
+    }
+    
+    func createBarButton() -> UIBarButtonItem {
+        let button = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtontapped))
+        button.tintColor = UIColor.blueBlue
         
-        addCategoryInput.inputAccessoryView = toolBar
+        return button
+    }
+    
+    func dismissPickerView() {
+        let pickerViewToolBar = createToolBar()
+        let doneButton = createBarButton()
+        
+        pickerViewToolBar.setItems([doneButton], animated: true)
+        addCategoryInput.inputAccessoryView = pickerViewToolBar
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -76,8 +91,18 @@ extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        plusButton.isHidden = true
+        
         selectedCategory = bloodSugarCategoryChoice()[row]
         addCategoryInput.text = selectedCategory
+        
+        switch bloodSugarCategoryChoice()[row] {
+        case "Add Category":
+            plusButton.isHidden = false
+            
+        default:
+            break
+        }
     }
     
     @objc func onDoneButtontapped() {
@@ -86,12 +111,6 @@ extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewData
     
 }
 
-extension AddBloodSugarCategoryTableCell {
-     
-    func customDatePickerView() {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MM dd HH:HH"
-//        datePicker.textInputMode = dateFormatter.string(from: datePicker.date)
-    }
-    
-}
+//protocol addBloodSugarDelegate {
+//    func setSaveButtonStage(_ stage: Bool)
+//}
