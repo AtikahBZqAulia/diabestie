@@ -11,6 +11,7 @@ class InformationTableCell: UITableViewCell {
     
     @IBOutlet weak var categoryField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    var saveButton: UIBarButtonItem!
     
     var selectedCategory: String?
     let categoryList = ["Fasting", "After Breakfast", "After Lunch", "After Dinner"]
@@ -22,7 +23,13 @@ class InformationTableCell: UITableViewCell {
         createPickerView()
         dismissPickerView()
     }
-
+    
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
