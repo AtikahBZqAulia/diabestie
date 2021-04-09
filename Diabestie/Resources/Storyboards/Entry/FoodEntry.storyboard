@@ -125,10 +125,6 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jt-mL-D5n">
                                                             <rect key="frame" x="8" y="8" width="342" height="28"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="382" id="2YD-Uq-Cmn"/>
-                                                                <constraint firstAttribute="height" constant="44" id="Iby-2W-70x"/>
-                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="tintColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <inset key="imageEdgeInsets" minX="-14" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -142,9 +138,13 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="8jt-mL-D5n" secondAttribute="bottom" constant="8" id="1zm-dM-wDL"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="8jt-mL-D5n" secondAttribute="trailing" id="5ol-X2-q4c"/>
+                                                        <constraint firstItem="8jt-mL-D5n" firstAttribute="top" secondItem="p3C-qj-rhA" secondAttribute="top" constant="8" id="61o-Wo-jew"/>
                                                         <constraint firstItem="8jt-mL-D5n" firstAttribute="top" secondItem="p3C-qj-rhA" secondAttribute="topMargin" id="Sef-jK-e4t"/>
+                                                        <constraint firstItem="8jt-mL-D5n" firstAttribute="leading" secondItem="p3C-qj-rhA" secondAttribute="leading" constant="8" id="SuX-hn-yxF"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="8jt-mL-D5n" secondAttribute="bottom" id="U8b-B5-ieC"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8jt-mL-D5n" secondAttribute="trailing" constant="8" id="j9a-Vz-Rvc"/>
                                                         <constraint firstItem="8jt-mL-D5n" firstAttribute="leading" secondItem="p3C-qj-rhA" secondAttribute="leadingMargin" id="sYL-O6-n3e"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -393,10 +393,6 @@
                                             <subviews>
                                                 <searchBar contentMode="redraw" placeholder="Search foods" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-PP-Yd6">
                                                     <rect key="frame" x="16" y="0.0" width="360" height="56"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="360" id="9F5-4d-Kub"/>
-                                                        <constraint firstAttribute="height" constant="56" id="eMW-n9-5Jr"/>
-                                                    </constraints>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </searchBar>
                                             </subviews>
@@ -513,10 +509,14 @@
                                                         <constraint firstItem="959-ld-s6n" firstAttribute="leading" secondItem="88S-ij-H4j" secondAttribute="trailing" constant="8" symbolic="YES" id="017-d8-oj9"/>
                                                         <constraint firstItem="LTe-9I-AJv" firstAttribute="leading" secondItem="YU3-8P-Wb0" secondAttribute="trailing" constant="5" id="34d-kV-MRB"/>
                                                         <constraint firstItem="959-ld-s6n" firstAttribute="baseline" secondItem="YU3-8P-Wb0" secondAttribute="baseline" id="L8A-Yd-Mix"/>
+                                                        <constraint firstItem="3wC-hr-MLT" firstAttribute="top" secondItem="7dP-W3-SXu" secondAttribute="bottom" constant="3" id="ReG-d0-7Tq"/>
                                                         <constraint firstAttribute="bottom" secondItem="959-ld-s6n" secondAttribute="bottom" constant="9" id="Sm5-ue-JpM"/>
                                                         <constraint firstItem="959-ld-s6n" firstAttribute="top" secondItem="7dP-W3-SXu" secondAttribute="bottom" constant="3" id="TlG-Lk-ana"/>
+                                                        <constraint firstItem="7dP-W3-SXu" firstAttribute="leading" secondItem="UYD-c1-oFs" secondAttribute="leading" constant="16" id="Udk-Cp-hu5"/>
                                                         <constraint firstItem="7dP-W3-SXu" firstAttribute="leading" secondItem="YU3-8P-Wb0" secondAttribute="leading" id="bwq-5V-kUj"/>
+                                                        <constraint firstItem="7dP-W3-SXu" firstAttribute="top" secondItem="UYD-c1-oFs" secondAttribute="top" constant="9" id="coF-f7-oc8"/>
                                                         <constraint firstItem="3wC-hr-MLT" firstAttribute="leading" secondItem="LTe-9I-AJv" secondAttribute="trailing" constant="8" symbolic="YES" id="eMJ-Fn-a64"/>
+                                                        <constraint firstAttribute="trailing" secondItem="7dP-W3-SXu" secondAttribute="trailing" constant="54" id="jLW-HO-EwJ"/>
                                                         <constraint firstItem="959-ld-s6n" firstAttribute="baseline" secondItem="3wC-hr-MLT" secondAttribute="baseline" id="mm8-1u-Liz"/>
                                                         <constraint firstItem="88S-ij-H4j" firstAttribute="leading" secondItem="3wC-hr-MLT" secondAttribute="trailing" constant="1" id="t2a-b7-N7V"/>
                                                     </constraints>
@@ -653,8 +653,14 @@
                     <navigationItem key="navigationItem" title="Add Food" id="IRu-PQ-6Li">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="wbK-Gh-SIM">
                             <color key="tintColor" name="blue_blue"/>
+                            <connections>
+                                <action selector="backToPrevious:" destination="vCD-Fg-DGo" id="Lc1-IE-x9n"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="foodTableView" destination="A77-3p-fLC" id="SmY-Re-b5s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aP4-I5-Ko0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
