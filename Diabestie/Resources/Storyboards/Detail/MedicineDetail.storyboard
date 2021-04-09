@@ -820,12 +820,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Create Medicine" leftItemsSupplementBackButton="YES" id="T95-w5-0sW">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="f9g-WE-aEa">
-                            <color key="tintColor" name="blue_blue"/>
-                            <connections>
-                                <action selector="cancel:" destination="rvA-gg-Iaa" id="62R-Zh-h6L"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="hCC-u9-Nwg">
                             <color key="tintColor" red="0.12941176470588234" green="0.29019607843137252" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
