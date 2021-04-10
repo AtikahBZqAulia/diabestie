@@ -48,9 +48,12 @@ class BloodSugarTableCell: UITableViewCell {
                         
             if bloodSugarData.indicator == .none {
                 if let indicatorView = viewBloodSugarIndicator {
-                    indicatorView.removeFromSuperview()
+                    indicatorView.isHidden = true
                 }
             } else {
+                if let indicatorView = viewBloodSugarIndicator {
+                    indicatorView.isHidden = false
+                }
                 lblSugarLevelIndicator.text = Constants.BloodSugarLevelIndicator(indicator: bloodSugarData.indicator)
                 lblSugarLevelIndicator.textColor = Constants.BloodSugarLevelIndicatorTxtColor(indicator: bloodSugarData.indicator)
                 viewBgBloodSugarIndicator.backgroundColor = Constants.BloodSugarLevelIndicatorBGColor(indicator: bloodSugarData.indicator)

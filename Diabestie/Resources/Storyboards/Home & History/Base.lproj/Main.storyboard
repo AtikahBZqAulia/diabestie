@@ -245,6 +245,7 @@
                                             <outlet property="lblLatestBloodSugarLevel" destination="29W-l3-4OD" id="qUx-MN-RRP"/>
                                             <outlet property="lblSugarLevelIndicator" destination="aRO-XX-Djo" id="DZ5-jo-Qnh"/>
                                             <outlet property="lblTime" destination="8WE-hP-WWR" id="3XA-Cm-HIv"/>
+                                            <outlet property="stackView" destination="OLA-0Z-TMo" id="0eR-Md-Kdw"/>
                                             <outlet property="viewBgBloodSugarIndicator" destination="nIL-bl-C4i" id="Msq-jc-Fp5"/>
                                             <outlet property="viewBloodSugarIndicator" destination="Npf-Vc-JxB" id="IH1-DC-pPQ"/>
                                             <segue destination="Jmr-tP-wsG" kind="show" id="n4V-cr-iKO"/>

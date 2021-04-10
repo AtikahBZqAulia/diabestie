@@ -66,7 +66,8 @@ extension AddBloodSugarDiaryViewController {
     
     func saveBloodSugarData() {
         BloodSugarEntryRepository.shared.insertBloodSugarEntry(category: self.selectedCategory, bloodSugar: bloodSugarLevel, timeLog: timeLog)
-        self.navigationController?.dismiss(animated: true, completion: nil)
+//        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
     func validateData(){

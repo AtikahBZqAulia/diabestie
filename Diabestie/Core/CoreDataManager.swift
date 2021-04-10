@@ -97,6 +97,9 @@ class CoreDataManager {
                 print("\(error)")
             }
         }
+        
+        //Reload the data again
+        preloadData()
     }
     
 }
