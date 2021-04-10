@@ -38,6 +38,20 @@ class FoodEntryRepository {
         }
     }
     
+    func deleteFoodEntry(foodEntry: FoodEntries){
+                
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        do {
+            context.delete(foodEntry)
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+    }
+    
     func getAllFoodEntry() -> [FoodEntries] {
         
         print("entiry name \(entityName)")

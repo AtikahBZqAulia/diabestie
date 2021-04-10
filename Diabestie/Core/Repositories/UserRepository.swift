@@ -41,4 +41,38 @@ class UserRepository {
         }
     }
     
+    func getUserByEmail(email: String) -> [Users] {
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        //Check if user is exists
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "email == %@", email)
+        
+        do {
+            
+            let item = try context.fetch(fetchRequest)
+            
+            return item as! [Users]
+            
+        } catch {
+            print("\(error)")
+        }
+        
+        return []
+    }
+    
+    func deleteUser(user: Users) {
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        do {
+            context.delete(user)
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
 }

@@ -13,7 +13,7 @@ class FoodBasketRepository {
     static let shared = FoodBasketRepository()
     let entityName = FoodBasket.self.description()
 
-    func addFoodBasket(qty: Int) -> FoodBasket {
+    func addFoodBasket(qty: Int, foodLibrary: FoodLibraries) -> FoodBasket {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
@@ -24,12 +24,29 @@ class FoodBasketRepository {
         
         let foodBasket = FoodBasket(entity: entity,insertInto: context)
         
+        foodBasket.foodlibrary = foodLibrary
         foodBasket.time_log = Date()
         foodBasket.qty = Int32(qty)
         foodBasket.created_at = Date()
         foodBasket.updated_at = Date()
         
         return foodBasket
+    }
+    
+    func deleteFoodBasket(basket: FoodBasket){
+        
+        print("entiry name \(entityName)")
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        do {
+            context.delete(basket)
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
     }
     
 }

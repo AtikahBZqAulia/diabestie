@@ -16,10 +16,12 @@ extension FoodLibraries {
         return NSFetchRequest<FoodLibraries>(entityName: "FoodLibraries")
     }
 
-    @NSManaged public var consumption: Int32
+    @NSManaged public var weight: Int32
     @NSManaged public var created_at: Date?
-    @NSManaged public var medicine_name: String?
+    @NSManaged public var food_name: String?
     @NSManaged public var updated_at: Date?
+    @NSManaged public var sugar: Int32
+    @NSManaged public var calories: Int32
     @NSManaged public var ofFoodBasket: FoodBasket?
 
 }

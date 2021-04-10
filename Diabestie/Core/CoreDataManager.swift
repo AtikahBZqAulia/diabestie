@@ -41,51 +41,49 @@ class CoreDataManager {
     
     func preloadData(){
         
-        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let userData = UserRepository.shared.getUserByEmail(email: Constants.globalUserEmail)
         
         //Check if user is exists
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Users")
-        fetchRequest.predicate = NSPredicate(format: "email == %@", Constants.globalUserEmail)
-        
-        do {
-            
-            let item = try context.fetch(fetchRequest)
-            
-            if item.isEmpty {
-                print("User is not exist, creating a new one")
-                
-                UserRepository.shared.insertUser(
-                    email: Constants.globalUserEmail,
-                    firstName: Constants.globalUserFirstName,
-                    lastName: Constants.globalUserLastName,
-                    password: Constants.globalUserPasword
-                )
-                
-            } else {
-                print("User already exists")
-            }
-            
-        } catch {
-            print("\(error)")
+        if userData.isEmpty {
+            UserRepository.shared.insertUser(
+                email: Constants.globalUserEmail,
+                firstName: Constants.globalUserFirstName,
+                lastName: Constants.globalUserLastName,
+                password: Constants.globalUserPasword
+            )
         }
         
-        saveContext()
+        preloadFoodLibraryData()
+        preloadMedicineLibraryData()
+        
     }
     
     func preloadFoodLibraryData(){
-//        let baskets = NSMutableSet.init()
-//
-//        for _ in 1..<4 {
-//            let value = (arc4random() % 90) + 100
-//            let foodBasket = FoodBasketRepository.shared.addFoodBasket(qty: Int(value))
-//            baskets.add(foodBasket)
-//        }
-//       FoodEntryRepository.shared.addFoodEntry(eatTime: 1, foodBasket: baskets)
-//       FoodEntryRepository.shared.getAllFoodEntry()
+        //        let baskets = NSMutableSet.init()
+        //
+        //        for _ in 1..<4 {
+        //            let value = (arc4random() % 90) + 100
+        //            let foodBasket = FoodBasketRepository.shared.addFoodBasket(qty: Int(value))
+        //            baskets.add(foodBasket)
+        //        }
+        //       FoodEntryRepository.shared.addFoodEntry(eatTime: 1, foodBasket: baskets)
+        //       FoodEntryRepository.shared.getAllFoodEntry()
+        
+        //Check if food library preload data is exists
+        if FoodLibraryRepository.shared.getAllFoodLibrary().isEmpty {
+            FoodLibraryRepository.shared.insertFoodLibrary(name: "Banana", calories: 100, weight: 1, sugar: 100)
+            FoodLibraryRepository.shared.insertFoodLibrary(name: "Ananab", calories: 100, weight: 1, sugar: 100)
+        }
+        
     }
     
     func preloadMedicineLibraryData(){
         
+        //Check if medicine library preload data is exists
+        if MedicineLibraryRepository.shared.getAllMedicineibrary().isEmpty {
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetamol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
+        }
     }
     
     func deleteAllData(){
@@ -95,7 +93,7 @@ class CoreDataManager {
         guard let storeURL = storeDescription.url else {
             return
         }
-                
+        
         do {
             try storeCoordinator.destroyPersistentStore(at: storeURL, ofType: NSSQLiteStoreType, options: nil)
         }

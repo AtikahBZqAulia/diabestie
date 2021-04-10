@@ -1,5 +1,5 @@
 //
-//  MedicineEntryRepository.swift
+//  FoodLibraryEntry.swift
 //  Diabestie
 //
 //  Created by Dhiky Aldwiansyah on 09/04/21.
@@ -8,12 +8,15 @@
 import Foundation
 import CoreData
 
-class MedicineEntryRepository {
+class FoodLibraryRepository {
     
-    static let shared = MedicineEntryRepository()
-    let entityName = MedicineEntries.self.description()
+    static let shared = FoodLibraryRepository()
+    let entityName = FoodLibraries.self.description()
     
-    func addMedicineEntry(category: Int, medicineBasket: NSMutableSet){
+    func insertFoodLibrary(name: String,
+                               calories: Int,
+                               weight: Int,
+                               sugar: Int){
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
@@ -22,14 +25,14 @@ class MedicineEntryRepository {
             return
         }
         
-        let MedicineEntry = MedicineEntries(entity: entity,insertInto: context)
+        let foodLibrary = FoodLibraries(entity: entity,insertInto: context)
         
-        MedicineEntry.category = Int32(category)
-        MedicineEntry.time_log = Date()
-        MedicineEntry.created_at = Date()
-        MedicineEntry.updated_at = Date()
-        
-        MedicineEntry.medicinebasket = medicineBasket
+        foodLibrary.food_name = name
+        foodLibrary.weight = Int32(weight)
+        foodLibrary.calories = Int32(calories)
+        foodLibrary.sugar = Int32(sugar)
+        foodLibrary.created_at = Date()
+        foodLibrary.updated_at = Date()
         
         do {
             try context.save()
@@ -38,25 +41,16 @@ class MedicineEntryRepository {
         }
     }
     
-    func getAllMedicineEntry() -> [MedicineEntries] {
-        
-        print("entiry name \(entityName)")
-        
+    
+    func getAllFoodLibrary() -> [FoodLibraries] {
+                
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
         
         do {
             
-            let item = try context.fetch(fetchRequest) as! [MedicineEntries]
-            
-//            for data in item {
-//                print("Medicine Entry \(data.eat_time)")
-//                let baskets = data.Medicinebasket?.allObjects as! [MedicineBasket]
-//                for basketData in baskets {
-//                    print("Medicine Entry Basket \(basketData.qty)")
-//                }
-//            }
+            let item = try context.fetch(fetchRequest) as! [FoodLibraries]
             
             return item
         } catch let error as NSError {
@@ -66,19 +60,18 @@ class MedicineEntryRepository {
         return []
     }
     
-    func deleteMedicineEntry(medicineEntry: MedicineEntries){
-                
+    
+    func deleteFoodLibrary(foodLibrary: FoodLibraries) {
+        
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         do {
-            context.delete(medicineEntry)
+            context.delete(foodLibrary)
             try context.save()
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
     }
-    
     
 }
