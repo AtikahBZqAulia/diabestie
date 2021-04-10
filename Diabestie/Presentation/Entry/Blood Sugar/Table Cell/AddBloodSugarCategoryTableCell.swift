@@ -98,7 +98,6 @@ extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewData
         bloodSugarCategoryTextField.text = bloodSugarCategoryChoice()[selectedCategory]
         
         delegate?.onCategoryPick(categoryId: selectedCategory)
-        
         switch bloodSugarCategoryChoice()[row] {
         case "Add Category":
             plusButton.isHidden = false

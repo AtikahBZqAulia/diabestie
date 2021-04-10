@@ -112,6 +112,7 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? AddBloodSugarCategoryTableCell else {
                 return UITableViewCell()
             }
+            
             cell.delegate = self
             return cell
             
