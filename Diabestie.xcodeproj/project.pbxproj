@@ -52,6 +52,8 @@
 		BC8832752615B7CE003CC151 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8832742615B7CE003CC151 /* HistoryViewController.swift */; };
 		BC8832792615BBDB003CC151 /* HorizontalCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8832782615BBDB003CC151 /* HorizontalCalendar.swift */; };
 		BC88327C2615BC09003CC151 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88327B2615BC09003CC151 /* Date+Extension.swift */; };
+		BC9FCDFE262233E600BDB972 /* FoodLibraryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9FCDFD262233E600BDB972 /* FoodLibraryMock.swift */; };
+		BC9FCE0126224F9F00BDB972 /* MedicineBasketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9FCE0026224F9F00BDB972 /* MedicineBasketRepository.swift */; };
 		BCB2E8D42620C3C300936149 /* FoodBasket+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB2E8D02620C3C300936149 /* FoodBasket+CoreDataClass.swift */; };
 		BCB2E8D52620C3C300936149 /* FoodBasket+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB2E8D12620C3C300936149 /* FoodBasket+CoreDataProperties.swift */; };
 		BCB77131261C463E00255805 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB77130261C463E00255805 /* Int+Extension.swift */; };
@@ -98,7 +100,7 @@
 		BCDDDF2A2620BA060009003A /* FoodEntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDDF292620BA060009003A /* FoodEntryRepository.swift */; };
 		BCDDDF2D2620BA140009003A /* BloodSugarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDDF2C2620BA140009003A /* BloodSugarEntry.swift */; };
 		BCDDDF302620BA220009003A /* MedicineLibraryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDDF2F2620BA220009003A /* MedicineLibraryRepository.swift */; };
-		BCDDDF332620BA2C0009003A /* MedicineBasketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDDF322620BA2C0009003A /* MedicineBasketRepository.swift */; };
+		BCDDDF332620BA2C0009003A /* BloodSugarConstraintRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDDF322620BA2C0009003A /* BloodSugarConstraintRepository.swift */; };
 		BCDDDF372620BA340009003A /* FoodBasketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDDF362620BA340009003A /* FoodBasketRepository.swift */; };
 		BCDDDF492620BB100009003A /* FoodEntries+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDDF452620BB100009003A /* FoodEntries+CoreDataClass.swift */; };
 		BCDDDF4A2620BB100009003A /* FoodEntries+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDDDF462620BB100009003A /* FoodEntries+CoreDataProperties.swift */; };
@@ -182,6 +184,8 @@
 		BC8832742615B7CE003CC151 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BC8832782615BBDB003CC151 /* HorizontalCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCalendar.swift; sourceTree = "<group>"; };
 		BC88327B2615BC09003CC151 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		BC9FCDFD262233E600BDB972 /* FoodLibraryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLibraryMock.swift; sourceTree = "<group>"; };
+		BC9FCE0026224F9F00BDB972 /* MedicineBasketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineBasketRepository.swift; sourceTree = "<group>"; };
 		BCB2E8D02620C3C300936149 /* FoodBasket+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodBasket+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BCB2E8D12620C3C300936149 /* FoodBasket+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodBasket+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BCB77130261C463E00255805 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -230,7 +234,7 @@
 		BCDDDF292620BA060009003A /* FoodEntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryRepository.swift; sourceTree = "<group>"; };
 		BCDDDF2C2620BA140009003A /* BloodSugarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarEntry.swift; sourceTree = "<group>"; };
 		BCDDDF2F2620BA220009003A /* MedicineLibraryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineLibraryRepository.swift; sourceTree = "<group>"; };
-		BCDDDF322620BA2C0009003A /* MedicineBasketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineBasketRepository.swift; sourceTree = "<group>"; };
+		BCDDDF322620BA2C0009003A /* BloodSugarConstraintRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarConstraintRepository.swift; sourceTree = "<group>"; };
 		BCDDDF362620BA340009003A /* FoodBasketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodBasketRepository.swift; sourceTree = "<group>"; };
 		BCDDDF452620BB100009003A /* FoodEntries+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodEntries+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BCDDDF462620BB100009003A /* FoodEntries+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodEntries+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -623,6 +627,7 @@
 				BCDDDF3B2620BA410009003A /* Entry */,
 				BCDDDF3A2620BA3D0009003A /* Basket */,
 				BC83ADB6261F605400AE7454 /* UserRepository.swift */,
+				BCDDDF322620BA2C0009003A /* BloodSugarConstraintRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -663,6 +668,7 @@
 			isa = PBXGroup;
 			children = (
 				BCDE8A2C260DFA0200E5E193 /* food.json */,
+				BC9FCDFD262233E600BDB972 /* FoodLibraryMock.swift */,
 			);
 			path = "Mock Data";
 			sourceTree = "<group>";
@@ -671,7 +677,7 @@
 			isa = PBXGroup;
 			children = (
 				BCDDDF362620BA340009003A /* FoodBasketRepository.swift */,
-				BCDDDF322620BA2C0009003A /* MedicineBasketRepository.swift */,
+				BC9FCE0026224F9F00BDB972 /* MedicineBasketRepository.swift */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -972,7 +978,7 @@
 				BCD25BB92621B6CB00B12A21 /* FoodLibraryRepository.swift in Sources */,
 				BCDDDF202620B9910009003A /* BloodSugarConstraints+CoreDataClass.swift in Sources */,
 				F70064A126185E2B00300E70 /* FoodIntakeDetailTableCell.swift in Sources */,
-				BCDDDF332620BA2C0009003A /* MedicineBasketRepository.swift in Sources */,
+				BCDDDF332620BA2C0009003A /* BloodSugarConstraintRepository.swift in Sources */,
 				BC83ADBE261F686300AE7454 /* UserDefaultManager.swift in Sources */,
 				BCDDDF182620B9910009003A /* BloodSugarEntries+CoreDataClass.swift in Sources */,
 				BCC764EF261AEE3F00306229 /* MedicineListViewController.swift in Sources */,
@@ -998,12 +1004,14 @@
 				F748EF30261EC56300BA604A /* InformationTableCell.swift in Sources */,
 				BCDDDF222620B9910009003A /* MedicineLibrary+CoreDataClass.swift in Sources */,
 				BC6F4FCC2615834E00643603 /* MedicineTableCell.swift in Sources */,
+				BC9FCE0126224F9F00BDB972 /* MedicineBasketRepository.swift in Sources */,
 				BCC764D5261AEC6700306229 /* BloodSugarLevelGoalVC.swift in Sources */,
 				30E2EC34261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift in Sources */,
 				BC6DF1EF261D8C5C0085A947 /* TableViewCell+Extension.swift in Sources */,
 				BC68A5D3260B09040007F846 /* SceneDelegate.swift in Sources */,
 				E8B035BA261F43AD0012A1D8 /* AddFoodTableCell.swift in Sources */,
 				D4E2595F261D754A00F1802D /* CalendarController.swift in Sources */,
+				BC9FCDFE262233E600BDB972 /* FoodLibraryMock.swift in Sources */,
 				F7E9CCA62619FBD700497E13 /* MedicineDiaryViewController.swift in Sources */,
 				BCDDDF2D2620BA140009003A /* BloodSugarEntry.swift in Sources */,
 				BCDDDF212620B9910009003A /* BloodSugarConstraints+CoreDataProperties.swift in Sources */,

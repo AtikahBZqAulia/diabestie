@@ -501,7 +501,7 @@
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" name="gray_background"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="yfg-dV-cCr">
-                            <rect key="frame" x="0.0" y="362" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="412" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" name="gray_background"/>
                         </view>
@@ -525,6 +525,9 @@
                                                     <rect key="frame" x="360" y="16" width="41" height="18.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="YHP-pI-Jxi" id="Zer-jZ-MfY"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -552,6 +555,9 @@
                                                     <rect key="frame" x="360" y="16" width="41" height="18.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="YHP-pI-Jxi" id="bqf-kL-4G4"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -607,6 +613,9 @@
                                                     <rect key="frame" x="360" y="16" width="41" height="18.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="YHP-pI-Jxi" id="pZc-mc-ht8"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -617,8 +626,38 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kWg-v4-0wh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="wqS-ah-mCB">
                                         <rect key="frame" x="0.0" y="284" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wqS-ah-mCB" id="bPd-pp-PVa">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lower Bound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxh-iJ-jyb">
+                                                    <rect key="frame" x="16" y="14.5" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="mg/dL" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FiO-hO-0fs">
+                                                    <rect key="frame" x="360" y="16" width="41" height="18.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="YHP-pI-Jxi" id="UWZ-rI-ds7"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sxh-iJ-jyb" firstAttribute="centerY" secondItem="bPd-pp-PVa" secondAttribute="centerY" id="6Sz-vH-ExP"/>
+                                                <constraint firstAttribute="trailing" secondItem="FiO-hO-0fs" secondAttribute="trailing" constant="13" id="aHE-uH-XXU"/>
+                                                <constraint firstItem="FiO-hO-0fs" firstAttribute="centerY" secondItem="bPd-pp-PVa" secondAttribute="centerY" id="mks-GA-u7X"/>
+                                                <constraint firstItem="sxh-iJ-jyb" firstAttribute="leading" secondItem="bPd-pp-PVa" secondAttribute="leading" constant="16" id="s9W-9I-atY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kWg-v4-0wh">
+                                        <rect key="frame" x="0.0" y="334" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kWg-v4-0wh" id="j4S-F1-Blc">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -651,13 +690,18 @@
                     <navigationItem key="navigationItem" title="Blood Sugar Level Goals" largeTitleDisplayMode="never" id="9Fk-IE-C5E">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="JYX-bv-X7q">
                             <color key="tintColor" name="blue_blue"/>
+                            <connections>
+                                <action selector="onSaveButtonTap:" destination="YHP-pI-Jxi" id="bPW-79-k2d"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="edtFastingLowerBound" destination="TPD-Q8-gMP" id="BhH-Sv-W9e"/>
                         <outlet property="edtFastingUpperBound" destination="gJo-8u-d3Y" id="RQL-W4-wyS"/>
+                        <outlet property="edtMealLowerBound" destination="FiO-hO-0fs" id="9XL-lr-0wA"/>
                         <outlet property="edtMealUpperBound" destination="qoZ-yu-KuF" id="tCl-eD-Rjs"/>
+                        <outlet property="saveBtn" destination="JYX-bv-X7q" id="hQQ-C0-w8P"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ClP-Hy-Ra3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
