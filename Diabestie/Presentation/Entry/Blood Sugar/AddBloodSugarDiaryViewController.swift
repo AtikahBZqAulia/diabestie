@@ -7,13 +7,31 @@
 
 import UIKit
 
+protocol AddBloodSugarDelegate: class {
+    func onCategoryPick(categoryId: Int)
+    func onBloodSugarLevel(bloodSugarLevel: Int)
+    func onDateSelected(selectedDate: Date)
+}
+
 class AddBloodSugarDiaryViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    var selectedCategory: Int = 0 {
+        didSet {
+            validateData()
+        }
+    }
+    var bloodSugarLevel: Int = 0 {
+        didSet {
+            validateData()
+        }
+    }
+    var timeLog = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //saveButton.isEnabled = false
+        saveButton.isEnabled = false
 
     }
     
@@ -21,6 +39,49 @@ class AddBloodSugarDiaryViewController: UIViewController {
         self.popBack(2)
     }
 
+}
+
+extension AddBloodSugarDiaryViewController: AddBloodSugarDelegate {
+    
+    func onCategoryPick(categoryId: Int) {
+        self.selectedCategory = categoryId
+    }
+    
+    func onDateSelected(selectedDate: Date) {
+        self.timeLog = selectedDate
+    }
+    func onBloodSugarLevel(bloodSugarLevel: Int) {
+        print("KEPANGGIL GAK?")
+        self.bloodSugarLevel = bloodSugarLevel
+    }
+    
+}
+
+extension AddBloodSugarDiaryViewController {
+    @objc func saveBloodSugarData() {
+        BloodSugarEntryRepository.shared.insertBloodSugarEntry(category: self.selectedCategory, bloodSugar: bloodSugarLevel, timeLog: timeLog)
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func validateData(){
+        
+        print("VALIDATE selectedCategory \(selectedCategory)")
+        print("VALIDATE bloodSugarLevel \(bloodSugarLevel)")
+
+        if selectedCategory == 0 {
+            self.saveButton.tintColor = .charcoalGrey
+            saveButton.isEnabled = false
+            return
+        }
+        if bloodSugarLevel == 0 {
+            self.saveButton.tintColor = .charcoalGrey
+            saveButton.isEnabled = false
+            return
+        }
+        saveButton.isEnabled = true
+        self.saveButton.tintColor = .systemBlue
+        self.saveButton.action = #selector(self.saveBloodSugarData)
+    }
 }
 
 extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -51,12 +112,14 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? AddBloodSugarCategoryTableCell else {
                 return UITableViewCell()
             }
+            cell.delegate = self
             return cell
             
         case AddBloodSugarTableCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? AddBloodSugarTableCell else {
                 return UITableViewCell()
             }
+            cell.delegate = self
             addSeparator(cell, tableView: tableView)
             return cell
             
@@ -81,10 +144,3 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
     }
     
 }
-
-//extension AddBloodSugarDiaryViewController: addBloodSugarDelegate {
-//    func setSaveButtonStage(_ stage: Bool) {
-//
-//    }
-//
-//}

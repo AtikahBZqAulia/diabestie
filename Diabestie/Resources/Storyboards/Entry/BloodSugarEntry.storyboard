@@ -39,7 +39,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <datePicker contentMode="scaleAspectFit" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="e9i-AI-l3Q">
-                                                    <rect key="frame" x="197" y="0.0" width="180.66666666666663" height="58"/>
+                                                    <rect key="frame" x="197" y="0.0" width="187.33333333333337" height="58"/>
                                                     <color key="tintColor" name="blue_blue"/>
                                                     <locale key="locale" localeIdentifier="en_ID"/>
                                                 </datePicker>
@@ -69,7 +69,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addCategoryInput" destination="7X7-fa-Rhw" id="0FO-fc-zL8"/>
+                                            <outlet property="bloodSugarCategoryTextField" destination="7X7-fa-Rhw" id="iMa-bN-H2l"/>
                                             <outlet property="datePicker" destination="e9i-AI-l3Q" id="CUv-1q-HAe"/>
                                             <outlet property="plusButton" destination="pYY-sy-Uuh" id="gsX-ym-wXa"/>
                                         </connections>
@@ -112,7 +112,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="textFieldBloodSugar" destination="jum-Q9-js8" id="Cwm-a3-p8W"/>
+                                            <outlet property="bloodSugarTextField" destination="jum-Q9-js8" id="ryT-bJ-nxR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -139,7 +139,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="uof-xV-cTL">
-                            <color key="tintColor" name="blue_blue"/>
+                            <color key="tintColor" name="charcoal_grey"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -160,6 +160,9 @@
         </namedColor>
         <namedColor name="blue_blue">
             <color red="0.12941176470588237" green="0.29019607843137257" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="charcoal_grey">
+            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

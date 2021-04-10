@@ -13,7 +13,7 @@ class BloodSugarEntryRepository {
     static let shared = BloodSugarEntryRepository()
     let entityName = BloodSugarEntries.self.description()
     
-    func insertBloodSugarEntry(category: Int, bloodSugar: Int){
+    func insertBloodSugarEntry(category: Int, bloodSugar: Int, timeLog: Date){
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
@@ -26,7 +26,7 @@ class BloodSugarEntryRepository {
         
         bloodSugarEntry.blood_sugar = Int32(bloodSugar)
         bloodSugarEntry.category = Int32(category)
-        bloodSugarEntry.time_log = Date()
+        bloodSugarEntry.time_log = timeLog
         bloodSugarEntry.created_at = Date()
         bloodSugarEntry.updated_at = Date()
         

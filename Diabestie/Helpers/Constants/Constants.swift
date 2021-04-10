@@ -16,6 +16,13 @@ class Constants  {
     static let globalUserFirstName = "Diabestie"
     static let globalUserLastName = "Nutrition"
     static let globalUserPasword = "diabestie@nutrition.org"
+   
+    static let categoryList = ["Add Category", "Fasting", "After Breakfast", "After Lunch", "After Dinner"]
 
+    enum DiaryEntries {
+        case bloodSugar
+        case food
+        case medicine
+    }
     
 }
