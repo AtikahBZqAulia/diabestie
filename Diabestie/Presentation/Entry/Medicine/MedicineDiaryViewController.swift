@@ -10,6 +10,7 @@ import UIKit
 class MedicineDiaryViewController: UIViewController {
 
     @IBOutlet weak var medicineTableView: UITableView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     
     var names: [String] = []
@@ -19,12 +20,13 @@ class MedicineDiaryViewController: UIViewController {
         super.viewDidLoad()
         medicineTableView.dataSource = self
         medicineTableView.register(UINib(nibName: "EmptyTableCell", bundle: nil), forCellReuseIdentifier: "EmptyDataCell")
+        
     }
 
     @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+   
 }
 
 extension MedicineDiaryViewController: UITableViewDataSource {

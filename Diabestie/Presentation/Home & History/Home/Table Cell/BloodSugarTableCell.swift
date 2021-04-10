@@ -10,6 +10,7 @@ import UIKit
 class BloodSugarTableCell: UITableViewCell {
 
     static let identifier = "BloodSugarTableCell"
+    static let emptyStateidentifier = "EmptyBloodSugarHistoryTableCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

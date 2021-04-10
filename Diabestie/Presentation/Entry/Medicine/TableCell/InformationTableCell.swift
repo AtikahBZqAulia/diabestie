@@ -11,6 +11,9 @@ class InformationTableCell: UITableViewCell {
     
     @IBOutlet weak var categoryField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var buttonAdd: UIButton!
+    
+    var saveButton: UIBarButtonItem!
     
     var selectedCategory: String?
     let categoryList = ["Fasting", "After Breakfast", "After Lunch", "After Dinner"]
@@ -22,7 +25,7 @@ class InformationTableCell: UITableViewCell {
         createPickerView()
         dismissPickerView()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -69,5 +72,6 @@ extension InformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedCategory = categoryList[row]
         categoryField.text = selectedCategory
+        buttonAdd.isHidden = true
     }
 }

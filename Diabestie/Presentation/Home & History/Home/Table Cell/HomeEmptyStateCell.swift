@@ -7,8 +7,11 @@
 
 import UIKit
 
-class HighlightTableCell: UITableViewCell {
+class HomeEmptyStateCell: UITableViewCell {
 
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var icEmptyState: UIImageView!
+    @IBOutlet weak var lblDescription: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
