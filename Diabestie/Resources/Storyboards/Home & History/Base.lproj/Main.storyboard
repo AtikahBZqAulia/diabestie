@@ -122,7 +122,7 @@
                                                                             </constraints>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eqh-8v-uoE">
-                                                                            <rect key="frame" x="113.66666666666664" y="0.0" width="183.33333333333337" height="47.333333333333336"/>
+                                                                            <rect key="frame" x="113.66666666666664" y="0.0" width="134.33333333333337" height="47.333333333333336"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd1-ZY-PRk">
                                                                                     <rect key="frame" x="7.9999999999999929" y="0.0" width="126.33333333333331" height="18"/>
@@ -145,7 +145,7 @@
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="trailing" secondItem="SFU-oA-Gkb" secondAttribute="trailing" constant="49" id="07R-e7-Qph"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="SFU-oA-Gkb" secondAttribute="trailing" id="07R-e7-Qph"/>
                                                                                 <constraint firstItem="z53-jr-9dT" firstAttribute="top" secondItem="pd1-ZY-PRk" secondAttribute="bottom" constant="4" id="9wG-ld-0hA"/>
                                                                                 <constraint firstItem="SFU-oA-Gkb" firstAttribute="top" secondItem="z53-jr-9dT" secondAttribute="top" id="Aq5-0X-8Mj"/>
                                                                                 <constraint firstItem="pd1-ZY-PRk" firstAttribute="leading" secondItem="Eqh-8v-uoE" secondAttribute="leading" constant="8" id="B4F-za-dRh"/>
@@ -241,6 +241,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="lblBloodSugarRange" destination="z53-jr-9dT" id="GFs-dD-keB"/>
+                                            <outlet property="lblLatestBloodSugarLevel" destination="29W-l3-4OD" id="qUx-MN-RRP"/>
+                                            <outlet property="lblSugarLevelIndicator" destination="aRO-XX-Djo" id="DZ5-jo-Qnh"/>
+                                            <outlet property="lblTime" destination="8WE-hP-WWR" id="3XA-Cm-HIv"/>
+                                            <outlet property="viewBgBloodSugarIndicator" destination="nIL-bl-C4i" id="Msq-jc-Fp5"/>
+                                            <outlet property="viewBloodSugarIndicator" destination="Npf-Vc-JxB" id="IH1-DC-pPQ"/>
                                             <segue destination="Jmr-tP-wsG" kind="show" id="n4V-cr-iKO"/>
                                         </connections>
                                     </tableViewCell>
@@ -1174,6 +1180,9 @@
                                                 <constraint firstItem="cYv-F5-kZ7" firstAttribute="top" secondItem="6e6-NQ-A2W" secondAttribute="top" constant="10" id="kyy-Gx-akm"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="stackView" destination="KWQ-YJ-iLW" id="UoS-xI-8rc"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodTableCell" rowHeight="123" id="ddC-eL-CPW" userLabel="FoodTableCell" customClass="FoodTableCell" customModule="Diabestie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="205.33333206176758" width="414" height="123"/>

@@ -11,9 +11,26 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private let refreshControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        setupPullToRefresh()
+    }
+    
+    func setupPullToRefresh(){
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+    }
+    
+    @objc private func refreshData(_ sender: Any) {
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     @IBAction func deleteAllLocalData(_ sender: Any) {
@@ -27,6 +44,31 @@ class HomeViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+//    override func v(_ animated: Bool) {
+//        self.viewDidAppear(animated)
+//    }
+    
+}
+
+extension HomeViewController {
+    
+    var latestBloodSugarEntries: BloodSugarEntries? {
+         return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: Date()).last
+    }
+    
+    func todayBloodSugarEntries() -> [BloodSugarEntries] {
+        return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: Date())
+    }
+    func todayFoodEntries() -> [FoodEntries] {
+        return FoodEntryRepository.shared.getFoodEntryByDate(date: Date())
+    }
+    func todayMedicineEntries() -> [MedicineEntries] {
+        return MedicineEntryRepository.shared.getMedicineEntryByDate(date: Date())
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -34,12 +76,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
         
-        identifiers.append(BloodSugarTableCell.identifier)
-        //        identifiers.append(FoodTableCell.identifier)
-        //        identifiers.append(MedicineTableCell.identifier)
-        //        identifiers.append(BloodSugarTableCell.emptyStateidentifier)
-        identifiers.append(FoodTableCell.emptyStateidentifier)
-        identifiers.append(MedicineTableCell.emptyStateidentifier)
+        todayBloodSugarEntries().isEmpty ?
+            identifiers.append(BloodSugarTableCell.emptyStateidentifier) : identifiers.append(BloodSugarTableCell.identifier)
+        
+        todayFoodEntries().isEmpty ?
+            identifiers.append(FoodTableCell.emptyStateidentifier) : identifiers.append(FoodTableCell.identifier)
+        
+        todayMedicineEntries().isEmpty ?
+            identifiers.append(MedicineTableCell.emptyStateidentifier) : identifiers.append(MedicineTableCell.identifier)
+        
+      
         identifiers.append(AddDiaryTableCell.identifier)
         
         return identifiers
@@ -72,6 +118,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? BloodSugarTableCell else {
                 return UITableViewCell()
             }
+            
+            cell.bloodSugarEntry = latestBloodSugarEntries
+        
             return cell
         case FoodTableCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? FoodTableCell else {

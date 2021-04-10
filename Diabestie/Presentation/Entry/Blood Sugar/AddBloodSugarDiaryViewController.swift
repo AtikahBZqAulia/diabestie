@@ -35,6 +35,10 @@ class AddBloodSugarDiaryViewController: UIViewController {
 
     }
     
+    @IBAction func onSaveButtonTap(_ sender: Any) {
+        saveBloodSugarData()
+    }
+    
     @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
         self.popBack(2)
     }
@@ -58,7 +62,7 @@ extension AddBloodSugarDiaryViewController: AddBloodSugarDelegate {
 }
 
 extension AddBloodSugarDiaryViewController {
-    @objc func saveBloodSugarData() {
+    func saveBloodSugarData() {
         BloodSugarEntryRepository.shared.insertBloodSugarEntry(category: self.selectedCategory, bloodSugar: bloodSugarLevel, timeLog: timeLog)
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
@@ -80,7 +84,6 @@ extension AddBloodSugarDiaryViewController {
         }
         saveButton.isEnabled = true
         self.saveButton.tintColor = .systemBlue
-        self.saveButton.action = #selector(self.saveBloodSugarData)
     }
 }
 

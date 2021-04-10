@@ -140,6 +140,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="uof-xV-cTL">
                             <color key="tintColor" name="charcoal_grey"/>
+                            <connections>
+                                <action selector="onSaveButtonTap:" destination="6eo-Ca-O4L" id="hCH-SW-97M"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
