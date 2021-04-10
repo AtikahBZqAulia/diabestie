@@ -66,6 +66,35 @@ class MedicineEntryRepository {
         return []
     }
     
+    func getMedicineEntryByDate(date: Date) -> [MedicineEntries] {
+        print("entiry name \(entityName)")
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "time_log >= %@ && time_log <= %@ ", date.startOfDay as CVarArg, date.endOfDay as CVarArg)
+
+        do {
+            
+            let item = try context.fetch(fetchRequest) as! [MedicineEntries]
+            
+//            for data in item {
+//                print("BloodSugar Entry \(data.eat_time)")
+//                let baskets = data.BloodSugarbasket?.allObjects as! [BloodSugarBasket]
+//                for basketData in baskets {
+//                    print("BloodSugar Entry Basket \(basketData.qty)")
+//                }
+//            }
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return []
+    }
+    
+    
     func deleteMedicineEntry(medicineEntry: MedicineEntries){
                 
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext

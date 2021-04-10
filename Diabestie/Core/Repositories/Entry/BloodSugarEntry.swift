@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class BloodSugarEntryRepository {
     
@@ -35,6 +36,35 @@ class BloodSugarEntryRepository {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+    }
+    
+    func getBloodSugarEntryByDate(date: Date) -> [BloodSugarEntries] {
+        print("entiry name \(entityName)")
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "time_log >= %@ && time_log <= %@ ", date.startOfDay as CVarArg, date.endOfDay as CVarArg)
+
+        do {
+            
+            let item = try context.fetch(fetchRequest) as! [BloodSugarEntries]
+            
+            print("SADASD \(item)")
+//            for data in item {
+//                print("BloodSugar Entry \(data.eat_time)")
+//                let baskets = data.BloodSugarbasket?.allObjects as! [BloodSugarBasket]
+//                for basketData in baskets {
+//                    print("BloodSugar Entry Basket \(basketData.qty)")
+//                }
+//            }
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return []
     }
     
     func getAllBloodSugarEntry() -> [BloodSugarEntries] {
@@ -78,6 +108,53 @@ class BloodSugarEntryRepository {
             print("Could not save. \(error), \(error.userInfo)")
         }
         
+    }
+    
+    static func todaySugarLevelData() -> (range: String, indicator: Constants.BloodSugarLevelIndicatorCode) {
+        
+        let date = Date()
+        let user = UserRepository.shared.getUserByEmail(email: Constants.globalUserEmail).last
+        let latestBloodSugarEntry = shared.getBloodSugarEntryByDate(date: date).last
+//        let latestBloodSugar = shared.getBloodSugarEntryByDate(date: date).last
+        let todayBloodSugarMax = shared.getBloodSugarEntryByDate(date: date).map {$0.blood_sugar}.max() ?? 0
+        let todayBloodSugarMin = shared.getBloodSugarEntryByDate(date: date).map {$0.blood_sugar}.min() ?? 0
+
+//        let latestBloodSugarLevel: String = String(describing: latestBloodSugar?.blood_sugar)
+        let bloodSugarRange = "\(todayBloodSugarMin) - \(todayBloodSugarMax)"
+
+        if latestBloodSugarEntry?.category == 1 {
+            // This is for fasting reference
+            let lowerBound = user?.bloodsugarconstraint?.f_lower_bound ?? 0
+            let higherBound = user?.bloodsugarconstraint?.f_upper_bound ?? 0
+            
+            if lowerBound == 0 || higherBound == 0  {
+                return (bloodSugarRange ,.none)
+            } else if latestBloodSugarEntry?.blood_sugar ?? 0 > lowerBound && latestBloodSugarEntry?.blood_sugar ?? 0 < higherBound{
+                return (bloodSugarRange ,.stable)
+            } else if latestBloodSugarEntry?.blood_sugar ?? 0 > higherBound {
+                return (bloodSugarRange ,.high)
+            } else if latestBloodSugarEntry?.blood_sugar ?? 0 < lowerBound {
+                return (bloodSugarRange ,.low)
+            }
+            
+        } else {
+            // This is for meal reference
+            let lowerBound = user?.bloodsugarconstraint?.am_lower_bound ?? 0
+            let higherBound = user?.bloodsugarconstraint?.am_upper_bound ?? 0
+            
+            if lowerBound == 0 || higherBound == 0  {
+                return (bloodSugarRange ,.none)
+            } else if latestBloodSugarEntry?.blood_sugar ?? 0 > lowerBound && latestBloodSugarEntry?.blood_sugar ?? 0 < higherBound{
+                return (bloodSugarRange ,.stable)
+            } else if latestBloodSugarEntry?.blood_sugar ?? 0 > higherBound {
+                return (bloodSugarRange ,.high)
+            } else if latestBloodSugarEntry?.blood_sugar ?? 0 < lowerBound {
+                return (bloodSugarRange ,.low)
+            }
+        }
+        
+        return ("" ,.none)
+
     }
     
 }

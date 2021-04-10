@@ -52,6 +52,35 @@ class FoodEntryRepository {
         
     }
     
+    func getFoodEntryByDate(date: Date) -> [FoodEntries] {
+        print("entiry name \(entityName)")
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "time_log >= %@ && time_log <= %@ ", date.startOfDay as CVarArg, date.endOfDay as CVarArg)
+
+        do {
+            
+            let item = try context.fetch(fetchRequest) as! [FoodEntries]
+            
+//            for data in item {
+//                print("Food Entry \(data.eat_time)")
+//                let baskets = data.Foodbasket?.allObjects as! [FoodBasket]
+//                for basketData in baskets {
+//                    print("Food Entry Basket \(basketData.qty)")
+//                }
+//            }
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return []
+    }
+    
+    
     func getAllFoodEntry() -> [FoodEntries] {
         
         print("entiry name \(entityName)")
