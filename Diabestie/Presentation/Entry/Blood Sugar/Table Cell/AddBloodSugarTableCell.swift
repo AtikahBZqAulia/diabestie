@@ -9,16 +9,15 @@ import UIKit
 
 class AddBloodSugarTableCell: UITableViewCell {
     
-    @IBOutlet weak var textFieldBloodSugar: UITextField!
+    @IBOutlet weak var bloodSugarTextField: UITextField!
     
     static let identifier = "AddBloodSugarTableCell"
-    //var delegate: addBloodSugarDelegate = AddBloodSugarDiaryViewController() as addBloodSugarDelegate
+    static var isFilled: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        textFieldBloodSugar.delegate = self
-        textFieldBloodSugar.placeholder = "Add"
-        textFieldBloodSugar.delegate = self
+        bloodSugarTextField.delegate = self
+        bloodSugarTextField.placeholder = "Add"
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,21 +29,7 @@ class AddBloodSugarTableCell: UITableViewCell {
 extension AddBloodSugarTableCell: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        textFieldBloodSugar.resignFirstResponder()
+        bloodSugarTextField.resignFirstResponder()
     }
-    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//
-//        let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-//
-//        if !text.isEmpty{
-//            delegate.setSaveButtonStage(true)
-//            print ("ada isinya")
-//        } else if text.isEmpty {
-//            delegate.setSaveButtonStage(false)
-//            print ("kosong")
-//        }
-//        return true
-//    }
     
 }

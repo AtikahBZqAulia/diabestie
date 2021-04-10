@@ -11,9 +11,12 @@ class AddBloodSugarDiaryViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    var bloodSugarIsFilled: Bool = false
+    var bloodSugarCategoryIsFilled: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //saveButton.isEnabled = false
+        saveButton.isEnabled = false
 
     }
     
@@ -51,6 +54,8 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? AddBloodSugarCategoryTableCell else {
                 return UITableViewCell()
             }
+            cell.bloodSugarCategoryTextField.tag = indexPath.row //0
+            cell.bloodSugarCategoryTextField.delegate = self
             return cell
             
         case AddBloodSugarTableCell.identifier:
@@ -58,6 +63,8 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
                 return UITableViewCell()
             }
             addSeparator(cell, tableView: tableView)
+            cell.bloodSugarTextField.tag = indexPath.row //1
+            cell.bloodSugarTextField.delegate = self
             return cell
             
         default:
@@ -82,9 +89,70 @@ extension AddBloodSugarDiaryViewController: UITableViewDelegate, UITableViewData
     
 }
 
-//extension AddBloodSugarDiaryViewController: addBloodSugarDelegate {
-//    func setSaveButtonStage(_ stage: Bool) {
-//
-//    }
-//
-//}
+extension AddBloodSugarDiaryViewController: UITextFieldDelegate {
+    
+    enum TextFieldData: Int {
+        
+        case bloodSugarCategoryTextField = 0
+        case bloodSugarTextField = 1
+        
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        switch textField.tag {
+//        case TextFieldData.bloodSugarCategoryTextField.rawValue:
+//            print(text)
+//            if text != "Add Category" {
+//                bloodSugarCategoryIsFilled = true
+//            } else {
+//                bloodSugarCategoryIsFilled = false
+//            }
+        case TextFieldData.bloodSugarTextField.rawValue:
+            if !text.isEmpty {
+                bloodSugarIsFilled = true
+            } else {
+                bloodSugarIsFilled = false
+            }
+        default:
+            break
+        }
+        
+        saveButton.isEnabled = isAllDataFilled()
+        return true
+
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+
+        switch textField.tag {
+        case TextFieldData.bloodSugarCategoryTextField.rawValue:
+            if textField.text != "Add Category" {
+                bloodSugarCategoryIsFilled = true
+            } else {
+                bloodSugarCategoryIsFilled = false
+            }
+//        case TextFieldData.bloodSugarTextField.rawValue:
+//            if textField.text != "" {
+//                bloodSugarIsFilled = true
+//            } else {
+//                bloodSugarIsFilled = false
+//            }
+        default:
+            break
+        }
+
+        saveButton.isEnabled = isAllDataFilled()
+
+    }
+    
+    func isAllDataFilled() -> Bool {
+        if bloodSugarIsFilled && bloodSugarCategoryIsFilled {
+            return true
+        } else {
+            return false
+        }
+    }
+}

@@ -10,13 +10,13 @@ import UIKit
 class AddBloodSugarCategoryTableCell: UITableViewCell {
     
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var addCategoryInput: UITextField!
+    @IBOutlet weak var bloodSugarCategoryTextField: UITextField!
     @IBOutlet weak var plusButton: UIButton!
     
     static let identifier = "AddBloodSugarCategoryTableCell"
+    static var isFilled: Bool = false
     var selectedCategory: String = ""
     var bloodSugar: String = ""
-    //var delegate: addBloodSugarDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,9 +41,9 @@ extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewData
     }
     
     func customTextFieldView() {
-        addCategoryInput.attributedPlaceholder = NSAttributedString(string: "Add Category", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        bloodSugarCategoryTextField.attributedPlaceholder = NSAttributedString(string: "Add Category", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         
-        addCategoryInput.tintColor = UIColor.clear
+        bloodSugarCategoryTextField.tintColor = UIColor.clear
     }
     
     func createPickerView() {
@@ -51,7 +51,7 @@ extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewData
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.backgroundColor = UIColor.white
-        addCategoryInput.inputView = pickerView
+        bloodSugarCategoryTextField.inputView = pickerView
     }
     
     func createToolBar() -> UIToolbar {
@@ -75,7 +75,7 @@ extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewData
         let doneButton = createBarButton()
         
         pickerViewToolBar.setItems([doneButton], animated: true)
-        addCategoryInput.inputAccessoryView = pickerViewToolBar
+        bloodSugarCategoryTextField.inputAccessoryView = pickerViewToolBar
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -91,26 +91,21 @@ extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        plusButton.isHidden = true
         
         selectedCategory = bloodSugarCategoryChoice()[row]
-        addCategoryInput.text = selectedCategory
+        bloodSugarCategoryTextField.text = selectedCategory
         
         switch bloodSugarCategoryChoice()[row] {
         case "Add Category":
             plusButton.isHidden = false
             
         default:
-            break
+            plusButton.isHidden = true
         }
     }
     
     @objc func onDoneButtontapped() {
-        addCategoryInput.endEditing(true)
+        bloodSugarCategoryTextField.endEditing(true)
     }
     
 }
-
-//protocol addBloodSugarDelegate {
-//    func setSaveButtonStage(_ stage: Bool)
-//}
