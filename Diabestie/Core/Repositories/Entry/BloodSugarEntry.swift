@@ -13,7 +13,7 @@ class BloodSugarEntryRepository {
     static let shared = BloodSugarEntryRepository()
     let entityName = BloodSugarEntries.self.description()
     
-    func addBloodSugarEntry(category: Int, bloodSugar: Int){
+    func insertBloodSugarEntry(category: Int, bloodSugar: Int){
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         

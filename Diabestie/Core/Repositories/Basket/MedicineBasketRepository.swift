@@ -32,6 +32,22 @@ class MedicineBasketRepository {
         return medicineBasket
     }
     
+    func updateMedicineBasket(newQty: Int, basket: MedicineBasket){
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        //Check if user is exists
+        let medicineBasket = basket
+//        medicineBasket = basket
+        medicineBasket.qty = Int32(newQty)
+        medicineBasket.updated_at = Date()
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     func deleteMedicineBasket(basket: MedicineBasket){
         
         print("entiry name \(entityName)")

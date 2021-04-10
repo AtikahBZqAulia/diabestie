@@ -13,7 +13,7 @@ class MedicineEntryRepository {
     static let shared = MedicineEntryRepository()
     let entityName = MedicineEntries.self.description()
     
-    func addMedicineEntry(category: Int, medicineBasket: NSMutableSet){
+    func insertMedicineEntry(category: Int, medicineBasket: NSMutableSet){
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         

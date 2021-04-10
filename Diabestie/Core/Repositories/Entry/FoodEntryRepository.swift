@@ -13,7 +13,7 @@ class FoodEntryRepository {
     static let shared = FoodEntryRepository()
     let entityName = FoodEntries.self.description()
     
-    func addFoodEntry(eatTime: Int, foodBasket: NSMutableSet){
+    func insertFoodEntry(eatTime: Int, foodBasket: NSMutableSet){
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         

@@ -84,6 +84,15 @@ class CoreDataManager {
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetamol", consumption: 3)
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
         }
+        
+        let set = NSMutableSet.init()
+        
+        let basket = MedicineBasketRepository.shared.addMedicineBasket(qty: 2, medicineLibrary: MedicineLibraryRepository.shared.getAllMedicineibrary()[0])
+        
+        set.add(basket)
+        
+        MedicineEntryRepository.shared.insertMedicineEntry(category: 2, medicineBasket: set)
+        
     }
     
     func deleteAllData(){
