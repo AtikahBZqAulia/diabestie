@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Constants  {
     
@@ -23,6 +24,52 @@ class Constants  {
         case bloodSugar
         case food
         case medicine
+    }
+    
+    static func BloodSugarLevelIndicator(indicator: BloodSugarLevelIndicatorCode) -> String {
+        switch indicator {
+        case .low:
+            return "Low blood sugar level"
+        case .stable:
+            return "Your blood sugar level is stable"
+        case .high:
+            return "High blood sugar level"
+        case .none:
+            return "none"
+        }
+    }
+    
+    static func BloodSugarLevelIndicatorBGColor(indicator: BloodSugarLevelIndicatorCode) -> UIColor {
+        switch indicator {
+        case .low:
+            return UIColor.tangerineBackground
+        case .stable:
+            return UIColor.greenBackground
+        case .high:
+            return UIColor.redBackground
+        case .none:
+            return UIColor.gray
+        }
+    }
+    
+    static func BloodSugarLevelIndicatorTxtColor(indicator: BloodSugarLevelIndicatorCode) -> UIColor {
+        switch indicator {
+        case .low:
+            return UIColor.tangerine
+        case .stable:
+            return UIColor.greenLight
+        case .high:
+            return UIColor.reddishPink
+        case .none:
+            return UIColor.gray
+        }
+    }
+    
+    enum BloodSugarLevelIndicatorCode: Int {
+        case low
+        case stable
+        case high
+        case none
     }
     
 }

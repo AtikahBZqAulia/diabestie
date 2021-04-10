@@ -15,9 +15,7 @@ let fontMedium: CGFloat = 14
 let fontLarge: CGFloat = 16
 
 public class HorizontalCalendar: UIView {
-    
-    static var dateFormat = "EEEE, MMM d"
-    
+        
     static var selectedColor = UIColor.blueBlue
     static var todayColor = UIColor.blueBlue
     static var textDark = UIColor.black
@@ -105,7 +103,7 @@ public class HorizontalCalendar: UIView {
     public var selectedWeekDay: Int
     public var selectedDate: Date {
         didSet {
-            dateLabel.text = selectedDate.string(format: Self.dateFormat)
+            dateLabel.text = selectedDate.string(format: .DayMonth)
             todayButton.isHidden = selectedDate.isToday
             onSelectionChanged?(selectedDate)
         }

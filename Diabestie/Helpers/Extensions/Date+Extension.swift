@@ -9,6 +9,17 @@
 import Foundation
 
 internal extension Date {
+    
+    enum ISO8601Format: String {
+      case DayMonth         = "EEEE, MMM d"                // Sun, 07 9
+      case HourMinutes      = "HH:mm"                      // 19:20
+      case Year             = "yyyy"                       // 1997
+      case YearMonth        = "yyyy-MM"                    // 1997-07
+      case Date             = "yyyy-MM-dd"                 // 1997-07-16
+      case DateTime         = "yyyy-MM-dd'T'HH:mmZ"        // 1997-07-16T19:20+01:00
+      case DateTimeSec      = "yyyy-MM-dd'T'HH:mm:ssZ"     // 1997-07-16T19:20:30+01:00
+      case DateTimeMilliSec = "yyyy-MM-dd'T'HH:mm:ss.SSSZ" // 1997-07-16T19:20:30.45+01:00
+    }
 
     var day: Int {
         let calendar = Calendar.current
@@ -98,10 +109,11 @@ internal extension Date {
         return formatter.string(from: self)
     }
     
-    func string(format: String = "dd-MM-yyyy HH:mm") -> String {
+    func string(format: ISO8601Format) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        formatter.dateFormat = format
+        formatter.dateFormat = format.rawValue
         return formatter.string(from: self)
     }
+    
 }

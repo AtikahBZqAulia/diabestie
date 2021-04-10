@@ -32,4 +32,10 @@ class CommonFunction {
         viewController.present(alert, animated: true, completion: nil)
     }
     
+    func getDateWithFormat(format: ListFormatter) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let currentTime = formatter.string(from: Date())
+    }
+    
 }
