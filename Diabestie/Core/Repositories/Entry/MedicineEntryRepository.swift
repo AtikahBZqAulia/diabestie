@@ -50,14 +50,6 @@ class MedicineEntryRepository {
             
             let item = try context.fetch(fetchRequest) as! [MedicineEntries]
             
-//            for data in item {
-//                print("Medicine Entry \(data.eat_time)")
-//                let baskets = data.Medicinebasket?.allObjects as! [MedicineBasket]
-//                for basketData in baskets {
-//                    print("Medicine Entry Basket \(basketData.qty)")
-//                }
-//            }
-            
             return item
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
@@ -67,7 +59,6 @@ class MedicineEntryRepository {
     }
     
     func getMedicineEntryByDate(date: Date) -> [MedicineEntries] {
-        print("entiry name \(entityName)")
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
@@ -77,14 +68,6 @@ class MedicineEntryRepository {
         do {
             
             let item = try context.fetch(fetchRequest) as! [MedicineEntries]
-            
-//            for data in item {
-//                print("BloodSugar Entry \(data.eat_time)")
-//                let baskets = data.BloodSugarbasket?.allObjects as! [BloodSugarBasket]
-//                for basketData in baskets {
-//                    print("BloodSugar Entry Basket \(basketData.qty)")
-//                }
-//            }
             
             return item
         } catch let error as NSError {

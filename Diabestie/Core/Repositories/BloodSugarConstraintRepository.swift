@@ -42,20 +42,17 @@ class BloodSugarConstraintsRepository {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         if let dataConstraints = user.bloodsugarconstraint {
-            //Check if user is exists
+            //This is when user has constraints already, this function is for updating the value
             let bloodSugarConstraints = dataConstraints
-    //        BloodSugarConstraints = basket
-            
             bloodSugarConstraints.am_lower_bound = Int32(am_lower)
             bloodSugarConstraints.am_upper_bound = Int32(am_upper)
             bloodSugarConstraints.f_lower_bound = Int32(f_lower)
             bloodSugarConstraints.f_upper_bound = Int32(f_upper)
         } else {
+            //Create new constraint for user
             let bloodSugarConstraints = addBloodSugarConstraints(am_upper: am_upper, am_lower: am_lower, f_upper: f_upper, f_lower: f_lower)
             user.bloodsugarconstraint = bloodSugarConstraints
         }
-        
-
         
         do {
             try context.save()

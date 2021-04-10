@@ -35,9 +35,7 @@ class MedicineBasketRepository {
     func updateMedicineBasket(newQty: Int, basket: MedicineBasket){
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
-        //Check if user is exists
         let medicineBasket = basket
-//        medicineBasket = basket
         medicineBasket.qty = Int32(newQty)
         medicineBasket.updated_at = Date()
         

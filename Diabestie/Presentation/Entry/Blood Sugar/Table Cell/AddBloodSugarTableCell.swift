@@ -15,7 +15,6 @@ class AddBloodSugarTableCell: UITableViewCell {
     static var isFilled: Bool = false
     
     weak var delegate: AddBloodSugarDelegate?
-//    var bloodSugarLevel: Int = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +44,7 @@ extension AddBloodSugarTableCell: UITextFieldDelegate {
         } else if text.isEmpty {
             delegate?.onBloodSugarLevel(bloodSugarLevel: 0)
         }
+        
         return true
     }
     

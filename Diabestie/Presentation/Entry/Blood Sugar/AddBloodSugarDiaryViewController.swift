@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+//Use protocol to pass data between cell & view controller
 protocol AddBloodSugarDelegate: class {
     func onCategoryPick(categoryId: Int)
     func onBloodSugarLevel(bloodSugarLevel: Int)
@@ -55,23 +57,19 @@ extension AddBloodSugarDiaryViewController: AddBloodSugarDelegate {
         self.timeLog = selectedDate
     }
     func onBloodSugarLevel(bloodSugarLevel: Int) {
-        print("KEPANGGIL GAK?")
         self.bloodSugarLevel = bloodSugarLevel
     }
     
 }
 
 extension AddBloodSugarDiaryViewController {
+    
     func saveBloodSugarData() {
         BloodSugarEntryRepository.shared.insertBloodSugarEntry(category: self.selectedCategory, bloodSugar: bloodSugarLevel, timeLog: timeLog)
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     func validateData(){
-        
-        print("VALIDATE selectedCategory \(selectedCategory)")
-        print("VALIDATE bloodSugarLevel \(bloodSugarLevel)")
-
         if selectedCategory == 0 {
             self.saveButton.tintColor = .charcoalGrey
             saveButton.isEnabled = false

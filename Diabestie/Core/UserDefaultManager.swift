@@ -55,7 +55,6 @@ class UserDefaultManager {
         let defaults = UserDefaults.standard
         let dictionary = defaults.dictionaryRepresentation()
         dictionary.keys.forEach { key in
-            print("DATA CLEAR \(key)")
             defaults.removeObject(forKey: key)
         }
     }

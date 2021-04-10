@@ -76,28 +76,10 @@ class UserRepository {
     }
     
     func insertBloogSugarConstraint(am_upper: Int, am_lower: Int, f_upper:Int, f_lower:Int) {
-//
-//        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-//
-//        let bloodSugarConstraint = BloodSugarConstraintsRepository.shared.addBloodSugarConstraints(am_upper: am_upper, am_lower: am_lower, f_upper: f_upper, f_lower: f_lower)
-        let user = self.getUserByEmail(email: Constants.globalUserEmail).last
         
+        let user = self.getUserByEmail(email: Constants.globalUserEmail).last
         BloodSugarConstraintsRepository.shared.updateBloodSugarConstraints(am_upper: am_upper, am_lower: am_lower, f_upper: f_upper, f_lower: f_lower, user: user)
         
-//        if user?.bloodsugarconstraint == nil {
-//            user?.bloodsugarconstraint = bloodSugarConstraint
-//        } else {
-//            user?.bloodsugarconstraint?.am_upper_bound = Int32(am_upper)
-//            user?.bloodsugarconstraint?.am_lower_bound = Int32(am_lower)
-//            user?.bloodsugarconstraint?.f_upper_bound = Int32(f_upper)
-//            user?.bloodsugarconstraint?.f_lower_bound = Int32(f_lower)
-//        }
-//
-//        do {
-//            try context.save()
-//        } catch let error as NSError {
-//            print("Could not save. \(error), \(error.userInfo)")
-//        }
     }
     
 }

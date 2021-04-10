@@ -43,7 +43,7 @@ class CoreDataManager {
         
         let userData = UserRepository.shared.getUserByEmail(email: Constants.globalUserEmail)
         
-        //Check if user is exists
+        //Check if user is not exists yet
         if userData.isEmpty {
             UserRepository.shared.insertUser(
                 email: Constants.globalUserEmail,
@@ -59,16 +59,6 @@ class CoreDataManager {
     }
     
     func preloadFoodLibraryData(){
-        //        let baskets = NSMutableSet.init()
-        //
-        //        for _ in 1..<4 {
-        //            let value = (arc4random() % 90) + 100
-        //            let foodBasket = FoodBasketRepository.shared.addFoodBasket(qty: Int(value))
-        //            baskets.add(foodBasket)
-        //        }
-        //       FoodEntryRepository.shared.addFoodEntry(eatTime: 1, foodBasket: baskets)
-        //       FoodEntryRepository.shared.getAllFoodEntry()
-        
         //Check if food library preload data is exists
         if FoodLibraryRepository.shared.getAllFoodLibrary().isEmpty {
             FoodLibraryRepository.shared.insertFoodLibrary(name: "Banana", calories: 100, weight: 1, sugar: 100)
@@ -78,13 +68,11 @@ class CoreDataManager {
     }
     
     func preloadMedicineLibraryData(){
-        
         //Check if medicine library preload data is exists
         if MedicineLibraryRepository.shared.getAllMedicineibrary().isEmpty {
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetamol", consumption: 3)
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
         }
-        
     }
     
     func deleteAllData(){

@@ -34,9 +34,7 @@ class FoodBasketRepository {
     }
     
     func deleteFoodBasket(basket: FoodBasket){
-        
-        print("entiry name \(entityName)")
-        
+                
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         do {

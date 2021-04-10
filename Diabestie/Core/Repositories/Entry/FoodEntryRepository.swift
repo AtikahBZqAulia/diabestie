@@ -53,7 +53,6 @@ class FoodEntryRepository {
     }
     
     func getFoodEntryByDate(date: Date) -> [FoodEntries] {
-        print("entiry name \(entityName)")
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
@@ -63,14 +62,6 @@ class FoodEntryRepository {
         do {
             
             let item = try context.fetch(fetchRequest) as! [FoodEntries]
-            
-//            for data in item {
-//                print("Food Entry \(data.eat_time)")
-//                let baskets = data.Foodbasket?.allObjects as! [FoodBasket]
-//                for basketData in baskets {
-//                    print("Food Entry Basket \(basketData.qty)")
-//                }
-//            }
             
             return item
         } catch let error as NSError {
@@ -82,9 +73,7 @@ class FoodEntryRepository {
     
     
     func getAllFoodEntry() -> [FoodEntries] {
-        
-        print("entiry name \(entityName)")
-        
+                
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FoodEntries")
@@ -92,14 +81,6 @@ class FoodEntryRepository {
         do {
             
             let item = try context.fetch(fetchRequest) as! [FoodEntries]
-            
-//            for data in item {
-//                print("Food Entry \(data.eat_time)")
-//                let baskets = data.foodbasket?.allObjects as! [FoodBasket]
-//                for basketData in baskets {
-//                    print("Food Entry Basket \(basketData.qty)")
-//                }
-//            }
             
             return item
         } catch let error as NSError {

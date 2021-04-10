@@ -106,7 +106,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let identifier = self.tableviewIdentifier()[indexPath.row]
-        print("IDENTIFIER \(identifier)")
         
         switch identifier {
         case AddDiaryTableCell.identifier:
@@ -138,7 +137,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         case BloodSugarTableCell.emptyStateidentifier:
-            print("IDENTIFIER \(identifier)")
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeEmptyStateCell.cellIdentifier()) as? HomeEmptyStateCell else {
                 return UITableViewCell()
