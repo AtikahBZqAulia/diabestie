@@ -16,6 +16,7 @@
         <!--Select Date-->
         <scene sceneID="FQI-41-hOY">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IwM-81-N5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController title="Select Date" id="46P-kz-H9r" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2uY-Ep-0m9">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -26,7 +27,6 @@
                         <segue destination="ht8-XV-QbT" kind="relationship" relationship="rootViewController" id="urd-Mc-1b2"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IwM-81-N5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34" y="244"/>
         </scene>
@@ -35,13 +35,16 @@
             <objects>
                 <viewController id="ht8-XV-QbT" customClass="CalendarController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CoH-an-Njo">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="xcG-aL-w7u">
                                 <rect key="frame" x="16" y="108" width="358" height="216"/>
                                 <color key="tintColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <locale key="locale" localeIdentifier="id"/>
+                                <connections>
+                                    <action selector="onDateChanged:" destination="ht8-XV-QbT" eventType="valueChanged" id="SSB-R0-fg3"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pQw-Ng-nfs"/>
@@ -78,7 +81,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="urd-Mc-1b2"/>
+        <segue reference="jAo-uY-olR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
