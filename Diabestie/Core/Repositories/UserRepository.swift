@@ -62,6 +62,12 @@ class UserRepository {
         return []
     }
     
+    func getCurrentUser() -> Users? {
+        //user ID should be saved in user defaults later
+        let userId = Constants.globalUserEmail
+        return getUserByEmail(email: userId).first
+    }
+    
     func deleteUser(user: Users) {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
