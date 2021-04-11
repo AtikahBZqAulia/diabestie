@@ -43,7 +43,7 @@ class AddBloodSugarCategoryTableCell: UITableViewCell {
 extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func bloodSugarCategoryChoice() -> [String] {
-        return Constants.categoryList
+        return Constants.bgCategoryList
     }
     
     func customTextFieldView() {
