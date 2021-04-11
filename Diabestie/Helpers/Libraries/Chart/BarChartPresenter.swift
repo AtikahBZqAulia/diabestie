@@ -10,25 +10,16 @@ import CoreGraphics.CGGeometry
 import UIKit
 
 class BasicBarChartPresenter {
-    /// the width of each bar
+    
     let barWidth: CGFloat
-    
-    /// the space between bars
     let space: CGFloat
-    
-    /// set highest value based on user input
     var highestValue: Int = 0
-    
-    /// define bottom title text
+    var userThreshold = [BarChartThresholdDataEntry]()
     let bottomTitleText: [String]
-    
-    /// space at the bottom of the bar to show the title
     private let bottomSpace: CGFloat = 40.0
-    
-    /// space at the top of each bar to show the value
     private let topSpace: CGFloat = 40.0
     
-    var dataEntries: [DataEntry] = []
+    var dataEntries: [BarDataEntry] = []
     
     init(barWidth: CGFloat = 10, space: CGFloat = 20, bottomTitleText: [String] = [""]) {
         self.barWidth = barWidth
@@ -58,12 +49,12 @@ class BasicBarChartPresenter {
     func computeLineThreshold(viewHeight: CGFloat, viewWidth: CGFloat)  -> [ThresholdHorizontalLine] {
         var result: [ThresholdHorizontalLine] = []
         
-        //Use user default for threshold
-        let horizontalLineInfos = [
-            (value: CGFloat(0.0), isDashed: true, threshold: 190, color: UIColor.red.cgColor),
-            (value: CGFloat(1.0), isDashed: true, threshold: 150, color: UIColor.systemBlue.cgColor),
-            (value: CGFloat(1.0), isDashed: true, threshold: 80, color: UIColor.orange.cgColor)
-        ]
+        var horizontalLineInfos = [(value: CGFloat(0.0), isDashed: true, threshold: 0, color: UIColor.red.cgColor)]
+        horizontalLineInfos.removeAll()
+        
+        userThreshold.forEach{ value in
+            horizontalLineInfos.append((value:  CGFloat(0.0), isDashed: true, threshold: value.value, color: value.color.cgColor))
+        }
         
         for lineInfo in horizontalLineInfos {
             let height: Float = Float(lineInfo.threshold) / Float(self.highestValue)
@@ -115,7 +106,7 @@ class BasicBarChartPresenter {
         
         return result
     }
-
+    
     func computeVerticalLines(viewHeight: CGFloat, viewWidth: CGFloat) -> [VerticalLine] {
         var result: [VerticalLine] = []
         
@@ -129,7 +120,7 @@ class BasicBarChartPresenter {
         
         for (index, lineInfo) in verticalLineInfos.enumerated() {
             let xPos = CGFloat(index) * (viewHeight/3)
-
+            
             let lineSegment = LineSegment(
                 startPoint: CGPoint(x: xPos, y: viewHeight),
                 endPoint: CGPoint(x: xPos, y: 0)

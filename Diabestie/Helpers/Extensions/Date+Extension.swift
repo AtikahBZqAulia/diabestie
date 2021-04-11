@@ -11,7 +11,8 @@ import Foundation
 internal extension Date {
     
     enum ISO8601Format: String {
-      case DayMonth         = "EEEE, MMM d"                // Sun, 07 9
+      case Hour             = "HH"                         // 19
+      case DayMonth         = "EEEE, dd MMMM"                // Sun, 07 9
       case HourMinutes      = "HH:mm"                      // 19:20
       case Year             = "yyyy"                       // 1997
       case YearMonth        = "yyyy-MM"                    // 1997-07

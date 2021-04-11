@@ -90,52 +90,55 @@ class BloodSugarEntryRepository {
         
     }
     
-    static func todaySugarLevelData() -> (range: String, indicator: Constants.BloodSugarLevelIndicatorCode) {
+    static func sugarLevelRange(date: Date = Date()) -> String {
         
-        let date = Date()
-        let user = UserRepository.shared.getUserByEmail(email: Constants.globalUserEmail).last
-        let latestBloodSugarEntry = shared.getBloodSugarEntryByDate(date: date).last
         let todayBloodSugarMax = shared.getBloodSugarEntryByDate(date: date).map {$0.blood_sugar}.max() ?? 0
         let todayBloodSugarMin = shared.getBloodSugarEntryByDate(date: date).map {$0.blood_sugar}.min() ?? 0
 
         let bloodSugarRange = "\(todayBloodSugarMin) - \(todayBloodSugarMax)"
+        
+        return bloodSugarRange
 
-        if latestBloodSugarEntry?.category == 1 {
-            // This is for fasting reference
-            let lowerBound = user?.bloodsugarconstraint?.f_lower_bound ?? 0
-            let higherBound = user?.bloodsugarconstraint?.f_upper_bound ?? 0
-            
-            // Check wether blood sugar level indicator is low/high/stable
-            if lowerBound == 0 || higherBound == 0  {
-                return (bloodSugarRange ,.none)
-            } else if latestBloodSugarEntry?.blood_sugar ?? 0 > lowerBound && latestBloodSugarEntry?.blood_sugar ?? 0 < higherBound{
-                return (bloodSugarRange ,.stable)
-            } else if latestBloodSugarEntry?.blood_sugar ?? 0 > higherBound {
-                return (bloodSugarRange ,.high)
-            } else if latestBloodSugarEntry?.blood_sugar ?? 0 < lowerBound {
-                return (bloodSugarRange ,.low)
-            }
-            
-        } else {
-            // This is for meal reference
-            let lowerBound = user?.bloodsugarconstraint?.am_lower_bound ?? 0
-            let higherBound = user?.bloodsugarconstraint?.am_upper_bound ?? 0
-            
-            
-            // Check wether blood sugar level indicator is low/high/stable
-            if lowerBound == 0 || higherBound == 0  {
-                return (bloodSugarRange ,.none)
-            } else if latestBloodSugarEntry?.blood_sugar ?? 0 > lowerBound && latestBloodSugarEntry?.blood_sugar ?? 0 < higherBound{
-                return (bloodSugarRange ,.stable)
-            } else if latestBloodSugarEntry?.blood_sugar ?? 0 > higherBound {
-                return (bloodSugarRange ,.high)
-            } else if latestBloodSugarEntry?.blood_sugar ?? 0 < lowerBound {
-                return (bloodSugarRange ,.low)
+    }
+    
+    func sugarLevelIndicator(bloodSugarEntry: BloodSugarEntries?) -> Constants.BloodSugarLevelIndicatorCode {
+        
+        let category = bloodSugarEntry?.category ?? 0
+        let bloodSugar = bloodSugarEntry?.blood_sugar ?? 0
+        let bloodSugarConstraint = UserRepository.shared.getCurrentUser()?.bloodsugarconstraint
+        
+        if let data = bloodSugarConstraint {
+            if category == 1 {
+                // This is for fasting reference
+                let lowerBound = data.f_lower_bound
+                let higherBound = data.f_upper_bound
+                
+                // Check wether blood sugar level indicator is low/high/stable
+                if bloodSugar > lowerBound && bloodSugar < higherBound{
+                    return .stable
+                } else if  bloodSugar > higherBound {
+                    return .high
+                } else if bloodSugar < lowerBound {
+                    return .low
+                }
+                
+            } else {
+                // This is for meal reference
+                let lowerBound = data.am_lower_bound
+                let higherBound = data.am_upper_bound
+                
+                // Check wether blood sugar level indicator is low/high/stable
+                if bloodSugar > lowerBound && bloodSugar < higherBound{
+                    return .stable
+                } else if bloodSugar > higherBound {
+                    return .high
+                } else if bloodSugar < lowerBound {
+                    return .low
+                }
             }
         }
         
-        return ("" ,.none)
-
+        return .none
     }
     
 }

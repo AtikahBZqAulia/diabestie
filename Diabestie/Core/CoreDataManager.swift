@@ -41,10 +41,10 @@ class CoreDataManager {
     
     func preloadData(){
         
-        let userData = UserRepository.shared.getUserByEmail(email: Constants.globalUserEmail)
-        
+        let userData = UserRepository.shared.getCurrentUser()
+                
         //Check if user is not exists yet
-        if userData.isEmpty {
+        if userData == nil {
             UserRepository.shared.insertUser(
                 email: Constants.globalUserEmail,
                 firstName: Constants.globalUserFirstName,

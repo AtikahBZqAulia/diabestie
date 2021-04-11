@@ -31,6 +31,10 @@ class AddBloodSugarCategoryTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    @IBAction func onDateChanged(_ sender: Any) {
+        delegate?.onDateSelected(selectedDate: datePicker.date)
+    }
+    
     func setupDate() {
         datePicker.setDate(Date(), animated: true)
     }
