@@ -14,7 +14,7 @@ struct BarChartEntry {
     let barWidth: CGFloat
     var barHeight: CGFloat
     let space: CGFloat
-    let data: DataEntry
+    let data: BarDataEntry
     
     var bottomTitleFrame: CGRect {
         return CGRect(x: origin.x - space/2, y: origin.y + 10 + barHeight, width: barWidth + space, height: 22)
@@ -29,7 +29,7 @@ struct BarChartEntry {
     }
 }
 
-struct DataEntry {
+struct BarDataEntry {
     let color: UIColor
     
     /// Ranged from 0.0 to 1.0
@@ -43,6 +43,11 @@ struct DataEntry {
     
     /// To be shown at the bottom of the bar
     let time: Float
+}
+
+struct BarChartThresholdDataEntry {
+    let color: UIColor
+    let value: Int
 }
 
 struct HorizontalLine {

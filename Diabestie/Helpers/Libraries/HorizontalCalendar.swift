@@ -22,7 +22,7 @@ public class HorizontalCalendar: UIView {
     static var textLight = UIColor.charcoalGrey
     static var dateColor = UIColor.charcoalGrey
 
-    let border = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
+    let border = UIColor.charcoalGrey
 
     private lazy var dateLabel: UILabel = { [unowned self] in
         let label = UILabel()
@@ -33,27 +33,27 @@ public class HorizontalCalendar: UIView {
         return label
     }()
     
-    private lazy var arrow: UIImageView = { [unowned self] in
-        let image = UIImageView()
-        image.image = UIImage(named: "icon-arrow-down")
-        image.transform = CGAffineTransform(rotationAngle: .pi)
-        return image
-    }()
+//    private lazy var arrow: UIImageView = { [unowned self] in
+//        let image = UIImageView()
+//        image.image = UIImage(named: "icon-arrow-down")
+//        image.transform = CGAffineTransform(rotationAngle: .pi)
+//        return image
+//    }()
     
-    private lazy var todayButton: UIButton = { [unowned self] in
-        let button = UIButton(type: .system)
-        button.setTitle("Go to Today", for: .normal)
-        button.setTitleColor(HorizontalCalendar.textDark, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: fontMedium)
-        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
-        button.layer.cornerRadius = 5
-        button.tintColor = .red
-        button.layer.borderWidth = 1
-        button.layer.borderColor = border.cgColor
-        button.isHidden = true
-        return button
-    }()
-    
+//    private lazy var todayButton: UIButton = { [unowned self] in
+//        let button = UIButton(type: .system)
+//        button.setTitle("Go to Today", for: .normal)
+//        button.setTitleColor(HorizontalCalendar.textDark, for: .normal)
+//        button.titleLabel?.font = .systemFont(ofSize: fontMedium)
+//        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
+//        button.layer.cornerRadius = 5
+//        button.tintColor = .red
+//        button.layer.borderWidth = 1
+//        button.layer.borderColor = border.cgColor
+//        button.isHidden = true
+//        return button
+//    }()
+//
     private lazy var weekDays: UIView = { [unowned self] in
         let stackView = UIStackView()
         stackView.addArrangedSubview(WeekDayLabel(with: "S", isDark: false))
@@ -104,8 +104,23 @@ public class HorizontalCalendar: UIView {
     public var selectedDate: Date {
         didSet {
             dateLabel.text = selectedDate.string(format: .DayMonth)
-            todayButton.isHidden = selectedDate.isToday
+//            todayButton.isHidden = selectedDate.isToday
             onSelectionChanged?(selectedDate)
+        }
+    }
+    
+    public func setSelectedDate(selectedDate: Date) {
+        selectedWeekDay = selectedDate.dayOfTheWeek
+        self.selectedDate = selectedDate
+        currentIndex = createCellThreshold
+                        
+        list.removeAll()
+
+        list.append(selectedDate.startOfWeek)
+        loadCells(after: selectedDate)
+        loadCells(before: selectedDate)
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.scrollToItem(at: IndexPath(row: self?.createCellThreshold ?? 5, section: 0), at: .centeredHorizontally, animated: false)
         }
     }
     
@@ -141,7 +156,7 @@ public class HorizontalCalendar: UIView {
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             self?.collectionView.isHidden = shouldShow
             self?.weekDays.isHidden = shouldShow
-            self?.arrow.transform = CGAffineTransform(rotationAngle: shouldShow ? .pi : 0)
+//            self?.arrow.transform = CGAffineTransform(rotationAngle: shouldShow ? .pi : 0)
 //            self?.dateViewToBottom.isActive = shouldShow
             self?.collectionViewToBottom.isActive = !shouldShow
         })
