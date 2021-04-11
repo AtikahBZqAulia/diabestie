@@ -20,7 +20,7 @@ class Constants  {
    
     static let bloodSgrCategoryList = ["Add Category", "Fasting", "After Breakfast", "After Lunch", "After Dinner"]
     static let mealCategoryList = ["Add Category", "Breakfast", "Lunch", "Dinner", "Extra", "Snack"]
-    static let medCategoryList = ["Before Breakfast", "After Breakfast", "Before Lunch", "After Lunch", "Before Dinner", "After Dinner"]
+    static let medCategoryList = ["Add Category", "Before Breakfast", "After Breakfast", "Before Lunch", "After Lunch", "Before Dinner", "After Dinner"]
 
     enum DiaryEntries {
         case bloodSugar
