@@ -11,16 +11,35 @@ class InputMedicineNameTableCell: UITableViewCell {
     
     @IBOutlet weak var medicineNameTextField: UITextField!
     static let identifier = "MedicineNameCell"
+    
+    weak var delegate: CreateMedicineDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        medicineNameTextField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
+}
+
+extension InputMedicineNameTableCell: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        medicineNameTextField.resignFirstResponder()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        if !text.isEmpty {
+            delegate?.medicineName(name: text)
+        }
+        else if text.isEmpty {
+            delegate?.medicineName(name: "")
+        }
+        
+        return true
+    }
 }
