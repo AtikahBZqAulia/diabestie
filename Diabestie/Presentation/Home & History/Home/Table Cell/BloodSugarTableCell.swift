@@ -41,12 +41,13 @@ class BloodSugarTableCell: UITableViewCell {
         
         if let todayBloodSugarData = bloodSugarEntry {
             
-            let bloodSugarData = BloodSugarEntryRepository.todaySugarLevelData()
+            let bloodSugarDataRane = BloodSugarEntryRepository.sugarLevelRange()
+            let bloodSugarDataIndicator = BloodSugarEntryRepository.shared.sugarLevelIndicator(bloodSugarEntry: todayBloodSugarData)
             lblLatestBloodSugarLevel.text = "\(todayBloodSugarData.blood_sugar )"
-            lblBloodSugarRange.text = bloodSugarData.range
+            lblBloodSugarRange.text = bloodSugarDataRane
             lblTime.text = todayBloodSugarData.time_log?.string(format: .HourMinutes)
                         
-            if bloodSugarData.indicator == .none {
+            if bloodSugarDataIndicator == .none {
                 if let indicatorView = viewBloodSugarIndicator {
                     indicatorView.isHidden = true
                 }
@@ -54,9 +55,9 @@ class BloodSugarTableCell: UITableViewCell {
                 if let indicatorView = viewBloodSugarIndicator {
                     indicatorView.isHidden = false
                 }
-                lblSugarLevelIndicator.text = Constants.BloodSugarLevelIndicator(indicator: bloodSugarData.indicator)
-                lblSugarLevelIndicator.textColor = Constants.BloodSugarLevelIndicatorTxtColor(indicator: bloodSugarData.indicator)
-                viewBgBloodSugarIndicator.backgroundColor = Constants.BloodSugarLevelIndicatorBGColor(indicator: bloodSugarData.indicator)
+                lblSugarLevelIndicator.text = Constants.BloodSugarLevelIndicator(indicator: bloodSugarDataIndicator)
+                lblSugarLevelIndicator.textColor = Constants.BloodSugarLevelIndicatorTxtColor(indicator: bloodSugarDataIndicator)
+                viewBgBloodSugarIndicator.backgroundColor = Constants.BloodSugarLevelIndicatorBGColor(indicator: bloodSugarDataIndicator)
             }
         }
         
