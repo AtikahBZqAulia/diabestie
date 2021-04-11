@@ -11,12 +11,15 @@ class AddMedicineDiaryViewController: UIViewController {
     
     @IBOutlet weak var addMedicineTableView: UITableView!
     
-    private let names = ["Fortamet", "Glumetza", "Replaginide"]
-    private let times = [1 , 3 , 2]
+//    private let names = ["Fortamet", "Glumetza", "Replaginide"]
+//    private let times = [1 , 3 , 2]
+    
+    var medicineList: [MedicineLibrary] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addMedicineTableView.dataSource = self
+        medicineList = MedicineLibraryRepository.shared.getAllMedicineLibrary()
         
     }
 
@@ -27,7 +30,7 @@ class AddMedicineDiaryViewController: UIViewController {
 
 extension AddMedicineDiaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count + 1
+        return medicineList.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,15 +43,15 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
                 let select: Int = indexPath.row - 1
                 
                 var stringTimes: String!
-                if times[select] == 1 {
-                    stringTimes = "\(times[select]) time a day"
+                if medicineList[select].consumption == 1 {
+                    stringTimes = "\(medicineList[select].consumption) time a day"
                 }
                 else {
-                    stringTimes = "\(times[select]) times a day"
+                    stringTimes = "\(medicineList[select].consumption) times a day"
                 }
-                cell.medicineName.text = names[select]
+                cell.medicineName.text = medicineList[select].medicine_name
                 cell.medicineTimes.text = stringTimes
-                if select != 0 && select != names.count {
+                if select != 0 && select != medicineList.count {
                     addSeparator(cell)
                 }
                 return cell

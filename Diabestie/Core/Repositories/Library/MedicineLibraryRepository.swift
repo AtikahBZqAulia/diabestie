@@ -37,7 +37,7 @@ class MedicineLibraryRepository {
         }
     }
     
-    func getAllMedicineibrary() -> [MedicineLibrary] {
+    func getAllMedicineLibrary() -> [MedicineLibrary] {
                 
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         

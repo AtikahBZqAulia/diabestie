@@ -69,7 +69,7 @@ class CoreDataManager {
     
     func preloadMedicineLibraryData(){
         //Check if medicine library preload data is exists
-        if MedicineLibraryRepository.shared.getAllMedicineibrary().isEmpty {
+        if MedicineLibraryRepository.shared.getAllMedicineLibrary().isEmpty {
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetamol", consumption: 3)
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
         }
