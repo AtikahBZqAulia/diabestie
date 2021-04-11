@@ -82,7 +82,7 @@ extension AddBloodSugarDiaryViewController {
             return
         }
         saveButton.isEnabled = true
-        self.saveButton.tintColor = .systemBlue
+        self.saveButton.tintColor = .blueBlue
     }
 }
 
