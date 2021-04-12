@@ -8,40 +8,123 @@
 import UIKit
 
 class BloodSugarViewController: UIViewController {
-
+    
     @IBOutlet weak var viewCalendar: ExtendedNavBarView!
     
+    var selectedDate: Date = Date()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    let horizontalCalendar = HorizontalCalendar()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.shadowImage = UIImage.transparentPixel
-
-        let calendar = HorizontalCalendar()
         
-        viewCalendar.addSubview(calendar)
-        calendar.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            calendar.topAnchor.constraint(equalTo: viewCalendar.safeAreaLayoutGuide.topAnchor, constant: 0),
-            calendar.leftAnchor.constraint(equalTo: viewCalendar.leftAnchor),
-            calendar.rightAnchor.constraint(equalTo: viewCalendar.rightAnchor)
-        ])
-        
-
+        setupHorizontalCalendar()
     }
     
-    func generateRandomDataEntries() -> [DataEntry] {
-        let numEntry = 3
+    func setupHorizontalCalendar(){
         
-        let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)]
-        var result: [DataEntry] = []
-        for i in 0..<numEntry {
-            let value = (arc4random() % 90) + 100
-            let randomTime = Float.random(in: 1..<24)
-            result.append(DataEntry(color: colors[i % colors.count], height: Float(value), textValue: "\(value)", title: "\(randomTime)",time: Float(randomTime)))
+        viewCalendar.addSubview(horizontalCalendar)
+        horizontalCalendar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            horizontalCalendar.topAnchor.constraint(equalTo: viewCalendar.safeAreaLayoutGuide.topAnchor, constant: 0),
+            horizontalCalendar.leftAnchor.constraint(equalTo: viewCalendar.leftAnchor),
+            horizontalCalendar.rightAnchor.constraint(equalTo: viewCalendar.rightAnchor)
+        ])
+        
+        horizontalCalendar.onSelectionChanged = { date in
+//            self.onDateSelected(date: date)
+            if date != self.selectedDate {
+                self.selectedDate = date
+    //            self.horizontalCalendar.selectedDate = self.selectedDate
+    //            self.horizontalCalendar.setSelectedDate()
+                self.tableView.reloadData()
+            }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is UINavigationController {
+            
+            let segueNavigationController = segue.destination as? UINavigationController
+            
+            if let vc = segueNavigationController?.topViewController as? CalendarController {
+                vc.delegate = self
+                vc.selectedDate = self.selectedDate
+            }
+            
+        }
+    }
+    
+}
+
+extension BloodSugarViewController: CalendarControllerDelegate {
+    
+    func onDateSelected(date: Date) {
+        print("sadsad")
+        if date != self.selectedDate {
+            self.selectedDate = date
+//            self.horizontalCalendar.selectedDate = self.selectedDate
+            self.horizontalCalendar.setSelectedDate(selectedDate: date)
+            self.tableView.reloadData()
+        }
+    }
+}
+
+extension BloodSugarViewController {
+    
+    func generateBarchartEntry() -> [BarDataEntry]? {
+        
+        var result: [BarDataEntry]? = .init()
+        
+        if let bloodSugarEntries = bloodSugarEntriesByDate {
+            
+            bloodSugarEntries.forEach { (entry) in
+                let indicator = BloodSugarEntryRepository.shared.sugarLevelIndicator(bloodSugarEntry: entry)
+                let time: Float = Float(entry.time_log?.string(format: .Hour) ?? "") ?? 0
+                let barColor = Constants.BloodSugarLevelIndicatorTxtColor(indicator: indicator)
+                result?.append(BarDataEntry(color: barColor, height: Float(entry.blood_sugar ), textValue: "\(entry.blood_sugar )", title: "\(entry.blood_sugar )", time: time))
+            }
+        }
+        
         return result
     }
-
+    
+    func generateBarChartThreshold() -> [BarChartThresholdDataEntry]? {
+        
+        var result: [BarChartThresholdDataEntry]? = .init()
+        
+        if let bloodSugarConstraint = getBloodSugarConstraint {
+            
+            result?.append(BarChartThresholdDataEntry.init(color: UIColor.purpleMedicine60, value: Int(bloodSugarConstraint.am_lower_bound)))
+            result?.append(BarChartThresholdDataEntry.init(color: UIColor.reddishPink60, value: Int(bloodSugarConstraint.am_upper_bound)))
+            result?.append(BarChartThresholdDataEntry.init(color: UIColor.deepSkyBlue60, value: Int(bloodSugarConstraint.f_upper_bound)))
+            result?.append(BarChartThresholdDataEntry.init(color: UIColor.tangerine60, value: Int(bloodSugarConstraint.f_lower_bound)))
+            
+        }
+        
+        return result
+    }
+    
+    var getBloodSugarConstraint: BloodSugarConstraints? {
+        return UserRepository.shared.getCurrentUser()?.bloodsugarconstraint
+    }
+    
+    var bloodSugarEntriesByDate: [BloodSugarEntries]? {
+        return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: selectedDate)
+    }
+    
+    var latestBloodSugarEntriesByDate : BloodSugarEntries? {
+        return bloodSugarEntriesByDate?.last
+    }
+    
+    var currentUser: Users? {
+        return UserRepository.shared.getCurrentUser()
+    }
+    
 }
 
 extension BloodSugarViewController: UITableViewDelegate, UITableViewDataSource {
@@ -50,10 +133,20 @@ extension BloodSugarViewController: UITableViewDelegate, UITableViewDataSource {
         var identifiers = [String]()
         
         identifiers.append(BloodSugarChartCell.identifier)
-        identifiers.append(BloodSugarThresholdCell.identifier)
-        identifiers.append(BloodSugarInfoCell.identifier)
+        
+        //Check if current date has blood sugar entries
+        if bloodSugarEntriesByDate?.count ?? 0 > 0{
+            
+            //Check if user has set their constraints
+            if getBloodSugarConstraint != nil {
+                identifiers.append(BloodSugarThresholdCell.identifier)
+            }
+            
+            identifiers.append(BloodSugarInfoCell.identifier)
+        }
+        
         identifiers.append(BloodSugarOptionCell.identifier)
-
+        
         return identifiers
     }
     
@@ -83,9 +176,24 @@ extension BloodSugarViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            let dataEntries = generateRandomDataEntries()
-            cell.barChart.updateDataEntries(dataEntries: dataEntries, animated: true)
-
+            cell.todayDate = selectedDate
+            
+            cell.bloogSugarDataRange = BloodSugarEntryRepository.sugarLevelRange(date: selectedDate)
+            
+            cell.chartThreshold = generateBarChartThreshold()
+            cell.bloodSugarChartData = generateBarchartEntry()
+            
+            
+            cell.selectionStyle = .none
+            
+            return cell
+        case BloodSugarInfoCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? BloodSugarInfoCell else {
+                return UITableViewCell()
+            }
+            
+            cell.bloodSugarLatestEntryTime = latestBloodSugarEntriesByDate?.time_log
+            cell.bloodSugarIndicator = BloodSugarEntryRepository.shared.sugarLevelIndicator(bloodSugarEntry: latestBloodSugarEntriesByDate)
             
             cell.selectionStyle = .none
             

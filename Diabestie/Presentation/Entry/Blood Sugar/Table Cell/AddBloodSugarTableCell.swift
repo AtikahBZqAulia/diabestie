@@ -12,7 +12,6 @@ class AddBloodSugarTableCell: UITableViewCell {
     @IBOutlet weak var bloodSugarTextField: UITextField!
     
     static let identifier = "AddBloodSugarTableCell"
-    static var isFilled: Bool = false
     
     weak var delegate: AddBloodSugarDelegate?
 

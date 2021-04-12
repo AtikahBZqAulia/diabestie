@@ -9,19 +9,14 @@ import Foundation
 import UIKit
 
 class BarChart: UIView {
-    /// contain all layers of the chart
+    
     private let mainLayer: CALayer = CALayer()
-    
-    /// contain mainLayer to support scrolling
     private let scrollView: UIScrollView = UIScrollView()
-    
-    /// A flag to indicate whether or not to animascrollte the bar chart when its data entries changed
     private var animated = false
-    
-    /// Responsible for compute all positions and frames of all elements represent on the bar chart
+    private var showThresholdData = false
     private let presenter = BasicBarChartPresenter(barWidth: 10, space: 20, bottomTitleText: ["00", "06", "12","18"])
+    private var userHighestThreshold = [80,120,230].max() ?? 0
     
-    /// An array of bar entries. Each BasicBarEntry contain information about line segments, curved line segments, positions and frames of all elements on a bar.
     private var barEntries: [BarChartEntry] = [] {
         didSet {
             mainLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
@@ -31,8 +26,10 @@ class BarChart: UIView {
             
             showHorizontalLines()
             showVerticalLines()
-            showThresholdLines()
             
+            if showThresholdData {
+                showThresholdLines()
+            }
             for (index, entry) in barEntries.enumerated() {
                 showEntry(index: index, entry: entry, animated: animated, oldEntry: oldValue.safeValue(at: index))
             }
@@ -40,16 +37,21 @@ class BarChart: UIView {
         }
     }
     
-    func updateDataEntries(dataEntries: [DataEntry], animated: Bool) {
+    func initiateThreshold(thresholdDataEntry: [BarChartThresholdDataEntry]) {
+        self.showThresholdData = true
+        self.userHighestThreshold = thresholdDataEntry.map {$0.value}.max() ?? 0
+        self.presenter.userThreshold = thresholdDataEntry
+    }
+    
+    func updateDataEntries(dataEntries: [BarDataEntry], animated: Bool) {
         self.setupHighestValue(dataEntries: dataEntries)
         self.animated = animated
         self.presenter.dataEntries = dataEntries
         self.barEntries = self.presenter.computeBarEntries(viewHeight: self.frame.height, viewWidth: self.frame.width)
     }
     
-    func setupHighestValue(dataEntries: [DataEntry]){
+    func setupHighestValue(dataEntries: [BarDataEntry]){
         let userInputHighestValue = Int(dataEntries.max { $0.height < $1.height }?.height ?? 0)
-        let userHighestThreshold = [80,120,230].max() ?? 0
         
         if userHighestThreshold > userInputHighestValue {
             self.presenter.highestValue = userHighestThreshold.roundingUp()

@@ -31,6 +31,10 @@ class AddBloodSugarCategoryTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    @IBAction func onDateChanged(_ sender: Any) {
+        delegate?.onDateSelected(selectedDate: datePicker.date)
+    }
+    
     func setupDate() {
         datePicker.setDate(Date(), animated: true)
     }
@@ -39,7 +43,7 @@ class AddBloodSugarCategoryTableCell: UITableViewCell {
 extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func bloodSugarCategoryChoice() -> [String] {
-        return Constants.categoryList
+        return Constants.bloodSgrCategoryList
     }
     
     func customTextFieldView() {

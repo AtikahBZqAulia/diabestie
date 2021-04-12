@@ -6,15 +6,19 @@
 //
 
 import UIKit
+import CoreData
+
 
 class AddFoodDiaryViewController: UIViewController {
 
     @IBOutlet weak var foodEntryTableView: UITableView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var names: [String] = []
     var foodGram: [Int] = []
     var foodCal: [Int] = []
     var foodSugar: [Int] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +26,18 @@ class AddFoodDiaryViewController: UIViewController {
         foodEntryTableView.register(UINib(nibName: "FoodEmptyTableCell", bundle: nil), forCellReuseIdentifier: "FoodEmptyDataCell")
         self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
+//         saveButton.isEnabled = false
     }
     
     @IBAction func backPage(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func onSaveButtonTap(_ sender: Any){
+        saveFoodBasketData()
+    }
+    
+
     /*
     // MARK: - Navigation
 
@@ -39,6 +50,26 @@ class AddFoodDiaryViewController: UIViewController {
 }
 
 extension AddFoodDiaryViewController: UITableViewDataSource{
+    func getAllItems(){
+        
+    }
+    
+    func addItem(name: String){
+        
+    }
+    
+    func deleteItem(item: FoodBasket){
+        
+    }
+    
+    func updateItem(item: FoodBasket){
+        
+    }
+    
+    func saveFoodBasketData(){
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let value = names.count
         if value != 0 {

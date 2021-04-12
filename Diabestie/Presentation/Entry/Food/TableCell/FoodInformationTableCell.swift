@@ -12,6 +12,8 @@ class FoodInformationTableCell: UITableViewCell{
     @IBOutlet weak var addCategory: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    @IBOutlet weak var buttonCategory: UIButton!
+    
     var selectedCategory: String?
     let categoryList = ["Breakfast", "Lunch", "Dinner", "Snacks"]
     
@@ -68,5 +70,6 @@ extension FoodInformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedCategory = categoryList[row]
         addCategory.text = selectedCategory
+        buttonCategory.isHidden = true
     }
 }

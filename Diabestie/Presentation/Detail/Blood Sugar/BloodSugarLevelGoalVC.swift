@@ -51,7 +51,7 @@ class BloodSugarLevelGoalVC: UITableViewController {
 extension BloodSugarLevelGoalVC {
     
     var getBloodSugarConstraint: BloodSugarConstraints? {
-        return UserRepository.shared.getUserByEmail(email: Constants.globalUserEmail).first?.bloodsugarconstraint
+        return UserRepository.shared.getCurrentUser()?.bloodsugarconstraint
     }
     
 }
