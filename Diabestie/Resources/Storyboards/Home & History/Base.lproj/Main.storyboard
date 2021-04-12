@@ -1000,18 +1000,18 @@
                                 <rect key="frame" x="0.0" y="163" width="414" height="699"/>
                                 <color key="backgroundColor" name="gray_background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BloodSugarTableCell" rowHeight="150" id="hWM-Sl-8FH" customClass="BloodSugarTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BloodSugarTableCell" id="hWM-Sl-8FH" customClass="BloodSugarTableCell" customModule="Diabestie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hWM-Sl-8FH" id="qoZ-hk-4zX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7D-t3-UdU" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="10" width="382" height="140"/>
+                                                    <rect key="frame" x="16" y="10" width="382" height="160"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="htz-e8-QVi">
-                                                            <rect key="frame" x="12" y="12" width="358" height="116"/>
+                                                            <rect key="frame" x="12" y="12" width="358" height="136"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbv-fI-Xu8">
                                                                     <rect key="frame" x="0.0" y="0.0" width="358" height="20"/>
@@ -1153,13 +1153,13 @@
                                                                                     <rect key="frame" x="213.66666666666663" y="0.0" width="95" height="50"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1y-Mn-8Fv">
-                                                                                            <rect key="frame" x="7.9999999999999982" y="0.0" width="31.333333333333329" height="50"/>
+                                                                                            <rect key="frame" x="7.9999999999999982" y="4" width="31.333333333333329" height="42"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                                                             <color key="textColor" name="black"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="mg/dL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFU-oB-FEj">
-                                                                                            <rect key="frame" x="45.333333333333343" y="0.0" width="49.666666666666657" height="50"/>
+                                                                                            <rect key="frame" x="45.333333333333343" y="16.666666666666671" width="49.666666666666657" height="17"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                             <color key="textColor" name="charcoal_grey"/>
                                                                                             <nil key="highlightedColor"/>
@@ -1167,12 +1167,11 @@
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                     <constraints>
-                                                                                        <constraint firstItem="BFU-oB-FEj" firstAttribute="bottom" secondItem="I1y-Mn-8Fv" secondAttribute="bottom" id="EnL-Ub-GCK"/>
-                                                                                        <constraint firstItem="I1y-Mn-8Fv" firstAttribute="centerY" secondItem="JVe-RN-amr" secondAttribute="centerY" id="Lux-oL-pVj"/>
+                                                                                        <constraint firstItem="BFU-oB-FEj" firstAttribute="centerY" secondItem="I1y-Mn-8Fv" secondAttribute="centerY" id="BVW-H2-RaU"/>
                                                                                         <constraint firstItem="BFU-oB-FEj" firstAttribute="leading" secondItem="I1y-Mn-8Fv" secondAttribute="trailing" constant="6" id="OuM-LE-sy5"/>
                                                                                         <constraint firstItem="I1y-Mn-8Fv" firstAttribute="leading" secondItem="JVe-RN-amr" secondAttribute="leading" constant="8" id="ZcW-Tn-0iq"/>
-                                                                                        <constraint firstItem="BFU-oB-FEj" firstAttribute="top" secondItem="I1y-Mn-8Fv" secondAttribute="top" id="bbN-z0-jAP"/>
-                                                                                        <constraint firstAttribute="bottom" secondItem="I1y-Mn-8Fv" secondAttribute="bottom" id="kxg-Vh-8j7"/>
+                                                                                        <constraint firstItem="I1y-Mn-8Fv" firstAttribute="top" secondItem="JVe-RN-amr" secondAttribute="top" constant="4" id="Zed-RX-MAr"/>
+                                                                                        <constraint firstAttribute="bottom" secondItem="I1y-Mn-8Fv" secondAttribute="bottom" constant="4" id="kxg-Vh-8j7"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="BFU-oB-FEj" secondAttribute="trailing" id="vuJ-nD-gPQ"/>
                                                                                     </constraints>
                                                                                 </view>
@@ -1188,13 +1187,13 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZJ-kh-Qc2">
-                                                                    <rect key="frame" x="0.0" y="86" width="358" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="86" width="358" height="50"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M47-SE-Vlb" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="152" height="50"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low blood Sugar Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aF7-bJ-n3r">
-                                                                                    <rect key="frame" x="10" y="4" width="132" height="22"/>
+                                                                                    <rect key="frame" x="10" y="4" width="132" height="42"/>
                                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                                                     <color key="textColor" name="tangerine"/>
                                                                                     <nil key="highlightedColor"/>
@@ -1262,7 +1261,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodTableCell" rowHeight="123" id="ddC-eL-CPW" userLabel="FoodTableCell" customClass="FoodTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="205.33333206176758" width="414" height="123"/>
+                                        <rect key="frame" x="0.0" y="225.33333206176758" width="414" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ddC-eL-CPW" id="RU0-1b-HJN">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
@@ -1451,7 +1450,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineTableCell" rowHeight="123" id="kw2-8S-3cw" userLabel="MedicineTableCell" customClass="MedicineTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="328.33333206176758" width="414" height="123"/>
+                                        <rect key="frame" x="0.0" y="348.33333206176758" width="414" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kw2-8S-3cw" id="fOx-6g-lkx">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>

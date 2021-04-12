@@ -74,8 +74,12 @@ class BloodSugarTableCell: UITableViewCell {
             } else {
                 lblHistory.text = "\(todayBloodSugarData.blood_sugar )"
                 viewHistory.isHidden = false
-                viewLatest.isHidden = true
-                viewRange.isHidden = true
+                if let viewLatest = viewLatest {
+                    viewLatest.removeFromSuperview()
+                }
+                if let viewRange = viewRange {
+                    viewRange.removeFromSuperview()
+                }
                 icChevron.isHidden = true
             }
         }
