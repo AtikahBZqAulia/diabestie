@@ -2,7 +2,7 @@
 //  MedicineLibrary+CoreDataClass.swift
 //  Diabestie
 //
-//  Created by Dhiky Aldwiansyah on 09/04/21.
+//  Created by Revarino Putra on 13/04/21.
 //
 //
 

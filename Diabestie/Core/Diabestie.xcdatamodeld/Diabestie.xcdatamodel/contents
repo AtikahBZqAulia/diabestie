@@ -63,7 +63,7 @@
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="medicine_name" optional="YES" attributeType="String"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="ofMedicineBasket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineBasket" inverseName="medicinelibrary" inverseEntity="MedicineBasket"/>
+        <relationship name="ofMedicineBasket" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedicineBasket" inverseName="medicinelibrary" inverseEntity="MedicineBasket"/>
     </entity>
     <entity name="Users" representedClassName="Users" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -85,7 +85,7 @@
         <element name="FoodLibraries" positionX="-522" positionY="-378" width="128" height="134"/>
         <element name="MedicineBasket" positionX="-160.0549926757812" positionY="-226.0690612792969" width="128" height="118"/>
         <element name="MedicineEntries" positionX="-387.3054809570312" positionY="-198" width="128" height="133"/>
-        <element name="MedicineLibrary" positionX="171.6607055664062" positionY="-203.6223754882812" width="128" height="118"/>
+        <element name="MedicineLibrary" positionX="171.6607055664062" positionY="-203.6223754882812" width="128" height="104"/>
         <element name="Users" positionX="-706.6107482910156" positionY="-244.2263336181641" width="119.2210083007812" height="193"/>
     </elements>
 </model>

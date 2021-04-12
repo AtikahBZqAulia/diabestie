@@ -2,7 +2,7 @@
 //  MedicineLibrary+CoreDataProperties.swift
 //  Diabestie
 //
-//  Created by Dhiky Aldwiansyah on 09/04/21.
+//  Created by Revarino Putra on 13/04/21.
 //
 //
 
@@ -16,11 +16,28 @@ extension MedicineLibrary {
         return NSFetchRequest<MedicineLibrary>(entityName: "MedicineLibrary")
     }
 
-    @NSManaged public var medicine_name: String?
     @NSManaged public var consumption: Int32
     @NSManaged public var created_at: Date?
+    @NSManaged public var medicine_name: String?
     @NSManaged public var updated_at: Date?
-    @NSManaged public var ofMedicineBasket: MedicineBasket?
+    @NSManaged public var ofMedicineBasket: NSSet?
+
+}
+
+// MARK: Generated accessors for ofMedicineBasket
+extension MedicineLibrary {
+
+    @objc(addOfMedicineBasketObject:)
+    @NSManaged public func addToOfMedicineBasket(_ value: MedicineBasket)
+
+    @objc(removeOfMedicineBasketObject:)
+    @NSManaged public func removeFromOfMedicineBasket(_ value: MedicineBasket)
+
+    @objc(addOfMedicineBasket:)
+    @NSManaged public func addToOfMedicineBasket(_ values: NSSet)
+
+    @objc(removeOfMedicineBasket:)
+    @NSManaged public func removeFromOfMedicineBasket(_ values: NSSet)
 
 }
 
