@@ -67,4 +67,19 @@ class MedicineLibraryRepository {
         }
     }
     
+    func getMedicine(medicineName: String) -> [MedicineLibrary] {
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "medicine_name == %@", medicineName)
+        do {
+            let item = try context.fetch(fetchRequest)
+            return item as! [MedicineLibrary]
+        }catch {
+            print(error)
+        }
+        return []
+    }
+    
 }

@@ -7,25 +7,33 @@
 
 import UIKit
 
+
+protocol MedicineBasketDelegate: class {
+    func addBasket(medicineLibrary: MedicineLibrary, qty: Int)
+    func removeBasket(medicineLibrary: MedicineLibrary)
+}
+
 class AddMedicineDiaryViewController: UIViewController {
     
     @IBOutlet weak var addMedicineTableView: UITableView!
     
-//    private let names = ["Fortamet", "Glumetza", "Replaginide"]
-//    private let times = [1 , 3 , 2]
-    
     var medicineList: [MedicineLibrary] = []
+    var baskets: [MedicineBasket] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addMedicineTableView.dataSource = self
+        
         medicineList = MedicineLibraryRepository.shared.getAllMedicineLibrary()
         
+        addMedicineTableView.dataSource = self
     }
-
-    @IBAction func backToPreviousModal(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! MedicineDiaryViewController
+        destVC.medicineBasket = baskets
     }
+    
+    
 }
 
 extension AddMedicineDiaryViewController: UITableViewDataSource {
@@ -41,7 +49,7 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
         else {
             if let cell = addMedicineTableView.dequeueReusableCell(withIdentifier: "medicineList", for: indexPath) as? AddMedicineTableCell {
                 let select: Int = indexPath.row - 1
-                
+                cell.delegate = self
                 var stringTimes: String!
                 if medicineList[select].consumption == 1 {
                     stringTimes = "\(medicineList[select].consumption) time a day"
@@ -51,6 +59,17 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
                 }
                 cell.medicineName.text = medicineList[select].medicine_name
                 cell.medicineTimes.text = stringTimes
+                    if !self.baskets.isEmpty {
+                        if let data = self.baskets.first(where: {
+                            cell.medicineName.text == $0.medicinelibrary?.medicine_name
+                        }) {
+                            cell.addButtonView.isHidden = true
+                            cell.stepperView.isHidden = false
+                            cell.stepperValue.text = "\(data.qty)"
+                        }
+                        
+                    }
+                
                 if select != 0 && select != medicineList.count {
                     addSeparator(cell)
                 }
@@ -68,6 +87,25 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
         separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
         cell.contentView.addSubview(separatorView)
     }
+}
+
+extension AddMedicineDiaryViewController: MedicineBasketDelegate {
+    func removeBasket(medicineLibrary: MedicineLibrary) {
+        for (i,basket) in baskets.enumerated() {
+            if basket.medicinelibrary?.medicine_name == medicineLibrary.medicine_name {
+                baskets.remove(at: i)
+            }
+        }
+    }
     
-    
+    func addBasket(medicineLibrary: MedicineLibrary, qty: Int) {
+        
+        for (i, basket) in baskets.enumerated() {
+            if medicineLibrary == basket.medicinelibrary {
+                baskets.remove(at: i)
+            }
+        }
+        
+        baskets.append(MedicineBasketRepository.shared.addMedicineBasket(qty: qty, medicineLibrary: medicineLibrary))
+    }
 }
