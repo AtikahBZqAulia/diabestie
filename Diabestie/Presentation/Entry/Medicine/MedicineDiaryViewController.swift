@@ -10,6 +10,7 @@ import UIKit
 protocol MedicineEntryDelegate: class {
     func onCategoryPick(categoryId: Int)
     func onDateSelected(selectedDate: Date)
+    func updateBasket(medicineLibrary: MedicineLibrary, newValue: Int)
 }
 
 class MedicineDiaryViewController: UIViewController {
@@ -101,13 +102,13 @@ extension MedicineDiaryViewController: UITableViewDataSource {
         }
         else if indexPath.row == 1 {
             let cell = medicineTableView.dequeueReusableCell(withIdentifier: "medicineButton", for: indexPath)
-            print(indexPath.count)
             return cell
         }
         
         else if indexPath.row > 1 && medicineBasket != nil{
             if medicineBasket.count != 0 {
                 if let cell = medicineTableView.dequeueReusableCell(withIdentifier: ChosenMedicine.identifier, for: indexPath) as? ChosenMedicine{
+                    cell.delegate = self
                     cell.medicineName.text = "\((medicineBasket[indexPath.row - 2].medicinelibrary?.medicine_name) ?? "")"
                     cell.medicineTimes.text = "\((medicineBasket[indexPath.row - 2].medicinelibrary?.consumption) ?? 1) times a day"
                     cell.stepperValue.text = "\(medicineBasket[indexPath.row - 2].qty)"
@@ -137,6 +138,14 @@ extension MedicineDiaryViewController: UITableViewDataSource {
 }
 
 extension MedicineDiaryViewController: MedicineEntryDelegate {
+    func updateBasket(medicineLibrary: MedicineLibrary, newValue: Int) {
+        for basket in medicineBasket {
+            if basket.medicinelibrary == medicineLibrary {
+                basket.qty = Int32(newValue)
+            }
+        }
+    }
+    
     func onCategoryPick(categoryId: Int) {
         self.selectedCategory = categoryId
     }

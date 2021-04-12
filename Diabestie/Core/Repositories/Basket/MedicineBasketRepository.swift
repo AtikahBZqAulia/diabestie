@@ -14,7 +14,6 @@ class MedicineBasketRepository {
     let entityName = MedicineBasket.self.description()
 
     func addMedicineBasket(qty: Int, medicineLibrary: MedicineLibrary) -> MedicineBasket {
-        
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         guard let entity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
@@ -65,7 +64,7 @@ class MedicineBasketRepository {
     func deleteEmpty() {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        fetchRequest.predicate = NSPredicate(format: "ofMedicineEntry == nil")
+        fetchRequest.predicate = NSPredicate(format: "medicinelibrary = nil")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
             try context.execute(deleteRequest)
