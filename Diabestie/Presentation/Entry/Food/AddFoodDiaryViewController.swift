@@ -26,7 +26,7 @@ class AddFoodDiaryViewController: UIViewController {
         foodEntryTableView.register(UINib(nibName: "FoodEmptyTableCell", bundle: nil), forCellReuseIdentifier: "FoodEmptyDataCell")
         self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
-        saveButton.isEnabled = false
+//         saveButton.isEnabled = false
     }
     
     @IBAction func backPage(_ sender: UIBarButtonItem) {
