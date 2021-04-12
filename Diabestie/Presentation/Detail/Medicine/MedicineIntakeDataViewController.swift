@@ -8,11 +8,17 @@
 import UIKit
 
 class MedicineIntakeDataViewController: UIViewController {
+    
+    @IBOutlet weak var medicineIntakeDataTableView: UITableView!
+    
+    var medicineEntries: [MedicineEntries] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        medicineEntries = MedicineEntryRepository.shared.getAllMedicineEntry()
+        medicineIntakeDataTableView.dataSource = self
+        
     }
 
 }
@@ -22,26 +28,14 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
 
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = .systemFont(ofSize: 14, weight: .regular)
+        header.textLabel?.font = .systemFont(ofSize: 13, weight: .regular)
         header.textLabel?.textColor = .charcoalGrey
-        header.textLabel?.text =  header.textLabel?.text?.capitalized
 
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String?
     {
-        return "Medicine Entries".uppercased()
-    }
-    
-    func tableviewIdentifier() -> [String] {
-        var identifiers = [String]()
-        
-        identifiers.append(MedicineIntakeDataCell.identifier)
-        identifiers.append(MedicineIntakeDataCell.identifier)
-        identifiers.append(MedicineIntakeDataCell.identifier)
-        identifiers.append(MedicineIntakeDataCell.identifier)
-
-        return identifiers
+        return "Medicine Entries".capitalized
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -52,30 +46,21 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
         return CGFloat(Constants.footerHeight)
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableviewIdentifier().count
+        return medicineEntries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let identifier = self.tableviewIdentifier()[indexPath.row]
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MedicineIntakeDataCell", for: indexPath) as? MedicineIntakeDataCell else {
             return UITableViewCell()
         }
-        
-        switch identifier {
-        case MedicineIntakeDataCell.identifier:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineIntakeDataCell else {
-                return UITableViewCell()
-            }
-            cell.selectionStyle = .none
-            
-            return cell
-        default:
-            cell.selectionStyle = .none
-            return cell
-        }
+        cell.entry = medicineEntries[indexPath.row]
+        return cell
     }
     
     
