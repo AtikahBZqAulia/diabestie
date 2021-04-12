@@ -11,6 +11,7 @@ import UIKit
 protocol MedicineBasketDelegate: class {
     func addBasket(medicineLibrary: MedicineLibrary, qty: Int)
     func removeBasket(medicineLibrary: MedicineLibrary)
+    func updateBasket(medicineLibrary: MedicineLibrary, newValue: Int)
 }
 
 class AddMedicineDiaryViewController: UIViewController {
@@ -29,8 +30,10 @@ class AddMedicineDiaryViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destVC = segue.destination as! MedicineDiaryViewController
-        destVC.medicineBasket = baskets
+        if segue.identifier != "CreateMedicine" {
+            let destVC = segue.destination as! MedicineDiaryViewController
+            destVC.medicineBasket = baskets
+        }
     }
     
     
@@ -90,22 +93,24 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
 }
 
 extension AddMedicineDiaryViewController: MedicineBasketDelegate {
+    func updateBasket(medicineLibrary: MedicineLibrary, newValue: Int) {
+        for basket in baskets {
+            if basket.medicinelibrary == medicineLibrary {
+                basket.qty = Int32(newValue)
+            }
+        }
+    }
+    
     func removeBasket(medicineLibrary: MedicineLibrary) {
         for (i,basket) in baskets.enumerated() {
             if basket.medicinelibrary?.medicine_name == medicineLibrary.medicine_name {
                 baskets.remove(at: i)
+                MedicineBasketRepository.shared.deleteMedicineBasket(basket: basket)
             }
         }
     }
     
     func addBasket(medicineLibrary: MedicineLibrary, qty: Int) {
-        
-        for (i, basket) in baskets.enumerated() {
-            if medicineLibrary == basket.medicinelibrary {
-                baskets.remove(at: i)
-            }
-        }
-        
         baskets.append(MedicineBasketRepository.shared.addMedicineBasket(qty: qty, medicineLibrary: medicineLibrary))
     }
 }

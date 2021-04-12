@@ -63,9 +63,9 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
             return controller
         })()
         
-        
-
+    
     }
+    
     
     @IBAction func backToPrevious(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)

@@ -36,7 +36,7 @@ class AddMedicineTableCell: UITableViewCell {
         if let value = Int(stepperValue.text ?? "1") {
             let newValue = value + 1
             stepperValue.text = "\(newValue)"
-            delegate?.addBasket(medicineLibrary: medicineLibrary, qty: newValue)
+            delegate?.updateBasket(medicineLibrary: medicineLibrary, newValue: newValue)
         }
     }
     @IBAction func decrement(_ sender: UIButton) {
@@ -49,7 +49,7 @@ class AddMedicineTableCell: UITableViewCell {
             else {
                 let newValue = value - 1
                 stepperValue.text = "\(newValue)"
-                delegate?.addBasket(medicineLibrary: medicineLibrary, qty: newValue)
+                delegate?.updateBasket(medicineLibrary: medicineLibrary, newValue: newValue)
             }
         }
     }
