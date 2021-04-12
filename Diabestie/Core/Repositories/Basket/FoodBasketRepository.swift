@@ -47,4 +47,21 @@ class FoodBasketRepository {
         
     }
     
+    
+    func getAllFoodBasket() -> [FoodBasket] {
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        
+        do {
+            
+            let item = try context.fetch(fetchRequest) as! [FoodBasket]
+            
+            return item
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return []
+    }
 }

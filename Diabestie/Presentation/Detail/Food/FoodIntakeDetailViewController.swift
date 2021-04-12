@@ -13,35 +13,47 @@ class FoodIntakeDetailViewController: UIViewController {
     @IBOutlet weak var foodDetailTableView: UITableView!
     
     let food = ["Pisang", "Nasi", "Marugame", "Boba" , "Kol Goreng"]
+    var foodEntries: FoodEntries!
+    var foodBasket: [FoodBasket] = []
+    var newBasket: [FoodBasket] = []
+    var baskets = NSMutableSet.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         foodDetailTableView.dataSource = self
+        foodBasket = FoodBasketRepository.shared.getAllFoodBasket()
+        baskets = foodEntries.foodbasket! as! NSMutableSet
+        for basket in foodBasket {
+            if basket.ofFoodEntry == foodEntries && basket.foodlibrary != nil {
+                newBasket.append(basket)
+            }
+        }
     }
 
 }
 
 extension FoodIntakeDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return food.count + 2
+        
+        return newBasket.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row > 1 {
             if let cell = foodDetailTableView.dequeueReusableCell(withIdentifier: "FoodIntake", for: indexPath) as? FoodIntakeDetailTableCell {
-
-                cell.foodName.text = food[indexPath.row - 2]
+                
+                cell.foodName.text = "\(newBasket[indexPath.row - 2].foodlibrary!.food_name ?? "")"
                 cell.foodGram.text = "100 g"
                 cell.foodCal.text = "125 kcal"
                 cell.foodSugar.text = "100 mg sugar"
                 if indexPath.row == 2 {
                     setBorder(cell, .layerMaxXMinYCorner, .layerMinXMinYCorner)
                 }
-                else if indexPath.row == food.count + 1 {
+                else if indexPath.row == newBasket.count + 1 {
                     setBorder(cell, .layerMaxXMaxYCorner, .layerMinXMaxYCorner)
                 }
-                if indexPath.row > 2 && indexPath.row <= food.count + 1 {
+                if indexPath.row > 2 && indexPath.row <= newBasket.count + 1 {
                     addSeparator(cell)
                 }
                 return cell
