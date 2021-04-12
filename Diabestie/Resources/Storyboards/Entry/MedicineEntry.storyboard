@@ -147,7 +147,7 @@
                                                                         <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     </state>
                                                                     <connections>
-                                                                        <segue destination="AOT-fS-H4b" kind="show" id="n6y-wS-cbE"/>
+                                                                        <segue destination="AOT-fS-H4b" kind="show" identifier="AddMedicine" id="n6y-wS-cbE"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -388,7 +388,7 @@
                                                                 <color key="titleColor" red="0.12941176469999999" green="0.2901960784" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
                                                             <connections>
-                                                                <segue destination="UEw-qU-QMI" kind="show" id="pbZ-iJ-88b"/>
+                                                                <segue destination="UEw-qU-QMI" kind="show" identifier="CreateMedicine" id="pbZ-iJ-88b"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>

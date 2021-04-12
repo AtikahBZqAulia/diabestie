@@ -61,16 +61,4 @@ class MedicineBasketRepository {
         
     }
     
-    func deleteEmpty() {
-        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        fetchRequest.predicate = NSPredicate(format: "medicinelibrary = nil")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        do {
-            try context.execute(deleteRequest)
-        } catch {
-            print(error)
-        }
-    }
-    
 }

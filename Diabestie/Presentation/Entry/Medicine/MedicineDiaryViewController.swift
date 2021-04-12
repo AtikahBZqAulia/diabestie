@@ -55,7 +55,7 @@ class MedicineDiaryViewController: UIViewController {
             baskets.add(basket)
         }
         MedicineEntryRepository.shared.insertMedicineEntry(category: self.selectedCategory, medicineBasket: baskets, time: self.timeLog)
-//        MedicineBasketRepository.shared.deleteEmpty()
+
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
