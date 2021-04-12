@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryViewController: UIViewController {
     
@@ -22,8 +23,8 @@ class HistoryViewController: UIViewController {
         
         self.navigationController?.navigationBar.shadowImage = UIImage.transparentPixel
         
+        setupTableView()
         setupHorizontalCalendar()
-        
         setupHistoryData()
     }
     
@@ -88,23 +89,15 @@ extension HistoryViewController {
             todayHistoryData.append(entry)
         })
         
-        todayHistoryData.sorted(by:
-                                    { data, value in
-                                        
-                                        if let value = value as? MedicineEntries, let data = data as? MedicineEntries {
-                                            return data.time_log!.compare(value.time_log!) == .orderedAscending
-                                        }
-                                        if let value = value as? BloodSugarEntries, let data = data as? BloodSugarEntries  {
-                                            return data.time_log!.compare(value.time_log!) == .orderedAscending
-                                        }
-                                        if let value = value as? FoodEntries, let data = data as? FoodEntries  {
-                                            return data.time_log!.compare(value.time_log!) == .orderedAscending
-                                        }
-                                        
-                                        return false
-                                    }
-        )
-        
+        todayHistoryData = todayHistoryData.sorted(by:{ data, value in
+            
+            let data = data as! NSManagedObject
+            let value = value as! NSManagedObject
+            let startDate = data.value(forKey: "updated_at") as! Date
+            let endDate = value.value(forKey: "updated_at") as! Date
+
+            return startDate < endDate
+        })
         
     }
 }
@@ -121,6 +114,13 @@ extension HistoryViewController: CalendarControllerDelegate {
 }
 
 extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func setupTableView(){
+        tableView.register(UINib(nibName: BloodSugarTableCell.identifier, bundle: nil), forCellReuseIdentifier: BloodSugarTableCell.identifier)
+        tableView.register(UINib(nibName: FoodTableCell.identifier, bundle: nil), forCellReuseIdentifier: FoodTableCell.identifier)
+        tableView.register(UINib(nibName: MedicineTableCell.identifier, bundle: nil), forCellReuseIdentifier: MedicineTableCell.identifier)
+
+    }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
@@ -150,9 +150,6 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
                 identifiers.append(FoodTableCell.identifier)
             }
         }
-        
-        //        identifiers.append(AddDiaryTableCell.identifier)
-        //        identifiers.append(DiaryHistoryTableCell.identifier)
         
         return identifiers
     }
@@ -188,7 +185,6 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-//            let asd = todayHistoryData[0]
             cell.isHistory = true
             cell.bloodSugarEntry = todayHistoryData[indexPath.row] as? BloodSugarEntries
             
@@ -197,16 +193,19 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? FoodTableCell else {
                 return UITableViewCell()
             }
+            
+            cell.isHistory = true
+            cell.foodEntry = todayHistoryData[indexPath.row] as? FoodEntries
+
             return cell
         case MedicineTableCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineTableCell else {
                 return UITableViewCell()
             }
-            return cell
-        case DiaryHistoryTableCell.identifier:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? DiaryHistoryTableCell else {
-                return UITableViewCell()
-            }
+            
+            cell.isHistory = true
+            cell.medicineEntry = todayHistoryData[indexPath.row] as? MedicineEntries
+
             return cell
         default:
             return cell
@@ -214,5 +213,32 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let identifier = self.tableviewIdentifier()[indexPath.row]
+        
+        switch identifier {
+        case MedicineTableCell.identifier:
+            return 115
+        default:
+            return UITableView.automaticDimension
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let identifier = self.tableviewIdentifier()[indexPath.row]
+        
+        switch identifier {
+        case BloodSugarTableCell.identifier:
+            self.performSegue(withIdentifier: "BloodSugarDataSegue", sender: nil)
+        case FoodTableCell.identifier:
+            self.performSegue(withIdentifier: "FoodIntakeDataSegue", sender: nil)
+        case MedicineTableCell.identifier:
+            self.performSegue(withIdentifier: "MedicineIntakeDataSegue", sender: nil)
+        default:
+            print("No action")
+        }
+    }
 }
 
