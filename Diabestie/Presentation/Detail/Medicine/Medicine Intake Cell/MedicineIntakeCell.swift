@@ -8,6 +8,10 @@
 import UIKit
 
 class MedicineIntakeCell: UITableViewCell {
+    
+    @IBOutlet weak var medName: UILabel!
+    @IBOutlet weak var timeLog: UILabel!
+    @IBOutlet weak var frequency: UILabel!
 
     static let identifier = "MedicineIntakeCell"
     
@@ -21,5 +25,26 @@ class MedicineIntakeCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+//    var user: User! {
+//        didSet{
+//            setupView()
+//        }
+//    }
+//
+//
+//    func setupView(){
+//        boldLabel.text = "Name: \(user.name)"
+//        lightLabel.text = "Address \(user.address)"
+//
+//        loadingIndicator.hidesWhenStopped = true
+//        if user.isActive{
+//            loadingIndicator.startAnimating()
+//        }else{
+//            loadingIndicator.stopAnimating()
+//        }
+//
+//        switchView.isOn = user.isActive
+//    }
 
 }

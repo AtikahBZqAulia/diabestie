@@ -14,9 +14,8 @@ class InformationTableCell: UITableViewCell {
     @IBOutlet weak var buttonAdd: UIButton!
     
     var saveButton: UIBarButtonItem!
-    
-    var selectedCategory: String?
-    let categoryList = ["Fasting", "After Breakfast", "After Lunch", "After Dinner"]
+    weak var delegate: MedicineEntryDelegate?
+    var selectedCategory: Int = 0
     
     static let identifier = "informationSection"
 
@@ -30,9 +29,17 @@ class InformationTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    @IBAction func dateValueChanged(_ sender: UIDatePicker) {
+        delegate?.onDateSelected(selectedDate: sender.date)
+    }
 }
 
 extension InformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func medicineCategoryChoice() -> [String] {
+        return Constants.categoryList
+    }
+    
     func createPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
@@ -62,16 +69,19 @@ extension InformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoryList.count
+        return Constants.categoryList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryList[row]
+        return Constants.categoryList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedCategory = categoryList[row]
-        categoryField.text = selectedCategory
-        buttonAdd.isHidden = true
+        selectedCategory = row
+        categoryField.text = medicineCategoryChoice()[selectedCategory]
+        delegate?.onCategoryPick(categoryId: selectedCategory)
+        if medicineCategoryChoice()[selectedCategory] == "Add Category" {
+            buttonAdd.isHidden = false
+        }else { buttonAdd.isHidden = true }
     }
 }

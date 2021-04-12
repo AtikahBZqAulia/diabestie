@@ -13,7 +13,7 @@ class MedicineEntryRepository {
     static let shared = MedicineEntryRepository()
     let entityName = MedicineEntries.self.description()
     
-    func insertMedicineEntry(category: Int, medicineBasket: NSMutableSet){
+    func insertMedicineEntry(category: Int, medicineBasket: NSMutableSet, time: Date){
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
@@ -25,7 +25,7 @@ class MedicineEntryRepository {
         let MedicineEntry = MedicineEntries(entity: entity,insertInto: context)
         
         MedicineEntry.category = Int32(category)
-        MedicineEntry.time_log = Date()
+        MedicineEntry.time_log = time
         MedicineEntry.created_at = Date()
         MedicineEntry.updated_at = Date()
         

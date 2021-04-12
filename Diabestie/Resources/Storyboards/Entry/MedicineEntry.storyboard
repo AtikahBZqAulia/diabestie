@@ -54,6 +54,9 @@
                                                                     <rect key="frame" x="189" y="9" width="193" height="40"/>
                                                                     <color key="tintColor" name="blue_blue"/>
                                                                     <locale key="locale" localeIdentifier="en_ID"/>
+                                                                    <connections>
+                                                                        <action selector="dateValueChanged:" destination="wYn-VZ-Qxc" eventType="valueChanged" id="nBZ-d6-XKZ"/>
+                                                                    </connections>
                                                                 </datePicker>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ypy-6M-L4a">
                                                                     <rect key="frame" x="16" y="12" width="117" height="34"/>
@@ -335,6 +338,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="y2s-cL-j1o">
                             <color key="tintColor" name="blue_blue"/>
+                            <connections>
+                                <action selector="saveData:" destination="gj2-BE-6rq" id="EQr-db-4aP"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -593,7 +599,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" image="chevron.left" catalog="system" id="oTU-Jc-tPM">
                             <color key="tintColor" red="0.12941176470588234" green="0.29019607843137252" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="backToPreviousModal:" destination="AOT-fS-H4b" id="9oJ-qa-HlF"/>
+                                <segue destination="eFa-y1-adm" kind="unwind" unwindAction="undwindSegue:" id="zXd-Ny-5Cp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -602,6 +608,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2i-yh-1Ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="eFa-y1-adm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4598.4615384615381" y="734.36018957345971"/>
         </scene>

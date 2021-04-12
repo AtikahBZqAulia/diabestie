@@ -9,6 +9,9 @@ import UIKit
 
 class MedicineIntakeViewController: UIViewController {
     
+    //var users: [User] = User.generateDummyData()
+    
+    
     @IBOutlet weak var viewCalendar: ExtendedNavBarView!
     
     override func viewDidLoad() {
@@ -34,6 +37,7 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
         
+        //medicine library.count
         identifiers.append(MedicineIntakeCell.identifier)
         identifiers.append(MedicineIntakeCell.identifier)
         identifiers.append(MedicineIntakeCell.identifier)
@@ -68,6 +72,7 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineIntakeCell else {
                 return UITableViewCell()
             }
+            //cell.user = users[indexPath.row]
             cell.selectionStyle = .none
             
             return cell
