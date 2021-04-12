@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol FoodBasketDelegate: class {
+    func addFood (foodLibrary: FoodLibraries, qty: Int)
+    func removeBasket (foodLibrary: FoodLibraries)
+}
+
 struct Foods {
     let foodname : String
     let grams : String
@@ -16,11 +21,14 @@ struct Foods {
 
 class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
   
+    var foodList: [FoodLibraries] = []
+    var baskets: [FoodBasket] = []
+    
     func updateSearchResults(for searchController: UISearchController) {
         if !searchController.searchBar.text!.isEmpty {
             filterText(searchController.searchBar.text!)
         } else {
-            filteredData = self.foods
+            filteredData = self.foodList
             filtered = false
             self.foodTableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
         }
@@ -34,19 +42,19 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
     
     var foods: [Foods] = []
     
-    var filteredData = [Foods]()
+    var filteredData = [FoodLibraries]()
     var filtered = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        foods.append(Foods(foodname: "Pisang", grams: "100", cal: "39", sugar: "15"))
-        foods.append(Foods(foodname: "Nasi", grams: "10", cal: "10", sugar: "5"))
-        foods.append(Foods(foodname: "Marugame", grams: "20", cal: "10", sugar: "2"))
-        foods.append(Foods(foodname: "Kol", grams: "30", cal: "10", sugar: "3"))
+//        foods.append(Foods(foodname: "Pisang", grams: "100", cal: "39", sugar: "15"))
+//        foods.append(Foods(foodname: "Nasi", grams: "10", cal: "10", sugar: "5"))
+//        foods.append(Foods(foodname: "Marugame", grams: "20", cal: "10", sugar: "2"))
+//        foods.append(Foods(foodname: "Kol", grams: "30", cal: "10", sugar: "3"))
         
-        self.filteredData.append(contentsOf: foods)
+        self.filteredData.append(contentsOf: foodList)
         
         
         foodTableView.dataSource = self
@@ -59,13 +67,17 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
             controller.searchBar.sizeToFit()
             
             foodTableView.tableHeaderView = controller.searchBar
-            
+            foodList = FoodLibraryRepository.shared.getAllFoodLibrary()
             return controller
         })()
         
-        
-
+    
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let destVC = segue.destination as! AddFoodDiaryViewController
+//        destVC.foodBasket = baskets
+//    }
     
     @IBAction func backToPrevious(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -88,7 +100,7 @@ extension SearchFoodViewController: UITableViewDataSource{
             if !filteredData.isEmpty {
                 return filteredData.count
             }
-            return filtered ? 0 : foods.count
+            return filtered ? 0 : foodList.count
         }
         
         return 0
@@ -122,19 +134,19 @@ extension SearchFoodViewController: UITableViewDataSource{
                 
                 if !filteredData.isEmpty{
                     let data = filteredData[indexPath.row]
-                    cell.foodName.text = "\(data.foodname)"
-                    cell.foodGram.text = "\(data.grams) g"
-                    cell.foodCal.text = "\(data.cal) kcal"
+                    cell.foodName.text = "\(data.food_name ?? "")"
+                    cell.foodGram.text = "\(data.weight) g"
+                    cell.foodCal.text = "\(data.calories) kcal"
                     cell.foodSugar.text = "\(data.sugar) mg sugar"
                 } else {
-                    let data = self.foods[indexPath.row]
-                    cell.foodName.text = "\(data.foodname)"
-                    cell.foodGram.text = "\(data.grams) g"
-                    cell.foodCal.text = "\(data.cal) kcal"
+                    let data = self.foodList[indexPath.row]
+                    cell.foodName.text = "\(data.food_name ?? "")"
+                    cell.foodGram.text = "\(data.weight) g"
+                    cell.foodCal.text = "\(data.calories) kcal"
                     cell.foodSugar.text = "\(data.sugar) mg sugar"
                 }
                 
-                if indexPath.row != 0 && indexPath.row != self.foods.count {
+                if indexPath.row != 0 && indexPath.row != self.foodList.count {
                     addSeparator(cell)
                 }
                 
@@ -161,8 +173,8 @@ extension SearchFoodViewController: UISearchBarDelegate{
     func filterText (_ query: String) {
         
         filteredData = []
-        for foodData in foods{
-            if foodData.foodname.lowercased().starts(with: query.lowercased()){
+        for foodData in foodList{
+            if foodData.food_name!.lowercased().starts(with: query.lowercased()){
                 filteredData.append(foodData)
             }
         }
@@ -177,6 +189,10 @@ extension SearchFoodViewController: UISearchBarDelegate{
     
     }
 }
+
+
+
+
 
 //class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
 //
