@@ -90,4 +90,24 @@ class FoodEntryRepository {
         return []
     }
     
+    func getFoodEntryNutrition(entry: FoodEntries?) -> (sugar: Int, calorie:Int){
+
+        if let data = entry {
+            
+            var totalSugar = 0
+            var totalCalorie = 0
+            
+            data.foodbasket?.forEach({ (basket) in
+                let basketData = basket as! FoodBasket
+                totalSugar += Int(basketData.foodlibrary?.sugar ?? 0)
+                totalCalorie += Int(basketData.foodlibrary?.calories ?? 0)
+            })
+            
+            return (totalSugar, totalCalorie)
+            
+        }
+        
+        return (0,0)
+    }
+    
 }
