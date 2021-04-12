@@ -76,6 +76,23 @@ class CoreDataManager {
         }
     }
     
+    
+    func preloadEntries(){
+        let lib = MedicineLibraryRepository.shared.getAllMedicineLibrary()[0]
+        let basket = MedicineBasketRepository.shared.addMedicineBasket(qty: 3, medicineLibrary: lib)
+        let baskets = NSMutableSet.init()
+        baskets.add(basket)
+        MedicineEntryRepository.shared.insertMedicineEntry(category: 2, medicineBasket: baskets, time: Date())
+        
+        
+        let lib2 = FoodLibraryRepository.shared.getAllFoodLibrary()[0]
+        let basket2 = FoodBasketRepository.shared.addFoodBasket(qty: 2, foodLibrary: lib2)
+        let baskets2 = NSMutableSet.init()
+        baskets2.add(basket2)
+        FoodEntryRepository.shared.insertFoodEntry(eatTime: 2, foodBasket: baskets2)
+    }
+    
+    
     func deleteAllData(){
         
         let storeCoordinator = persistentContainer.persistentStoreCoordinator
