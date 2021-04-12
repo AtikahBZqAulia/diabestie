@@ -12,15 +12,16 @@ class MedicineFrequencyTableCell: UITableViewCell {
     @IBOutlet weak var stepperValue: UILabel!
     static let identifier = "MedicineFrequencyCell"
     
+    weak var delegate: CreateMedicineDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     @IBAction func decrement(_ sender: UIButton) {
@@ -32,11 +33,13 @@ class MedicineFrequencyTableCell: UITableViewCell {
                 value -= 1
             }
             stepperValue.text = "\(value)"
+            delegate?.consumption(frequency: value)
         }
     }
     @IBAction func increment(_ sender: UIButton) {
         if let value = Int(stepperValue.text ?? "1") {
             stepperValue.text = "\(value + 1)"
+            delegate?.consumption(frequency: value+1)
         }
     }
 }

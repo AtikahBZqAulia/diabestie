@@ -7,33 +7,86 @@
 
 import UIKit
 
+protocol MedicineEntryDelegate: class {
+    func onCategoryPick(categoryId: Int)
+    func onDateSelected(selectedDate: Date)
+}
+
 class MedicineDiaryViewController: UIViewController {
 
     @IBOutlet weak var medicineTableView: UITableView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    
-    var names: [String] = []
-    var times: [Int] = []
+    var medicineBasket: [MedicineBasket]!
+    var selectedCategory: Int = 0 {
+        didSet {
+            validateData()
+        }
+    }
+    var timeLog = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         medicineTableView.dataSource = self
         medicineTableView.register(UINib(nibName: "EmptyTableCell", bundle: nil), forCellReuseIdentifier: "EmptyDataCell")
+        self.medicineTableView.reloadData()
+        saveButton.isEnabled = false
+        saveButton.tintColor = .charcoalGrey
         
+    }
+    
+    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+        self.medicineTableView.reloadData()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
     }
 
     @IBAction func backToPreviousPage(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func saveData(_ sender: UIBarButtonItem) {
+        let baskets = NSMutableSet.init()
+        for basket in medicineBasket {
+            baskets.add(basket)
+        }
+        MedicineEntryRepository.shared.insertMedicineEntry(category: self.selectedCategory, medicineBasket: baskets, time: self.timeLog)
+//        MedicineBasketRepository.shared.deleteEmpty()
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if medicineBasket != nil {
+            let vc = segue.destination as! AddMedicineDiaryViewController
+            vc.baskets = medicineBasket
+        }
+    }
+    
+    func validateData() {
+        if selectedCategory != 0 && medicineBasket != nil {
+            saveButton.isEnabled = true
+            saveButton.tintColor = .blueBlue
+            return
+        }
+        saveButton.isEnabled = false
+        saveButton.tintColor = .charcoalGrey
     }
    
 }
 
 extension MedicineDiaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let value = names.count
-        if value != 0 {
-            return value + 2
+        
+        if medicineBasket != nil {
+            if medicineBasket.count == 0 {
+                return 3
+            }
+            validateData()
+            return medicineBasket.count + 2
         }
         else {
             return 3
@@ -42,24 +95,31 @@ extension MedicineDiaryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = medicineTableView.dequeueReusableCell(withIdentifier: "informationSection", for: indexPath)
+            let cell = medicineTableView.dequeueReusableCell(withIdentifier: InformationTableCell.identifier, for: indexPath) as! InformationTableCell
+            cell.delegate = self
             return cell
         }
         else if indexPath.row == 1 {
             let cell = medicineTableView.dequeueReusableCell(withIdentifier: "medicineButton", for: indexPath)
+            print(indexPath.count)
             return cell
         }
         
-        else if indexPath.row > 1 && names.count != 0{
-            if let cell = medicineTableView.dequeueReusableCell(withIdentifier: ChosenMedicine.identifier, for: indexPath) as? ChosenMedicine{
-                cell.medicineName.text = names[indexPath.row - 2]
-                cell.medicineTimes.text = "\(times[indexPath.row - 2]) times a day"
-                if indexPath.row > 2 {addSeparator(cell)}
-                return cell
+        else if indexPath.row > 1 && medicineBasket != nil{
+            if medicineBasket.count != 0 {
+                if let cell = medicineTableView.dequeueReusableCell(withIdentifier: ChosenMedicine.identifier, for: indexPath) as? ChosenMedicine{
+                    cell.medicineName.text = "\((medicineBasket[indexPath.row - 2].medicinelibrary?.medicine_name) ?? "")"
+                    cell.medicineTimes.text = "\((medicineBasket[indexPath.row - 2].medicinelibrary?.consumption) ?? 1) times a day"
+                    cell.stepperValue.text = "\(medicineBasket[indexPath.row - 2].qty)"
+                    if indexPath.row > 2 {addSeparator(cell)}
+                    return cell
+                }
+                return UITableViewCell()
             }
             
             else {
-                return UITableViewCell()
+                let cell = medicineTableView.dequeueReusableCell(withIdentifier: "EmptyDataCell") as! EmptyTableCell
+                return cell
             }
            
         }
@@ -76,4 +136,14 @@ extension MedicineDiaryViewController: UITableViewDataSource {
     }
 }
 
-
+extension MedicineDiaryViewController: MedicineEntryDelegate {
+    func onCategoryPick(categoryId: Int) {
+        self.selectedCategory = categoryId
+    }
+    
+    func onDateSelected(selectedDate: Date) {
+        self.timeLog = selectedDate
+    }
+    
+    
+}

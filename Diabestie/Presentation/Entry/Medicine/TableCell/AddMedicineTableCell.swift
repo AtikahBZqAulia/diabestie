@@ -15,21 +15,28 @@ class AddMedicineTableCell: UITableViewCell {
     @IBOutlet weak var stepperView: DesignableView!
     @IBOutlet weak var addButtonView: DesignableView!
     
+    weak var delegate: MedicineBasketDelegate?
+    var medicineLibrary: MedicineLibrary!
+    
     static let identifier = "medicineList"
     
     override func awakeFromNib() {
         super.awakeFromNib()
         stepperView.isHidden = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        let list: [MedicineLibrary] = MedicineLibraryRepository.shared.getMedicine(medicineName: medicineName.text!)
+        medicineLibrary = list[0]
     }
 
     @IBAction func increment(_ sender: UIButton) {
         if let value = Int(stepperValue.text ?? "1") {
-            stepperValue.text = "\(value + 1)"
+            let newValue = value + 1
+            stepperValue.text = "\(newValue)"
+            delegate?.addBasket(medicineLibrary: medicineLibrary, qty: newValue)
         }
     }
     @IBAction func decrement(_ sender: UIButton) {
@@ -37,9 +44,12 @@ class AddMedicineTableCell: UITableViewCell {
             if value - 1 <= 0 {
                 addButtonView.isHidden = false
                 stepperView.isHidden = true
+                delegate?.removeBasket(medicineLibrary: medicineLibrary)
             }
             else {
-                stepperValue.text = "\(value - 1)"
+                let newValue = value - 1
+                stepperValue.text = "\(newValue)"
+                delegate?.addBasket(medicineLibrary: medicineLibrary, qty: newValue)
             }
         }
     }
@@ -47,5 +57,6 @@ class AddMedicineTableCell: UITableViewCell {
     @IBAction func addMedicine(_ sender: UIButton) {
         addButtonView.isHidden = true
         stepperView.isHidden = false
+        delegate?.addBasket(medicineLibrary: medicineLibrary, qty: 1)
     }
 }

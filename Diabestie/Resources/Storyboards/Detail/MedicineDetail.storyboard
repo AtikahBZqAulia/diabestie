@@ -828,12 +828,16 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="hCC-u9-Nwg">
                             <color key="tintColor" red="0.12941176470588234" green="0.29019607843137252" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="save:" destination="rvA-gg-Iaa" id="OC5-tp-M5l"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="createMedicineView" destination="Urr-Qn-5Wj" id="Gps-xE-Q0G"/>
+                        <outlet property="saveButton" destination="hCC-u9-Nwg" id="bKN-oi-ttG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2P3-gH-ZZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
