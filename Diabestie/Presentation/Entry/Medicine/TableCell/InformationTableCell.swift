@@ -37,7 +37,7 @@ class InformationTableCell: UITableViewCell {
 extension InformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func medicineCategoryChoice() -> [String] {
-        return Constants.categoryList
+        return Constants.medCategoryList
     }
     
     func createPickerView() {
@@ -69,11 +69,11 @@ extension InformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Constants.categoryList.count
+        return Constants.medCategoryList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Constants.categoryList[row]
+        return Constants.medCategoryList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
