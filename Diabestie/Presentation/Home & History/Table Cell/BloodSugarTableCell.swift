@@ -73,6 +73,7 @@ class BloodSugarTableCell: UITableViewCell {
                 
             } else {
                 lblHistory.text = "\(todayBloodSugarData.blood_sugar )"
+                lblTime.text = todayBloodSugarData.time_log?.string(format: .HourMinutes)
                 viewHistory.isHidden = false
                 if let viewLatest = viewLatest {
                     viewLatest.removeFromSuperview()

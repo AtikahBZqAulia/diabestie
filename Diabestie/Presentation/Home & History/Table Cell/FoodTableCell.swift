@@ -11,6 +11,19 @@ class FoodTableCell: UITableViewCell {
 
     static let identifier = "FoodTableCell"
     static let emptyStateidentifier = "EmptyFoodHistoryTableCell"
+    
+    @IBOutlet weak var icChevron: UIImageView!
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblSugar: UILabel!
+    @IBOutlet weak var lblCalories: UILabel!
+    
+    var isHistory: Bool = false
+
+    var foodEntry : FoodEntries? {
+        didSet {
+            onDataSet()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +36,17 @@ class FoodTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func onDataSet(){
+        if let data = foodEntry {
+            
+            if isHistory {
+                icChevron.isHidden = true
+            }
+            
+            let nutriton = FoodEntryRepository.shared.getFoodEntryNutrition(entry: data)
+            lblSugar.text = "\(nutriton.sugar)"
+            lblCalories.text = "\(nutriton.calorie)"
+        }
+    }
+    
 }
