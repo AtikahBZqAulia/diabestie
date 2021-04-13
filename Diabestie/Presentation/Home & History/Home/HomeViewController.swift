@@ -208,7 +208,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch identifier {
         case MedicineTableCell.identifier:
-            return 125
+            return 115
         default:
             return UITableView.automaticDimension
         }

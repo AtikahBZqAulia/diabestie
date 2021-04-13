@@ -31,8 +31,8 @@ class MedicineTableCellItem: UICollectionViewCell {
     
     private func bindViewModel() {
         if let data = medicineBasket {
-            lblTitle.text = "Glumetza"
-            lblIntakeCount.text = "1223"
+            lblTitle.text = data.medicinelibrary?.medicine_name
+            lblIntakeCount.text = "\(Int(data.qty))"
         }
     }
     

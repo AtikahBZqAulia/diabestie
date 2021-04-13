@@ -53,7 +53,7 @@ class CoreDataManager {
             )
         }
         
-        preloadFoodLibraryData()
+        preloadFoodLibraryFromAPI()
         preloadMedicineLibraryData()
     }
     
@@ -65,6 +65,15 @@ class CoreDataManager {
             FoodLibraryRepository.shared.insertFoodLibrary(name: "Chocolate", calories: 100, weight: 1, sugar: 100)
         }
         
+    }
+    
+    func preloadFoodLibraryFromAPI(){
+        //Fetch data from API on NEtworking/FoodLibraryAPIFetch
+        FoodManager().fetchFoods { (foodLibraries) in
+            foodLibraries.forEach { (data) in
+                FoodLibraryRepository.shared.insertFoodLibrary(name: data.name ?? "", calories: data.calories ?? 0, weight: data.weight ?? 0, sugar: data.sugar ?? 0)
+            }
+        }
     }
     
     func preloadMedicineLibraryData(){

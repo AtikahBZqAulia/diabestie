@@ -35,7 +35,7 @@ class AddFoodDiaryViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
         
         // Do any additional setup after loading the view.
-         saveButton.isEnabled = false
+//         saveButton.isEnabled = false
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,7 +69,7 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
 //        else {
 //            return 3
 //        }
-        return foodList.count + 1
+        return foodList.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,7 +111,7 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
 }
 
 extension AddFoodDiaryViewController: FoodBasketDelegate{
-    func addFood(foodLibrary: FoodLibraries, qty: Int) {
+    func addBasket(foodLibrary: FoodLibraries, qty: Int) {
         baskets.append(FoodBasketRepository.shared.addFoodBasket(qty: qty, foodLibrary: foodLibrary))
     }
     
