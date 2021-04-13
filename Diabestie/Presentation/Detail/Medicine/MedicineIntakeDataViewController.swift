@@ -12,10 +12,14 @@ class MedicineIntakeDataViewController: UIViewController {
     @IBOutlet weak var medicineIntakeDataTableView: UITableView!
     
     var selectedDate = Date()
+    var medicineData: [Any] = [Any]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         medicineIntakeDataTableView.dataSource = self
+        
+        setupTableView()
+        setupMedicineData()
         
     }
 }
@@ -25,10 +29,23 @@ extension MedicineIntakeDataViewController {
         return MedicineEntryRepository.shared.getMedicineEntryByDate(date: selectedDate)
         
     }
+    
+    func setupMedicineData() {
+        medicineData.removeAll()
+        
+        medicineEntries?.forEach({ (entry) in
+            medicineData.append(entry)
+        })
+    }
 }
 
 extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewDataSource {
    
+    func setupTableView(){
+        medicineIntakeDataTableView.register(UINib(nibName: MedicineTableCell.identifier, bundle: nil), forCellReuseIdentifier: MedicineTableCell.identifier)
+
+    }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
 
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
@@ -60,11 +77,16 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MedicineIntakeDataCell", for: indexPath) as? MedicineIntakeDataCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineTableCell.identifier, for: indexPath) as? MedicineTableCell else {
             return UITableViewCell()
         }
-        cell.entry = medicineEntries?[(medicineEntries?.count ?? 0) - indexPath.row - 1]
+        cell.isHistory = true
+        cell.medicineEntry = medicineData[(medicineEntries?.count ?? 0) - indexPath.row - 1] as? MedicineEntries
         return cell
+    }
+    
+    func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 115
     }
     
     

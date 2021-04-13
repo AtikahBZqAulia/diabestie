@@ -63,8 +63,8 @@ extension HomeViewController {
          return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: Date()).last
     }
     
-    var latestMedicineEntries: MedicineEntries? {
-         return MedicineEntryRepository.shared.getMedicineEntryByDate(date: Date()).last
+    var medicineEntries: [MedicineEntries]? {
+         return MedicineEntryRepository.shared.getMedicineEntryByDate(date: Date())
     }
     
     var latestFoodEntries: FoodEntries? {
@@ -152,7 +152,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.medicineEntry = latestMedicineEntries
+            cell.medicineEntries = medicineEntries
 
             return cell
         case DiaryHistoryTableCell.identifier:

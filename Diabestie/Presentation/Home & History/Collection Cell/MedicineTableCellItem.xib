@@ -76,8 +76,8 @@
             <size key="customSize" width="28" height="346"/>
             <connections>
                 <outlet property="lblIntakeCount" destination="42P-po-LbQ" id="rmD-Cr-buG"/>
-                <outlet property="lblTime" destination="0pQ-em-7d4" id="CP2-IY-skb"/>
                 <outlet property="lblTitle" destination="S3e-ky-LqX" id="bJF-2p-M3Z"/>
+                <outlet property="lblUnit" destination="0pQ-em-7d4" id="DMW-nJ-HpY"/>
                 <outlet property="viewDivider" destination="ZqR-8S-eff" id="Pkq-5t-gMb"/>
             </connections>
             <point key="canvasLocation" x="-463.04347826086962" y="36.495535714285715"/>

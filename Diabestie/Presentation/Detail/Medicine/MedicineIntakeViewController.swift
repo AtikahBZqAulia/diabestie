@@ -10,11 +10,9 @@ import UIKit
 class MedicineIntakeViewController: UIViewController {
     
     @IBOutlet weak var viewCalendar: ExtendedNavBarView!
-    
-    var selectedDate: Date = Date()
-    
     @IBOutlet weak var medicineIntakeTableView: UITableView!
     
+    var selectedDate: Date = Date()
     let horizontalCalendar = HorizontalCalendar()
     
     override func viewDidLoad() {
@@ -38,11 +36,8 @@ class MedicineIntakeViewController: UIViewController {
         ])
         
         horizontalCalendar.onSelectionChanged = { date in
-//            self.onDateSelected(date: date)
             if date != self.selectedDate {
                 self.selectedDate = date
-    //            self.horizontalCalendar.selectedDate = self.selectedDate
-    //            self.horizontalCalendar.setSelectedDate()
                 self.medicineIntakeTableView.reloadData()
             }
         }
@@ -63,7 +58,6 @@ class MedicineIntakeViewController: UIViewController {
             
             let vc = segue.destination as? MedicineIntakeDataViewController
             vc?.selectedDate = self.selectedDate
-
         }
     }
     
@@ -79,10 +73,8 @@ extension MedicineIntakeViewController {
 extension MedicineIntakeViewController: CalendarControllerDelegate {
     
     func onDateSelected(date: Date) {
-        print("sadsad")
         if date != self.selectedDate {
             self.selectedDate = date
-//            self.horizontalCalendar.selectedDate = self.selectedDate
             self.horizontalCalendar.setSelectedDate(selectedDate: date)
             self.medicineIntakeTableView.reloadData()
         }
@@ -94,7 +86,7 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
         
-    var index = 0
+        var index = 0
         while index < medicineLibrary?.count ?? 0 {
             identifiers.append(MedicineIntakeCell.identifier)
             index += 1
@@ -131,7 +123,6 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineIntakeCell else {
                 return UITableViewCell()
             }
-            print(indexPath.row)
             cell.selectedDate = self.selectedDate
             cell.library = medicineLibrary?[indexPath.row]
             cell.selectionStyle = .none

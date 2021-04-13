@@ -107,6 +107,7 @@
             <connections>
                 <outlet property="collectionView" destination="idV-fl-DyS" id="my3-g6-br7"/>
                 <outlet property="icChevron" destination="UVf-Ux-fpN" id="pJs-bs-ED2"/>
+                <outlet property="lblCategory" destination="MU3-sh-VCf" id="0iH-wa-xSK"/>
                 <outlet property="lblTime" destination="RZJ-W8-OVc" id="5Zi-fn-REA"/>
             </connections>
             <point key="canvasLocation" x="-468.11594202898556" y="100.78125"/>

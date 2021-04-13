@@ -9,12 +9,14 @@ import UIKit
 
 class MedicineIntakeCell: UITableViewCell {
     
+    static let identifier = "MedicineIntakeCell"
+
     @IBOutlet weak var medNameLabel: UILabel!
     @IBOutlet weak var timeLogLabel: UILabel!
     @IBOutlet weak var freqLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
-
-    static let identifier = "MedicineIntakeCell"
+    
+    var selectedDate = Date()
     
     var library: MedicineLibrary! {
         didSet {
@@ -24,20 +26,14 @@ class MedicineIntakeCell: UITableViewCell {
     
     var medicineEntries: [MedicineEntries]? {
         return MedicineEntryRepository.shared.getMedicineEntryByDate(date: selectedDate)
-        
     }
-    
-    var selectedDate = Date()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setupView() {
@@ -72,8 +68,6 @@ class MedicineIntakeCell: UITableViewCell {
             timeLogLabel.text = ""
         }
         
-        
-        
     }
     
     func formatTo24HoursTime() -> DateFormatter {
@@ -81,7 +75,6 @@ class MedicineIntakeCell: UITableViewCell {
         formatter.dateFormat = "HH.mm"
         
         return formatter
-    
     }
 
 }

@@ -15,11 +15,23 @@ class MedicineTableCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var icChevron: UIImageView!
+    @IBOutlet weak var lblCategory: UILabel!
     
     var isHistory: Bool = false
     
     let contentCellId = MedicineTableCellItem.identifier
     var medicineBaskets = [MedicineBasket]()
+    var medicineList = [MedicineEntries]()
+    
+    var medicineLibrary : [MedicineLibrary]? {
+        return MedicineLibraryRepository.shared.getAllMedicineLibrary()
+    }
+    
+    var medicineEntries : [MedicineEntries]? {
+        didSet {
+            onDataSet()
+        }
+    }
     
     var medicineEntry : MedicineEntries? {
         didSet {
@@ -40,24 +52,29 @@ class MedicineTableCell: UITableViewCell {
     
     func onDataSet(){
         
-        if let data = medicineEntry {
-            
-            lblTime.text = data.created_at?.string(format: .HourMinutes)
-
-            if isHistory {
+        if isHistory {
+            if let data = medicineEntry {
+                lblTime.text = data.created_at?.string(format: .HourMinutes)
                 icChevron.isHidden = true
+                lblCategory.text = Constants.medCategoryList[Int(medicineEntry!.category)]
+                setupChildViews(dataEntry: data)
             }
-            
-            
-            setupChildViews(dataEntry: data)
+        } else {
+            let latestEntry = medicineEntries?.last
+            if let data = latestEntry {
+                lblTime.text = data.created_at?.string(format: .HourMinutes)
+                setupChildViews(dataEntry: data)
+            }
         }
     }
     
     
     func setupChildViews(dataEntry: MedicineEntries) {
         
-        medicineBaskets = dataEntry.medicinebasket?.allObjects as! [MedicineBasket]
-        
+        if isHistory {
+            medicineBaskets = dataEntry.medicinebasket?.allObjects as! [MedicineBasket]
+        }
+
         setupCollectionView()
         
     }
@@ -78,7 +95,13 @@ extension MedicineTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return medicineBaskets.count
+        
+        if isHistory {
+            return medicineBaskets.count
+        } else {
+            return medicineLibrary?.count ?? 1
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,13 +109,22 @@ extension MedicineTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
             return UICollectionViewCell()
         }
         
-        
-        if indexPath.row == medicineBaskets.count - 1 {
-            cell.viewDivider.isHidden = true
+        if isHistory {
+            if indexPath.row == medicineBaskets.count - 1 {
+                cell.viewDivider.isHidden = true
+            }
+            cell.medicineBasket = medicineBaskets[indexPath.row]
+            
+        } else {
+            if indexPath.row == (medicineLibrary?.count ?? 1) - 1 {
+                cell.viewDivider.isHidden = true
+            }
+            cell.medicineEntries = medicineEntries
+            cell.medicineItem = medicineLibrary?[indexPath.row]
+            
         }
                 
         cell.backgroundColor = .red
-        cell.medicineBasket = medicineBaskets[indexPath.row]
         
         return cell
     }
