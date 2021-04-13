@@ -8,11 +8,6 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="SFProText-Regular.ttf">
-            <string>SFProText-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Blood Sugar Data View Controller-->
         <scene sceneID="FC8-v0-M4D">
@@ -22,30 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Sugar Level Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dic-KZ-V1u">
-                                <rect key="frame" x="29" y="141" width="369" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="369" id="ccp-pW-1U6"/>
-                                    <constraint firstAttribute="height" constant="23" id="fa0-lQ-6VV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
-                                <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v4g-Qc-atL">
-                                <rect key="frame" x="16" y="171" width="382" height="691"/>
-                                <color key="backgroundColor" name="gray_background"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="U1t-cz-TBZ">
-                                    <rect key="frame" x="0.0" y="116" width="382" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" name="gray_background"/>
-                                </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="v4g-Qc-atL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="EO9-zU-a0P">
-                                        <rect key="frame" x="0.0" y="28" width="382" height="60"/>
+                                        <rect key="frame" x="20" y="55.5" width="374" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EO9-zU-a0P" id="Jjs-Nd-bm2">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -55,13 +34,10 @@
                         <viewLayoutGuide key="safeArea" id="GJc-Cf-2yN"/>
                         <color key="backgroundColor" name="gray_background"/>
                         <constraints>
-                            <constraint firstItem="v4g-Qc-atL" firstAttribute="leading" secondItem="GJc-Cf-2yN" secondAttribute="leading" constant="16" id="DdS-sF-dC7"/>
-                            <constraint firstItem="GJc-Cf-2yN" firstAttribute="trailing" secondItem="v4g-Qc-atL" secondAttribute="trailing" constant="16" id="Tbr-zs-Fhi"/>
+                            <constraint firstItem="v4g-Qc-atL" firstAttribute="leading" secondItem="GJc-Cf-2yN" secondAttribute="leading" id="DdS-sF-dC7"/>
+                            <constraint firstItem="v4g-Qc-atL" firstAttribute="top" secondItem="GJc-Cf-2yN" secondAttribute="top" id="SqO-4C-iew"/>
+                            <constraint firstItem="GJc-Cf-2yN" firstAttribute="trailing" secondItem="v4g-Qc-atL" secondAttribute="trailing" id="Tbr-zs-Fhi"/>
                             <constraint firstItem="v4g-Qc-atL" firstAttribute="bottom" secondItem="GJc-Cf-2yN" secondAttribute="bottom" id="ZnO-U6-whL"/>
-                            <constraint firstItem="v4g-Qc-atL" firstAttribute="top" secondItem="dic-KZ-V1u" secondAttribute="bottom" constant="7" id="bBf-pj-AwK"/>
-                            <constraint firstItem="dic-KZ-V1u" firstAttribute="top" secondItem="GJc-Cf-2yN" secondAttribute="top" constant="53" id="bmL-0e-AAo"/>
-                            <constraint firstItem="GJc-Cf-2yN" firstAttribute="trailing" secondItem="dic-KZ-V1u" secondAttribute="trailing" constant="16" id="hog-5H-Yq0"/>
-                            <constraint firstItem="dic-KZ-V1u" firstAttribute="leading" secondItem="GJc-Cf-2yN" secondAttribute="leading" constant="29" id="oKy-Mf-Jej"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gsh-92-Hba"/>
