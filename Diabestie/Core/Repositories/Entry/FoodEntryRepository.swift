@@ -39,7 +39,7 @@ class FoodEntryRepository {
     }
     
     func deleteFoodEntry(foodEntry: FoodEntries){
-                
+        
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         do {
@@ -58,7 +58,7 @@ class FoodEntryRepository {
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
         fetchRequest.predicate = NSPredicate(format: "time_log >= %@ && time_log <= %@ ", date.startOfDay as CVarArg, date.endOfDay as CVarArg)
-
+        
         do {
             
             let item = try context.fetch(fetchRequest) as! [FoodEntries]
@@ -73,7 +73,7 @@ class FoodEntryRepository {
     
     
     func getAllFoodEntry() -> [FoodEntries] {
-                
+        
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FoodEntries")
@@ -90,22 +90,64 @@ class FoodEntryRepository {
         return []
     }
     
-    func getFoodEntryNutrition(entry: FoodEntries?) -> (sugar: Int, calorie:Int){
-
+    
+    func getFoodEntryNutrition(entry: FoodEntries?) -> [(sugar: Int, calorie:Int)]{
+        
+        var nutrition = [(sugar: Int, calorie:Int)]()
+        
+        if let data = entry {
+            data.foodbasket?.forEach({ (basket) in
+                let basketData = basket as! FoodBasket
+                nutrition.append((sugar: Int(basketData.foodlibrary?.sugar ?? 0), calorie: Int(basketData.foodlibrary?.calories ?? 0)))
+            })
+            
+            
+            return nutrition
+        }
+        
+        return ([])
+    }
+    
+    func getFoodEntryTotalNutrition(entry: FoodEntries?) -> (sugar: Int, calorie:Int){
+        
         if let data = entry {
             
             var totalSugar = 0
             var totalCalorie = 0
             
+            
             data.foodbasket?.forEach({ (basket) in
                 let basketData = basket as! FoodBasket
-                totalSugar += Int(basketData.foodlibrary?.sugar ?? 0)
-                totalCalorie += Int(basketData.foodlibrary?.calories ?? 0)
+                
+                totalSugar += Int(basketData.foodlibrary?.sugar ?? 0) * Int(basketData.qty)
+                totalCalorie += Int(basketData.foodlibrary?.calories ?? 0) * Int(basketData.qty)
             })
             
             return (totalSugar, totalCalorie)
             
         }
+        
+        return (0,0)
+    }
+    func getFoodEntryTotalNutrition(date: Date) -> (sugar: Int, calorie:Int){
+        
+        let data = getFoodEntryByDate(date: date)
+        
+        for data in data {
+            var totalSugar = 0
+            var totalCalorie = 0
+            
+            data.foodbasket?.forEach({ (basket) in
+                let basketData = basket as! FoodBasket
+                
+                totalSugar += Int(basketData.foodlibrary?.sugar ?? 0) * Int(basketData.qty)
+                totalCalorie += Int(basketData.foodlibrary?.calories ?? 0) * Int(basketData.qty)
+            })
+            
+            return (totalSugar, totalCalorie)
+        }
+        
+        
         
         return (0,0)
     }

@@ -16,6 +16,24 @@ class FoodSugarIntakeChartCell: UITableViewCell {
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var barChart: BarChart!
     
+    var sugarLevelData: [BarDataEntry]? {
+        didSet {
+            setupChart()
+        }
+    }
+    
+    var selectedDate: Date? {
+        didSet {
+            onDateSet()
+        }
+    }
+    
+    var totalCalorie : Int? {
+        didSet {
+            onTotalCalorieSet()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,4 +45,30 @@ class FoodSugarIntakeChartCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    func setupChart() {
+        if let chartData = sugarLevelData {
+            print("ASDDSA \(chartData)")
+            barChart.updateDataEntries(dataEntries: chartData, animated: true)
+        }
+    }
+    
+    func onDateSet() {
+        if let timeLog = selectedDate {
+            lblDate.text = timeLog.string(format: .DayMonth)
+        }
+    }
+    
+    func onTotalCalorieSet() {
+        if let calorie = totalCalorie {
+
+            if calorie != 0 {
+                lblRange.text = "\(calorie)"
+
+            } else {
+                lblRange.text = "No Data"
+//                lblTextRange.isHidden = true
+            }
+        }
+    }
 }
