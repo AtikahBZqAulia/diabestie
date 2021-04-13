@@ -30,6 +30,7 @@ class AddFoodDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         foodList = FoodLibraryRepository.shared.getAllFoodLibrary()
+        baskets = FoodBasketRepository.shared.getAllFoodBasket()
         foodEntryTableView.dataSource = self
         foodEntryTableView.register(UINib(nibName: "FoodEmptyTableCell", bundle: nil), forCellReuseIdentifier: "FoodEmptyDataCell")
         self.navigationController?.navigationBar.topItem?.title = ""
