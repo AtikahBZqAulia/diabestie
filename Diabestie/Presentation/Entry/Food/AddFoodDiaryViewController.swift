@@ -4,10 +4,14 @@
 //
 //  Created by Wilson Adrilia on 05/04/21.
 //
-
 import UIKit
 import CoreData
 
+//protocol FoodBasketDelegate: class {
+//    func addBasket(foodLibrary: FoodLibraries, qty: Int)
+//    func removeBasket(foodLibrary: FoodLibraries)
+//    func updateBasket(foodLibrary: FoodLibraries, newValue: Int)
+//}
 
 class AddFoodDiaryViewController: UIViewController {
 
@@ -19,15 +23,27 @@ class AddFoodDiaryViewController: UIViewController {
     var foodCal: [Int] = []
     var foodSugar: [Int] = []
     
+    var foodList: [FoodLibraries] = []
+    var baskets: [FoodBasket] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        foodList = FoodLibraryRepository.shared.getAllFoodLibrary()
         foodEntryTableView.dataSource = self
         foodEntryTableView.register(UINib(nibName: "FoodEmptyTableCell", bundle: nil), forCellReuseIdentifier: "FoodEmptyDataCell")
         self.navigationController?.navigationBar.topItem?.title = ""
+        
         // Do any additional setup after loading the view.
-//         saveButton.isEnabled = false
+         saveButton.isEnabled = false
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier != "AddFood"{
+//            let c = segue.destination as! AddFoodDiaryViewController
+//            c.foodBasket = baskets
+//        }
+//    }
     
     @IBAction func backPage(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -37,47 +53,23 @@ class AddFoodDiaryViewController: UIViewController {
         saveFoodBasketData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension AddFoodDiaryViewController: UITableViewDataSource{
-    func getAllItems(){
-        
-    }
-    
-    func addItem(name: String){
-        
-    }
-    
-    func deleteItem(item: FoodBasket){
-        
-    }
-    
-    func updateItem(item: FoodBasket){
-        
-    }
     
     func saveFoodBasketData(){
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let value = names.count
-        if value != 0 {
-            return value + 2
-        }
-        else {
-            return 3
-        }
+//        let value = names.count
+//        if value != 0 {
+//            return value + 2
+//        }
+//        else {
+//            return 3
+//        }
+        return foodList.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,6 +108,27 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
         separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
         cell.contentView.addSubview(separatorView)
     }
+}
+
+extension AddFoodDiaryViewController: FoodBasketDelegate{
+    func addFood(foodLibrary: FoodLibraries, qty: Int) {
+        baskets.append(FoodBasketRepository.shared.addFoodBasket(qty: qty, foodLibrary: foodLibrary))
+    }
     
+    func removeBasket(foodLibrary: FoodLibraries) {
+        for (i, basket) in baskets.enumerated(){
+            if basket.foodlibrary?.food_name == foodLibrary.food_name{
+                baskets.remove(at: i)
+                FoodBasketRepository.shared.deleteFoodBasket(basket: basket)
+            }
+        }
+    }
     
+    func updateBasket(foodLibrary: FoodLibraries, newValue:Int){
+        for item in baskets {
+            if item.foodlibrary == foodLibrary{
+                item.qty = Int32(newValue)
+            }
+        }
+    }
 }

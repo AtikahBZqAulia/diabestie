@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         setupPullToRefresh()
+        setupTableView()
     }
     
     func setupPullToRefresh(){
@@ -62,6 +63,14 @@ extension HomeViewController {
          return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: Date()).last
     }
     
+    var latestMedicineEntries: MedicineEntries? {
+         return MedicineEntryRepository.shared.getMedicineEntryByDate(date: Date()).last
+    }
+    
+    var latestFoodEntries: FoodEntries? {
+         return FoodEntryRepository.shared.getFoodEntryByDate(date: Date()).last
+    }
+    
     func todayBloodSugarEntries() -> [BloodSugarEntries] {
         return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: Date())
     }
@@ -74,6 +83,13 @@ extension HomeViewController {
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func setupTableView(){
+        tableView.register(UINib(nibName: BloodSugarTableCell.identifier, bundle: nil), forCellReuseIdentifier: BloodSugarTableCell.identifier)
+        tableView.register(UINib(nibName: FoodTableCell.identifier, bundle: nil), forCellReuseIdentifier: FoodTableCell.identifier)
+        tableView.register(UINib(nibName: MedicineTableCell.identifier, bundle: nil), forCellReuseIdentifier: MedicineTableCell.identifier)
+
+    }
     
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
@@ -127,11 +143,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? FoodTableCell else {
                 return UITableViewCell()
             }
+            
+            cell.foodEntry = latestFoodEntries
+
             return cell
         case MedicineTableCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineTableCell else {
                 return UITableViewCell()
             }
+            
+            cell.medicineEntry = latestMedicineEntries
+
             return cell
         case DiaryHistoryTableCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? DiaryHistoryTableCell else {
@@ -180,5 +202,32 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let identifier = self.tableviewIdentifier()[indexPath.row]
+        
+        switch identifier {
+        case MedicineTableCell.identifier:
+            return 125
+        default:
+            return UITableView.automaticDimension
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let identifier = self.tableviewIdentifier()[indexPath.row]
+        
+        switch identifier {
+        case MedicineTableCell.identifier:
+            self.performSegue(withIdentifier: "MedicineDetailSegue", sender: nil)
+        case FoodTableCell.identifier:
+            self.performSegue(withIdentifier: "FoodDetailSegue", sender: nil)
+        case BloodSugarTableCell.identifier:
+            self.performSegue(withIdentifier: "BloodSugarDetailSegue", sender: nil)
+        default:
+            print("No segue found")
+        }
+    }
     
 }

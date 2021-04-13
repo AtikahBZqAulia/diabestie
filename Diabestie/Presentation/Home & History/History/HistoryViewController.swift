@@ -6,61 +6,151 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryViewController: UIViewController {
     
     @IBOutlet weak var viewCalendar: ExtendedNavBarView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    let horizontalCalendar = HorizontalCalendar()
+    var selectedDate: Date = Date()
+    
+    var todayHistoryData : [Any] =  [Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.shadowImage = UIImage.transparentPixel
-        //        self.navigationController?.navigationBar.barTintColor = .purple
-        //        self.navigationController?.navigationBar.tintColor = .blueBlue
         
-        let calendar = HorizontalCalendar()
+        setupTableView()
+        setupHorizontalCalendar()
+        setupHistoryData()
+    }
+    
+    func setupHorizontalCalendar(){
         
-        viewCalendar.addSubview(calendar)
-        calendar.translatesAutoresizingMaskIntoConstraints = false
+        viewCalendar.addSubview(horizontalCalendar)
+        horizontalCalendar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            calendar.topAnchor.constraint(equalTo: viewCalendar.safeAreaLayoutGuide.topAnchor, constant: 0),
-            calendar.leftAnchor.constraint(equalTo: viewCalendar.leftAnchor),
-            calendar.rightAnchor.constraint(equalTo: viewCalendar.rightAnchor)
+            horizontalCalendar.topAnchor.constraint(equalTo: viewCalendar.safeAreaLayoutGuide.topAnchor, constant: 0),
+            horizontalCalendar.leftAnchor.constraint(equalTo: viewCalendar.leftAnchor),
+            horizontalCalendar.rightAnchor.constraint(equalTo: viewCalendar.rightAnchor)
         ])
         
-        //        calendar.onSelectionChanged = { date in
-        //            print(date)
-        //        }
-        
+        horizontalCalendar.onSelectionChanged = { date in
+            if date != self.selectedDate {
+                self.selectedDate = date
+                self.setupHistoryData()
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is UINavigationController {
+            
+            let segueNavigationController = segue.destination as? UINavigationController
+            
+            if let vc = segueNavigationController?.topViewController as? CalendarController {
+                vc.delegate = self
+                vc.selectedDate = self.selectedDate
+            }
+            
+        }
     }
     
 }
 
+extension HistoryViewController {
+    var bloodSugarList: [BloodSugarEntries]? {
+        return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: selectedDate)
+    }
+    
+    var foodIntakeList: [FoodEntries]? {
+        return FoodEntryRepository.shared.getFoodEntryByDate(date: selectedDate)
+    }
+    
+    var medicineList: [MedicineEntries]? {
+        return MedicineEntryRepository.shared.getMedicineEntryByDate(date: selectedDate)
+    }
+    
+    func setupHistoryData(){
+        todayHistoryData.removeAll()
+        
+        medicineList?.forEach({ (entry) in
+            todayHistoryData.append(entry)
+        })
+        foodIntakeList?.forEach({ (entry) in
+            todayHistoryData.append(entry)
+        })
+        bloodSugarList?.forEach({ (entry) in
+            todayHistoryData.append(entry)
+        })
+        
+        todayHistoryData = todayHistoryData.sorted(by:{ data, value in
+            
+            let data = data as! NSManagedObject
+            let value = value as! NSManagedObject
+            let startDate = data.value(forKey: "updated_at") as! Date
+            let endDate = value.value(forKey: "updated_at") as! Date
+
+            return startDate < endDate
+        })
+        
+    }
+}
+
+extension HistoryViewController: CalendarControllerDelegate {
+    func onDateSelected(date: Date) {
+        if date != self.selectedDate {
+            self.selectedDate = date
+            self.setupHistoryData()
+            self.horizontalCalendar.setSelectedDate(selectedDate: date)
+            self.tableView.reloadData()
+        }
+    }
+}
+
 extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func setupTableView(){
+        tableView.register(UINib(nibName: BloodSugarTableCell.identifier, bundle: nil), forCellReuseIdentifier: BloodSugarTableCell.identifier)
+        tableView.register(UINib(nibName: FoodTableCell.identifier, bundle: nil), forCellReuseIdentifier: FoodTableCell.identifier)
+        tableView.register(UINib(nibName: MedicineTableCell.identifier, bundle: nil), forCellReuseIdentifier: MedicineTableCell.identifier)
 
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.textLabel?.font = .systemFont(ofSize: 21, weight: .bold)
         header.textLabel?.textColor = .black
         header.textLabel?.text =  header.textLabel?.text?.capitalized
-
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String?
     {
-        return "Today, 6 April"
+        return selectedDate.string(format: .DayMonth)
     }
     
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
         
-//        identifiers.append(AddDiaryTableCell.identifier)
-        identifiers.append(BloodSugarTableCell.identifier)
-        identifiers.append(FoodTableCell.identifier)
-        identifiers.append(MedicineTableCell.identifier)
-        identifiers.append(DiaryHistoryTableCell.identifier)
-
+        todayHistoryData.forEach { value  in
+            if value is MedicineEntries {
+                identifiers.append(MedicineTableCell.identifier)
+            }
+            if value is BloodSugarEntries {
+                identifiers.append(BloodSugarTableCell.identifier)
+            }
+            if value is FoodEntries {
+                identifiers.append(FoodTableCell.identifier)
+            }
+        }
+        
         return identifiers
     }
     
@@ -94,21 +184,28 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? BloodSugarTableCell else {
                 return UITableViewCell()
             }
+            
+            cell.isHistory = true
+            cell.bloodSugarEntry = todayHistoryData[indexPath.row] as? BloodSugarEntries
+            
             return cell
         case FoodTableCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? FoodTableCell else {
                 return UITableViewCell()
             }
+            
+            cell.isHistory = true
+            cell.foodEntry = todayHistoryData[indexPath.row] as? FoodEntries
+
             return cell
         case MedicineTableCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineTableCell else {
                 return UITableViewCell()
             }
-            return cell
-        case DiaryHistoryTableCell.identifier:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? DiaryHistoryTableCell else {
-                return UITableViewCell()
-            }
+            
+            cell.isHistory = true
+            cell.medicineEntry = todayHistoryData[indexPath.row] as? MedicineEntries
+
             return cell
         default:
             return cell
@@ -116,5 +213,32 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let identifier = self.tableviewIdentifier()[indexPath.row]
+        
+        switch identifier {
+        case MedicineTableCell.identifier:
+            return 115
+        default:
+            return UITableView.automaticDimension
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let identifier = self.tableviewIdentifier()[indexPath.row]
+        
+        switch identifier {
+        case BloodSugarTableCell.identifier:
+            self.performSegue(withIdentifier: "BloodSugarDataSegue", sender: nil)
+        case FoodTableCell.identifier:
+            self.performSegue(withIdentifier: "FoodIntakeDataSegue", sender: nil)
+        case MedicineTableCell.identifier:
+            self.performSegue(withIdentifier: "MedicineIntakeDataSegue", sender: nil)
+        default:
+            print("No action")
+        }
+    }
 }
 

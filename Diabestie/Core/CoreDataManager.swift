@@ -55,7 +55,6 @@ class CoreDataManager {
         
         preloadFoodLibraryData()
         preloadMedicineLibraryData()
-        preloadFoodEntriesData()
     }
     
     func preloadFoodLibraryData(){
@@ -74,6 +73,21 @@ class CoreDataManager {
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetamol", consumption: 3)
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
         }
+    }
+        
+    func preloadEntries(){
+      
+        
+        preloadMedicineEntriesData()
+        preloadFoodEntriesData()
+    }
+    
+    func preloadMedicineEntriesData() {
+        let lib = MedicineLibraryRepository.shared.getAllMedicineLibrary()[0]
+        let basket = MedicineBasketRepository.shared.addMedicineBasket(qty: 3, medicineLibrary: lib)
+        let baskets = NSMutableSet.init()
+        baskets.add(basket)
+        MedicineEntryRepository.shared.insertMedicineEntry(category: 2, medicineBasket: baskets, time: Date())
     }
     
     func preloadFoodEntriesData() {

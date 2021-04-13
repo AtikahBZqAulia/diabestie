@@ -17,7 +17,7 @@
         <!--Blood Sugar Data View Controller-->
         <scene sceneID="FC8-v0-M4D">
             <objects>
-                <viewController id="zU6-SB-rlB" customClass="BloodSugarDataViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BloodSugarDataViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zU6-SB-rlB" customClass="BloodSugarDataViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tz0-eW-RiK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
