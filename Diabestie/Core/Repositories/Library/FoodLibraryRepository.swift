@@ -74,4 +74,17 @@ class FoodLibraryRepository {
         }
     }
     
+    func getFood(foodName: String) -> [FoodLibraries] {
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "food_name == %@", foodName)
+        do {
+            let item = try context.fetch(fetchRequest)
+            return item as! [FoodLibraries]
+        } catch {
+            print (error)
+        }
+        return []
+    }
 }

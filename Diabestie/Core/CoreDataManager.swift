@@ -63,6 +63,7 @@ class CoreDataManager {
         if FoodLibraryRepository.shared.getAllFoodLibrary().isEmpty {
             FoodLibraryRepository.shared.insertFoodLibrary(name: "Banana", calories: 100, weight: 1, sugar: 100)
             FoodLibraryRepository.shared.insertFoodLibrary(name: "Ananab", calories: 100, weight: 1, sugar: 100)
+            FoodLibraryRepository.shared.insertFoodLibrary(name: "Chocolate", calories: 100, weight: 1, sugar: 100)
         }
         
     }

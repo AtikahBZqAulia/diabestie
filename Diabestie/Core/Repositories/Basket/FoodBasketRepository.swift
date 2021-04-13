@@ -33,6 +33,20 @@ class FoodBasketRepository {
         return foodBasket
     }
     
+    func updateFoodBasket(newQty: Int, basket: FoodBasket){
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        let foodBasket = basket
+        foodBasket.qty = Int32(newQty)
+        foodBasket.updated_at = Date()
+        
+        do{
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     func deleteFoodBasket(basket: FoodBasket){
                 
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
