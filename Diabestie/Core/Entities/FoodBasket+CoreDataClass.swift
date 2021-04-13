@@ -2,7 +2,7 @@
 //  FoodBasket+CoreDataClass.swift
 //  Diabestie
 //
-//  Created by Revarino Putra on 13/04/21.
+//  Created by Dhiky Aldwiansyah on 13/04/21.
 //
 //
 

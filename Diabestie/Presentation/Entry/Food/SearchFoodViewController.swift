@@ -46,15 +46,15 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
         
         foodList = FoodLibraryRepository.shared.getAllFoodLibrary()
         
-        print("BFOER FOOD LIST \(foodList)")
-        
-        let a1 = [["id":"1","color":"orange"],["id":"2","color":"red"]]
-        let a2 = [["id":"1","fruit":"pumpkin"],["id":"2","fruit":"strawberry"]]
-
-        let merged = Dictionary((a1+a2).map{($0["id"]!,Array($0))}){$0 + $1}
-                     .map{Dictionary($1 as [(String,String)]){$1}}
-
-        print(merged)
+//        print("BFOER FOOD LIST \(foodList)")
+//
+//        let a1 = [["id":"1","color":"orange"],["id":"2","color":"red"]]
+//        let a2 = [["id":"1","fruit":"pumpkin"],["id":"2","fruit":"strawberry"]]
+//
+//        let merged = Dictionary((a1+a2).map{($0["id"]!,Array($0))}){$0 + $1}
+//                     .map{Dictionary($1 as [(String,String)]){$1}}
+//
+//        print(merged)
         
 //        let mergs = Dictionary( (foodList+baskets).map{($) }  )
         
@@ -65,9 +65,9 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
         foodList.forEach { (data) in
             
             if let basket = self.baskets.first(where: {
-                data.objectID == $0.foodlibrary?.objectID
+                data == $0.foodlibrary
             }) {
-                data.addToOfFoodBasket(basket)
+                foodList[0].ofFoodBasket = basket
             }
             
 //            if data == basket.foodlibrary {
@@ -91,10 +91,14 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
         
         
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destVC = segue.destination as! AddFoodDiaryViewController
-        destVC.foodBaskets = baskets
+        
+        if segue.destination is AddFoodDiaryViewController {
+            let destVC = segue.destination as! AddFoodDiaryViewController
+            destVC.foodBaskets = baskets
+        }
+
     }
     
 }
@@ -158,11 +162,28 @@ extension SearchFoodViewController: UITableViewDataSource{
 //                    cell.foodCal.text = "\(data.calories) kcal"
 //                    cell.foodSugar.text = "\(data.sugar) mg sugar"
 //                } else {
-                    let data = self.foodList[indexPath.row]
-                    cell.foodName.text = "\(data.food_name ?? "")"
-                    cell.foodGram.text = "\(data.weight) g"
-                    cell.foodCal.text = "\(data.calories) kcal"
-                    cell.foodSugar.text = "\(data.sugar) mg sugar"
+                
+                
+                let data = self.foodList[indexPath.row]
+
+                cell.foodName.text = "\(data.food_name ?? "")"
+                cell.foodGram.text = "\(data.weight) g"
+                cell.foodCal.text = "\(data.calories) kcal"
+                cell.foodSugar.text = "\(data.sugar) mg sugar"
+                
+                if let basket = data.ofFoodBasket {
+            
+                    cell.addButtonView.isHidden = true
+                    cell.stepperView.isHidden = false
+                    cell.stepperValue.text = "\(basket.qty)"
+
+                } else {
+                    cell.addButtonView.isHidden = false
+                    cell.stepperView.isHidden = true
+                    cell.stepperValue.text = "1"
+                }
+                
+
 //                }
                 
                 //                cell.foodName.text = stringTimes
@@ -175,8 +196,8 @@ extension SearchFoodViewController: UITableViewDataSource{
 //                    if let data = self.baskets.first(where: {
 //                        cell.foodName.text == $0.foodlibrary?.food_name
 //                    }) {
-                        cell.addButtonView.isHidden = true
-                        cell.stepperView.isHidden = false
+//                        cell.addButtonView.isHidden = true
+//                        cell.stepperView.isHidden = false
 //                cell.stepperValue.text = "\(basketData.qty)"
 //                    }
 //

@@ -18,7 +18,7 @@ class InformationTableCell: UITableViewCell {
     var selectedCategory: Int = 0
     
     static let identifier = "informationSection"
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         createPickerView()
@@ -27,7 +27,7 @@ class InformationTableCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
     @IBAction func dateValueChanged(_ sender: UIDatePicker) {
         delegate?.onDateSelected(selectedDate: sender.date)
@@ -48,21 +48,21 @@ extension InformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func dismissPickerView() {
-             let toolBar = UIToolbar()
-             toolBar.isUserInteractionEnabled = true
-             toolBar.backgroundColor = UIColor.white
-             toolBar.sizeToFit()
-
-             let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtontapped))
-             toolBar.setItems([doneButton], animated: true)
-
-             categoryField.inputAccessoryView = toolBar
+        let toolBar = UIToolbar()
+        toolBar.isUserInteractionEnabled = true
+        toolBar.backgroundColor = UIColor.white
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtontapped))
+        toolBar.setItems([doneButton], animated: true)
+        
+        categoryField.inputAccessoryView = toolBar
     }
     
     @objc func onDoneButtontapped() {
-             categoryField.endEditing(true)
+        categoryField.endEditing(true)
     }
-  
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

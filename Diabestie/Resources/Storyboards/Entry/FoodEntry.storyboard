@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <color key="backgroundColor" name="gray_background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="informationSection" rowHeight="101" id="Ma8-ZA-x3a" customClass="FoodInformationTableCell" customModule="Diabestie" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodInformationTableCell" rowHeight="101" id="Ma8-ZA-x3a" customClass="FoodInformationTableCell" customModule="Diabestie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="390" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ma8-ZA-x3a" id="uyQ-aD-Ebf">
@@ -62,6 +62,9 @@
                                                                     <rect key="frame" x="189" y="9" width="193" height="40"/>
                                                                     <color key="tintColor" name="blue_blue"/>
                                                                     <locale key="locale" localeIdentifier="en_ID"/>
+                                                                    <connections>
+                                                                        <action selector="dateValueChanged:" destination="Ma8-ZA-x3a" eventType="valueChanged" id="M3I-sx-tfq"/>
+                                                                    </connections>
                                                                 </datePicker>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7j-wQ-wFr">
                                                                     <rect key="frame" x="131" y="17" width="25" height="24"/>
@@ -112,6 +115,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addCategory" destination="HY2-3B-wBL" id="hhG-Af-GAV"/>
+                                            <outlet property="buttonAdd" destination="V7j-wQ-wFr" id="y16-7Q-DWd"/>
                                             <outlet property="buttonCategory" destination="V7j-wQ-wFr" id="5m4-Qt-9Dj"/>
                                             <outlet property="datePicker" destination="1bX-ym-jM2" id="hPc-52-hCq"/>
                                         </connections>
@@ -377,11 +381,15 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="2uI-gc-Dak">
                             <color key="tintColor" name="blue_blue"/>
+                            <connections>
+                                <action selector="saveData:" destination="Y2d-Xa-1g9" id="Tce-ju-M02"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="foodEntryTableView" destination="GGj-3r-Ndh" id="c6J-F9-WyU"/>
+                        <outlet property="saveButton" destination="2uI-gc-Dak" id="aWq-pa-VfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hd-t5-ndt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
