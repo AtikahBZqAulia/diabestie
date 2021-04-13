@@ -29,6 +29,12 @@ class BloodSugarInfoCell: UITableViewCell {
         }
     }
     
+    var bloodSugarLatestValue: Int? {
+        didSet {
+            setupBloodSugarLatestValue()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -42,6 +48,10 @@ class BloodSugarInfoCell: UITableViewCell {
     
     func setupBloodSugarLatestEntry(){
         lblLatestTime.text = "Latest : \(bloodSugarLatestEntryTime?.string(format: .HourMinutes) ?? "")"
+    }
+    
+    func setupBloodSugarLatestValue(){
+        lblLatestBloodSugarLevel.text = "\(bloodSugarLatestValue ?? 0)"
     }
     
     func setupInfo(){
