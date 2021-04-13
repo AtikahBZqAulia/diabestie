@@ -12,22 +12,13 @@ class FoodIntakeDetailViewController: UIViewController {
     
     @IBOutlet weak var foodDetailTableView: UITableView!
     
-//    let food = ["Pisang", "Nasi", "Marugame", "Boba" , "Kol Goreng"]
     var foodEntries: FoodEntries!
-    var foodBasket: [FoodBasket] = []
-    var newBasket: [FoodBasket] = []
-    var baskets = NSMutableSet.init()
+    var baskets: [FoodBasket] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         foodDetailTableView.dataSource = self
-        foodBasket = FoodBasketRepository.shared.getAllFoodBasket()
-        baskets = foodEntries.foodbasket! as! NSMutableSet
-        for basket in foodBasket {
-            if basket.ofFoodEntry == foodEntries && basket.foodlibrary != nil {
-                newBasket.append(basket)
-            }
-        }
+        baskets = foodEntries.foodbasket?.allObjects as! [FoodBasket]
     }
 
 }
@@ -35,7 +26,7 @@ class FoodIntakeDetailViewController: UIViewController {
 extension FoodIntakeDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return newBasket.count + 2
+        return baskets.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,17 +34,17 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
         if indexPath.row > 1 {
             if let cell = foodDetailTableView.dequeueReusableCell(withIdentifier: "FoodIntake", for: indexPath) as? FoodIntakeDetailTableCell {
                 
-                cell.foodName.text = "\(newBasket[indexPath.row - 2].foodlibrary!.food_name ?? "")"
-                cell.foodGram.text = "100 g"
-                cell.foodCal.text = "125 kcal"
-                cell.foodSugar.text = "100 mg sugar"
+                cell.foodName.text = "\(baskets[indexPath.row - 2].foodlibrary!.food_name ?? "")"
+                cell.foodGram.text = "\(baskets[indexPath.row - 2].foodlibrary!.weight) g"
+                cell.foodCal.text = "\(baskets[indexPath.row - 2].foodlibrary!.calories) kcal"
+                cell.foodSugar.text = "\(baskets[indexPath.row - 2].foodlibrary!.sugar) mg sugar"
                 if indexPath.row == 2 {
                     setBorder(cell, .layerMaxXMinYCorner, .layerMinXMinYCorner)
                 }
-                else if indexPath.row == newBasket.count + 1 {
+                else if indexPath.row == baskets.count + 1 {
                     setBorder(cell, .layerMaxXMaxYCorner, .layerMinXMaxYCorner)
                 }
-                if indexPath.row > 2 && indexPath.row <= newBasket.count + 1 {
+                if indexPath.row > 2 && indexPath.row <= baskets.count + 1 {
                     addSeparator(cell)
                 }
                 return cell
@@ -66,10 +57,11 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
         
         else if indexPath.row == 0 {
             if let cell = foodDetailTableView.dequeueReusableCell(withIdentifier: CalculatedFoodTableCell.identifier) as? CalculatedFoodTableCell {
-                cell.eatName.text = "Dinner"
-                cell.calories.text = String(625)
-                cell.sugar.text = String(500)
-                cell.eatTime.text = "19.00"
+                let total = getTotal()
+                cell.eatName.text = "\(Constants.mealCategoryList[Int(foodEntries.eat_time)])"
+                cell.calories.text = "\(total.calories)"
+                cell.sugar.text = "\(total.sugar)"
+                cell.eatTime.text = "\(foodEntries.time_log!.string(format: .HourMinutes))"
                 return cell
             }
             else {
@@ -86,6 +78,18 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
         
         return UITableViewCell()
     }
+    
+    private func getTotal() -> (calories: Int, sugar: Int) {
+        var totalCalories: Int = 0
+        var totalSugar: Int = 0
+        for data in baskets {
+            totalCalories += Int(data.foodlibrary!.calories)
+            totalSugar += Int(data.foodlibrary!.sugar)
+        }
+        return (totalCalories, totalSugar)
+    }
+    
+    
     
     private func setBorder(_ dataCell:FoodIntakeDetailTableCell  , _ right: CACornerMask, _ left: CACornerMask) -> Void {
         dataCell.foodListView.clipsToBounds = true
