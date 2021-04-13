@@ -9,12 +9,12 @@ import UIKit
 
 class FoodIntakeDataViewController: UIViewController {
 
-    let food = ["","","Pisang", "Nasi", "Marugame", "Boba" , "Kol Goreng"]
+    var foodEntries: [FoodEntries] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        foodEntries = FoodEntryRepository.shared.getAllFoodEntry()
+        
     }
 
 }
@@ -36,7 +36,7 @@ extension FoodIntakeDataViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return food.count
+        return foodEntries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,6 +46,12 @@ extension FoodIntakeDataViewController: UITableViewDataSource, UITableViewDelega
         else {
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "FoodIntakeDetailViewController") as? FoodIntakeDetailViewController
+        vc?.foodEntries = foodEntries[indexPath.row]
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
 }
