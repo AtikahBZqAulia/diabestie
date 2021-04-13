@@ -103,7 +103,7 @@ extension AddMedicineDiaryViewController: MedicineBasketDelegate {
     
     func removeBasket(medicineLibrary: MedicineLibrary) {
         for (i,basket) in baskets.enumerated() {
-            if basket.medicinelibrary?.medicine_name == medicineLibrary.medicine_name {
+            if basket.medicinelibrary == medicineLibrary {
                 baskets.remove(at: i)
                 MedicineBasketRepository.shared.deleteMedicineBasket(basket: basket)
             }

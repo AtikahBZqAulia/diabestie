@@ -23,15 +23,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0p-o3-1Zt">
-                        <rect key="frame" x="16" y="9" width="136" height="20.5"/>
+                        <rect key="frame" x="16" y="9" width="113.5" height="20.5"/>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY4-Vt-Ymd">
-                        <rect key="frame" x="16" y="30" width="56" height="21"/>
+                        <rect key="frame" x="16" y="30" width="38" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="56" id="oCE-h5-MxB"/>
                             <constraint firstAttribute="height" constant="21" id="w7K-zh-cbx"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
@@ -74,13 +73,11 @@
                     <constraint firstItem="Y0p-o3-1Zt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6Z9-wv-LET"/>
                     <constraint firstItem="H5f-15-Lnx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="9Mf-9z-62G"/>
                     <constraint firstItem="H5f-15-Lnx" firstAttribute="leading" secondItem="6Xt-aa-eA9" secondAttribute="trailing" id="Alh-dc-hhA"/>
-                    <constraint firstItem="6Xt-aa-eA9" firstAttribute="leading" secondItem="xY4-Vt-Ymd" secondAttribute="trailing" constant="170" id="Bg1-UX-aoD"/>
                     <constraint firstAttribute="bottom" secondItem="xY4-Vt-Ymd" secondAttribute="bottom" constant="9" id="C7G-Sj-1Cu"/>
                     <constraint firstAttribute="bottom" secondItem="H5f-15-Lnx" secondAttribute="bottom" constant="19" id="EQN-nC-fC2"/>
                     <constraint firstItem="xY4-Vt-Ymd" firstAttribute="top" secondItem="Y0p-o3-1Zt" secondAttribute="bottom" constant="0.5" id="NJ7-yB-zR3"/>
                     <constraint firstItem="xY4-Vt-Ymd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="S6O-Il-4VB"/>
                     <constraint firstItem="6Xt-aa-eA9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="X7D-vA-CEM"/>
-                    <constraint firstItem="6Xt-aa-eA9" firstAttribute="leading" secondItem="Y0p-o3-1Zt" secondAttribute="trailing" constant="90" id="ZQY-tZ-awE"/>
                     <constraint firstItem="wxY-Nk-g1X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="fTQ-Ut-gXy"/>
                     <constraint firstAttribute="bottom" secondItem="wxY-Nk-g1X" secondAttribute="bottom" constant="20" symbolic="YES" id="n2J-9G-zTl"/>
                     <constraint firstAttribute="trailing" secondItem="wxY-Nk-g1X" secondAttribute="trailing" constant="16" id="ttz-Qs-dfN"/>

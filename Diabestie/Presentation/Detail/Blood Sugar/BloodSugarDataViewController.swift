@@ -11,10 +11,7 @@ class BloodSugarDataViewController: UIViewController {
 
     @IBOutlet weak var bloodDataView: UITableView!
     
-    //data dummy
-    let after = ["After Dinner", "After Lunch", "After Breakfast"]
-    let time = ["21.00", "14.00", "08.00"]
-    let bloodLevel = [120, 60, 152]
+    var selectedDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,38 +21,37 @@ class BloodSugarDataViewController: UIViewController {
     }
 }
 
+extension BloodSugarDataViewController {
+    var bloodSugarData : [BloodSugarEntries]? {
+        return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: selectedDate)
+    }
+}
+
 extension BloodSugarDataViewController: UITableViewDataSource {
+    
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = .systemFont(ofSize: 21, weight: .regular)
+        header.textLabel?.textColor = .charcoalGrey
+        header.textLabel?.text =  header.textLabel?.text?.capitalized
+        
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String?
+    {
+        return "Blood Sugar Level Data"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return time.count
+        return bloodSugarData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let dataCell = bloodDataView.dequeueReusableCell(withIdentifier: "BSDataCell", for: indexPath) as? BloodSugarDataTableCell {
             
-            dataCell.eatName.text = after[indexPath.row]
-            dataCell.eatTime.text = time[indexPath.row]
-            dataCell.bloodLevel.text = String(bloodLevel[indexPath.row])
-            
-            switch indexPath.row {
-            case 0:
-                setBorder(dataCell , .layerMaxXMinYCorner, .layerMinXMinYCorner)
-            case time.count - 1:
-                setBorder(dataCell, .layerMaxXMaxYCorner, .layerMinXMaxYCorner)
-            default:
-                self.bloodDataView.layer.cornerRadius = 0
-            }
-            
-            if bloodLevel[indexPath.row] < 100 {
-                dataCell.iconStatus.image = UIImage(systemName: "arrow.down.circle")
-                dataCell.iconStatus.tintColor = .tangerine
-            }
-            else if bloodLevel[indexPath.row] >= 100 && bloodLevel[indexPath.row] < 150 {
-                dataCell.iconStatus.image = UIImage(systemName: "checkmark.circle")
-            }
-            else if bloodLevel[indexPath.row] >= 150 {
-                dataCell.iconStatus.image = UIImage(systemName: "arrow.up.circle")
-                dataCell.iconStatus.tintColor = .reddishPink
-            }
+            dataCell.bloodSugarData = bloodSugarData?[indexPath.row]
             
             return dataCell
         }

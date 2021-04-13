@@ -37,6 +37,9 @@ class BasicBarChartPresenter {
         for (_, entry) in dataEntries.enumerated() {
             let entryHeight = CGFloat(Float(entry.height) / Float(highestValue)) * (viewHeight - bottomSpace)
             let yPosition = viewHeight - bottomSpace - entryHeight
+            
+            //Known issues
+            //Will break in landscape mode / different size, need a further checkup!
             let origin = CGPoint(x: CGFloat(entry.time * 14), y: yPosition)
             
             let barEntry = BarChartEntry(origin: origin, barWidth: barWidth, barHeight: entryHeight, space: space, data: entry)

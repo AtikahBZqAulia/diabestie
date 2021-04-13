@@ -53,9 +53,8 @@ class CoreDataManager {
             )
         }
         
-        preloadFoodLibraryData()
+        preloadFoodLibraryFromAPI()
         preloadMedicineLibraryData()
-        
     }
     
     func preloadFoodLibraryData(){
@@ -68,12 +67,51 @@ class CoreDataManager {
         
     }
     
+    func preloadFoodLibraryFromAPI(){
+        //Fetch data from API on NEtworking/FoodLibraryAPIFetch
+        FoodManager().fetchFoods { (foodLibraries) in
+            foodLibraries.forEach { (data) in
+                FoodLibraryRepository.shared.insertFoodLibrary(name: data.name ?? "", calories: data.calories ?? 0, weight: data.weight ?? 0, sugar: data.sugar ?? 0)
+            }
+        }
+    }
+    
     func preloadMedicineLibraryData(){
         //Check if medicine library preload data is exists
         if MedicineLibraryRepository.shared.getAllMedicineLibrary().isEmpty {
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetamol", consumption: 3)
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
         }
+    }
+        
+    func preloadEntries(){
+      
+        
+        preloadMedicineEntriesData()
+        preloadFoodEntriesData()
+    }
+    
+    func preloadMedicineEntriesData() {
+        let lib = MedicineLibraryRepository.shared.getAllMedicineLibrary()[0]
+        let basket = MedicineBasketRepository.shared.addMedicineBasket(qty: 3, medicineLibrary: lib)
+        let baskets = NSMutableSet.init()
+        baskets.add(basket)
+        MedicineEntryRepository.shared.insertMedicineEntry(category: 2, medicineBasket: baskets, time: Date())
+    }
+    
+    func preloadFoodEntriesData() {
+        
+        if FoodEntryRepository.shared.getAllFoodEntry().isEmpty {
+            let foodBasket = NSMutableSet.init()
+                
+            for _ in 1..<4 {
+                let foodLibrary = FoodLibraryRepository.shared.getAllFoodLibrary()[0]
+                let basket = FoodBasketRepository.shared.addFoodBasket(qty: 2, foodLibrary: foodLibrary)
+                foodBasket.add(basket)
+            }
+                FoodEntryRepository.shared.insertFoodEntry(eatTime: 3, foodBasket: foodBasket)
+        }
+        
     }
     
     func deleteAllData(){

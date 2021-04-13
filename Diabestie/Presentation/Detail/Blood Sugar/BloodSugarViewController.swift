@@ -57,6 +57,12 @@ class BloodSugarViewController: UIViewController {
             }
             
         }
+        if segue.destination is BloodSugarDataViewController {
+            
+            let vc = segue.destination as? BloodSugarDataViewController
+            vc?.selectedDate = self.selectedDate
+
+        }
     }
     
 }
