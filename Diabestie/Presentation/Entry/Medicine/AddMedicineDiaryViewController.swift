@@ -106,10 +106,7 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
                 cell.medicineLibrary = medicineList[select]
                 
                 if let basket = medicineList[select].ofMedicineBasket{
-                    
-                    print("THSDASDS \(medicineList[select].medicine_name)")
-                    print("THSDASDS \(basket)")
-
+            
                     cell.addButtonView.isHidden = true
                     cell.stepperView.isHidden = false
                     cell.stepperValue.text = "\(basket.qty)"

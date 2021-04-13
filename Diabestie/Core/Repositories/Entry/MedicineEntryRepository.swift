@@ -29,9 +29,12 @@ class MedicineEntryRepository {
         MedicineEntry.created_at = Date()
         MedicineEntry.updated_at = Date()
         
-        MedicineEntry.medicinebasket = medicineBasket
+        MedicineEntry.addToMedicinebasket(medicineBasket)
         
         do {
+            
+            print("CURRENT BASKET \(medicineBasket)")
+            
             try context.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")

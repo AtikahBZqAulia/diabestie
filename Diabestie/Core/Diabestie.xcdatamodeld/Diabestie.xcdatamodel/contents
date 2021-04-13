@@ -47,7 +47,7 @@
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="qty" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="medicinelibrary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineLibrary" inverseName="ofMedicineBasket" inverseEntity="MedicineLibrary"/>
+        <relationship name="medicinelibrary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineLibrary"/>
         <relationship name="ofMedicineEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineEntries" inverseName="medicinebasket" inverseEntity="MedicineEntries"/>
     </entity>
     <entity name="MedicineEntries" representedClassName="MedicineEntries" syncable="YES">
@@ -63,7 +63,7 @@
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="medicine_name" optional="YES" attributeType="String"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="ofMedicineBasket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineBasket" inverseName="medicinelibrary" inverseEntity="MedicineBasket"/>
+        <relationship name="ofMedicineBasket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineBasket"/>
     </entity>
     <entity name="Users" representedClassName="Users" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

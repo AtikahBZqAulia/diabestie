@@ -16,29 +16,37 @@ class ChosenMedicine: UITableViewCell {
     static let identifier = "medicineList"
     
     weak var delegate: MedicineEntryDelegate?
-    var medicineLibrary: MedicineLibrary!
+    var medicineLibrary: MedicineLibrary? {
+        didSet {
+            
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        let list: [MedicineLibrary] = MedicineLibraryRepository.shared.getMedicine(medicineName: medicineName.text!)
-        medicineLibrary = list[0]
+        //        let list: [MedicineLibrary] = MedicineLibraryRepository.shared.getMedicine(medicineName: medicineName.text!)
+        //        medicineLibrary = list[0]
     }
-
+    
     @IBAction func decrement(_ sender: UIButton) {
-        if let value = Int(stepperValue.text ?? "1") {
-            stepperValue.text = "\(value - 1)"
-            delegate?.updateBasket(medicineLibrary: self.medicineLibrary, newValue: value-1)
+        if let medicineLibrary = medicineLibrary {
+            if let value = Int(stepperValue.text ?? "1") {
+                stepperValue.text = "\(value - 1)"
+                delegate?.updateBasket(medicineLibrary: medicineLibrary, newValue: value-1)
+            }
         }
     }
     
     @IBAction func increment(_ sender: UIButton) {
-        if let value = Int(stepperValue.text ?? "1") {
-            stepperValue.text = "\(value + 1)"
-            delegate?.updateBasket(medicineLibrary: self.medicineLibrary, newValue: value+1)
+        if let medicineLibrary = medicineLibrary {
+            if let value = Int(stepperValue.text ?? "1") {
+                stepperValue.text = "\(value + 1)"
+                delegate?.updateBasket(medicineLibrary: medicineLibrary, newValue: value+1)
+            }
         }
     }
 }
