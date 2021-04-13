@@ -8,8 +8,9 @@
 import UIKit
 
 protocol FoodBasketDelegate: class {
-    func addFood (foodLibrary: FoodLibraries, qty: Int)
+    func addBasket (foodLibrary: FoodLibraries, qty: Int)
     func removeBasket (foodLibrary: FoodLibraries)
+    func updateBasket(foodLibrary: FoodLibraries, newValue: Int)
 }
 
 struct Foods {
@@ -187,6 +188,29 @@ extension SearchFoodViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     
+    }
+}
+
+extension SearchFoodViewController: FoodBasketDelegate {
+    func updateBasket(foodLibrary: FoodLibraries, newValue: Int){
+        for basket in baskets {
+            if basket.foodlibrary == foodLibrary {
+                basket.qty = Int32(newValue)
+            }
+        }
+    }
+    
+    func removeBasket(foodLibrary: FoodLibraries) {
+        for (i,basket) in baskets.enumerated() {
+            if basket.foodlibrary == foodLibrary {
+                baskets.remove(at: i)
+                FoodBasketRepository.shared.deleteFoodBasket(basket: basket)
+            }
+        }
+    }
+    
+    func addBasket(foodLibrary: FoodLibraries, qty: Int){
+        baskets.append(FoodBasketRepository.shared.addFoodBasket(qty: qty, foodLibrary: foodLibrary))
     }
 }
 
