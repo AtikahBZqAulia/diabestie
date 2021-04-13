@@ -105,6 +105,7 @@
 		BCDE8A36260E02EE00E5E193 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDE8A35260E02EE00E5E193 /* UIColor+Extension.swift */; };
 		BCDE8A3B260E07A800E5E193 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDE8A3A260E07A800E5E193 /* UIImage+Extension.swift */; };
 		BCE25E62261DF528004D6474 /* MedicineListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE25E61261DF528004D6474 /* MedicineListCell.swift */; };
+		D40AB21526252D2F0011522B /* FoodLibraryApiFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40AB21426252D2F0011522B /* FoodLibraryApiFetch.swift */; };
 		D4370EE8261C37B500A690B9 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4370EE7261C37B500A690B9 /* EntryController.swift */; };
 		D4C34D9F261C514D00CAC02B /* EntryDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C34D9E261C514D00CAC02B /* EntryDataTableCell.swift */; };
 		D4C34DA2261C51B900CAC02B /* EntryDataTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C34DA1261C51B900CAC02B /* EntryDataTableCell.xib */; };
@@ -244,6 +245,7 @@
 		BCDE8A35260E02EE00E5E193 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		BCDE8A3A260E07A800E5E193 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		BCE25E61261DF528004D6474 /* MedicineListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListCell.swift; sourceTree = "<group>"; };
+		D40AB21426252D2F0011522B /* FoodLibraryApiFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLibraryApiFetch.swift; sourceTree = "<group>"; };
 		D4370EE7261C37B500A690B9 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		D4C34D9E261C514D00CAC02B /* EntryDataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDataTableCell.swift; sourceTree = "<group>"; };
 		D4C34DA1261C51B900CAC02B /* EntryDataTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntryDataTableCell.xib; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 		BCDE8A1E260DF74B00E5E193 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D40AB21326252D180011522B /* Networking */,
 				BCDE8A25260DF84300E5E193 /* Entities */,
 				BCC7CD2A260B0ADD009A7837 /* Repositories */,
 				BCC7CD2E260B0B55009A7837 /* Mock Data */,
@@ -810,6 +813,14 @@
 				BCE25E61261DF528004D6474 /* MedicineListCell.swift */,
 			);
 			path = "Medicine List Cell";
+			sourceTree = "<group>";
+		};
+		D40AB21326252D180011522B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D40AB21426252D2F0011522B /* FoodLibraryApiFetch.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		E825C0B6261E93E200D2B51D /* TableCell */ = {
@@ -985,6 +996,7 @@
 				D4370EE8261C37B500A690B9 /* EntryController.swift in Sources */,
 				BCDDDF1B2620B9910009003A /* Users+CoreDataProperties.swift in Sources */,
 				BCC764F1261AEE3F00306229 /* MedicineIntakeDataViewController.swift in Sources */,
+				D40AB21526252D2F0011522B /* FoodLibraryApiFetch.swift in Sources */,
 				BC68A5DB260B09040007F846 /* Diabestie.xcdatamodeld in Sources */,
 				F75FEB76261998D60091702D /* CalculatedFoodTableCell.swift in Sources */,
 				BC6F4FC92615834100643603 /* FoodTableCell.swift in Sources */,
