@@ -546,14 +546,25 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
+                                                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIW-nu-7HE">
+                                                            <rect key="frame" x="31" y="58.666666666666664" width="360" height="0.6666666666666643"/>
+                                                            <color key="backgroundColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.35999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="360" id="bGi-U1-2yB"/>
+                                                                <constraint firstAttribute="height" constant="0.67000000000000004" id="vdw-d0-NHK"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="mTb-lM-e54" firstAttribute="top" secondItem="FJn-VZ-3Wc" secondAttribute="bottom" constant="2" id="4ds-SP-71o"/>
                                                         <constraint firstItem="yZB-XT-Y8s" firstAttribute="leading" secondItem="FJn-VZ-3Wc" secondAttribute="trailing" constant="87" id="6YZ-2b-WeR"/>
+                                                        <constraint firstItem="SIW-nu-7HE" firstAttribute="top" secondItem="iki-Wh-jTw" secondAttribute="bottom" constant="13.666666666666664" id="8WP-92-h00"/>
+                                                        <constraint firstItem="SIW-nu-7HE" firstAttribute="leading" secondItem="Cof-KL-lWa" secondAttribute="leading" constant="31" id="9Ay-Nj-Z47"/>
                                                         <constraint firstItem="FJn-VZ-3Wc" firstAttribute="leading" secondItem="Cof-KL-lWa" secondAttribute="leading" constant="32" id="A3s-uw-B7P"/>
                                                         <constraint firstAttribute="trailing" secondItem="iki-Wh-jTw" secondAttribute="trailing" constant="17" id="AWV-cB-x9j"/>
                                                         <constraint firstAttribute="bottom" secondItem="yZB-XT-Y8s" secondAttribute="bottom" constant="15" id="GU8-JH-aXZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="SIW-nu-7HE" secondAttribute="trailing" constant="-1" id="KOc-Bv-pMi"/>
                                                         <constraint firstItem="FJn-VZ-3Wc" firstAttribute="top" secondItem="Cof-KL-lWa" secondAttribute="top" constant="9" id="Khq-68-1TR"/>
                                                         <constraint firstItem="iki-Wh-jTw" firstAttribute="leading" secondItem="FJn-VZ-3Wc" secondAttribute="trailing" constant="87" id="Q8y-ke-7UP"/>
                                                         <constraint firstAttribute="bottom" secondItem="mTb-lM-e54" secondAttribute="bottom" constant="9" id="SSA-9P-9xR"/>
@@ -562,6 +573,7 @@
                                                         <constraint firstItem="yZB-XT-Y8s" firstAttribute="leading" secondItem="mTb-lM-e54" secondAttribute="trailing" constant="87" id="fYs-7O-wV8"/>
                                                         <constraint firstItem="mTb-lM-e54" firstAttribute="leading" secondItem="Cof-KL-lWa" secondAttribute="leading" constant="32" id="fdD-qQ-EES"/>
                                                         <constraint firstItem="yZB-XT-Y8s" firstAttribute="top" secondItem="Cof-KL-lWa" secondAttribute="top" constant="16" id="h4y-3Z-cN7"/>
+                                                        <constraint firstItem="SIW-nu-7HE" firstAttribute="top" secondItem="mTb-lM-e54" secondAttribute="bottom" constant="7.6666666666666643" id="pVI-yk-zUx"/>
                                                         <constraint firstItem="iki-Wh-jTw" firstAttribute="top" secondItem="Cof-KL-lWa" secondAttribute="top" constant="16" id="xT4-no-xbp"/>
                                                         <constraint firstAttribute="trailing" secondItem="yZB-XT-Y8s" secondAttribute="trailing" constant="17" id="yKU-Hj-1Z6"/>
                                                     </constraints>
