@@ -18,17 +18,6 @@ class AddFoodTableCell: UITableViewCell{
     @IBOutlet weak var stepperView: DesignableView!
     @IBOutlet weak var addButtonView: DesignableView!
     
-    var foods : Foods? {
-        didSet {
-            if foods != nil {
-//                self.foodName.text = "\(foods.foodname)"
-//                self.foodGram.text = "\(foods.grams) g"
-//                self.foodCal.text = "\(foods.cal) kcal"
-//                self.foodSugar.text = "\(foods.sugar) mg sugar"
-            }
-        }
-    }
-    
     weak var delegate: FoodBasketDelegate?
     var foodLibrary: FoodLibraries!
     
@@ -42,8 +31,11 @@ class AddFoodTableCell: UITableViewCell{
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         let list: [FoodLibraries] =
-            FoodLibraryRepository.shared.getFood(foodName: foodName.text!)
-        foodLibrary = list[0]
+            FoodLibraryRepository.shared.getFood(foodName: foodName.text ?? "")
+        
+        if !list.isEmpty {
+            foodLibrary = list.first
+        }
     }
     
     
