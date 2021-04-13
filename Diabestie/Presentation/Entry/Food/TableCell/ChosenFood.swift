@@ -21,22 +21,45 @@ class ChosenFood: UITableViewCell {
         super.awakeFromNib()
     }
     
+    weak var delegate: FoodEntryDelegate?
+    
+    var foodLibrary: FoodLibraries? {
+        didSet {
+            
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
     
-
     @IBAction func decrement(_ sender: UIButton) {
-        if let value = Int(stepperValue.text ?? "1") {
-            stepperValue.text = "\(value - 1)"
+        if let foodLibrary = foodLibrary {
+            
+            var newValue: Int = 0
+            if let value = Int(stepperValue.text ?? "1") {
+                newValue = value - 1
+                if newValue > 0 {
+                    stepperValue.text = "\(newValue)"
+                    
+                }
+                else {
+                    newValue = value
+                    stepperValue.text = "\(newValue)"
+                }
+                delegate?.updateBasket(foodLibrary: foodLibrary, newValue: newValue)
+            }
         }
     }
     
     @IBAction func increment(_ sender: UIButton) {
-        if let value = Int(stepperValue.text ?? "1") {
-            stepperValue.text = "\(value + 1)"
+        if let foodLibrary = foodLibrary {
+            if let value = Int(stepperValue.text ?? "1") {
+                stepperValue.text = "\(value + 1)"
+                delegate?.updateBasket(foodLibrary: foodLibrary, newValue: value+1)
+            }
         }
     }
-}
 
+}

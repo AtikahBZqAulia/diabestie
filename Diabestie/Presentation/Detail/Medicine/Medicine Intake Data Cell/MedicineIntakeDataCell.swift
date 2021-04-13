@@ -65,21 +65,21 @@ class MedicineIntakeDataCell: UITableViewCell {
         
         for (i,value) in entry.medicinebasket!.enumerated() {
             let basket = value as! MedicineBasket
-            if i <= 3 {
-                medLabels[i].text = String(basket.medicinelibrary!.medicine_name!)
-                medQtys[i].text = String(basket.qty)
-                if basket.qty == 1 {
-                    medUnit[i].text = "pill"
-                } else {
-                    medUnit[i].text = "pills"
-                }
-
-                if i < entry.medicinebasket!.count - 1 {
-                    separators[i].isHidden = false
-                }
-            } else {
-                break
-            }
+//            if i <= 3 {
+//                medLabels[i].text = String(basket.medicinelibrary!.medicine_name!)
+//                medQtys[i].text = String(basket.qty)
+//                if basket.qty == 1 {
+//                    medUnit[i].text = "pill"
+//                } else {
+//                    medUnit[i].text = "pills"
+//                }
+//
+////                if i < entry.medicinebasket!.count - 1 {
+////                    separators[i].isHidden = false
+////                }
+//            } else {
+//                break
+//            }
         }
         
     }

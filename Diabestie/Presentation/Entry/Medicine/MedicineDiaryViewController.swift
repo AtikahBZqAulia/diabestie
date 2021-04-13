@@ -109,6 +109,7 @@ extension MedicineDiaryViewController: UITableViewDataSource {
             if medicineBasket.count != 0 {
                 if let cell = medicineTableView.dequeueReusableCell(withIdentifier: ChosenMedicine.identifier, for: indexPath) as? ChosenMedicine{
                     cell.delegate = self
+                    cell.medicineLibrary = medicineBasket[indexPath.row - 2].medicinelibrary
                     cell.medicineName.text = "\((medicineBasket[indexPath.row - 2].medicinelibrary?.medicine_name) ?? "")"
                     cell.medicineTimes.text = "\((medicineBasket[indexPath.row - 2].medicinelibrary?.consumption) ?? 1) times a day"
                     cell.stepperValue.text = "\(medicineBasket[indexPath.row - 2].qty)"

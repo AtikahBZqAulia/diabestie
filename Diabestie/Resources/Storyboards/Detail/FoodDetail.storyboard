@@ -381,7 +381,7 @@
             </objects>
             <point key="canvasLocation" x="1102.8985507246377" y="737.94642857142856"/>
         </scene>
-        <!--Today, 9 March-->
+        <!--Today-->
         <scene sceneID="ZBp-9Z-szU">
             <objects>
                 <viewController storyboardIdentifier="FoodIntakeDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fbs-tI-OTQ" customClass="FoodIntakeDetailViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
@@ -687,7 +687,7 @@
                             <constraint firstItem="JIc-jS-GO7" firstAttribute="leading" secondItem="nsp-0K-maN" secondAttribute="leading" id="RMB-Yl-lG9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Today, 9 March" id="xyN-Fq-8Eb"/>
+                    <navigationItem key="navigationItem" title="Today" id="xyN-Fq-8Eb"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="foodDetailTableView" destination="JIc-jS-GO7" id="te7-EG-8TR"/>
@@ -697,7 +697,7 @@
             </objects>
             <point key="canvasLocation" x="2729.2307692307691" y="737.91469194312788"/>
         </scene>
-        <!--Today, 9 March-->
+        <!--Today-->
         <scene sceneID="GNL-xt-fOv">
             <objects>
                 <viewController storyboardIdentifier="FoodIntakeDataViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xe8-GT-8ef" customClass="FoodIntakeDataViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
@@ -782,7 +782,7 @@
                             <constraint firstItem="K92-6a-FJF" firstAttribute="trailing" secondItem="ORU-Mk-sat" secondAttribute="trailing" id="gXU-Vn-YK9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Today, 9 March" largeTitleDisplayMode="never" id="XKn-gA-i2d"/>
+                    <navigationItem key="navigationItem" title="Today" largeTitleDisplayMode="never" id="XKn-gA-i2d"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="ORU-Mk-sat" id="gNf-jK-I3B"/>

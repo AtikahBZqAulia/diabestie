@@ -10,15 +10,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodEmptyDataCell" rowHeight="72" id="1c3-Rt-Tqi" customClass="FoodEmptyTableCell" customModule="Diabestie" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="72"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1c3-Rt-Tqi" id="R0D-it-bfM">
-                <rect key="frame" x="0.0" y="0.0" width="390" height="72"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-gd-uwH" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
-                        <rect key="frame" x="24" y="0.0" width="343" height="72"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-gd-uwH" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
+                        <rect key="frame" x="16" y="0.0" width="343" height="72"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="There is no food added." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7g-5B-Zt1">
                                 <rect key="frame" x="76" y="26" width="190" height="20"/>
@@ -29,6 +28,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="343" id="1IO-9y-hHA"/>
+                            <constraint firstAttribute="height" constant="72" id="ibD-Pl-f9C"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="12"/>
@@ -37,6 +40,12 @@
                     </view>
                 </subviews>
                 <color key="backgroundColor" name="gray_background"/>
+                <constraints>
+                    <constraint firstItem="AfG-gd-uwH" firstAttribute="top" secondItem="R0D-it-bfM" secondAttribute="top" id="9hB-S1-KwR"/>
+                    <constraint firstItem="AfG-gd-uwH" firstAttribute="leading" secondItem="R0D-it-bfM" secondAttribute="leading" constant="16" id="F8w-09-P15"/>
+                    <constraint firstAttribute="trailing" secondItem="AfG-gd-uwH" secondAttribute="trailing" constant="16" id="G9I-HY-1Q3"/>
+                    <constraint firstAttribute="bottom" secondItem="AfG-gd-uwH" secondAttribute="bottom" id="oH5-7s-zEj"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="715.38461538461536" y="108.05687203791469"/>
         </tableViewCell>

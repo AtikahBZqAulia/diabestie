@@ -53,8 +53,9 @@ class CoreDataManager {
             )
         }
         preloadFoodLibraryData()
-        preloadFoodLibraryFromAPI()
+//        preloadFoodLibraryFromAPI()
         preloadMedicineLibraryData()
+//        preloadEntries()
         
     }
     
@@ -82,6 +83,39 @@ class CoreDataManager {
         if MedicineLibraryRepository.shared.getAllMedicineLibrary().isEmpty {
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetamol", consumption: 3)
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracet2amol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glume23tza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracet23amol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza23", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Para23cetam2ol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glu23metza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "P23aracetamol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Gl23umetza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Par32acetamol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glum32etza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Parac32etamol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumet32za", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracet32amol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza32", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetam32ol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paraceta3mol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumet32za", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Para32cetamol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Gl23umetza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Para2cetamol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glum22cetamol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Parac2etamol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glume2tza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetam2ol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetz22a", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paraceta2mol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetz23a", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracet32amol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glume23tza", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Para32cetamol", consumption: 3)
+            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Gl23umetza", consumption: 3)
         }
     }
         
@@ -107,7 +141,7 @@ class CoreDataManager {
                 
             for _ in 1..<4 {
                 let foodLibrary = FoodLibraryRepository.shared.getAllFoodLibrary()[0]
-                let basket = FoodBasketRepository.shared.addFoodBasket(qty: 2, foodLibrary: foodLibrary)
+                let basket = FoodBasketRepository.shared.addFoodBasket(qty: 2, timeLog: Date(), foodLibrary: foodLibrary)
                 foodBasket.add(basket)
             }
             FoodEntryRepository.shared.insertFoodEntry(eatTime: 3, timeLog: Date(), foodBasket: foodBasket)
