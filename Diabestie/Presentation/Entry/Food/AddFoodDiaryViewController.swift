@@ -111,7 +111,7 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
 }
 
 extension AddFoodDiaryViewController: FoodBasketDelegate{
-    func addFood(foodLibrary: FoodLibraries, qty: Int) {
+    func addBasket(foodLibrary: FoodLibraries, qty: Int) {
         baskets.append(FoodBasketRepository.shared.addFoodBasket(qty: qty, foodLibrary: foodLibrary))
     }
     
