@@ -47,6 +47,10 @@ class AddFoodDiaryViewController: UIViewController {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func undwindFoodSegue(_ sender: UIStoryboardSegue){
+        self.foodEntryTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         foodList = FoodLibraryRepository.shared.getAllFoodLibrary()
@@ -59,10 +63,7 @@ class AddFoodDiaryViewController: UIViewController {
 //        saveButton.tintColor = .charcoalGrey
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let c = segue.destination as! SearchFoodViewController
-        c.baskets = foodBaskets
-    }
+
     
     @IBAction func backPage(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -146,6 +147,14 @@ extension AddFoodDiaryViewController: FoodBasketDelegate{
         foodBaskets.append(FoodBasketRepository.shared.addFoodBasket(qty: qty, foodLibrary: foodLibrary))
     }
     
+//    func removeBasket(foodLibrary: FoodLibraries) {
+//        for (i, foodBaskets) in foodBaskets.enumerated(){
+//            if foodBaskets.foodlibrary?.food_name == foodLibrary.food_name{
+//                foodBaskets.remove(at: i)
+//                FoodBasketRepository.shared.deleteFoodBasket(basket: foodBaskets)
+//            }
+//        }
+//    }
     
     func updateBasket(foodLibrary: FoodLibraries, newValue:Int){
         for item in foodBaskets {
