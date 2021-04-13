@@ -13,14 +13,10 @@ class AddFoodDiaryViewController: UIViewController {
     @IBOutlet weak var foodEntryTableView: UITableView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var names: [String] = []
-    var foodGram: [Int] = []
-    var foodCal: [Int] = []
-    var foodSugar: [Int] = []
-    
     var foodList: [FoodLibraries] = []
     var foodBaskets: [FoodBasket] = []
-    var selectedCategory: Int=0{
+    
+    var selectedCategory: Int = 0 {
         didSet{
             validateData()
         }
@@ -63,7 +59,12 @@ class AddFoodDiaryViewController: UIViewController {
 //        saveButton.tintColor = .charcoalGrey
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is SearchFoodViewController {
+            let vc = segue.destination as! SearchFoodViewController
+            vc.baskets = foodBaskets
+        }
+    }
     
     @IBAction func backPage(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -83,47 +84,66 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
         
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if foodBaskets != nil{
-            if foodBaskets.count == 0{
-                return 3
-            }
-            
+        
+        if section == 0 {
+            return 2
         }
-        
-        
-        return foodList.count
+    
+        if section == 1 {
+            if foodBaskets.isEmpty {
+                return 1
+            }
+            return foodBaskets.count
+        }
+    
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = foodEntryTableView.dequeueReusableCell(withIdentifier: "informationSection", for: indexPath)
-            return cell
+        
+        if indexPath.section == 0 {
+            
+            if indexPath.row == 0 {
+                let cell = foodEntryTableView.dequeueReusableCell(withIdentifier: "informationSection", for: indexPath)
+                return cell
+            }
+            else if indexPath.row == 1 {
+                let cell = foodEntryTableView.dequeueReusableCell(withIdentifier: "foodButton", for: indexPath)
+                return cell
+            }
         }
-        else if indexPath.row == 1 {
-            let cell = foodEntryTableView.dequeueReusableCell(withIdentifier: "foodButton", for: indexPath)
-            return cell
-        }
-        else if indexPath.row > 1 && names.count != 0{
+        
+        if indexPath.section == 1 {
+            
+            if foodBaskets.isEmpty {
+                let cell = foodEntryTableView.dequeueReusableCell(withIdentifier: "FoodEmptyDataCell") as! FoodEmptyTableCell
+                return cell
+            }
+            
             if let cell = foodEntryTableView.dequeueReusableCell(withIdentifier: ChosenFood.identifier, for: indexPath) as? ChosenFood{
-                cell.foodName.text = names[indexPath.row - 2]
-                cell.foodGram.text = "\(foodGram[indexPath.row - 2]) g"
-                cell.foodCal.text = "\(foodGram[indexPath.row - 2]) kcal"
-                cell.foodSugar.text = "\(foodSugar[indexPath.row - 2]) mg sugar"
-                if indexPath.row > 2
-                {addSeparator(cell)}
+                
+                let foodData = self.foodBaskets[indexPath.row]
+                            
+                cell.foodName.text = foodData.foodlibrary?.food_name ?? ""
+                cell.foodGram.text = "\(foodData.foodlibrary?.weight ?? 0) g"
+                cell.foodCal.text = "\(foodData.foodlibrary?.calories ?? 0) kcal"
+                cell.foodSugar.text = "\(foodData.foodlibrary?.sugar ?? 0) mg sugar"
+//                if indexPath.row > 2
+//                {addSeparator(cell)}
                 return cell
             }
             
             else {
                 return UITableViewCell()
             }
-           
         }
-        else {
-            let cell = foodEntryTableView.dequeueReusableCell(withIdentifier: "FoodEmptyDataCell") as! FoodEmptyTableCell
-            return cell
-        }
+        
+        return UITableViewCell()
     }
     
     private func addSeparator(_ cell: UITableViewCell) -> Void {
@@ -135,7 +155,7 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
 
 extension AddFoodDiaryViewController: FoodBasketDelegate{
     func removeBasket(foodLibrary: FoodLibraries) {
-        for (i, foodBaskets) in foodBaskets.enumerated(){
+        for (_, foodBaskets) in foodBaskets.enumerated(){
             if foodBaskets.foodlibrary?.food_name == foodLibrary.food_name{
 //                foodBaskets.remove(at: i)
                 FoodBasketRepository.shared.deleteFoodBasket(basket: foodBaskets)

@@ -16,30 +16,43 @@ class AddMedicineTableCell: UITableViewCell {
     @IBOutlet weak var addButtonView: DesignableView!
     
     weak var delegate: MedicineBasketDelegate?
-    var medicineLibrary: MedicineLibrary!
+    
+    var medicineLibrary: MedicineLibrary? {
+        didSet {
+            
+        }
+    }
     
     static let identifier = "medicineList"
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        stepperView.isHidden = true
         
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        let list: [MedicineLibrary] = MedicineLibraryRepository.shared.getMedicine(medicineName: medicineName.text!)
-        medicineLibrary = list[0]
+//        let list: [MedicineLibrary] = MedicineLibraryRepository.shared.getMedicine(medicineName: medicineName.text!)
+//        medicineLibrary = list[0]
     }
 
     @IBAction func increment(_ sender: UIButton) {
+        if let medicineLibrary = medicineLibrary{
         if let value = Int(stepperValue.text ?? "1") {
             let newValue = value + 1
             stepperValue.text = "\(newValue)"
             delegate?.updateBasket(medicineLibrary: medicineLibrary, newValue: newValue)
         }
+        }
     }
     @IBAction func decrement(_ sender: UIButton) {
+        if let medicineLibrary = medicineLibrary{
+
         if let value = Int(stepperValue.text ?? "1") {
             if value - 1 <= 0 {
                 addButtonView.isHidden = false
@@ -52,11 +65,15 @@ class AddMedicineTableCell: UITableViewCell {
                 delegate?.updateBasket(medicineLibrary: medicineLibrary, newValue: newValue)
             }
         }
+        }
     }
     
     @IBAction func addMedicine(_ sender: UIButton) {
+        if let medicineLibrary = medicineLibrary{
+
         addButtonView.isHidden = true
         stepperView.isHidden = false
         delegate?.addBasket(medicineLibrary: medicineLibrary, qty: 1)
+        }
     }
 }

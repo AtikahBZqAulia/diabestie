@@ -656,6 +656,7 @@
                             <color key="tintColor" name="blue_blue"/>
                             <connections>
                                 <action selector="backToPrevious:" destination="vCD-Fg-DGo" id="Lc1-IE-x9n"/>
+                                <segue destination="kTd-5g-vyJ" kind="unwind" unwindAction="undwindFoodSegue:" id="PL9-hM-jaM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -664,6 +665,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aP4-I5-Ko0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="kTd-5g-vyJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="880" y="77.488151658767762"/>
         </scene>

@@ -16,12 +16,17 @@ class MedicineBasketRepository {
     func addMedicineBasket(qty: Int, medicineLibrary: MedicineLibrary) -> MedicineBasket {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
-        guard let entity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
-            print("failed")
+//        guard let entity = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) else {
+//            print("failed")
+//            return .init()
+//        }
+//
+        guard let medicineBasket = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as? MedicineBasket else {
             return .init()
         }
+
         
-        let medicineBasket = MedicineBasket(entity: entity,insertInto: context)
+//        let medicineBasket = MedicineBasket(entity: entity,insertInto: context)
         
         medicineBasket.medicinelibrary = medicineLibrary
         medicineBasket.qty = Int32(qty)
