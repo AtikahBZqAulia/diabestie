@@ -754,6 +754,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="tGz-15-PXe" secondAttribute="trailing" id="Ys1-L0-eNg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="eatTime" destination="qDn-22-ufQ" id="CPa-B3-a0A"/>
+                                            <outlet property="timeLog" destination="XmR-Nc-JTj" id="GDp-Ob-x1U"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>

@@ -2,12 +2,16 @@
 //  FoodIntakeDataCell.swift
 //  Diabestie
 //
-//  Created by Dhiky Aldwiansyah on 07/04/21.
+//  Created by Revarino Putra on 13/04/21.
 //
 
 import UIKit
 
 class FoodIntakeDataCell: UITableViewCell {
+    
+    @IBOutlet weak var eatTime: UILabel!
+    @IBOutlet weak var timeLog: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

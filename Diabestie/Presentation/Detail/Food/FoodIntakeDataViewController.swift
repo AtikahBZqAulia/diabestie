@@ -41,6 +41,10 @@ extension FoodIntakeDataViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let dataCell = tableView.dequeueReusableCell(withIdentifier: FoodIntakeDataCell.cellIdentifier(), for: indexPath) as? FoodIntakeDataCell {
+            let idxName: Int = Int(foodEntries[indexPath.row].eat_time)
+            let idxTime: Date = foodEntries[indexPath.row].time_log!
+            dataCell.eatTime.text = "\(Constants.mealCategoryList[idxName])"
+            dataCell.timeLog.text = "\(idxTime.string(format: .HourMinutes))"
             return dataCell
         }
         else {

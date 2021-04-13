@@ -12,7 +12,7 @@ class FoodIntakeDetailViewController: UIViewController {
     
     @IBOutlet weak var foodDetailTableView: UITableView!
     
-    let food = ["Pisang", "Nasi", "Marugame", "Boba" , "Kol Goreng"]
+//    let food = ["Pisang", "Nasi", "Marugame", "Boba" , "Kol Goreng"]
     var foodEntries: FoodEntries!
     var foodBasket: [FoodBasket] = []
     var newBasket: [FoodBasket] = []
