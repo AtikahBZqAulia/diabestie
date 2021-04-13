@@ -52,9 +52,10 @@ class CoreDataManager {
                 password: Constants.globalUserPasword
             )
         }
-        
+        preloadFoodLibraryData()
         preloadFoodLibraryFromAPI()
         preloadMedicineLibraryData()
+        
     }
     
     func preloadFoodLibraryData(){
@@ -109,7 +110,7 @@ class CoreDataManager {
                 let basket = FoodBasketRepository.shared.addFoodBasket(qty: 2, foodLibrary: foodLibrary)
                 foodBasket.add(basket)
             }
-                FoodEntryRepository.shared.insertFoodEntry(eatTime: 3, foodBasket: foodBasket)
+            FoodEntryRepository.shared.insertFoodEntry(eatTime: 3, timeLog: Date(), foodBasket: foodBasket)
         }
         
     }

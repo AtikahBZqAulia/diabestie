@@ -9,16 +9,19 @@ import UIKit
 
 class FoodIntakeDetailViewController: UIViewController {
     
-    
     @IBOutlet weak var foodDetailTableView: UITableView!
     
-    var foodEntries: FoodEntries!
+    var foodEntries: FoodEntries?
     var baskets: [FoodBasket] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         foodDetailTableView.dataSource = self
-        baskets = foodEntries.foodbasket?.allObjects as! [FoodBasket]
+        
+        guard let entries = foodEntries?.foodbasket?.allObjects as? [FoodBasket] else {
+            return
+        }
+        baskets = entries
     }
 
 }
@@ -34,7 +37,7 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
         if indexPath.row > 1 {
             if let cell = foodDetailTableView.dequeueReusableCell(withIdentifier: "FoodIntake", for: indexPath) as? FoodIntakeDetailTableCell {
                 
-                cell.foodName.text = "\(baskets[indexPath.row - 2].foodlibrary!.food_name ?? "")"
+                cell.foodName.text = "\(baskets[indexPath.row - 2].foodlibrary!.food_name ?? "") (x\(Int(baskets[indexPath.row - 2].qty )))"
                 cell.foodGram.text = "\(baskets[indexPath.row - 2].foodlibrary!.weight) g"
                 cell.foodCal.text = "\(baskets[indexPath.row - 2].foodlibrary!.calories) kcal"
                 cell.foodSugar.text = "\(baskets[indexPath.row - 2].foodlibrary!.sugar) mg sugar"
@@ -58,10 +61,10 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
         else if indexPath.row == 0 {
             if let cell = foodDetailTableView.dequeueReusableCell(withIdentifier: CalculatedFoodTableCell.identifier) as? CalculatedFoodTableCell {
                 let total = getTotal()
-                cell.eatName.text = "\(Constants.mealCategoryList[Int(foodEntries.eat_time)])"
+                cell.eatName.text = "\(Constants.mealCategoryList[Int(foodEntries?.eat_time ?? 0)])"
                 cell.calories.text = "\(total.calories)"
                 cell.sugar.text = "\(total.sugar)"
-                cell.eatTime.text = "\(foodEntries.time_log!.string(format: .HourMinutes))"
+                cell.eatTime.text = "\(foodEntries?.time_log?.string(format: .HourMinutes) ?? "")"
                 return cell
             }
             else {
@@ -83,8 +86,8 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
         var totalCalories: Int = 0
         var totalSugar: Int = 0
         for data in baskets {
-            totalCalories += Int(data.foodlibrary!.calories)
-            totalSugar += Int(data.foodlibrary!.sugar)
+            totalCalories += Int(data.foodlibrary!.calories) * Int(data.qty)
+            totalSugar += Int(data.foodlibrary!.sugar) * Int(data.qty)
         }
         return (totalCalories, totalSugar)
     }

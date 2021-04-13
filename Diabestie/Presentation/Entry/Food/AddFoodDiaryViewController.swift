@@ -7,11 +7,6 @@
 import UIKit
 import CoreData
 
-//protocol FoodBasketDelegate: class {
-//    func addBasket(foodLibrary: FoodLibraries, qty: Int)
-//    func removeBasket(foodLibrary: FoodLibraries)
-//    func updateBasket(foodLibrary: FoodLibraries, newValue: Int)
-//}
 
 class AddFoodDiaryViewController: UIViewController {
 
@@ -24,26 +19,51 @@ class AddFoodDiaryViewController: UIViewController {
     var foodSugar: [Int] = []
     
     var foodList: [FoodLibraries] = []
-    var baskets: [FoodBasket] = []
+    var foodBaskets: [FoodBasket] = []
+    var selectedCategory: Int=0{
+        didSet{
+            validateData()
+        }
+    }
+    var eatTime = 0
+    var timeLog = Date()
     
+    func validateData() {
+        if selectedCategory != 0 && foodBaskets != nil {
+            saveButton.isEnabled = true
+            saveButton.tintColor = .blueBlue
+            return
+        }
+        saveButton.isEnabled = false
+        saveButton.tintColor = .charcoalGrey
+    }
+    @IBAction func saveData(_ sender: UIBarButtonItem) {
+        let baskets = NSMutableSet.init()
+        for basket in baskets {
+            baskets.add(basket)
+        }
+        FoodEntryRepository.shared.insertFoodEntry(eatTime: eatTime , timeLog: self.timeLog, foodBasket: baskets)
+
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func undwindFoodSegue(_ sender: UIStoryboardSegue){
+        self.foodEntryTableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         foodList = FoodLibraryRepository.shared.getAllFoodLibrary()
         foodEntryTableView.dataSource = self
         foodEntryTableView.register(UINib(nibName: "FoodEmptyTableCell", bundle: nil), forCellReuseIdentifier: "FoodEmptyDataCell")
-        self.navigationController?.navigationBar.topItem?.title = ""
+        
         
         // Do any additional setup after loading the view.
-//         saveButton.isEnabled = false
+//        saveButton.isEnabled = false
+//        saveButton.tintColor = .charcoalGrey
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier != "AddFood"{
-//            let c = segue.destination as! AddFoodDiaryViewController
-//            c.foodBasket = baskets
-//        }
-//    }
+
     
     @IBAction func backPage(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -55,6 +75,8 @@ class AddFoodDiaryViewController: UIViewController {
     
 }
 
+    
+
 extension AddFoodDiaryViewController: UITableViewDataSource{
     
     func saveFoodBasketData(){
@@ -62,14 +84,15 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let value = names.count
-//        if value != 0 {
-//            return value + 2
-//        }
-//        else {
-//            return 3
-//        }
-        return foodList.count 
+        if foodBaskets != nil{
+            if foodBaskets.count == 0{
+                return 3
+            }
+            
+        }
+        
+        
+        return foodList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,24 +134,35 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
 }
 
 extension AddFoodDiaryViewController: FoodBasketDelegate{
-    func addBasket(foodLibrary: FoodLibraries, qty: Int) {
-        baskets.append(FoodBasketRepository.shared.addFoodBasket(qty: qty, foodLibrary: foodLibrary))
-    }
-    
     func removeBasket(foodLibrary: FoodLibraries) {
-        for (i, basket) in baskets.enumerated(){
-            if basket.foodlibrary?.food_name == foodLibrary.food_name{
-                baskets.remove(at: i)
-                FoodBasketRepository.shared.deleteFoodBasket(basket: basket)
+        for (i, foodBaskets) in foodBaskets.enumerated(){
+            if foodBaskets.foodlibrary?.food_name == foodLibrary.food_name{
+//                foodBaskets.remove(at: i)
+                FoodBasketRepository.shared.deleteFoodBasket(basket: foodBaskets)
             }
         }
     }
     
+    func addBasket(foodLibrary: FoodLibraries, qty: Int) {
+        foodBaskets.append(FoodBasketRepository.shared.addFoodBasket(qty: qty, foodLibrary: foodLibrary))
+    }
+    
+//    func removeBasket(foodLibrary: FoodLibraries) {
+//        for (i, foodBaskets) in foodBaskets.enumerated(){
+//            if foodBaskets.foodlibrary?.food_name == foodLibrary.food_name{
+//                foodBaskets.remove(at: i)
+//                FoodBasketRepository.shared.deleteFoodBasket(basket: foodBaskets)
+//            }
+//        }
+//    }
+    
     func updateBasket(foodLibrary: FoodLibraries, newValue:Int){
-        for item in baskets {
+        for item in foodBaskets {
             if item.foodlibrary == foodLibrary{
                 item.qty = Int32(newValue)
             }
         }
     }
 }
+
+

@@ -9,12 +9,15 @@ import UIKit
 
 class FoodIntakeDataViewController: UIViewController {
 
-    var foodEntries: [FoodEntries] = []
+    @IBOutlet weak var tableView: UITableView!
 
+    var foodEntries: [FoodEntries] = []
+    var selectedDate = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        foodEntries = FoodEntryRepository.shared.getAllFoodEntry()
-        
+        foodEntries = FoodEntryRepository.shared.getFoodEntryByDate(date: selectedDate)
+        tableView.reloadData()
     }
 
 }

@@ -29,6 +29,9 @@ class AddFoodTableCell: UITableViewCell{
         }
     }
     
+    weak var delegate: FoodBasketDelegate?
+    var foodLibrary: FoodLibraries!
+    
     static let identifier = "foodList"
     
     override func awakeFromNib() {
@@ -38,13 +41,17 @@ class AddFoodTableCell: UITableViewCell{
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        let list: [FoodLibraries] =
+            FoodLibraryRepository.shared.getFood(foodName: foodName.text!)
+        foodLibrary = list[0]
     }
     
     
     @IBAction func increment2(_ sender: UIButton) {
         if let value = Int(stepperValue.text ?? "1") {
+            let newValue = value + 1
             stepperValue.text = "\(value + 1)"
+            delegate?.updateBasket(foodLibrary: foodLibrary, newValue: newValue)
         }
     }
 
@@ -53,9 +60,12 @@ class AddFoodTableCell: UITableViewCell{
             if value - 1 <= 0 {
                 addButtonView.isHidden = false
                 stepperView.isHidden = true
+                delegate?.removeBasket(foodLibrary: foodLibrary)
             }
             else {
+                let newValue = value - 1
                 stepperValue.text = "\(value - 1)"
+                delegate?.updateBasket(foodLibrary: foodLibrary, newValue: newValue)
             }
         }
     }
@@ -63,6 +73,7 @@ class AddFoodTableCell: UITableViewCell{
     @IBAction func addFood(_ sender: UIButton) {
         addButtonView.isHidden = true
         stepperView.isHidden = false
+        delegate?.addBasket(foodLibrary: foodLibrary, qty: 1)
     }
     
 }

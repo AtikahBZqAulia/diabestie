@@ -69,20 +69,22 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
             
             foodTableView.tableHeaderView = controller.searchBar
             foodList = FoodLibraryRepository.shared.getAllFoodLibrary()
+            foodTableView.dataSource = self
             return controller
         })()
         
     
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destVC = segue.destination as! AddFoodDiaryViewController
-//        destVC.foodBasket = baskets
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! AddFoodDiaryViewController
+        destVC.foodBaskets = baskets
+    }
+    
+//    @IBAction func backToPrevious(_ sender: UIBarButtonItem) {
+//        self.navigationController?.popViewController(animated: true)
 //    }
     
-    @IBAction func backToPrevious(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
-    }
 }
 
 extension SearchFoodViewController: UITableViewDataSource{
@@ -104,7 +106,7 @@ extension SearchFoodViewController: UITableViewDataSource{
             return filtered ? 0 : foodList.count
         }
         
-        return 0
+        return foodList.count + 1
         
     }
     
@@ -132,6 +134,10 @@ extension SearchFoodViewController: UITableViewDataSource{
             
             if let cell = foodTableView.dequeueReusableCell(withIdentifier: "foodList", for: indexPath) as? AddFoodTableCell
             {
+                let select: Int = indexPath.row - 1
+                cell.delegate = self
+                
+                var stringTimes: String!
                 
                 if !filteredData.isEmpty{
                     let data = filteredData[indexPath.row]

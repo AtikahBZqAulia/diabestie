@@ -43,7 +43,7 @@ class FoodTableCell: UITableViewCell {
                 icChevron.isHidden = true
             }
             
-            let nutriton = FoodEntryRepository.shared.getFoodEntryNutrition(entry: data)
+            let nutriton = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
             lblSugar.text = "\(nutriton.sugar)"
             lblCalories.text = "\(nutriton.calorie)"
         }
