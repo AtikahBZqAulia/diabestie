@@ -59,11 +59,9 @@ class MedicineIntakeDataCell: UITableViewCell {
     }
     
     func setupView() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        
+
         medCategoryLabel.text = Constants.medCategoryList[Int(entry.category)]
-        timeLogLabel.text = formatter.string(from: entry.time_log!)
+        timeLogLabel.text = formatTo24HoursTime().string(from: entry.time_log!)
         
         for (i,value) in entry.medicinebasket!.enumerated() {
             let basket = value as! MedicineBasket
@@ -84,6 +82,14 @@ class MedicineIntakeDataCell: UITableViewCell {
             }
         }
         
+    }
+    
+    func formatTo24HoursTime() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        
+        return formatter
+    
     }
 
 }

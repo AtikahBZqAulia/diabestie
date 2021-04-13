@@ -9,13 +9,21 @@ import UIKit
 
 class MedicineIntakeViewController: UIViewController {
     
-    //var users: [User] = User.generateDummyData()
-    
-    
     @IBOutlet weak var viewCalendar: ExtendedNavBarView!
+    @IBOutlet weak var medicineIntakeTableView: UITableView!
+    
+    var medicineEntries: [MedicineEntries] = []
+    var medicineLibrary: [MedicineLibrary] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //To-Do
+        //medicineEntries blm query supaya cuma ambil entries sesuai tangal yang dipilih
+        medicineEntries = MedicineEntryRepository.shared.getAllMedicineEntry() //masih all medicine entries
+        medicineLibrary = MedicineLibraryRepository.shared.getAllMedicineLibrary()
+        
+        medicineIntakeTableView.dataSource = self
         
         self.navigationController?.navigationBar.shadowImage = UIImage.transparentPixel
         
@@ -37,10 +45,11 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
         
-        //medicine library.count
-        identifiers.append(MedicineIntakeCell.identifier)
-        identifiers.append(MedicineIntakeCell.identifier)
-        identifiers.append(MedicineIntakeCell.identifier)
+        while case var index = 0, index < medicineLibrary.count {
+            identifiers.append(MedicineIntakeCell.identifier)
+            index += 1
+        }
+        
         identifiers.append(MedicineIntakeInfoCell.identifier)
         identifiers.append(MedicineIntakeOptionCell.identifier)
         
@@ -56,7 +65,7 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableviewIdentifier().count
+        return medicineEntries.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +81,7 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineIntakeCell else {
                 return UITableViewCell()
             }
-            //cell.user = users[indexPath.row]
+            cell.library = medicineLibrary[indexPath.row]
             cell.selectionStyle = .none
             
             return cell

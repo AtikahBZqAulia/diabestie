@@ -16,7 +16,9 @@ class MedicineIntakeDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        medicineEntries = MedicineEntryRepository.shared.getAllMedicineEntry()
+        //To-Do
+        //medicineEntries blm query supaya cuma ambil entries sesuai tangal yang dipilih
+        medicineEntries = MedicineEntryRepository.shared.getAllMedicineEntry() //masih all medicine entries
         medicineIntakeDataTableView.dataSource = self
         
     }

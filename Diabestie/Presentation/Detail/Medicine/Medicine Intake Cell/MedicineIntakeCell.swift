@@ -15,6 +15,12 @@ class MedicineIntakeCell: UITableViewCell {
 
     static let identifier = "MedicineIntakeCell"
     
+    var library: MedicineLibrary! {
+        didSet {
+            setupView()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,25 +32,8 @@ class MedicineIntakeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    var user: User! {
-//        didSet{
-//            setupView()
-//        }
-//    }
-//
-//
-//    func setupView(){
-//        boldLabel.text = "Name: \(user.name)"
-//        lightLabel.text = "Address \(user.address)"
-//
-//        loadingIndicator.hidesWhenStopped = true
-//        if user.isActive{
-//            loadingIndicator.startAnimating()
-//        }else{
-//            loadingIndicator.stopAnimating()
-//        }
-//
-//        switchView.isOn = user.isActive
-//    }
+    func setupView() {
+        
+    }
 
 }
