@@ -16,13 +16,13 @@ class MedicineCreateViewController: UITableViewController {
 
     @IBOutlet var createMedicineView: UITableView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
+    var callbackResult: ((Bool) -> ())?
     var inputtedName: String = "" {
         didSet {
             validateData()
         }
     }
-    var inputtedFrequency: Int = 0 {
+    var inputtedFrequency: Int = 1 {
         didSet {
             validateData()
         }
@@ -35,7 +35,7 @@ class MedicineCreateViewController: UITableViewController {
     }
     
     func validateData() {
-        if inputtedName.isEmpty || inputtedFrequency == 0 {
+        if inputtedName.isEmpty {
             saveButton.isEnabled = false
             saveButton.tintColor = .charcoalGrey
             return
@@ -104,7 +104,8 @@ class MedicineCreateViewController: UITableViewController {
     
     func saveData() {
         MedicineLibraryRepository.shared.insertMedicineLibrary(name: self.inputtedName, consumption: self.inputtedFrequency)
-        self.navigationController?.dismiss(animated: true, completion: nil)
+//        callbackResult?(true)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

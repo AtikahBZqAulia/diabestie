@@ -52,9 +52,10 @@ class CoreDataManager {
                 password: Constants.globalUserPasword
             )
         }
-        
+        preloadFoodLibraryData()
         preloadFoodLibraryFromAPI()
         preloadMedicineLibraryData()
+        
     }
     
     func preloadFoodLibraryData(){
