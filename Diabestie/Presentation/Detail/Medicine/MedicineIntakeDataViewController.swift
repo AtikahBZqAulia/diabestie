@@ -11,18 +11,20 @@ class MedicineIntakeDataViewController: UIViewController {
     
     @IBOutlet weak var medicineIntakeDataTableView: UITableView!
     
-    var medicineEntries: [MedicineEntries] = []
+    var selectedDate = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //To-Do
-        //medicineEntries blm query supaya cuma ambil entries sesuai tangal yang dipilih
-        medicineEntries = MedicineEntryRepository.shared.getAllMedicineEntry() //masih all medicine entries
         medicineIntakeDataTableView.dataSource = self
         
     }
+}
 
+extension MedicineIntakeDataViewController {
+    var medicineEntries : [MedicineEntries]? {
+        return MedicineEntryRepository.shared.getMedicineEntryByDate(date: selectedDate)
+        
+    }
 }
 
 extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewDataSource {
@@ -53,7 +55,7 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return medicineEntries.count
+        return medicineEntries?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,7 +63,7 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MedicineIntakeDataCell", for: indexPath) as? MedicineIntakeDataCell else {
             return UITableViewCell()
         }
-        cell.entry = medicineEntries[indexPath.row]
+        cell.entry = medicineEntries?[(medicineEntries?.count ?? 0) - indexPath.row - 1]
         return cell
     }
     

@@ -86,7 +86,7 @@ class MedicineIntakeDataCell: UITableViewCell {
     
     func formatTo24HoursTime() -> DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
+        formatter.dateFormat = "HH.mm"
         
         return formatter
     

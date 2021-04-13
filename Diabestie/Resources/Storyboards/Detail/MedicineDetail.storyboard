@@ -78,8 +78,12 @@
                                                                 <constraint firstItem="2hA-5Y-aLW" firstAttribute="bottom" secondItem="2aG-66-lxC" secondAttribute="bottom" id="tfr-hb-j9h"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daV-MI-3cU">
+                                                            <rect key="frame" x="16" y="78" width="374" height="1"/>
+                                                            <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest: 19.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgY-bc-J3V">
-                                                            <rect key="frame" x="300.66666666666669" y="33" width="73.333333333333314" height="14.333333333333336"/>
+                                                            <rect key="frame" x="300.66666666666669" y="13" width="73.333333333333314" height="14.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -89,10 +93,14 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="35f-Kz-D21"/>
                                                         <constraint firstAttribute="trailing" secondItem="qgY-bc-J3V" secondAttribute="trailing" constant="16" id="95f-wO-dSt"/>
-                                                        <constraint firstItem="qgY-bc-J3V" firstAttribute="centerY" secondItem="wOd-em-IeC" secondAttribute="centerY" id="Ed0-yV-KKX"/>
+                                                        <constraint firstItem="daV-MI-3cU" firstAttribute="leading" secondItem="wOd-em-IeC" secondAttribute="leading" constant="16" id="Dm8-JY-15B"/>
+                                                        <constraint firstItem="daV-MI-3cU" firstAttribute="top" secondItem="wOd-em-IeC" secondAttribute="top" constant="78" id="G2Z-hz-CLg"/>
                                                         <constraint firstItem="xpb-LI-xVb" firstAttribute="leading" secondItem="wOd-em-IeC" secondAttribute="leading" constant="8" id="HvP-iT-qhV"/>
                                                         <constraint firstItem="xpb-LI-xVb" firstAttribute="top" secondItem="wOd-em-IeC" secondAttribute="top" id="LeN-Qs-HD1"/>
                                                         <constraint firstItem="qgY-bc-J3V" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xpb-LI-xVb" secondAttribute="trailing" constant="10" id="Q1Y-CS-fOg"/>
+                                                        <constraint firstItem="qgY-bc-J3V" firstAttribute="top" secondItem="wOd-em-IeC" secondAttribute="top" constant="13" id="TV3-Uh-zFP"/>
+                                                        <constraint firstAttribute="bottom" secondItem="daV-MI-3cU" secondAttribute="bottom" constant="1" id="VlW-lp-8CJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="daV-MI-3cU" secondAttribute="trailing" id="X0Z-P7-7c7"/>
                                                         <constraint firstAttribute="bottom" secondItem="xpb-LI-xVb" secondAttribute="bottom" id="uRa-uZ-CzF"/>
                                                     </constraints>
                                                 </view>
@@ -104,6 +112,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="wOd-em-IeC" secondAttribute="trailing" id="wDo-WN-JMf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="freqLabel" destination="2aG-66-lxC" id="X5m-ae-Vln"/>
+                                            <outlet property="medNameLabel" destination="am8-Ax-dG0" id="RJe-tu-Q4u"/>
+                                            <outlet property="timeLogLabel" destination="qgY-bc-J3V" id="H5k-ct-Dfv"/>
+                                            <outlet property="unitLabel" destination="2hA-5Y-aLW" id="qra-ks-iWn"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineIntakeInfoCell" rowHeight="300" id="Sq8-GX-mrZ" customClass="MedicineIntakeInfoCell" customModule="Diabestie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="108" width="390" height="300"/>
@@ -149,10 +163,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineIntakeOptionCell" id="3Tx-BL-nim" userLabel="BloodSugarOptionCell" customClass="MedicineIntakeOptionCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="408" width="390" height="175.33332824707031"/>
+                                        <rect key="frame" x="0.0" y="408" width="390" height="167.33332824707031"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Tx-BL-nim" id="OKn-q3-uMM">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="175.33332824707031"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="167.33332824707031"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFy-NC-Xr5">
@@ -206,7 +220,7 @@
                                             </subviews>
                                             <color key="backgroundColor" name="gray_background"/>
                                             <constraints>
-                                                <constraint firstItem="w9r-9R-818" firstAttribute="top" secondItem="mFy-NC-Xr5" secondAttribute="bottom" constant="16" id="4tc-F8-aOQ"/>
+                                                <constraint firstItem="w9r-9R-818" firstAttribute="top" secondItem="mFy-NC-Xr5" secondAttribute="bottom" constant="8" id="4tc-F8-aOQ"/>
                                                 <constraint firstItem="muv-we-w9n" firstAttribute="leading" secondItem="w9r-9R-818" secondAttribute="leading" constant="16" id="8oP-52-FxS"/>
                                                 <constraint firstAttribute="trailing" secondItem="w9r-9R-818" secondAttribute="trailing" constant="16" id="H51-3C-XW6"/>
                                                 <constraint firstItem="muv-we-w9n" firstAttribute="trailing" secondItem="w9r-9R-818" secondAttribute="trailing" constant="-16" id="TTZ-0M-983"/>
@@ -251,12 +265,13 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="medicineIntakeTableView" destination="j2b-Fe-S68" id="Yau-ID-17N"/>
                         <outlet property="viewCalendar" destination="y1z-i0-WeE" id="Dig-Yc-gD6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCq-9s-WSg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102.8985507246377" y="737.94642857142856"/>
+            <point key="canvasLocation" x="1101.5384615384614" y="737.91469194312788"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="lHp-dF-Zsm">
@@ -885,6 +900,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

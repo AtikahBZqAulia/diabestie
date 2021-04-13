@@ -10,33 +10,82 @@ import UIKit
 class MedicineIntakeViewController: UIViewController {
     
     @IBOutlet weak var viewCalendar: ExtendedNavBarView!
+    
+    var selectedDate: Date = Date()
+    
     @IBOutlet weak var medicineIntakeTableView: UITableView!
     
-    var medicineEntries: [MedicineEntries] = []
-    var medicineLibrary: [MedicineLibrary] = []
+    let horizontalCalendar = HorizontalCalendar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //To-Do
-        //medicineEntries blm query supaya cuma ambil entries sesuai tangal yang dipilih
-        medicineEntries = MedicineEntryRepository.shared.getAllMedicineEntry() //masih all medicine entries
-        medicineLibrary = MedicineLibraryRepository.shared.getAllMedicineLibrary()
         
         medicineIntakeTableView.dataSource = self
         
         self.navigationController?.navigationBar.shadowImage = UIImage.transparentPixel
         
-        let calendar = HorizontalCalendar()
+        setupHorizontalCalendar()
+    }
+    
+    func setupHorizontalCalendar(){
         
-        viewCalendar.addSubview(calendar)
-        calendar.translatesAutoresizingMaskIntoConstraints = false
+        viewCalendar.addSubview(horizontalCalendar)
+        horizontalCalendar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            calendar.topAnchor.constraint(equalTo: viewCalendar.safeAreaLayoutGuide.topAnchor, constant: 0),
-            calendar.leftAnchor.constraint(equalTo: viewCalendar.leftAnchor),
-            calendar.rightAnchor.constraint(equalTo: viewCalendar.rightAnchor)
+            horizontalCalendar.topAnchor.constraint(equalTo: viewCalendar.safeAreaLayoutGuide.topAnchor, constant: 0),
+            horizontalCalendar.leftAnchor.constraint(equalTo: viewCalendar.leftAnchor),
+            horizontalCalendar.rightAnchor.constraint(equalTo: viewCalendar.rightAnchor)
         ])
         
+        horizontalCalendar.onSelectionChanged = { date in
+//            self.onDateSelected(date: date)
+            if date != self.selectedDate {
+                self.selectedDate = date
+    //            self.horizontalCalendar.selectedDate = self.selectedDate
+    //            self.horizontalCalendar.setSelectedDate()
+                self.medicineIntakeTableView.reloadData()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is UINavigationController {
+            
+            let segueNavigationController = segue.destination as? UINavigationController
+            
+            if let vc = segueNavigationController?.topViewController as? CalendarController {
+                vc.delegate = self
+                vc.selectedDate = self.selectedDate
+            }
+            
+        }
+        if segue.destination is MedicineIntakeDataViewController {
+            
+            let vc = segue.destination as? MedicineIntakeDataViewController
+            vc?.selectedDate = self.selectedDate
+
+        }
+    }
+    
+}
+
+extension MedicineIntakeViewController {
+    var medicineLibrary : [MedicineLibrary]? {
+        return MedicineLibraryRepository.shared.getAllMedicineLibrary()
+        
+    }
+}
+
+extension MedicineIntakeViewController: CalendarControllerDelegate {
+    
+    func onDateSelected(date: Date) {
+        print("sadsad")
+        if date != self.selectedDate {
+            self.selectedDate = date
+//            self.horizontalCalendar.selectedDate = self.selectedDate
+            self.horizontalCalendar.setSelectedDate(selectedDate: date)
+            self.medicineIntakeTableView.reloadData()
+        }
     }
 }
 
@@ -45,7 +94,8 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
         
-        while case var index = 0, index < medicineLibrary.count {
+    var index = 0
+        while index < medicineLibrary?.count ?? 0 {
             identifiers.append(MedicineIntakeCell.identifier)
             index += 1
         }
@@ -65,7 +115,7 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return medicineEntries.count + 2
+        return (medicineLibrary?.count ?? 0) + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,7 +131,9 @@ extension MedicineIntakeViewController: UITableViewDelegate, UITableViewDataSour
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MedicineIntakeCell else {
                 return UITableViewCell()
             }
-            cell.library = medicineLibrary[indexPath.row]
+            print(indexPath.row)
+            cell.selectedDate = self.selectedDate
+            cell.library = medicineLibrary?[indexPath.row]
             cell.selectionStyle = .none
             
             return cell
