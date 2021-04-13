@@ -404,46 +404,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A77-3p-fLC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="A77-3p-fLC">
                                 <rect key="frame" x="0.0" y="88" width="390" height="722"/>
+                                <color key="backgroundColor" name="gray_background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Recents" rowHeight="60" id="Wie-qW-hs7">
-                                        <rect key="frame" x="0.0" y="28" width="390" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wie-qW-hs7" id="cQh-E5-fLR">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEc-Fd-dRq">
-                                                    <rect key="frame" x="0.0" y="8" width="382" height="44"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8he-MI-gyA">
-                                                            <rect key="frame" x="16" y="4" width="122" height="36"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" name="gray_background"/>
-                                                    <constraints>
-                                                        <constraint firstItem="8he-MI-gyA" firstAttribute="leading" secondItem="gEc-Fd-dRq" secondAttribute="leading" constant="16" id="MHU-Oq-npY"/>
-                                                        <constraint firstAttribute="trailing" secondItem="8he-MI-gyA" secondAttribute="trailing" constant="244" id="MME-mJ-kvn"/>
-                                                        <constraint firstItem="8he-MI-gyA" firstAttribute="top" secondItem="gEc-Fd-dRq" secondAttribute="top" constant="4" id="Uam-5R-VIp"/>
-                                                        <constraint firstAttribute="bottom" secondItem="8he-MI-gyA" secondAttribute="bottom" constant="4" id="gSC-bY-J5W"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="gEc-Fd-dRq" secondAttribute="trailing" constant="8" id="H0V-aD-5rv"/>
-                                                <constraint firstAttribute="bottom" secondItem="gEc-Fd-dRq" secondAttribute="bottom" constant="8" id="U6o-ND-wsW"/>
-                                                <constraint firstItem="gEc-Fd-dRq" firstAttribute="top" secondItem="cQh-E5-fLR" secondAttribute="top" constant="8" id="b1h-Aq-chY"/>
-                                                <constraint firstItem="gEc-Fd-dRq" firstAttribute="leading" secondItem="cQh-E5-fLR" secondAttribute="leading" id="dg0-vB-SMI"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="gray_background"/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodList" rowHeight="60" id="AKP-LD-LgV" customClass="AddFoodTableCell" customModule="Diabestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="390" height="60"/>
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="390" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AKP-LD-LgV" id="45L-dm-qTY">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>

@@ -13,19 +13,16 @@ class FoodBasketRepository {
     static let shared = FoodBasketRepository()
     let entityName = FoodBasket.self.description()
 
-    func addFoodBasket(qty: Int, foodLibrary: FoodLibraries) -> FoodBasket {
+    func addFoodBasket(qty: Int, timeLog: Date, foodLibrary: FoodLibraries) -> FoodBasket {
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
-        guard let entity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
-            print("failed")
+        guard let foodBasket = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as? FoodBasket else {
             return .init()
         }
         
-        let foodBasket = FoodBasket(entity: entity,insertInto: context)
-        
         foodBasket.foodlibrary = foodLibrary
-        foodBasket.time_log = Date()
+        foodBasket.time_log = timeLog
         foodBasket.qty = Int32(qty)
         foodBasket.created_at = Date()
         foodBasket.updated_at = Date()

@@ -77,6 +77,7 @@ class AddFoodDiaryViewController: UIViewController {
         if segue.destination is SearchFoodViewController {
             let vc = segue.destination as! SearchFoodViewController
             vc.baskets = foodBaskets
+            vc.timeLog = timeLog
         }
     }
     

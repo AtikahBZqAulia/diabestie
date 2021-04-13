@@ -141,7 +141,7 @@ class CoreDataManager {
                 
             for _ in 1..<4 {
                 let foodLibrary = FoodLibraryRepository.shared.getAllFoodLibrary()[0]
-                let basket = FoodBasketRepository.shared.addFoodBasket(qty: 2, foodLibrary: foodLibrary)
+                let basket = FoodBasketRepository.shared.addFoodBasket(qty: 2, timeLog: Date(), foodLibrary: foodLibrary)
                 foodBasket.add(basket)
             }
             FoodEntryRepository.shared.insertFoodEntry(eatTime: 3, timeLog: Date(), foodBasket: foodBasket)
