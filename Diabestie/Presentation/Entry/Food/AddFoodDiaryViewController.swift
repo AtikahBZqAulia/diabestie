@@ -27,7 +27,6 @@ class AddFoodDiaryViewController: UIViewController {
             validateData()
         }
     }
-    var eatTime = 0
     var timeLog = Date()
     
     
@@ -51,7 +50,8 @@ class AddFoodDiaryViewController: UIViewController {
         }
         
         print("BASKTES FOOD \(baskets)")
-        FoodEntryRepository.shared.insertFoodEntry(eatTime: eatTime , timeLog: self.timeLog, foodBasket: baskets)
+        
+        FoodEntryRepository.shared.insertFoodEntry(eatTime: selectedCategory , timeLog: self.timeLog, foodBasket: baskets)
         FoodLibraryRepository.shared.reseFoodLibrary()
         
         self.navigationController?.dismiss(animated: true, completion: nil)
@@ -173,9 +173,6 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
                 cell.foodSugar.text = "\(foodData.foodlibrary?.sugar ?? 0) mg sugar"
                 cell.stepperValue.text = "\(foodData.qty)"
 
-                
-//                if indexPath.row > 2
-//                {addSeparator(cell)}
                 return cell
             }
             
@@ -187,9 +184,4 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
         return UITableViewCell()
     }
     
-    private func addSeparator(_ cell: UITableViewCell) -> Void {
-        let separatorView = UIView(frame: CGRect(x: foodEntryTableView.separatorInset.left, y: 0, width: 390, height: 0.5))
-        separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
-        cell.contentView.addSubview(separatorView)
-    }
 }
