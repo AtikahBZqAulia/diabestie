@@ -38,6 +38,11 @@ class AddMedicineDiaryViewController: UIViewController {
 //                data.addToOfMedicineBasket(basket)
             }
         }
+        
+        medicineList.sort { (data, value) -> Bool in
+           return data.ofMedicineBasket != nil
+        }
+        
 //        medicineList.forEach { (index,data) in
 //
 //

@@ -67,6 +67,10 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
             return controller
         })()
         
+        foodList.sort { (data, value) -> Bool in
+           return data.ofFoodBasket != nil
+        }
+        
         self.filteredData.append(contentsOf: foodList)
         
         foodTableView.dataSource = self
@@ -201,6 +205,12 @@ extension SearchFoodViewController: UISearchBarDelegate{
                 print("THEDDD \(basket)")
                 filteredData[index].ofFoodBasket = basket
             }
+        }
+        
+        
+        
+        filteredData.sort { (data, value) -> Bool in
+           return data.ofFoodBasket != nil
         }
         
         if query.count < 2 {
