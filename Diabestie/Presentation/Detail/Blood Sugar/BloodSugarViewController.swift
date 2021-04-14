@@ -152,10 +152,9 @@ extension BloodSugarViewController: UITableViewDelegate, UITableViewDataSource {
             if getBloodSugarConstraint != nil {
                 identifiers.append(BloodSugarThresholdCell.identifier)
             }
-            
-            identifiers.append(BloodSugarInfoCell.identifier)
         }
         
+        identifiers.append(BloodSugarInfoCell.identifier)
         identifiers.append(BloodSugarOptionCell.identifier)
         
         return identifiers

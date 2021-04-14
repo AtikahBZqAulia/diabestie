@@ -69,6 +69,7 @@ class MedicineTableCellItem: UICollectionViewCell {
             
             var times = 0
             if let entries = medicineEntries {
+                print("WEI")
                 for entry in entries {
                     for basket in entry.medicinebasket! {
                         let item = basket as! MedicineBasket
@@ -81,6 +82,7 @@ class MedicineTableCellItem: UICollectionViewCell {
             }
             
             lblIntakeCount.text = "\(times)/\(consumption)"
+            print("\(times)/\(consumption)")
         
         }
     }
