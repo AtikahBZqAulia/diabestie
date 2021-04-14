@@ -63,6 +63,8 @@ class MedicineLibraryRepository {
     
     func getAllMedicineLibrary() -> [MedicineLibrary] {
                 
+        resetMedicineLibrary()
+        
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)

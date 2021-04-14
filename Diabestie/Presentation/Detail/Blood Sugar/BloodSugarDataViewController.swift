@@ -17,6 +17,7 @@ class BloodSugarDataViewController: UIViewController {
         super.viewDidLoad()
         bloodDataView.dataSource = self
         bloodDataView.register(UINib(nibName: "BloodSugarDataTableCell", bundle: nil), forCellReuseIdentifier: "BSDataCell")
+        bloodDataView.register(UINib(nibName: EmptyStateCellTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: EmptyStateCellTableViewCell.identifier)
         
     }
 }
@@ -45,20 +46,34 @@ extension BloodSugarDataViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bloodSugarData?.count ?? 0
+        if !bloodSugarData!.isEmpty {
+            return bloodSugarData?.count ?? 1
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let dataCell = bloodDataView.dequeueReusableCell(withIdentifier: "BSDataCell", for: indexPath) as? BloodSugarDataTableCell {
-            
-            dataCell.bloodSugarData = bloodSugarData?[indexPath.row]
-            
-            return dataCell
+        
+        if !bloodSugarData!.isEmpty{
+            if let dataCell = bloodDataView.dequeueReusableCell(withIdentifier: "BSDataCell", for: indexPath) as? BloodSugarDataTableCell {
+                
+                dataCell.bloodSugarData = bloodSugarData?[indexPath.row]
+                
+                return dataCell
+            }
         }
         else {
-            return UITableViewCell()
+            if let dataCell = bloodDataView.dequeueReusableCell(withIdentifier: EmptyStateCellTableViewCell.identifier, for: indexPath) as? EmptyStateCellTableViewCell {
+                
+                dataCell.lblDescription.text = "You don't have any entries yet"
+                
+                return dataCell
+            }
         }
+        return UITableViewCell()
     }
+    
     
     private func setBorder(_ dataCell:BloodSugarDataTableCell  , _ left: CACornerMask, _ right: CACornerMask) -> Void {
         dataCell.clipsToBounds = true

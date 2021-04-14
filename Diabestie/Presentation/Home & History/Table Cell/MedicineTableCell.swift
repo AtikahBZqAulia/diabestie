@@ -55,15 +55,19 @@ class MedicineTableCell: UITableViewCell {
         if isHistory {
             if let data = medicineEntry {
                 lblTime.text = data.created_at?.string(format: .HourMinutes)
-                icChevron.isHidden = true
                 lblCategory.text = Constants.medCategoryList[Int(medicineEntry!.category)]
                 setupChildViews(dataEntry: data)
             }
         } else {
-            let latestEntry = medicineEntries?.last
-            if let data = latestEntry {
-                lblTime.text = data.created_at?.string(format: .HourMinutes)
-                setupChildViews(dataEntry: data)
+            if !medicineEntries!.isEmpty {
+                let latestEntry = medicineEntries?.last
+                if let data = latestEntry {
+                    lblTime.text = data.created_at?.string(format: .HourMinutes)
+                    setupChildViews(dataEntry: data)
+                }
+            } else{
+                lblTime.text = ""
+                setupCollectionView()
             }
         }
     }
@@ -74,7 +78,6 @@ class MedicineTableCell: UITableViewCell {
         if isHistory {
             medicineBaskets = dataEntry.medicinebasket?.allObjects as! [MedicineBasket]
         }
-
         setupCollectionView()
         
     }
@@ -125,7 +128,6 @@ extension MedicineTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
         }
                 
         cell.backgroundColor = .red
-        
         return cell
     }
         

@@ -73,9 +73,7 @@ class AddFoodDiaryViewController: UIViewController {
             baskets.add(basket)
         }
         
-        print("BASKTES FOOD \(baskets)")
         FoodEntryRepository.shared.insertFoodEntry(eatTime: selectedCategory , timeLog: self.timeLog, foodBasket: baskets)
-        FoodLibraryRepository.shared.reseFoodLibrary()
         
         self.performSegue(withIdentifier: "unwindToHome", sender: self)
     }

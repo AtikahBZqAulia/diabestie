@@ -43,7 +43,7 @@ class FoodLibraryRepository {
         }
     }
     
-    func reseFoodLibrary(){
+    func resetFoodLibrary(){
         
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
@@ -69,6 +69,8 @@ class FoodLibraryRepository {
     
     func getAllFoodLibrary() -> [FoodLibraries] {
                 
+        resetFoodLibrary()
+        
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
