@@ -229,11 +229,17 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let identifier = self.tableviewIdentifier()[indexPath.row]
         
+        
+        
         switch identifier {
         case BloodSugarTableCell.identifier:
             self.performSegue(withIdentifier: "BloodSugarDataSegue", sender: nil)
         case FoodTableCell.identifier:
-            self.performSegue(withIdentifier: "FoodIntakeDataSegue", sender: nil)
+            let storyBoard: UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
+            let destVC = storyBoard.instantiateViewController(withIdentifier: "FoodIntakeDetailViewController") as! FoodIntakeDetailViewController
+            destVC.foodEntries = todayHistoryData[indexPath.row] as? FoodEntries
+            self.navigationController?.pushViewController(destVC, animated: true)
+           
         case MedicineTableCell.identifier:
             self.performSegue(withIdentifier: "MedicineIntakeDataSegue", sender: nil)
         default:
