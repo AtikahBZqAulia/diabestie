@@ -58,6 +58,7 @@ extension AddBloodSugarCategoryTableCell: UIPickerViewDelegate, UIPickerViewData
         pickerView.dataSource = self
         pickerView.backgroundColor = UIColor.white
         bloodSugarCategoryTextField.inputView = pickerView
+        bloodSugarCategoryTextField.tintColor = UIColor.clear
     }
     
     func createToolBar() -> UIToolbar {
