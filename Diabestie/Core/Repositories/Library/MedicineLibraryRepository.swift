@@ -37,6 +37,30 @@ class MedicineLibraryRepository {
         }
     }
     
+    func resetMedicineLibrary(){
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "ofMedicineBasket != NULL")
+
+        do {
+            
+            let item = try context.fetch(fetchRequest) as! [MedicineLibrary]
+            
+            item.forEach { (data) in
+                data.ofMedicineBasket = nil
+            }
+            
+            
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+    }
+    
     func getAllMedicineLibrary() -> [MedicineLibrary] {
                 
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext

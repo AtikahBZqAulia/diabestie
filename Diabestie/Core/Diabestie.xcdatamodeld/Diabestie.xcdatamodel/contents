@@ -42,6 +42,11 @@
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="ofFoodBasket" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="FoodBasket"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="food_name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="MedicineBasket" representedClassName="MedicineBasket" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
