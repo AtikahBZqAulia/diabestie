@@ -31,6 +31,7 @@ class AddFoodDiaryViewController: UIViewController {
     @IBOutlet weak var sugarTotalLabel: UILabel!
     @IBOutlet weak var sugarMgLabel: UILabel!
     
+    
     var foodList: [FoodLibraries] = []
     var foodBaskets: [FoodBasket] = []
     
@@ -74,6 +75,9 @@ class AddFoodDiaryViewController: UIViewController {
     
     @IBAction func undwindFoodSegue(_ sender: UIStoryboardSegue){
         validateData()
+        let nutriton = FoodBasketRepository.shared.getFoodEntryTotalNutrition(entry: foodBaskets)
+        caloriesTotalLabel.text = "\(nutriton.calorie)"
+        sugarTotalLabel.text = "\(nutriton.sugar)"
         self.foodEntryTableView.reloadData()
     }
     
@@ -95,6 +99,9 @@ class AddFoodDiaryViewController: UIViewController {
             let vc = segue.destination as! SearchFoodViewController
             vc.baskets = foodBaskets
             vc.timeLog = timeLog
+            let nutriton = FoodBasketRepository.shared.getFoodEntryTotalNutrition(entry: foodBaskets)
+            caloriesTotalLabel.text = "\(nutriton.calorie)"
+            sugarTotalLabel.text = "\(nutriton.sugar)"
         }
     }
     
@@ -113,6 +120,9 @@ extension AddFoodDiaryViewController: FoodEntryDelegate {
                 basket.qty = Int32(newValue)
             }
         }
+        let nutriton = FoodBasketRepository.shared.getFoodEntryTotalNutrition(entry: foodBaskets)
+        caloriesTotalLabel.text = "\(nutriton.calorie)"
+        sugarTotalLabel.text = "\(nutriton.sugar)"
     }
     
     func onCategoryPick(categoryId: Int) {
@@ -155,10 +165,8 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
         if let data = foodEntry {
             
             let nutriton = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
-            print("\(nutriton.sugar)")
-            print("\(nutriton.calorie)")
-            lblSugar.text = "\(nutriton.sugar)"
-            lblCalories.text = "\(nutriton.calorie)"
+            caloriesTotalLabel.text = "\(nutriton.calorie)"
+            sugarTotalLabel.text = "\(nutriton.sugar)"
         }
     }
     
