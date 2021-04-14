@@ -8,7 +8,7 @@
 import UIKit
 
 class BloodSugarTableCell: UITableViewCell {
-
+    
     static let identifier = "BloodSugarTableCell"
     static let emptyStateidentifier = "EmptyBloodSugarHistoryTableCell"
     
@@ -19,7 +19,7 @@ class BloodSugarTableCell: UITableViewCell {
     @IBOutlet weak var icChevron: UIImageView!
     @IBOutlet weak var lblSugarLevelIndicator: UILabel!
     @IBOutlet weak var viewBgBloodSugarIndicator: DesignableView!
-    @IBOutlet weak var viewBloodSugarIndicator: UIView?
+    @IBOutlet weak var viewBloodSugarIndicator: UIView!
     @IBOutlet weak var lblLatestBloodSugarLevel: UILabel!
     @IBOutlet weak var lblBloodSugarRange: UILabel!
     @IBOutlet weak var stackView: UIStackView!
@@ -32,15 +32,15 @@ class BloodSugarTableCell: UITableViewCell {
             onDataSet()
         }
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -49,18 +49,18 @@ class BloodSugarTableCell: UITableViewCell {
         lblBloodSugarRange.text = "--"
         viewHistory.isHidden = true
         lblTime.text = ""
-        viewBgBloodSugarIndicator.isHidden = true
+        viewBloodSugarIndicator.isHidden = true
         
     }
-
+    
     func onDataSet(){
         
         if let todayBloodSugarData = bloodSugarEntry {
             
             if !isHistory {
-
+                
                 viewHistory.isHidden = true
-
+                
                 let bloodSugarDataRange = BloodSugarEntryRepository.sugarLevelRange()
                 let bloodSugarDataIndicator = BloodSugarEntryRepository.shared.sugarLevelIndicator(bloodSugarEntry: todayBloodSugarData)
                 lblLatestBloodSugarLevel.text = "\(todayBloodSugarData.blood_sugar)"
@@ -68,13 +68,10 @@ class BloodSugarTableCell: UITableViewCell {
                 lblTime.text = todayBloodSugarData.time_log?.string(format: .HourMinutes)
                 
                 if bloodSugarDataIndicator == .none {
-                    if let indicatorView = viewBloodSugarIndicator {
-                        indicatorView.isHidden = true
-                    }
+                    viewBloodSugarIndicator.isHidden = true
                 } else {
-                    if let indicatorView = viewBloodSugarIndicator {
-                        indicatorView.isHidden = false
-                    }
+                    viewBloodSugarIndicator.isHidden = false
+                                        
                     lblSugarLevelIndicator.text = Constants.BloodSugarLevelIndicator(indicator: bloodSugarDataIndicator)
                     lblSugarLevelIndicator.textColor = Constants.BloodSugarLevelIndicatorTxtColor(indicator: bloodSugarDataIndicator)
                     viewBgBloodSugarIndicator.backgroundColor = Constants.BloodSugarLevelIndicatorBGColor(indicator: bloodSugarDataIndicator)
@@ -95,13 +92,9 @@ class BloodSugarTableCell: UITableViewCell {
                 let bloodSugarDataIndicator = BloodSugarEntryRepository.shared.sugarLevelIndicator(bloodSugarEntry: todayBloodSugarData)
                 
                 if bloodSugarDataIndicator == .none {
-                    if let indicatorView = viewBloodSugarIndicator {
-                        indicatorView.isHidden = true
-                    }
+                    viewBloodSugarIndicator.isHidden = true
                 } else {
-                    if let indicatorView = viewBloodSugarIndicator {
-                        indicatorView.isHidden = false
-                    }
+                    viewBloodSugarIndicator.isHidden = false
                     lblSugarLevelIndicator.text = Constants.BloodSugarLevelIndicator(indicator: bloodSugarDataIndicator)
                     lblSugarLevelIndicator.textColor = Constants.BloodSugarLevelIndicatorTxtColor(indicator: bloodSugarDataIndicator)
                     viewBgBloodSugarIndicator.backgroundColor = Constants.BloodSugarLevelIndicatorBGColor(indicator: bloodSugarDataIndicator)

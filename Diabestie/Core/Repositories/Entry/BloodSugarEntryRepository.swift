@@ -107,6 +107,7 @@ class BloodSugarEntryRepository {
         let bloodSugar = bloodSugarEntry?.blood_sugar ?? 0
         let bloodSugarConstraint = UserRepository.shared.getCurrentUser()?.bloodsugarconstraint
         
+
         if let data = bloodSugarConstraint {
             if category == 1 {
                 // This is for fasting reference
@@ -120,9 +121,9 @@ class BloodSugarEntryRepository {
                 // Check wether blood sugar level indicator is low/high/stable
                 if bloodSugar > lowerBound && bloodSugar < higherBound{
                     return .stable
-                } else if  bloodSugar > higherBound {
+                } else if  bloodSugar >= higherBound {
                     return .high
-                } else if bloodSugar < lowerBound {
+                } else if bloodSugar <= lowerBound {
                     return .low
                 }
                 
@@ -135,12 +136,16 @@ class BloodSugarEntryRepository {
                     return .none
                 }
                 
+                print("bloodSugar = \(bloodSugar)")
+                print("lowerBound = \(lowerBound)")
+                print("higherBound = \(higherBound)")
+
                 // Check wether blood sugar level indicator is low/high/stable
                 if bloodSugar > lowerBound && bloodSugar < higherBound{
                     return .stable
-                } else if bloodSugar > higherBound {
+                } else if bloodSugar >= higherBound {
                     return .high
-                } else if bloodSugar < lowerBound {
+                } else if bloodSugar <= lowerBound {
                     return .low
                 }
             }

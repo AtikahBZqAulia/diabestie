@@ -57,6 +57,8 @@ class BloodSugarInfoCell: UITableViewCell {
     func setupInfo(){
         if let data = bloodSugarIndicator{
             
+            print("ASDASD \(data)")
+            
             if data == .stable {
                 icStableCheck.isHidden = false
             } else {
@@ -69,7 +71,6 @@ class BloodSugarInfoCell: UITableViewCell {
                 viewBgBloodSugarIndicator.backgroundColor = Constants.BloodSugarLevelIndicatorBGColor(indicator: data)
                 viewBloodSugarIndicator.isHidden = false
             } else {
-                viewBloodSugarIndicator.isHidden = true
                 viewBloodSugarIndicator.isHidden = true
             }
         }

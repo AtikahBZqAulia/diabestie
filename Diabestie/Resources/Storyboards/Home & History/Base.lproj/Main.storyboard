@@ -700,7 +700,7 @@
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="drop.fill" catalog="system" width="101" height="128"/>
-        <image name="pills.fill" catalog="system" width="128" height="106"/>
+        <image name="pills.fill" catalog="system" width="32" height="32"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

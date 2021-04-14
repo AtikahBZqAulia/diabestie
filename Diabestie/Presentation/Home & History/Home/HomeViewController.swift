@@ -193,7 +193,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.lblTitle.text = "Medicine Intake"
-            cell.lblDescription.text = "You haven't aad any medicines yet.\nPlease go to Medicine Detail > Medicine List > Create Medicine"
+            cell.lblDescription.text = "You haven't add any medicines yet.\nPlease go to Medicine Detail > Medicine List > Create Medicine"
             cell.lblDetail.text = "Medicine Detail"
             cell.lblTitle.textColor = .purpleMedicine
             cell.icEmptyState.image = UIImage(systemName: "pills.fill")

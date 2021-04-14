@@ -84,6 +84,8 @@ class UserRepository {
     func insertBloogSugarConstraint(am_upper: Int, am_lower: Int, f_upper:Int, f_lower:Int) {
         
         let user = self.getUserByEmail(email: Constants.globalUserEmail).last
+        
+        print("USERS \(user)")
         BloodSugarConstraintsRepository.shared.updateBloodSugarConstraints(am_upper: am_upper, am_lower: am_lower, f_upper: f_upper, f_lower: f_lower, user: user)
         
     }

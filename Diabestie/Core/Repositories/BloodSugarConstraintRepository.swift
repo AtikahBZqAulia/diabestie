@@ -28,7 +28,11 @@ class BloodSugarConstraintsRepository {
         bloodSugarConstraints.am_upper_bound = Int32(am_upper)
         bloodSugarConstraints.f_lower_bound = Int32(f_lower)
         bloodSugarConstraints.f_upper_bound = Int32(f_upper)
-        
+        bloodSugarConstraints.active = true
+        bloodSugarConstraints.created_at = Date()
+        bloodSugarConstraints.updated_at = Date()
+
+
         return bloodSugarConstraints
     }
     
@@ -39,8 +43,12 @@ class BloodSugarConstraintsRepository {
             return
         }
         
-        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        print("USERS \(user)")
+
         
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        print("USERS \(user.bloodsugarconstraint)")
+
         if let dataConstraints = user.bloodsugarconstraint {
             //This is when user has constraints already, this function is for updating the value
             let bloodSugarConstraints = dataConstraints
@@ -53,6 +61,9 @@ class BloodSugarConstraintsRepository {
             let bloodSugarConstraints = addBloodSugarConstraints(am_upper: am_upper, am_lower: am_lower, f_upper: f_upper, f_lower: f_lower)
             user.bloodsugarconstraint = bloodSugarConstraints
         }
+        
+        print("USERS \(user.bloodsugarconstraint)")
+
         
         do {
             try context.save()

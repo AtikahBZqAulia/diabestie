@@ -157,7 +157,7 @@ class BarChart: UIView {
             
             let yPosition = self.frame.height - 40 -  CGFloat(height) * (self.frame.height - 40)
             
-            mainLayer.addTextLayer(frame: CGRect.init(x: 2, y: yPosition + 4 , width: 20, height: 20), color: line.color, fontSize: 12, text: "\(String.init(format:"%.0f", line.threshold))", animated: true, oldFrame: CGRect.init())
+            mainLayer.addTextLayer(frame: CGRect.init(x: 2, y: yPosition + 4 , width: 50, height: 20), color: line.color, fontSize: 12, text: "\(String.init(format:"%.0f", line.threshold))", animated: true, oldFrame: CGRect.init())
         }
         
     }
@@ -170,7 +170,7 @@ class BarChart: UIView {
             
             let yPosition = self.frame.height - 40 -  line.value * (self.frame.height - 40 - 10)
             
-            mainLayer.addTextLayer(frame: CGRect.init(x: self.frame.width - 50, y: yPosition - 10, width: 20, height: 20), color: UIColor.charcoalGrey.cgColor, fontSize: 12, text: line.text, animated: true, oldFrame: CGRect.init())
+            mainLayer.addTextLayer(frame: CGRect.init(x: self.frame.width - 65, y: yPosition - 10, width: 50, height: 20), color: UIColor.charcoalGrey.cgColor, fontSize: 12, text: line.text, animated: true, oldFrame: CGRect.init())
         }
     }
     

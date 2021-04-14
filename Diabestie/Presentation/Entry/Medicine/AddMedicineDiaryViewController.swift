@@ -24,10 +24,22 @@ class AddMedicineDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        medicineList = MedicineLibraryRepository.shared.getAllMedicineLibrary()
         addMedicineTableView.dataSource = self
 
+        reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is MedicineDiaryViewController {
+            let destVC = segue.destination as! MedicineDiaryViewController
+            destVC.medicineBasket = baskets
+        }
+    }
+    
+    func reloadData(){
         DispatchQueue.main.async {
+            
+            self.medicineList = MedicineLibraryRepository.shared.getAllMedicineLibrary()
             
             for (index, data ) in self.medicineList.enumerated() {
                 if let basket = self.baskets.first(where: {
@@ -46,22 +58,9 @@ class AddMedicineDiaryViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "CreateMedicine" {
-            
-            print("ASDSDA \(segue)")
-            if segue.destination is MedicineDiaryViewController {
-                print("12323 \(segue.destination)")
-                let destVC = segue.destination as! MedicineDiaryViewController
-                destVC.medicineBasket = baskets
-            }
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.medicineList = MedicineLibraryRepository.shared.getAllMedicineLibrary()
-        addMedicineTableView.reloadData()
+        reloadData()
     }
     
 }
