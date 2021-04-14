@@ -364,7 +364,75 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBx-Sd-U1s">
                                 <rect key="frame" x="0.0" y="728" width="390" height="116"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aR-23-Qr5">
+                                        <rect key="frame" x="32" y="11" width="52" height="15.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="548" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qx-T7-7cN">
+                                        <rect key="frame" x="32" y="30" width="38" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3X-2T-Oip">
+                                        <rect key="frame" x="74" y="34" width="28" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqs-yE-awH">
+                                        <rect key="frame" x="187" y="13" width="1" height="48"/>
+                                        <color key="backgroundColor" red="0.46274509803921571" green="0.47450980392156861" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6R-2X-d7r">
+                                        <rect key="frame" x="220" y="11" width="37.333333333333314" height="15.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wr-AJ-jG4">
+                                        <rect key="frame" x="220" y="30" width="38" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mg sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcR-t2-C29">
+                                        <rect key="frame" x="262" y="34" width="64" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.81176470588235294" green="0.83921568627450982" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="HcR-t2-C29" firstAttribute="top" secondItem="O6R-2X-d7r" secondAttribute="bottom" constant="7.3333333333333357" id="0ll-0W-CHU"/>
+                                    <constraint firstItem="wqs-yE-awH" firstAttribute="leading" secondItem="8aR-23-Qr5" secondAttribute="trailing" constant="103" id="3KF-wh-n7N"/>
+                                    <constraint firstItem="8aR-23-Qr5" firstAttribute="leading" secondItem="JBx-Sd-U1s" secondAttribute="leading" constant="32" id="3oC-hw-Pym"/>
+                                    <constraint firstItem="7wr-AJ-jG4" firstAttribute="leading" secondItem="wqs-yE-awH" secondAttribute="trailing" constant="32" id="60m-0U-i3z"/>
+                                    <constraint firstAttribute="bottom" secondItem="HcR-t2-C29" secondAttribute="bottom" constant="65" id="6po-je-K2z"/>
+                                    <constraint firstAttribute="trailing" secondItem="HcR-t2-C29" secondAttribute="trailing" constant="64" id="ALD-xT-8VZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="4qx-T7-7cN" secondAttribute="bottom" constant="65" id="Au0-Hz-SU3"/>
+                                    <constraint firstItem="8aR-23-Qr5" firstAttribute="top" secondItem="JBx-Sd-U1s" secondAttribute="top" constant="11" id="BfJ-7m-Tq8"/>
+                                    <constraint firstItem="L3X-2T-Oip" firstAttribute="leading" secondItem="4qx-T7-7cN" secondAttribute="trailing" constant="4" id="CFa-Cb-f2m"/>
+                                    <constraint firstItem="O6R-2X-d7r" firstAttribute="leading" secondItem="wqs-yE-awH" secondAttribute="trailing" constant="32" id="GeB-yo-cGd"/>
+                                    <constraint firstItem="4qx-T7-7cN" firstAttribute="top" secondItem="JBx-Sd-U1s" secondAttribute="top" constant="30" id="HpT-Bh-Kn4"/>
+                                    <constraint firstAttribute="bottom" secondItem="wqs-yE-awH" secondAttribute="bottom" constant="55" id="Jt1-BF-ONa"/>
+                                    <constraint firstItem="HcR-t2-C29" firstAttribute="leading" secondItem="7wr-AJ-jG4" secondAttribute="trailing" constant="4" id="N2u-0J-8e1"/>
+                                    <constraint firstItem="L3X-2T-Oip" firstAttribute="top" secondItem="8aR-23-Qr5" secondAttribute="bottom" constant="7.3333333333333357" id="Qv8-AA-3BZ"/>
+                                    <constraint firstItem="wqs-yE-awH" firstAttribute="leading" secondItem="L3X-2T-Oip" secondAttribute="trailing" constant="85" id="UgD-HP-Yyq"/>
+                                    <constraint firstItem="7wr-AJ-jG4" firstAttribute="top" secondItem="JBx-Sd-U1s" secondAttribute="top" constant="30" id="Vs8-Up-QAp"/>
+                                    <constraint firstAttribute="bottom" secondItem="7wr-AJ-jG4" secondAttribute="bottom" constant="62" id="bnm-KB-cBR"/>
+                                    <constraint firstItem="L3X-2T-Oip" firstAttribute="top" secondItem="8aR-23-Qr5" secondAttribute="bottom" constant="7.3333333333333357" id="bu8-3r-0yo"/>
+                                    <constraint firstItem="wqs-yE-awH" firstAttribute="leading" secondItem="L3X-2T-Oip" secondAttribute="trailing" constant="85" id="chv-r3-OZw"/>
+                                    <constraint firstItem="wqs-yE-awH" firstAttribute="top" secondItem="JBx-Sd-U1s" secondAttribute="top" constant="13" id="fpx-uB-lc3"/>
+                                    <constraint firstItem="L3X-2T-Oip" firstAttribute="leading" secondItem="4qx-T7-7cN" secondAttribute="trailing" constant="4" id="oUQ-o5-Asm"/>
+                                    <constraint firstItem="4qx-T7-7cN" firstAttribute="leading" secondItem="JBx-Sd-U1s" secondAttribute="leading" constant="32" id="qhI-mJ-cID"/>
+                                    <constraint firstAttribute="bottom" secondItem="L3X-2T-Oip" secondAttribute="bottom" constant="65" id="tVE-Mf-D8s"/>
+                                    <constraint firstItem="HcR-t2-C29" firstAttribute="leading" secondItem="7wr-AJ-jG4" secondAttribute="trailing" constant="4" id="wof-bl-iPS"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O18-7t-Go2"/>
@@ -396,8 +464,15 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="caloriesKcalLabel" destination="L3X-2T-Oip" id="gfa-0o-qdN"/>
+                        <outlet property="caloriesLabel" destination="8aR-23-Qr5" id="MVb-oJ-sP6"/>
+                        <outlet property="caloriesTotalLabel" destination="4qx-T7-7cN" id="VOJ-RP-t3f"/>
                         <outlet property="foodEntryTableView" destination="GGj-3r-Ndh" id="c6J-F9-WyU"/>
+                        <outlet property="middleLine" destination="wqs-yE-awH" id="NVd-mM-qFW"/>
                         <outlet property="saveButton" destination="2uI-gc-Dak" id="aWq-pa-VfO"/>
+                        <outlet property="sugarLabel" destination="O6R-2X-d7r" id="XVw-gu-62a"/>
+                        <outlet property="sugarMgLabel" destination="HcR-t2-C29" id="q4g-3v-YMs"/>
+                        <outlet property="sugarTotalLabel" destination="7wr-AJ-jG4" id="efg-bp-zK1"/>
                         <segue destination="8Jr-1F-uYe" kind="unwind" identifier="unwindToHome" unwindAction="unwind:" id="OS9-g9-NEq"/>
                     </connections>
                 </viewController>
@@ -677,6 +752,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="foodCountLabel" destination="4vM-Wl-LF8" id="PYT-XU-b28"/>
                         <outlet property="foodTableView" destination="A77-3p-fLC" id="SmY-Re-b5s"/>
                     </connections>
                 </viewController>
