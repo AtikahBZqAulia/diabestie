@@ -165,6 +165,7 @@
                                                         <constraint firstItem="8jt-mL-D5n" firstAttribute="leading" secondItem="p3C-qj-rhA" secondAttribute="leading" constant="8" id="SuX-hn-yxF"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="8jt-mL-D5n" secondAttribute="bottom" id="U8b-B5-ieC"/>
                                                         <constraint firstAttribute="trailing" secondItem="8jt-mL-D5n" secondAttribute="trailing" constant="8" id="j9a-Vz-Rvc"/>
+                                                        <constraint firstAttribute="height" constant="44" id="kJo-du-99N"/>
                                                         <constraint firstItem="8jt-mL-D5n" firstAttribute="leading" secondItem="p3C-qj-rhA" secondAttribute="leadingMargin" id="sYL-O6-n3e"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>

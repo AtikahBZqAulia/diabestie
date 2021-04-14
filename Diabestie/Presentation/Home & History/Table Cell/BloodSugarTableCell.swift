@@ -24,6 +24,7 @@ class BloodSugarTableCell: UITableViewCell {
     @IBOutlet weak var lblBloodSugarRange: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblCategory: UILabel!
     
     var isHistory: Bool = false
     
@@ -78,6 +79,7 @@ class BloodSugarTableCell: UITableViewCell {
                 }
                 
             } else {
+                lblCategory.text = Constants.bloodSgrCategoryList[Int(todayBloodSugarData.category)]
                 lblHistory.text = "\(todayBloodSugarData.blood_sugar )"
                 lblTime.text = todayBloodSugarData.time_log?.string(format: .HourMinutes)
                 viewHistory.isHidden = false

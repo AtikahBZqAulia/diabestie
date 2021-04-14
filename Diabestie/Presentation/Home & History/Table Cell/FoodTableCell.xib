@@ -198,6 +198,7 @@
             <connections>
                 <outlet property="icChevron" destination="4FX-Je-fQM" id="AxJ-ue-SCP"/>
                 <outlet property="lblCalories" destination="4k8-Vj-mvR" id="Kho-nW-1YU"/>
+                <outlet property="lblCategory" destination="79R-eB-015" id="noT-Ig-TC3"/>
                 <outlet property="lblSugar" destination="Mlx-YF-lYX" id="Ovo-EV-YGx"/>
                 <outlet property="lblTime" destination="DmI-Dx-rpr" id="QpQ-h1-Hph"/>
                 <outlet property="lblTitleCalories" destination="XVZ-Pa-2fh" id="qti-l2-JIG"/>

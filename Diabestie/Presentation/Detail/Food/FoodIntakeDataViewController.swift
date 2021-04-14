@@ -29,15 +29,18 @@ extension FoodIntakeDataViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
 
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = .systemFont(ofSize: 18, weight: .regular)
-        header.textLabel?.textColor = .charcoalGrey
-        header.textLabel?.text =  header.textLabel?.text?.capitalized
+        header.textLabel?.font = .systemFont(ofSize: 13, weight: .regular)
+        header.textLabel?.textColor = .secondaryLabel
 
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String?
     {
-        return "FOOD ENTRIES"
+        return "Food Entries".capitalized
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 48
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

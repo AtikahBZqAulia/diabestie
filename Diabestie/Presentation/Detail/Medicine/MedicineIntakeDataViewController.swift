@@ -51,7 +51,7 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
 
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.textLabel?.font = .systemFont(ofSize: 13, weight: .regular)
-        header.textLabel?.textColor = .charcoalGrey
+        header.textLabel?.textColor = .secondaryLabel
 
     }
     
@@ -69,7 +69,7 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 48
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -34,8 +34,8 @@
                                                     <constraint firstAttribute="width" constant="16" id="xkN-D6-hP2"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Sugar Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16k-6x-7i4">
-                                                <rect key="frame" x="26" y="2" width="121" height="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16k-6x-7i4">
+                                                <rect key="frame" x="26" y="2" width="82.5" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <color key="textColor" name="red_orange"/>
                                                 <nil key="highlightedColor"/>
@@ -258,6 +258,7 @@
             <connections>
                 <outlet property="icChevron" destination="2EN-zB-53d" id="5L2-rp-Blu"/>
                 <outlet property="lblBloodSugarRange" destination="xLT-cb-dxW" id="w2j-WT-Zy0"/>
+                <outlet property="lblCategory" destination="16k-6x-7i4" id="HIu-b2-fO8"/>
                 <outlet property="lblHistory" destination="xy6-ce-WJk" id="EM9-eQ-FaF"/>
                 <outlet property="lblLatestBloodSugarLevel" destination="7KL-zo-bJl" id="IxD-yp-oew"/>
                 <outlet property="lblSugarLevelIndicator" destination="BEC-On-IBq" id="7HO-yh-sRJ"/>

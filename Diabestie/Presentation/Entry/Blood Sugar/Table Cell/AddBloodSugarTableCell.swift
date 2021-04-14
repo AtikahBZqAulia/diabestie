@@ -18,7 +18,6 @@ class AddBloodSugarTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bloodSugarTextField.delegate = self
-        bloodSugarTextField.placeholder = "Add"
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

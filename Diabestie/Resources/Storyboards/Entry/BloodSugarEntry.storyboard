@@ -90,26 +90,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mg/dl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMA-uv-ctd">
-                                                    <rect key="frame" x="327" y="18" width="43" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="systemGrayColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="Add" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jum-Q9-js8">
-                                                    <rect key="frame" x="288.33333333333331" y="12" width="30.666666666666686" height="34"/>
+                                                <textField opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="mg/dL" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jum-Q9-js8">
+                                                    <rect key="frame" x="321.33333333333331" y="12" width="48.333333333333314" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="jum-Q9-js8" firstAttribute="top" secondItem="9zP-QR-V60" secondAttribute="topMargin" constant="1" id="6ow-nN-bKz"/>
-                                                <constraint firstItem="oMA-uv-ctd" firstAttribute="top" secondItem="9zP-QR-V60" secondAttribute="topMargin" constant="7" id="EVD-Bv-2xZ"/>
                                                 <constraint firstItem="tLp-qs-D7f" firstAttribute="leading" secondItem="9zP-QR-V60" secondAttribute="leadingMargin" id="I3h-Rb-tsW"/>
-                                                <constraint firstItem="oMA-uv-ctd" firstAttribute="leading" secondItem="jum-Q9-js8" secondAttribute="trailing" constant="8" symbolic="YES" id="IeP-AY-fVq"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="tLp-qs-D7f" secondAttribute="bottom" constant="7" id="NU0-gd-fyL"/>
-                                                <constraint firstItem="oMA-uv-ctd" firstAttribute="trailing" secondItem="9zP-QR-V60" secondAttribute="trailingMargin" id="NvW-iu-dwO"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="oMA-uv-ctd" secondAttribute="bottom" constant="8" id="aph-Xn-llm"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jum-Q9-js8" secondAttribute="trailing" constant="0.33000000000000002" id="c9O-Hl-67p"/>
                                                 <constraint firstItem="tLp-qs-D7f" firstAttribute="top" secondItem="9zP-QR-V60" secondAttribute="topMargin" constant="8" id="gIU-ol-LZ2"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="jum-Q9-js8" secondAttribute="bottom" constant="1" id="k8J-gH-nMx"/>
                                             </constraints>
@@ -174,9 +165,6 @@
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
