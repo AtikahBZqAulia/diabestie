@@ -117,7 +117,7 @@ extension FoodIntakeViewController {
 extension FoodIntakeViewController {
     
     var latestFoodEntry: FoodEntries? {
-        return foodIntakeDataByDate?.first
+        return foodIntakeDataByDate?.last
     }
     var foodIntakeDataByDate: [FoodEntries]? {
         return FoodEntryRepository.shared.getFoodEntryByDate(date: self.selectedDate)
