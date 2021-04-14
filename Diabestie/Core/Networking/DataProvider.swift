@@ -48,31 +48,21 @@ class DataProvider {
     private func syncFoodData(jsonDictionary: [foodLibrary], taskContext: NSManagedObjectContext) -> Bool {
         var successfull = false
         taskContext.performAndWait {
-            
-            let episodeIds = jsonDictionary.map { $0.name }.compactMap { $0 }
-            let deletedEventsPredicate = NSPredicate(format: "food_name IN %@", episodeIds)
-            let deletedEventsRequest: NSFetchRequest<NSFetchRequestResult> = FoodLibraries.fetchRequest()
-            deletedEventsRequest.predicate = deletedEventsPredicate
-            let batchDeleteEvents = NSBatchDeleteRequest(fetchRequest: deletedEventsRequest)
-       
-            do {
-                try self.viewContext.execute(batchDeleteEvents)
-            } catch {
-                print("Something went wrong: \(error)")
-            }
-
+                        
             for filmDictionary in jsonDictionary {
+                let foodData = FoodLibraryRepository.shared.getFood(foodName: filmDictionary.name ?? "")
                 
-                guard let film = NSEntityDescription.insertNewObject(forEntityName: "FoodLibraries", into: taskContext) as? FoodLibraries else {
-                    print("Error: Failed to create a new Film object!")
-                    return
-                }
-                
-                do {
-                    try film.update(with: filmDictionary)
-                } catch {
-                    print("Error: \(error)\nThe quake object will be deleted.")
-                    taskContext.delete(film)
+                if foodData.isEmpty {
+                    guard let foodLibrary = NSEntityDescription.insertNewObject(forEntityName: "FoodLibraries", into: taskContext) as? FoodLibraries else {
+                        print("Error: Failed to create a new Film object!")
+                        return
+                    }
+                    do {
+                        try foodLibrary.update(with: filmDictionary)
+                    } catch {
+                        print("Error: \(error)\nThe quake object will be deleted.")
+                        taskContext.delete(foodLibrary)
+                    }
                 }
             }
             
