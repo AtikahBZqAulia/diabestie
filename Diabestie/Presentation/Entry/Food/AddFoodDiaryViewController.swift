@@ -31,6 +31,7 @@ class AddFoodDiaryViewController: UIViewController {
     @IBOutlet weak var sugarTotalLabel: UILabel!
     @IBOutlet weak var sugarMgLabel: UILabel!
     
+    @IBOutlet weak var footerView: UIView!
     
     var foodList: [FoodLibraries] = []
     var foodBaskets: [FoodBasket] = []
@@ -52,14 +53,18 @@ class AddFoodDiaryViewController: UIViewController {
     func validateData() {
         
         print("SSS")
-        
-        if selectedCategory != 0 && !foodBaskets.isEmpty {
-            saveButton.isEnabled = true
-            saveButton.tintColor = .blueBlue
+        if !foodBaskets.isEmpty{
+            footerView.isHidden = false
+            if selectedCategory != 0 {
+                saveButton.isEnabled = true
+                saveButton.tintColor = .blueBlue
+                return
+            }
             return
         }
         saveButton.isEnabled = false
         saveButton.tintColor = .charcoalGrey
+        footerView.isHidden = true
     }
     
     @IBAction func saveData(_ sender: UIBarButtonItem) {
@@ -93,6 +98,7 @@ class AddFoodDiaryViewController: UIViewController {
         // Do any additional setup after loading the view.
         saveButton.isEnabled = false
         saveButton.tintColor = .charcoalGrey
+        footerView.isHidden = true
         
     }
     
