@@ -59,10 +59,14 @@ class MedicineTableCell: UITableViewCell {
                 setupChildViews(dataEntry: data)
             }
         } else {
-            let latestEntry = medicineEntries?.last
-            if let data = latestEntry {
-                lblTime.text = data.created_at?.string(format: .HourMinutes)
-                setupChildViews(dataEntry: data)
+            if !medicineEntries!.isEmpty {
+                let latestEntry = medicineEntries?.last
+                if let data = latestEntry {
+                    lblTime.text = data.created_at?.string(format: .HourMinutes)
+                    setupChildViews(dataEntry: data)
+                }
+            } else{
+                setupCollectionView()
             }
         }
     }
@@ -123,7 +127,6 @@ extension MedicineTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
         }
                 
         cell.backgroundColor = .red
-        
         return cell
     }
         
