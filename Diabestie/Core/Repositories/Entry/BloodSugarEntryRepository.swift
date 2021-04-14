@@ -113,6 +113,10 @@ class BloodSugarEntryRepository {
                 let lowerBound = data.f_lower_bound
                 let higherBound = data.f_upper_bound
                 
+                if bloodSugar == 0 {
+                    return .none
+                }
+                
                 // Check wether blood sugar level indicator is low/high/stable
                 if bloodSugar > lowerBound && bloodSugar < higherBound{
                     return .stable
@@ -126,6 +130,10 @@ class BloodSugarEntryRepository {
                 // This is for meal reference
                 let lowerBound = data.am_lower_bound
                 let higherBound = data.am_upper_bound
+                
+                if bloodSugar == 0 {
+                    return .none
+                }
                 
                 // Check wether blood sugar level indicator is low/high/stable
                 if bloodSugar > lowerBound && bloodSugar < higherBound{

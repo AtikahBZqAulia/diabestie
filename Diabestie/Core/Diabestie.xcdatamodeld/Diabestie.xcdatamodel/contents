@@ -8,7 +8,7 @@
         <attribute name="f_lower_bound" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="f_upper_bound" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Users" inverseName="bloodsugarconstraint" inverseEntity="Users"/>
+        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="bloodsugarconstraint" inverseEntity="Users"/>
     </entity>
     <entity name="BloodSugarEntries" representedClassName="BloodSugarEntries" syncable="YES">
         <attribute name="blood_sugar" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -41,7 +41,7 @@
         <attribute name="sugar" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="ofFoodBasket" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="FoodBasket"/>
+        <relationship name="ofFoodBasket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodBasket"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="food_name"/>
@@ -83,7 +83,7 @@
         <relationship name="medicineentry" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MedicineEntries" inverseName="ofUser" inverseEntity="MedicineEntries"/>
     </entity>
     <elements>
-        <element name="BloodSugarConstraints" positionX="-730.3670654296875" positionY="-542.9372863769531" width="128" height="163"/>
+        <element name="BloodSugarConstraints" positionX="-730.3670654296875" positionY="-542.9372863769531" width="128" height="149"/>
         <element name="BloodSugarEntries" positionX="-381.9232788085938" positionY="-411.8645477294922" width="128" height="133"/>
         <element name="FoodBasket" positionX="-69.74749755859375" positionY="37.04400634765625" width="128" height="119"/>
         <element name="FoodEntries" positionX="-350.16357421875" positionY="60.804931640625" width="128" height="119"/>

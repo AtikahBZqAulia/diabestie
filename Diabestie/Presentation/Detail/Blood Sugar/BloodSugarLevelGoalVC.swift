@@ -43,7 +43,7 @@ class BloodSugarLevelGoalVC: UITableViewController {
         
         UserRepository.shared.insertBloogSugarConstraint(am_upper: mealUpperBound, am_lower: mealLowerBound, f_upper: fastingUpperBound, f_lower: fastingLowerBound)
         
-        self.navigationController?.popViewController(animated: true)
+        self.performSegue(withIdentifier: "unwindToBloodSugarDetail", sender: self)
     }
     
 }

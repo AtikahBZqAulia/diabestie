@@ -36,18 +36,14 @@ class BloodSugarViewController: UIViewController {
         ])
         
         horizontalCalendar.onSelectionChanged = { date in
-//            self.onDateSelected(date: date)
             if date != self.selectedDate {
                 self.selectedDate = date
-    //            self.horizontalCalendar.selectedDate = self.selectedDate
-    //            self.horizontalCalendar.setSelectedDate()
                 self.tableView.reloadData()
             }
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+
+    @IBAction func unwindToBloodSugarDetail( _ seg: UIStoryboardSegue) {
         self.tableView.reloadData()
     }
     
@@ -75,10 +71,8 @@ class BloodSugarViewController: UIViewController {
 extension BloodSugarViewController: CalendarControllerDelegate {
     
     func onDateSelected(date: Date) {
-        print("sadsad")
         if date != self.selectedDate {
             self.selectedDate = date
-//            self.horizontalCalendar.selectedDate = self.selectedDate
             self.horizontalCalendar.setSelectedDate(selectedDate: date)
             self.tableView.reloadData()
         }
@@ -145,13 +139,9 @@ extension BloodSugarViewController: UITableViewDelegate, UITableViewDataSource {
         
         identifiers.append(BloodSugarChartCell.identifier)
         
-        //Check if current date has blood sugar entries
-        if bloodSugarEntriesByDate?.count ?? 0 > 0{
-            
-            //Check if user has set their constraints
-            if getBloodSugarConstraint != nil {
-                identifiers.append(BloodSugarThresholdCell.identifier)
-            }
+        //Check if user has set their constraints
+        if getBloodSugarConstraint != nil {
+            identifiers.append(BloodSugarThresholdCell.identifier)
         }
         
         identifiers.append(BloodSugarInfoCell.identifier)
