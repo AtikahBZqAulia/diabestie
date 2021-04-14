@@ -41,7 +41,13 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
                 cell.foodGram.text = "\(baskets[indexPath.row - 2].foodlibrary!.weight) g"
                 cell.foodCal.text = "\(baskets[indexPath.row - 2].foodlibrary!.calories) kcal"
                 cell.foodSugar.text = "\(baskets[indexPath.row - 2].foodlibrary!.sugar) mg sugar"
-                if indexPath.row == 2 {
+                
+                if indexPath.row == 2 && indexPath.row == baskets.count + 1 {
+                    cell.foodListView.clipsToBounds = true
+                    cell.foodListView.layer.cornerRadius = 12
+                    cell.foodListView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+                }
+                else if indexPath.row == 2 {
                     setBorder(cell, .layerMaxXMinYCorner, .layerMinXMinYCorner)
                 }
                 else if indexPath.row == baskets.count + 1 {
