@@ -116,12 +116,16 @@ extension MedicineTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
         if isHistory {
             if indexPath.row == medicineBaskets.count - 1 {
                 cell.viewDivider.isHidden = true
+            } else {
+                cell.viewDivider.isHidden = false
             }
             cell.medicineBasket = medicineBaskets[indexPath.row]
             
         } else {
             if indexPath.row == (medicineLibrary?.count ?? 1) - 1 {
                 cell.viewDivider.isHidden = true
+            } else {
+                cell.viewDivider.isHidden = false
             }
             cell.medicineEntries = medicineEntries
             cell.medicineItem = medicineLibrary?[indexPath.row]
