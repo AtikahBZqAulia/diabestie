@@ -39,7 +39,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <datePicker contentMode="scaleAspectFit" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="e9i-AI-l3Q">
-                                                    <rect key="frame" x="197" y="0.0" width="187.66666666666663" height="58"/>
+                                                    <rect key="frame" x="197" y="0.0" width="188.33333333333337" height="58"/>
                                                     <color key="tintColor" name="blue_blue"/>
                                                     <locale key="locale" localeIdentifier="en_ID"/>
                                                     <connections>

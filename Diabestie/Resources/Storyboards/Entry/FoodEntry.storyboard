@@ -398,9 +398,11 @@
                     <connections>
                         <outlet property="foodEntryTableView" destination="GGj-3r-Ndh" id="c6J-F9-WyU"/>
                         <outlet property="saveButton" destination="2uI-gc-Dak" id="aWq-pa-VfO"/>
+                        <segue destination="8Jr-1F-uYe" kind="unwind" identifier="unwindToHome" unwindAction="unwind:" id="OS9-g9-NEq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hd-t5-ndt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8Jr-1F-uYe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="135.38461538461539" y="78.199052132701425"/>
         </scene>

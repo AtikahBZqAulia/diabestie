@@ -52,9 +52,8 @@ class AddFoodDiaryViewController: UIViewController {
         
         print("BASKTES FOOD \(baskets)")
         FoodEntryRepository.shared.insertFoodEntry(eatTime: eatTime , timeLog: self.timeLog, foodBasket: baskets)
-        FoodLibraryRepository.shared.reseFoodLibrary()
-        
-        self.navigationController?.dismiss(animated: true, completion: nil)
+//        FoodLibraryRepository.shared.resetFoodLibrary()
+        self.performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
     @IBAction func undwindFoodSegue(_ sender: UIStoryboardSegue){

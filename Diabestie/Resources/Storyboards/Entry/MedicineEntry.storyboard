@@ -347,9 +347,11 @@
                     <connections>
                         <outlet property="medicineTableView" destination="eqp-0I-vdB" id="NVB-1i-W11"/>
                         <outlet property="saveButton" destination="y2s-cL-j1o" id="jok-Lq-5uI"/>
+                        <segue destination="yAT-9a-pbJ" kind="unwind" identifier="unwindToHome" unwindAction="unwind:" id="yKn-uI-WBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="613-89-O9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="yAT-9a-pbJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3670.7692307692305" y="734.36018957345971"/>
         </scene>
