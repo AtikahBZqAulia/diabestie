@@ -16,9 +16,13 @@ class FoodTableCell: UITableViewCell {
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblSugar: UILabel!
     @IBOutlet weak var lblCalories: UILabel!
+    @IBOutlet weak var lblTitleCalories: UILabel!
+    @IBOutlet weak var lblTitleSugar: UILabel!
     
     var isHistory: Bool = false
 
+    var foodEntries : [FoodEntries] = []
+    
     var foodEntry : FoodEntries? {
         didSet {
             onDataSet()
@@ -27,7 +31,6 @@ class FoodTableCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,19 +38,41 @@ class FoodTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func onDataSetEmptyState() {
+        lblTitleSugar.text = "Total Sugar"
+        lblTitleCalories.text = "Total Cal"
+        lblSugar.text = "0"
+        lblCalories.text = "0"
+        lblTime.text = ""
+    }
 
     func onDataSet(){
         if let data = foodEntry {
             
             if isHistory {
                 icChevron.isHidden = true
+                let nutrition = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
+                lblTime.text = data.time_log?.string(format: .HourMinutes)
+                lblSugar.text = "\(nutrition.sugar)"
+                lblCalories.text = "\(nutrition.calorie)"
             }
-            
-            let nutriton = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
 
-            lblTime.text = foodEntry?.time_log?.string(format: .HourMinutes)
-            lblSugar.text = "\(nutriton.sugar)"
-            lblCalories.text = "\(nutriton.calorie)"
+            else {
+                var totalSugar = 0
+                var totalCalories = 0
+                for food in foodEntries {
+                    let nutrition = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: food)
+                    totalSugar += nutrition.sugar
+                    totalCalories += nutrition.calorie
+                }
+                
+                let latestEntry = foodEntries.last
+                lblTime.text = latestEntry!.time_log?.string(format: .HourMinutes)
+                lblSugar.text = "\(totalSugar)"
+                lblCalories.text = "\(totalCalories)"
+            }
+
         }
     }
     

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="EmptyStateCellTableViewCell" customModule="Diabestie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="382" height="113"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="382" height="113"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ki-AF-FJk" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
+                        <rect key="frame" x="16" y="10" width="350" height="103"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPj-51-nDM">
+                                <rect key="frame" x="14" y="43" width="322" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="WPj-51-nDM" firstAttribute="leading" secondItem="0ki-AF-FJk" secondAttribute="leading" constant="14" id="Xim-MH-MAN"/>
+                            <constraint firstItem="WPj-51-nDM" firstAttribute="centerY" secondItem="0ki-AF-FJk" secondAttribute="centerY" id="Zo5-yU-bMK"/>
+                            <constraint firstItem="WPj-51-nDM" firstAttribute="top" secondItem="0ki-AF-FJk" secondAttribute="top" constant="43" id="ets-P1-OXb"/>
+                            <constraint firstAttribute="bottom" secondItem="WPj-51-nDM" secondAttribute="bottom" constant="43" id="f8A-hY-ZcG"/>
+                            <constraint firstAttribute="trailing" secondItem="WPj-51-nDM" secondAttribute="trailing" constant="14" id="pYI-V1-9vF"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="gray_background"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="0ki-AF-FJk" secondAttribute="trailing" constant="16" id="1z6-PF-9g4"/>
+                    <constraint firstAttribute="bottom" secondItem="0ki-AF-FJk" secondAttribute="bottom" id="JU5-he-XP2"/>
+                    <constraint firstItem="0ki-AF-FJk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MMG-oz-JR3"/>
+                    <constraint firstItem="0ki-AF-FJk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="sDa-NV-yZQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblDescription" destination="WPj-51-nDM" id="HOH-sK-Zxu"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="138.95089285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="gray_background">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
