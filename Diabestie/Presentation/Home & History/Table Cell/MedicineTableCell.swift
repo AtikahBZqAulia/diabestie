@@ -73,7 +73,6 @@ class MedicineTableCell: UITableViewCell {
         if isHistory {
             medicineBaskets = dataEntry.medicinebasket?.allObjects as! [MedicineBasket]
         }
-
         setupCollectionView()
         
     }

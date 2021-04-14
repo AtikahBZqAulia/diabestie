@@ -81,7 +81,6 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print ("hei")
         if !medicineEntries!.isEmpty {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineTableCell.identifier, for: indexPath) as? MedicineTableCell else {
                 return UITableViewCell()

@@ -67,6 +67,10 @@ extension HomeViewController {
          return FoodEntryRepository.shared.getFoodEntryByDate(date: Date()).last
     }
     
+    func medicineLibrary() -> [MedicineLibrary] {
+        return MedicineLibraryRepository.shared.getAllMedicineLibrary()
+    }
+    
     func todayBloodSugarEntries() -> [BloodSugarEntries] {
         return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: Date())
     }
@@ -96,7 +100,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         todayFoodEntries().isEmpty ?
             identifiers.append(FoodTableCell.emptyStateidentifier) : identifiers.append(FoodTableCell.identifier)
         
-        todayMedicineEntries().isEmpty ?
+        medicineLibrary().isEmpty ?
             identifiers.append(MedicineTableCell.emptyStateidentifier) : identifiers.append(MedicineTableCell.identifier)
         
       
@@ -150,7 +154,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.medicineEntries = todayMedicineEntries()
-
             return cell
         case DiaryHistoryTableCell.identifier:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? DiaryHistoryTableCell else {
@@ -185,6 +188,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
             return cell
         case MedicineTableCell.emptyStateidentifier:
+            print("kosong")
             guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeEmptyStateCell.cellIdentifier()) as? HomeEmptyStateCell else {
                 return UITableViewCell()
             }
