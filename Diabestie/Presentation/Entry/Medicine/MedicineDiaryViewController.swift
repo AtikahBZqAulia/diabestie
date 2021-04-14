@@ -70,7 +70,7 @@ class MedicineDiaryViewController: UIViewController {
     }
     
     func validateData() {
-        if selectedCategory != 0 && medicineBasket.isEmpty{
+        if selectedCategory != 0 && !medicineBasket.isEmpty{
             saveButton.isEnabled = true
             saveButton.tintColor = .blueBlue
             return
