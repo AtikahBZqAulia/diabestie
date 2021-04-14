@@ -468,6 +468,7 @@
                         <outlet property="caloriesLabel" destination="8aR-23-Qr5" id="MVb-oJ-sP6"/>
                         <outlet property="caloriesTotalLabel" destination="4qx-T7-7cN" id="VOJ-RP-t3f"/>
                         <outlet property="foodEntryTableView" destination="GGj-3r-Ndh" id="c6J-F9-WyU"/>
+                        <outlet property="footerView" destination="JBx-Sd-U1s" id="WDI-Rp-5Ap"/>
                         <outlet property="middleLine" destination="wqs-yE-awH" id="NVd-mM-qFW"/>
                         <outlet property="saveButton" destination="2uI-gc-Dak" id="aWq-pa-VfO"/>
                         <outlet property="sugarLabel" destination="O6R-2X-d7r" id="XVw-gu-62a"/>
@@ -712,6 +713,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="foodCountLabel" destination="4vM-Wl-LF8" id="PYT-XU-b28"/>
+                        <outlet property="foodCountView" destination="CP9-3q-iHq" id="tsb-oy-dKf"/>
                         <outlet property="foodTableView" destination="A77-3p-fLC" id="SmY-Re-b5s"/>
                     </connections>
                 </viewController>

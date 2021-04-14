@@ -33,6 +33,7 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
     
     @IBOutlet weak var foodTableView: UITableView!
     @IBOutlet weak var foodCountLabel: UILabel!
+    @IBOutlet weak var foodCountView: UIView!
     
     var resultSearchController = UISearchController()
     
@@ -42,6 +43,11 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
     var timeLog = Date()
     
     var headerTitle = "Recents"
+    var count = 0
+    
+    func updateTextLabel(){
+        foodCountLabel.text = "\(count) foods added"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +60,7 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
                 data == $0.foodlibrary
             }) {
                 foodList[index].ofFoodBasket = basket
+                count += 1
             }
         }
         
@@ -76,8 +83,8 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
         
         foodTableView.dataSource = self
         foodTableView.delegate = self
+        updateTextLabel()
 
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -227,12 +234,14 @@ extension SearchFoodViewController: UISearchBarDelegate{
 }
 
 extension SearchFoodViewController: FoodBasketDelegate {
+
     func updateBasket(foodLibrary: FoodLibraries, newValue: Int){
         for basket in baskets {
             if basket.foodlibrary == foodLibrary {
                 basket.qty = Int32(newValue)
             }
         }
+        
     }
     
     func removeBasket(foodLibrary: FoodLibraries) {
@@ -242,9 +251,13 @@ extension SearchFoodViewController: FoodBasketDelegate {
                 FoodBasketRepository.shared.deleteFoodBasket(basket: basket)
             }
         }
+        count -= 1
+        updateTextLabel()
     }
     
     func addBasket(foodLibrary: FoodLibraries, qty: Int){
         baskets.append(FoodBasketRepository.shared.addFoodBasket(qty: qty, timeLog: timeLog, foodLibrary: foodLibrary))
+        count += 1
+        updateTextLabel()
     }
 }
