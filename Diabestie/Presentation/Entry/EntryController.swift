@@ -53,10 +53,12 @@ extension EntryController: UITableViewDataSource, UITableViewDelegate {
                 dataCell.logoEntry.image = UIImage(systemName :"pills.fill")
                 dataCell.logoBoxEntry.backgroundColor = #colorLiteral(red: 0.4002308846, green: 0.2648269534, blue: 0.8177123666, alpha: 1)
                 setBorder(dataCell, .layerMaxXMaxYCorner, .layerMinXMaxYCorner)
+                addSeparator(dataCell, tableView: tableView)
             default:
                 dataCell.logoEntry.image = #imageLiteral(resourceName: "food")
                 dataCell.logoBoxEntry.backgroundColor = #colorLiteral(red: 0.07058823529, green: 0.431372549, blue: 0.3215686275, alpha: 1)
                 self.EntryCategoryView.layer.cornerRadius = 0
+                addSeparator(dataCell, tableView: tableView)
             }
             dataCell.logoEntry.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             return dataCell
@@ -88,6 +90,12 @@ extension EntryController: UITableViewDataSource, UITableViewDelegate {
         dataCell.clipsToBounds = true
         dataCell.layer.cornerRadius = 10
         dataCell.layer.maskedCorners = [left, right]
+    }
+    
+    private func addSeparator(_ cell: UITableViewCell, tableView: UITableView) -> Void {
+        let separatorView = UIView(frame: CGRect(x: tableView.separatorInset.left, y: 0, width: 390, height: 0.5))
+        separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
+        cell.contentView.addSubview(separatorView)
     }
 }
 
