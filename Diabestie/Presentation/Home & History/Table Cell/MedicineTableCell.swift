@@ -66,6 +66,7 @@ class MedicineTableCell: UITableViewCell {
                     setupChildViews(dataEntry: data)
                 }
             } else{
+                lblTime.text = ""
                 setupCollectionView()
             }
         }
