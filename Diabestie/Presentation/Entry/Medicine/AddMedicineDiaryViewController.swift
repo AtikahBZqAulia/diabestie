@@ -25,46 +25,18 @@ class AddMedicineDiaryViewController: UIViewController {
         super.viewDidLoad()
         
         medicineList = MedicineLibraryRepository.shared.getAllMedicineLibrary()
-        
-//        print("MDEINCE BEFORe \(medicineList)")
-        
+                
         for (index, data ) in medicineList.enumerated() {
             if let basket = self.baskets.first(where: {
                 data == $0.medicinelibrary
             }) {
-                
-                print("THEDDD \(basket)")
                 medicineList[index].ofMedicineBasket = basket
-//                data.addToOfMedicineBasket(basket)
             }
         }
         
         medicineList.sort { (data, value) -> Bool in
            return data.ofMedicineBasket != nil
         }
-        
-//        medicineList.forEach { (index,data) in
-//
-//
-//        }
-
-////            if data == basket.foodlibrary {
-////                data.addToOfFoodBasket(basket)
-////            }
-//        }
-//        print("MDEINCE After \(medicineList)")
-//
-//        medicineList.forEach { (data) in
-//            if let basket = self.baskets.first(where: {
-//                data.objectID == $0.medicinelibrary?.objectID
-//            }) {
-//
-//                print("THEDDD \(data.ofMedicineBasket)")
-////                medicineList[index].addToOfMedicineBasket(basket)
-////                data.addToOfMedicineBasket(basket)
-//            }
-//        }
-
         
         addMedicineTableView.dataSource = self
     }
@@ -121,23 +93,12 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
                     cell.stepperView.isHidden = true
                     cell.stepperValue.text = "1"
                 }
-                
-//                    if !self.baskets.isEmpty {
-//                        if let data = self.baskets.first(where: {
-//                            cell.medicineName.text == $0.medicinelibrary?.medicine_name
-//                        }) {
-//                            cell.addButtonView.isHidden = true
-//                            cell.stepperView.isHidden = false
-//                            cell.stepperValue.text = "\(data.qty)"
-//                        }
-//
-//                    }
-                
                 cell.prepareForReuse()
 
 //                if select != 0 && select != medicineList.count {
 //                    addSeparator(cell)
 //                }
+                
                 return cell
             }
             else {

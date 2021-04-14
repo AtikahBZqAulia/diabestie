@@ -173,9 +173,9 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
                 cell.foodSugar.text = "\(foodData.foodlibrary?.sugar ?? 0) mg sugar"
                 cell.stepperValue.text = "\(foodData.qty)"
 
-                
 //                if indexPath.row > 2
 //                {addSeparator(cell)}
+                
                 return cell
             }
             

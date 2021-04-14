@@ -207,8 +207,6 @@ extension SearchFoodViewController: UISearchBarDelegate{
             }
         }
         
-        
-        
         filteredData.sort { (data, value) -> Bool in
            return data.ofFoodBasket != nil
         }
