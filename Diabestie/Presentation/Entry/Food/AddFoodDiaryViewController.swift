@@ -18,6 +18,9 @@ class AddFoodDiaryViewController: UIViewController {
 
     @IBOutlet weak var foodEntryTableView: UITableView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var lblSugar: UILabel!
+    @IBOutlet weak var lblCalories: UILabel!
+    
     
     var foodList: [FoodLibraries] = []
     var foodBaskets: [FoodBasket] = []
@@ -27,8 +30,14 @@ class AddFoodDiaryViewController: UIViewController {
             validateData()
         }
     }
+    var eatTime = 0
     var timeLog = Date()
     
+    var foodEntry : FoodEntries? {
+        didSet {
+            onDataSet()
+        }
+    }
     
     func validateData() {
         
@@ -50,10 +59,10 @@ class AddFoodDiaryViewController: UIViewController {
         }
         
         print("BASKTES FOOD \(baskets)")
+        FoodEntryRepository.shared.insertFoodEntry(eatTime: eatTime , timeLog: self.timeLog, foodBasket: baskets)
+        FoodLibraryRepository.shared.reseFoodLibrary()
         
-        FoodEntryRepository.shared.insertFoodEntry(eatTime: selectedCategory , timeLog: self.timeLog, foodBasket: baskets)
-        // FoodLibraryRepository.shared.resetFoodLibrary()
-        self.performSegue(withIdentifier: "unwindToHome", sender: self)
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func undwindFoodSegue(_ sender: UIStoryboardSegue){
@@ -134,6 +143,17 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
         return 2
     }
     
+    func onDataSet(){
+        if let data = foodEntry {
+            
+            let nutriton = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
+            print("\(nutriton.sugar)")
+            print("\(nutriton.calorie)")
+            lblSugar.text = "\(nutriton.sugar)"
+            lblCalories.text = "\(nutriton.calorie)"
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
@@ -171,10 +191,11 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
                 cell.foodCal.text = "\(foodData.foodlibrary?.calories ?? 0) kcal"
                 cell.foodSugar.text = "\(foodData.foodlibrary?.sugar ?? 0) mg sugar"
                 cell.stepperValue.text = "\(foodData.qty)"
-
                 saveButton.isEnabled = true
                 saveButton.tintColor = .blue
-                
+
+//                if indexPath.row > 2
+//                {addSeparator(cell)}
                 return cell
             }
             
@@ -186,4 +207,9 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
         return UITableViewCell()
     }
     
+    private func addSeparator(_ cell: UITableViewCell) -> Void {
+        let separatorView = UIView(frame: CGRect(x: foodEntryTableView.separatorInset.left, y: 0, width: 390, height: 0.5))
+        separatorView.backgroundColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.36)
+        cell.contentView.addSubview(separatorView)
+    }
 }
