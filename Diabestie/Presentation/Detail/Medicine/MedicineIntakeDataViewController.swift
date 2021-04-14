@@ -43,6 +43,7 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
    
     func setupTableView(){
         medicineIntakeDataTableView.register(UINib(nibName: MedicineTableCell.identifier, bundle: nil), forCellReuseIdentifier: MedicineTableCell.identifier)
+        medicineIntakeDataTableView.register(UINib(nibName: EmptyStateCellTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: EmptyStateCellTableViewCell.identifier)
 
     }
     
@@ -72,17 +73,30 @@ extension MedicineIntakeDataViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return medicineEntries?.count ?? 0
+        if !medicineEntries!.isEmpty {
+            return medicineEntries?.count ?? 1
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineTableCell.identifier, for: indexPath) as? MedicineTableCell else {
-            return UITableViewCell()
+        print ("hei")
+        if !medicineEntries!.isEmpty {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineTableCell.identifier, for: indexPath) as? MedicineTableCell else {
+                return UITableViewCell()
+            }
+            cell.isHistory = true
+            cell.icChevron.isHidden = true
+            cell.medicineEntry = medicineData[(medicineEntries?.count ?? 0) - indexPath.row - 1] as? MedicineEntries
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyStateCellTableViewCell.identifier, for: indexPath) as? EmptyStateCellTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.lblDescription.text = "You don't have any entries yet"
         }
-        cell.isHistory = true
-        cell.medicineEntry = medicineData[(medicineEntries?.count ?? 0) - indexPath.row - 1] as? MedicineEntries
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -16,10 +16,12 @@ class FoodTableCell: UITableViewCell {
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblSugar: UILabel!
     @IBOutlet weak var lblCalories: UILabel!
+    @IBOutlet weak var lblTitleCalories: UILabel!
+    @IBOutlet weak var lblTitleSugar: UILabel!
     
     var isHistory: Bool = false
 
-    var foodEntry : FoodEntries? {
+    var foodEntry : [FoodEntries]? {
         didSet {
             onDataSet()
         }
@@ -35,17 +37,37 @@ class FoodTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func onDataSetEmptyState() {
+        lblTitleSugar.text = "Total Sugar"
+        lblTitleCalories.text = "Total Cal"
+        lblSugar.text = "0"
+        lblCalories.text = "0"
+        lblTime.text = ""
+    }
 
     func onDataSet(){
         if let data = foodEntry {
             
             if isHistory {
                 icChevron.isHidden = true
+                let latestFood = foodEntry?.last
+                let nutrition = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: latestFood)
+                lblSugar.text = "\(nutrition.sugar)"
+                lblCalories.text = "\(nutrition.calorie)"
             }
             
-            let nutriton = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
-            lblSugar.text = "\(nutriton.sugar)"
-            lblCalories.text = "\(nutriton.calorie)"
+            var totalSugar = 0
+            var totalCalories = 0
+            for food in data {
+                let nutrition = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: food)
+                totalSugar += nutrition.sugar
+                totalCalories += nutrition.calorie
+            }
+            
+            lblSugar.text = "\(totalSugar)"
+            lblCalories.text = "\(totalCalories)"
+                
         }
     }
     

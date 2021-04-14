@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3096FBFB26267A8C0034B6E9 /* EmptyStateCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096FBF926267A8C0034B6E9 /* EmptyStateCellTableViewCell.swift */; };
+		3096FBFC26267A8C0034B6E9 /* EmptyStateCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3096FBFA26267A8C0034B6E9 /* EmptyStateCellTableViewCell.xib */; };
 		30E2EC2D261C93C9008F3508 /* AddBloodSugarTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EC2C261C93C9008F3508 /* AddBloodSugarTableCell.swift */; };
 		30E2EC34261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2EC33261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift */; };
 		BC238059261D787100360EF0 /* MedicineIntakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC238058261D787100360EF0 /* MedicineIntakeCell.swift */; };
@@ -144,6 +146,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3096FBF926267A8C0034B6E9 /* EmptyStateCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCellTableViewCell.swift; sourceTree = "<group>"; };
+		3096FBFA26267A8C0034B6E9 /* EmptyStateCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateCellTableViewCell.xib; sourceTree = "<group>"; };
 		30E2EC2C261C93C9008F3508 /* AddBloodSugarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBloodSugarTableCell.swift; sourceTree = "<group>"; };
 		30E2EC33261CA15D008F3508 /* AddBloodSugarCategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBloodSugarCategoryTableCell.swift; sourceTree = "<group>"; };
 		BC238058261D787100360EF0 /* MedicineIntakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineIntakeCell.swift; sourceTree = "<group>"; };
@@ -392,6 +396,8 @@
 			isa = PBXGroup;
 			children = (
 				BC6F4FC52615833100643603 /* BloodSugarTableCell.swift */,
+				3096FBF926267A8C0034B6E9 /* EmptyStateCellTableViewCell.swift */,
+				3096FBFA26267A8C0034B6E9 /* EmptyStateCellTableViewCell.xib */,
 				BC6F4FC82615834100643603 /* FoodTableCell.swift */,
 				BC6F4FCB2615834E00643603 /* MedicineTableCell.swift */,
 				BC6F4FD22615836C00643603 /* DiaryHistoryTableCell.swift */,
@@ -941,6 +947,7 @@
 				BCCDCFB3261484D900602352 /* samplefonts in Resources */,
 				BC87DF01261AE22100E39A59 /* MedicineEntry.storyboard in Resources */,
 				BCCDCFC42614851900602352 /* localization in Resources */,
+				3096FBFC26267A8C0034B6E9 /* EmptyStateCellTableViewCell.xib in Resources */,
 				BCC7CD1A260B098D009A7837 /* Colors.xcassets in Resources */,
 				F70F8554261779D0009FED50 /* SFProText-Regular.ttf in Resources */,
 				D4E2595C261D747600F1802D /* Calendar.storyboard in Resources */,
@@ -1098,6 +1105,7 @@
 				BCC28E412624938000ED4F67 /* MedicineTableCellItem.swift in Sources */,
 				BC23805D261D787D00360EF0 /* MedicineIntakeInfoCell.swift in Sources */,
 				BC6F4FD32615836C00643603 /* DiaryHistoryTableCell.swift in Sources */,
+				3096FBFB26267A8C0034B6E9 /* EmptyStateCellTableViewCell.swift in Sources */,
 				BC238060261D788B00360EF0 /* MedicineIntakeOptionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -63,10 +63,6 @@ extension HomeViewController {
          return BloodSugarEntryRepository.shared.getBloodSugarEntryByDate(date: Date()).last
     }
     
-    var medicineEntries: [MedicineEntries]? {
-         return MedicineEntryRepository.shared.getMedicineEntryByDate(date: Date())
-    }
-    
     var latestFoodEntries: FoodEntries? {
          return FoodEntryRepository.shared.getFoodEntryByDate(date: Date()).last
     }
@@ -144,7 +140,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.foodEntry = latestFoodEntries
+            cell.foodEntry = todayFoodEntries()
 
             return cell
         case MedicineTableCell.identifier:
@@ -152,7 +148,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.medicineEntries = medicineEntries
+            cell.medicineEntries = todayMedicineEntries()
 
             return cell
         case DiaryHistoryTableCell.identifier:
@@ -162,27 +158,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case BloodSugarTableCell.emptyStateidentifier:
 
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeEmptyStateCell.cellIdentifier()) as? HomeEmptyStateCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BloodSugarTableCell.cellIdentifier()) as? BloodSugarTableCell else {
                 return UITableViewCell()
             }
+            cell.onDataSetEmptyState()
             
-            cell.lblTitle.text = "Blood Sugar Level"
-            cell.lblDescription.text = "Woi, sini absen gula dulu"
-            cell.lblTitle.textColor = .redOrange
-            cell.icEmptyState.image = UIImage(systemName: "drop.fill")
-            cell.icEmptyState.tintColor = .redOrange
+//            cell.lblTitle.text = "Blood Sugar Level"
+//            cell.lblDescription.text = "Woi, sini absen gula dulu"
+//            cell.lblTitle.textColor = .redOrange
+//            cell.icEmptyState.image = UIImage(systemName: "drop.fill")
+//            cell.icEmptyState.tintColor = .redOrange
         
             return cell
         case FoodTableCell.emptyStateidentifier:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeEmptyStateCell.cellIdentifier()) as? HomeEmptyStateCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: FoodTableCell.cellIdentifier()) as? FoodTableCell else {
                 return UITableViewCell()
             }
+            cell.onDataSetEmptyState()
             
-            cell.lblTitle.text = "Food Intake"
-            cell.lblDescription.text = "Mulai lapar"
-            cell.lblTitle.textColor = .blueGreen
-            cell.icEmptyState.image = #imageLiteral(resourceName: "food")
-            cell.icEmptyState.tintColor = .blueGreen
+//            cell.lblTitle.text = "Food Intake"
+//            cell.lblDescription.text = "Mulai lapar"
+//            cell.lblTitle.textColor = .blueGreen
+//            cell.icEmptyState.image = #imageLiteral(resourceName: "food")
+//            cell.icEmptyState.tintColor = .blueGreen
 
             return cell
         case MedicineTableCell.emptyStateidentifier:
@@ -191,7 +189,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.lblTitle.text = "Medicine Intake"
-            cell.lblDescription.text = "You haven't taken a medicine today"
+            cell.lblDescription.text = "You haven't aad any medicines yet.\nPlease go to Medicine Detail > Medicine List > Create Medicine"
+            cell.lblDetail.text = "Medicine Detail"
             cell.lblTitle.textColor = .purpleMedicine
             cell.icEmptyState.image = UIImage(systemName: "pills.fill")
             cell.icEmptyState.tintColor = .purpleMedicine
@@ -209,6 +208,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch identifier {
         case MedicineTableCell.identifier:
             return 115
+        case BloodSugarTableCell.emptyStateidentifier:
+            return 115
         default:
             return UITableView.automaticDimension
         }
@@ -224,6 +225,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case FoodTableCell.identifier:
             self.performSegue(withIdentifier: "FoodDetailSegue", sender: nil)
         case BloodSugarTableCell.identifier:
+            self.performSegue(withIdentifier: "BloodSugarDetailSegue", sender: nil)
+        case MedicineTableCell.emptyStateidentifier:
+            self.performSegue(withIdentifier: "MedicineDetailSegue", sender: nil)
+        case FoodTableCell.emptyStateidentifier:
+            self.performSegue(withIdentifier: "FoodDetailSegue", sender: nil)
+        case BloodSugarTableCell.emptyStateidentifier:
             self.performSegue(withIdentifier: "BloodSugarDetailSegue", sender: nil)
         default:
             print("No segue found")

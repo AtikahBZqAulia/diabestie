@@ -16,6 +16,8 @@ class FoodIntakeDataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: EmptyStateCellTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: EmptyStateCellTableViewCell.identifier)
+        
         foodEntries = FoodEntryRepository.shared.getFoodEntryByDate(date: selectedDate)
         tableView.reloadData()
     }
@@ -39,20 +41,34 @@ extension FoodIntakeDataViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodEntries.count
+        if !foodEntries.isEmpty {
+            return foodEntries.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let dataCell = tableView.dequeueReusableCell(withIdentifier: FoodIntakeDataCell.cellIdentifier(), for: indexPath) as? FoodIntakeDataCell {
-            let idxName: Int = Int(foodEntries[indexPath.row].eat_time)
-            let idxTime: Date = foodEntries[indexPath.row].time_log!
-            dataCell.eatTime.text = "\(Constants.mealCategoryList[idxName])"
-            dataCell.timeLog.text = "\(idxTime.string(format: .HourMinutes))"
-            return dataCell
+        
+        if !foodEntries.isEmpty {
+            if let dataCell = tableView.dequeueReusableCell(withIdentifier: FoodIntakeDataCell.cellIdentifier(), for: indexPath) as? FoodIntakeDataCell {
+                let idxName: Int = Int(foodEntries[indexPath.row].eat_time)
+                let idxTime: Date = foodEntries[indexPath.row].time_log!
+                dataCell.eatTime.text = "\(Constants.mealCategoryList[idxName])"
+                dataCell.timeLog.text = "\(idxTime.string(format: .HourMinutes))"
+                return dataCell
+            }
         }
+        
         else {
-            return UITableViewCell()
+            if let dataCell = tableView.dequeueReusableCell(withIdentifier: EmptyStateCellTableViewCell.identifier, for: indexPath) as? EmptyStateCellTableViewCell {
+                
+                dataCell.lblDescription.text = "You don't have any entries yet"
+                
+                return dataCell
+            }
         }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

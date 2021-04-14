@@ -200,6 +200,8 @@
                 <outlet property="lblCalories" destination="4k8-Vj-mvR" id="Kho-nW-1YU"/>
                 <outlet property="lblSugar" destination="Mlx-YF-lYX" id="Ovo-EV-YGx"/>
                 <outlet property="lblTime" destination="DmI-Dx-rpr" id="QpQ-h1-Hph"/>
+                <outlet property="lblTitleCalories" destination="XVZ-Pa-2fh" id="qti-l2-JIG"/>
+                <outlet property="lblTitleSugar" destination="uDW-gR-WaS" id="OAw-b7-1aP"/>
             </connections>
             <point key="canvasLocation" x="-122" y="126"/>
         </tableViewCell>

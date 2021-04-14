@@ -12,6 +12,9 @@ class HomeEmptyStateCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var icEmptyState: UIImageView!
     @IBOutlet weak var lblDescription: UILabel!
+    @IBOutlet weak var lblDetail: UILabel!
+    @IBOutlet weak var bgView: DesignableView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

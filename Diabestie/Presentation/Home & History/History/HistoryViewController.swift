@@ -119,6 +119,7 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
         tableView.register(UINib(nibName: BloodSugarTableCell.identifier, bundle: nil), forCellReuseIdentifier: BloodSugarTableCell.identifier)
         tableView.register(UINib(nibName: FoodTableCell.identifier, bundle: nil), forCellReuseIdentifier: FoodTableCell.identifier)
         tableView.register(UINib(nibName: MedicineTableCell.identifier, bundle: nil), forCellReuseIdentifier: MedicineTableCell.identifier)
+        tableView.register(UINib(nibName: EmptyStateCellTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: EmptyStateCellTableViewCell.identifier)
 
     }
     
@@ -139,18 +140,22 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
     func tableviewIdentifier() -> [String] {
         var identifiers = [String]()
         
-        todayHistoryData.forEach { value  in
-            if value is MedicineEntries {
-                identifiers.append(MedicineTableCell.identifier)
-            }
-            if value is BloodSugarEntries {
-                identifiers.append(BloodSugarTableCell.identifier)
-            }
-            if value is FoodEntries {
-                identifiers.append(FoodTableCell.identifier)
+        if todayHistoryData.isEmpty {
+            identifiers.append(EmptyStateCellTableViewCell.identifier)
+        } else {
+            todayHistoryData.forEach { value  in
+                if value is MedicineEntries {
+                    identifiers.append(MedicineTableCell.identifier)
+                }
+                if value is BloodSugarEntries {
+                    identifiers.append(BloodSugarTableCell.identifier)
+                }
+                if value is FoodEntries {
+                    identifiers.append(FoodTableCell.identifier)
+                }
             }
         }
-        
+
         return identifiers
     }
     
@@ -167,7 +172,7 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         let identifier = self.tableviewIdentifier()[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
@@ -195,7 +200,7 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.isHistory = true
-            cell.foodEntry = todayHistoryData[indexPath.row] as? FoodEntries
+            cell.foodEntry = todayHistoryData[indexPath.row] as? [FoodEntries]
 
             return cell
         case MedicineTableCell.identifier:
@@ -204,8 +209,16 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.isHistory = true
+            cell.icChevron.isHidden = false
             cell.medicineEntry = todayHistoryData[indexPath.row] as? MedicineEntries
 
+            return cell
+        case EmptyStateCellTableViewCell.identifier:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? EmptyStateCellTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.lblDescription.text = "You don't have any entries yet"
             return cell
         default:
             return cell

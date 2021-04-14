@@ -55,7 +55,6 @@ class MedicineTableCell: UITableViewCell {
         if isHistory {
             if let data = medicineEntry {
                 lblTime.text = data.created_at?.string(format: .HourMinutes)
-                icChevron.isHidden = true
                 lblCategory.text = Constants.medCategoryList[Int(medicineEntry!.category)]
                 setupChildViews(dataEntry: data)
             }

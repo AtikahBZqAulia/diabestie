@@ -43,6 +43,15 @@ class BloodSugarTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func onDataSetEmptyState() {
+        lblLatestBloodSugarLevel.text = "--"
+        lblBloodSugarRange.text = "--"
+        viewHistory.isHidden = true
+        lblTime.text = ""
+        viewBgBloodSugarIndicator.isHidden = true
+        
+    }
 
     func onDataSet(){
         
@@ -52,10 +61,10 @@ class BloodSugarTableCell: UITableViewCell {
 
                 viewHistory.isHidden = true
 
-                let bloodSugarDataRane = BloodSugarEntryRepository.sugarLevelRange()
+                let bloodSugarDataRange = BloodSugarEntryRepository.sugarLevelRange()
                 let bloodSugarDataIndicator = BloodSugarEntryRepository.shared.sugarLevelIndicator(bloodSugarEntry: todayBloodSugarData)
-                lblLatestBloodSugarLevel.text = "\(todayBloodSugarData.blood_sugar )"
-                lblBloodSugarRange.text = bloodSugarDataRane
+                lblLatestBloodSugarLevel.text = "\(todayBloodSugarData.blood_sugar)"
+                lblBloodSugarRange.text = bloodSugarDataRange
                 lblTime.text = todayBloodSugarData.time_log?.string(format: .HourMinutes)
                 
                 if bloodSugarDataIndicator == .none {
@@ -81,7 +90,22 @@ class BloodSugarTableCell: UITableViewCell {
                 if let viewRange = viewRange {
                     viewRange.removeFromSuperview()
                 }
-                icChevron.isHidden = true
+                //icChevron.isHidden = true
+                
+                let bloodSugarDataIndicator = BloodSugarEntryRepository.shared.sugarLevelIndicator(bloodSugarEntry: todayBloodSugarData)
+                
+                if bloodSugarDataIndicator == .none {
+                    if let indicatorView = viewBloodSugarIndicator {
+                        indicatorView.isHidden = true
+                    }
+                } else {
+                    if let indicatorView = viewBloodSugarIndicator {
+                        indicatorView.isHidden = false
+                    }
+                    lblSugarLevelIndicator.text = Constants.BloodSugarLevelIndicator(indicator: bloodSugarDataIndicator)
+                    lblSugarLevelIndicator.textColor = Constants.BloodSugarLevelIndicatorTxtColor(indicator: bloodSugarDataIndicator)
+                    viewBgBloodSugarIndicator.backgroundColor = Constants.BloodSugarLevelIndicatorBGColor(indicator: bloodSugarDataIndicator)
+                }
             }
         }
         
