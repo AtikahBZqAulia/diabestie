@@ -52,12 +52,11 @@ class FoodLibraryRepository {
 
         do {
             
-            let item = try context.fetch(fetchRequest) as! [MedicineLibrary]
+            let item = try context.fetch(fetchRequest) as! [FoodLibraries]
             
             item.forEach { (data) in
-                data.ofMedicineBasket = nil
+                data.ofFoodBasket = nil
             }
-            
             
             try context.save()
             
