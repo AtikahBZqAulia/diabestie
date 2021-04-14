@@ -347,9 +347,11 @@
                     <connections>
                         <outlet property="medicineTableView" destination="eqp-0I-vdB" id="NVB-1i-W11"/>
                         <outlet property="saveButton" destination="y2s-cL-j1o" id="jok-Lq-5uI"/>
+                        <segue destination="yAT-9a-pbJ" kind="unwind" identifier="unwindToHome" unwindAction="unwind:" id="yKn-uI-WBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="613-89-O9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="yAT-9a-pbJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3670.7692307692305" y="734.36018957345971"/>
         </scene>
@@ -611,7 +613,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" image="chevron.left" catalog="system" id="oTU-Jc-tPM">
                             <color key="tintColor" red="0.12941176470588234" green="0.29019607843137252" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="eFa-y1-adm" kind="unwind" unwindAction="undwindSegue:" id="zXd-Ny-5Cp"/>
+                                <segue destination="eFa-y1-adm" kind="unwind" unwindAction="undwindSegue:" id="H5o-6O-Ipx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

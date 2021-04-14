@@ -123,8 +123,6 @@ class FoodEntryRepository {
                 
                 totalSugar += Int(basketData.foodlibrary?.sugar ?? 0) * Int(basketData.qty)
                 totalCalorie += Int(basketData.foodlibrary?.calories ?? 0) * Int(basketData.qty)
-                totalSugar += Int(basketData.foodlibrary?.sugar ?? 0)
-                totalCalorie += Int(basketData.foodlibrary?.calories ?? 0)
             })
             
             return (totalSugar, totalCalorie)

@@ -18,7 +18,7 @@ class MedicineDiaryViewController: UIViewController {
     @IBOutlet weak var medicineTableView: UITableView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var medicineBasket: [MedicineBasket]!
+    var medicineBasket: [MedicineBasket] = [MedicineBasket]()
     var selectedCategory: Int = 0 {
         didSet {
             validateData()
@@ -37,6 +37,8 @@ class MedicineDiaryViewController: UIViewController {
     }
     
     @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+        print("SEGUE \(medicineBasket)")
+        validateData()
         self.medicineTableView.reloadData()
         
     }
@@ -55,20 +57,21 @@ class MedicineDiaryViewController: UIViewController {
             baskets.add(basket)
         }
         MedicineEntryRepository.shared.insertMedicineEntry(category: self.selectedCategory, medicineBasket: baskets, time: self.timeLog)
+//        MedicineLibraryRepository.shared.resetMedicineLibrary()
 
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if medicineBasket != nil {
+        if segue.destination is AddMedicineDiaryViewController {
             let vc = segue.destination as! AddMedicineDiaryViewController
             vc.baskets = medicineBasket
         }
     }
     
     func validateData() {
-        if selectedCategory != 0 && medicineBasket != nil {
+        if selectedCategory != 0 && !medicineBasket.isEmpty{
             saveButton.isEnabled = true
             saveButton.tintColor = .blueBlue
             return
@@ -82,14 +85,9 @@ class MedicineDiaryViewController: UIViewController {
 extension MedicineDiaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if medicineBasket != nil {
-            if medicineBasket.count == 0 {
-                return 3
-            }
-            validateData()
+        if !medicineBasket.isEmpty {
             return medicineBasket.count + 2
-        }
-        else {
+        } else {
             return 3
         }
     }
@@ -105,7 +103,7 @@ extension MedicineDiaryViewController: UITableViewDataSource {
             return cell
         }
         
-        else if indexPath.row > 1 && medicineBasket != nil{
+        else if indexPath.row > 1 && !medicineBasket.isEmpty{
             if medicineBasket.count != 0 {
                 if let cell = medicineTableView.dequeueReusableCell(withIdentifier: ChosenMedicine.identifier, for: indexPath) as? ChosenMedicine{
                     cell.delegate = self

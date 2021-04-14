@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreData
+
 //Init variable domain string
 private let domainUrlString = "https://us-central1-diabestie.cloudfunctions.net/"
 
@@ -17,32 +19,46 @@ struct foodLibrary: Codable {
     let sugar: Int?
 }
 
-//Init Class Food Manager
-final class FoodManager {
-    //function fetch foods from API
-    func fetchFoods(completionHandler: @escaping ([foodLibrary]) -> Void) {
-        //Init API getFoods from api url
+final class ApiRepository {
+
+    func fetchFoods(completion: @escaping (_ foodLibrary: [foodLibrary]?, _ error: Error?) -> Void) {
+
         let url = URL(string: domainUrlString + "getFoods/")!
-        //Call API and check if there are error on API
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             if let error = error {
                 print("Error with fetching foods: \(error)")
                 return
             }
-                
-            //Call API and check if there are error on API
+            
             guard let httpResponse = response as? HTTPURLResponse,
-            (200...299).contains(httpResponse.statusCode) else {
+                  (200...299).contains(httpResponse.statusCode) else {
                 print("Error with the response, unexpected status code: \(String(describing: response))")
                 return
             }
-                
-            //get Data and decode it into foodLibrary Model for data handling
-            if let data = data{
-                let foodData = try? JSONDecoder().decode([foodLibrary].self, from: data)
-                completionHandler(foodData ?? [])
+            
+            if let error = error {
+                completion(nil, error)
+                return
             }
-        })
-        task.resume()
+            
+            guard let data = data else {
+                let error = NSError(domain: "dataErrorDomain", code: 101, userInfo: nil)
+                completion(nil, error)
+                return
+            }
+            
+            do {
+                let jsonObject = try? JSONDecoder().decode([foodLibrary].self, from: data)
+
+                guard let result = jsonObject else {
+                    throw NSError(domain: "dataErrorDomain", code: 100, userInfo: nil)
+                }
+                completion(result, nil)
+            } catch {
+                completion(nil, error)
+            }
+        }).resume()
+        
     }
 }

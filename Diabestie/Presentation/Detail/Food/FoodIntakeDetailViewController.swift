@@ -37,11 +37,17 @@ extension FoodIntakeDetailViewController: UITableViewDataSource {
         if indexPath.row > 1 {
             if let cell = foodDetailTableView.dequeueReusableCell(withIdentifier: "FoodIntake", for: indexPath) as? FoodIntakeDetailTableCell {
                 
-                cell.foodName.text = "\(baskets[indexPath.row - 2].foodlibrary!.food_name ?? "") (x\(Int(baskets[indexPath.row - 2].qty )))"
+                cell.foodName.text = "\(baskets[indexPath.row - 2].foodlibrary!.food_name ?? "")"
                 cell.foodGram.text = "\(baskets[indexPath.row - 2].foodlibrary!.weight) g"
                 cell.foodCal.text = "\(baskets[indexPath.row - 2].foodlibrary!.calories) kcal"
                 cell.foodSugar.text = "\(baskets[indexPath.row - 2].foodlibrary!.sugar) mg sugar"
-                if indexPath.row == 2 {
+                
+                if indexPath.row == 2 && indexPath.row == baskets.count + 1 {
+                    cell.foodListView.clipsToBounds = true
+                    cell.foodListView.layer.cornerRadius = 12
+                    cell.foodListView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+                }
+                else if indexPath.row == 2 {
                     setBorder(cell, .layerMaxXMinYCorner, .layerMinXMinYCorner)
                 }
                 else if indexPath.row == baskets.count + 1 {

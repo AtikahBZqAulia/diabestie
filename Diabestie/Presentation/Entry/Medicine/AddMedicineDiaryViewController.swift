@@ -26,48 +26,30 @@ class AddMedicineDiaryViewController: UIViewController {
         
         medicineList = MedicineLibraryRepository.shared.getAllMedicineLibrary()
         
-//        print("MDEINCE BEFORe \(medicineList)")
-        
         for (index, data ) in medicineList.enumerated() {
             if let basket = self.baskets.first(where: {
                 data == $0.medicinelibrary
             }) {
-                
-                print("THEDDD \(basket)")
                 medicineList[index].ofMedicineBasket = basket
-//                data.addToOfMedicineBasket(basket)
             }
         }
-//        medicineList.forEach { (index,data) in
-//
-//
-//        }
-
-////            if data == basket.foodlibrary {
-////                data.addToOfFoodBasket(basket)
-////            }
-//        }
-//        print("MDEINCE After \(medicineList)")
-//
-//        medicineList.forEach { (data) in
-//            if let basket = self.baskets.first(where: {
-//                data.objectID == $0.medicinelibrary?.objectID
-//            }) {
-//
-//                print("THEDDD \(data.ofMedicineBasket)")
-////                medicineList[index].addToOfMedicineBasket(basket)
-////                data.addToOfMedicineBasket(basket)
-//            }
-//        }
-
+        
+        medicineList.sort { (data, value) -> Bool in
+            return data.ofMedicineBasket != nil
+        }
         
         addMedicineTableView.dataSource = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier != "CreateMedicine" {
-            let destVC = segue.destination as! MedicineDiaryViewController
-            destVC.medicineBasket = baskets
+            
+            print("ASDSDA \(segue)")
+            if segue.destination is MedicineDiaryViewController {
+                print("12323 \(segue.destination)")
+                let destVC = segue.destination as! MedicineDiaryViewController
+                destVC.medicineBasket = baskets
+            }
         }
     }
     
@@ -106,33 +88,22 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
                 cell.medicineLibrary = medicineList[select]
                 
                 if let basket = medicineList[select].ofMedicineBasket{
-            
+                    
                     cell.addButtonView.isHidden = true
                     cell.stepperView.isHidden = false
                     cell.stepperValue.text = "\(basket.qty)"
-
+                    
                 } else {
                     cell.addButtonView.isHidden = false
                     cell.stepperView.isHidden = true
                     cell.stepperValue.text = "1"
                 }
-                
-//                    if !self.baskets.isEmpty {
-//                        if let data = self.baskets.first(where: {
-//                            cell.medicineName.text == $0.medicinelibrary?.medicine_name
-//                        }) {
-//                            cell.addButtonView.isHidden = true
-//                            cell.stepperView.isHidden = false
-//                            cell.stepperValue.text = "\(data.qty)"
-//                        }
-//
-//                    }
-                
                 cell.prepareForReuse()
-
-//                if select != 0 && select != medicineList.count {
-//                    addSeparator(cell)
-//                }
+                
+                //                if select != 0 && select != medicineList.count {
+                //                    addSeparator(cell)
+                //                }
+                
                 return cell
             }
             else {

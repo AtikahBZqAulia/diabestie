@@ -200,7 +200,8 @@ extension HistoryViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.isHistory = true
-            cell.foodEntry = todayHistoryData[indexPath.row] as? [FoodEntries]
+            cell.foodEntry = todayHistoryData[indexPath.row] as? FoodEntries
+            cell.foodEntries = foodIntakeList! as [FoodEntries]
 
             return cell
         case MedicineTableCell.identifier:

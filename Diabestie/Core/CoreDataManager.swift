@@ -22,6 +22,12 @@ class CoreDataManager {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        container.viewContext.undoManager = nil
+        container.viewContext.shouldDeleteInaccessibleFaults = true
+        
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        
         return container
     }()
     
@@ -52,8 +58,9 @@ class CoreDataManager {
                 password: Constants.globalUserPasword
             )
         }
-        preloadFoodLibraryData()
-//        preloadFoodLibraryFromAPI()
+        
+//        preloadFoodLibraryData()
+        preloadFoodLibraryFromAPI()
         preloadMedicineLibraryData()
 //        preloadEntries()
         
@@ -70,12 +77,13 @@ class CoreDataManager {
     }
     
     func preloadFoodLibraryFromAPI(){
-        //Fetch data from API on NEtworking/FoodLibraryAPIFetch
-        FoodManager().fetchFoods { (foodLibraries) in
-            foodLibraries.forEach { (data) in
-                FoodLibraryRepository.shared.insertFoodLibrary(name: data.name ?? "", calories: data.calories ?? 0, weight: data.weight ?? 0, sugar: data.sugar ?? 0)
-            }
+        
+        let dataProvider = DataProvider(persistentContainer: persistentContainer, repository: ApiRepository())
+        dataProvider.fetchFoodApi { (error) in
+            self.preloadFoodLibraryData()
+            print("Error fetching data \(String(describing:error))")
         }
+        
     }
     
     func preloadMedicineLibraryData(){
@@ -83,47 +91,14 @@ class CoreDataManager {
         if MedicineLibraryRepository.shared.getAllMedicineLibrary().isEmpty {
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetamol", consumption: 3)
             MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracet2amol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glume23tza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracet23amol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza23", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Para23cetam2ol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glu23metza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "P23aracetamol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Gl23umetza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Par32acetamol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glum32etza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Parac32etamol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumet32za", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracet32amol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza32", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetam32ol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paraceta3mol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumet32za", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Para32cetamol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Gl23umetza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Para2cetamol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glum22cetamol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Parac2etamol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glume2tza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracetam2ol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetz22a", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paraceta2mol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glumetz23a", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Paracet32amol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Glume23tza", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Para32cetamol", consumption: 3)
-            MedicineLibraryRepository.shared.insertMedicineLibrary(name: "Gl23umetza", consumption: 3)
         }
     }
         
     func preloadEntries(){
-      
         
         preloadMedicineEntriesData()
         preloadFoodEntriesData()
+        
     }
     
     func preloadMedicineEntriesData() {

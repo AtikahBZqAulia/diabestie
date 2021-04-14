@@ -18,6 +18,9 @@ class AddFoodDiaryViewController: UIViewController {
 
     @IBOutlet weak var foodEntryTableView: UITableView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var lblSugar: UILabel!
+    @IBOutlet weak var lblCalories: UILabel!
+    
     
     var foodList: [FoodLibraries] = []
     var foodBaskets: [FoodBasket] = []
@@ -27,9 +30,14 @@ class AddFoodDiaryViewController: UIViewController {
             validateData()
         }
     }
-    var eatTime = 0
+    
     var timeLog = Date()
     
+    var foodEntry : FoodEntries? {
+        didSet {
+            onDataSet()
+        }
+    }
     
     func validateData() {
         
@@ -51,12 +59,14 @@ class AddFoodDiaryViewController: UIViewController {
         }
         
         print("BASKTES FOOD \(baskets)")
-        FoodEntryRepository.shared.insertFoodEntry(eatTime: eatTime , timeLog: self.timeLog, foodBasket: baskets)
-
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        FoodEntryRepository.shared.insertFoodEntry(eatTime: selectedCategory , timeLog: self.timeLog, foodBasket: baskets)
+        FoodLibraryRepository.shared.reseFoodLibrary()
+        
+        self.performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
     @IBAction func undwindFoodSegue(_ sender: UIStoryboardSegue){
+        validateData()
         self.foodEntryTableView.reloadData()
     }
     
@@ -134,6 +144,17 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
         return 2
     }
     
+    func onDataSet(){
+        if let data = foodEntry {
+            
+            let nutriton = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
+            print("\(nutriton.sugar)")
+            print("\(nutriton.calorie)")
+            lblSugar.text = "\(nutriton.sugar)"
+            lblCalories.text = "\(nutriton.calorie)"
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
@@ -172,7 +193,6 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
                 cell.foodSugar.text = "\(foodData.foodlibrary?.sugar ?? 0) mg sugar"
                 cell.stepperValue.text = "\(foodData.qty)"
 
-                
 //                if indexPath.row > 2
 //                {addSeparator(cell)}
                 return cell

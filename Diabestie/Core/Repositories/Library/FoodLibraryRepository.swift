@@ -8,10 +8,12 @@
 import Foundation
 import CoreData
 
+
 class FoodLibraryRepository {
     
     static let shared = FoodLibraryRepository()
     let entityName = FoodLibraries.self.description()
+    
     
     func insertFoodLibrary(name: String,
                                calories: Int,
@@ -39,6 +41,29 @@ class FoodLibraryRepository {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+    }
+    
+    func reseFoodLibrary(){
+        
+        let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "ofFoodBasket != NULL")
+
+        do {
+            
+            let item = try context.fetch(fetchRequest) as! [FoodLibraries]
+            
+            item.forEach { (data) in
+                data.ofFoodBasket = nil
+            }
+            
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
     }
     
     

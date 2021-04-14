@@ -140,7 +140,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            cell.foodEntry = todayFoodEntries()
+            cell.foodEntries = todayFoodEntries()
+            cell.onDataSet()
 
             return cell
         case MedicineTableCell.identifier:
