@@ -33,7 +33,7 @@ class Constants  {
         case .low:
             return "Low blood sugar level"
         case .stable:
-            return "Your blood sugar level is stable"
+            return "Stable blood sugar level"
         case .high:
             return "High blood sugar level"
         case .none:
