@@ -25,7 +25,7 @@ class AddMedicineDiaryViewController: UIViewController {
         super.viewDidLoad()
         
         medicineList = MedicineLibraryRepository.shared.getAllMedicineLibrary()
-                
+        
         for (index, data ) in medicineList.enumerated() {
             if let basket = self.baskets.first(where: {
                 data == $0.medicinelibrary
@@ -35,7 +35,7 @@ class AddMedicineDiaryViewController: UIViewController {
         }
         
         medicineList.sort { (data, value) -> Bool in
-           return data.ofMedicineBasket != nil
+            return data.ofMedicineBasket != nil
         }
         
         addMedicineTableView.dataSource = self
@@ -43,8 +43,13 @@ class AddMedicineDiaryViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier != "CreateMedicine" {
-            let destVC = segue.destination as! MedicineDiaryViewController
-            destVC.medicineBasket = baskets
+            
+            print("ASDSDA \(segue)")
+            if segue.destination is MedicineDiaryViewController {
+                print("12323 \(segue.destination)")
+                let destVC = segue.destination as! MedicineDiaryViewController
+                destVC.medicineBasket = baskets
+            }
         }
     }
     
@@ -83,21 +88,21 @@ extension AddMedicineDiaryViewController: UITableViewDataSource {
                 cell.medicineLibrary = medicineList[select]
                 
                 if let basket = medicineList[select].ofMedicineBasket{
-            
+                    
                     cell.addButtonView.isHidden = true
                     cell.stepperView.isHidden = false
                     cell.stepperValue.text = "\(basket.qty)"
-
+                    
                 } else {
                     cell.addButtonView.isHidden = false
                     cell.stepperView.isHidden = true
                     cell.stepperValue.text = "1"
                 }
                 cell.prepareForReuse()
-
-//                if select != 0 && select != medicineList.count {
-//                    addSeparator(cell)
-//                }
+                
+                //                if select != 0 && select != medicineList.count {
+                //                    addSeparator(cell)
+                //                }
                 
                 return cell
             }
