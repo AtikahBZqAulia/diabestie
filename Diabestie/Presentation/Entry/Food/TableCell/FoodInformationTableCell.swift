@@ -44,8 +44,9 @@ extension FoodInformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate
     func createPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
+        pickerView.backgroundColor = UIColor.white
         addCategory.inputView = pickerView
-        addCategory.tintColor = UIColor.white
+        addCategory.tintColor = UIColor.clear
     }
     
     func dismissPickerView() {
@@ -56,6 +57,7 @@ extension FoodInformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate
         
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtontapped))
         toolBar.setItems([doneButton], animated: true)
+        doneButton.tintColor = UIColor.blueBlue
         
         addCategory.inputAccessoryView = toolBar
     }

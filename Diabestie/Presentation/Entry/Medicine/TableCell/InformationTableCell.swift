@@ -43,6 +43,7 @@ extension InformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate {
     func createPickerView() {
         let pickerView = UIPickerView()
         pickerView.delegate = self
+        pickerView.backgroundColor = UIColor.white
         categoryField.inputView = pickerView
         categoryField.tintColor = UIColor.clear
     }
@@ -55,6 +56,7 @@ extension InformationTableCell: UIPickerViewDataSource, UIPickerViewDelegate {
         
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtontapped))
         toolBar.setItems([doneButton], animated: true)
+        doneButton.tintColor = UIColor.blueBlue
         
         categoryField.inputAccessoryView = toolBar
     }
