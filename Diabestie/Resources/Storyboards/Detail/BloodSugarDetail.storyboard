@@ -785,9 +785,11 @@
                         <outlet property="edtMealLowerBound" destination="FiO-hO-0fs" id="9XL-lr-0wA"/>
                         <outlet property="edtMealUpperBound" destination="qoZ-yu-KuF" id="tCl-eD-Rjs"/>
                         <outlet property="saveBtn" destination="JYX-bv-X7q" id="hQQ-C0-w8P"/>
+                        <segue destination="drX-Ij-9cT" kind="unwind" identifier="unwindToBloodSugarDetail" unwindAction="unwindToBloodSugarDetail:" id="9QZ-CE-zZf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ClP-Hy-Ra3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="drX-Ij-9cT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1836" y="1446"/>
         </scene>

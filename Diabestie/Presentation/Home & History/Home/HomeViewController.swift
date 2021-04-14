@@ -52,7 +52,6 @@ class HomeViewController: UIViewController {
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
         self.tableView.reloadData()
-        print("YATTA")
     }
     
 }

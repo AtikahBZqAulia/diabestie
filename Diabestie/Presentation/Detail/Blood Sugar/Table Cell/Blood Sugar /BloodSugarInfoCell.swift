@@ -70,6 +70,7 @@ class BloodSugarInfoCell: UITableViewCell {
                 viewBloodSugarIndicator.isHidden = false
             } else {
                 viewBloodSugarIndicator.isHidden = true
+                viewBloodSugarIndicator.isHidden = true
             }
         }
     }
