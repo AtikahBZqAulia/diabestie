@@ -32,6 +32,7 @@ class SearchFoodViewController: UIViewController, UISearchResultsUpdating{
     
     
     @IBOutlet weak var foodTableView: UITableView!
+    @IBOutlet weak var foodCountLabel: UILabel!
     
     var resultSearchController = UISearchController()
     

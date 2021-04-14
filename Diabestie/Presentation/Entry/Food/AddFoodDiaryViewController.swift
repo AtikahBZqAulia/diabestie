@@ -21,6 +21,15 @@ class AddFoodDiaryViewController: UIViewController {
     @IBOutlet weak var lblSugar: UILabel!
     @IBOutlet weak var lblCalories: UILabel!
     
+    @IBOutlet weak var caloriesLabel: UILabel!
+    @IBOutlet weak var caloriesTotalLabel: UILabel!
+    @IBOutlet weak var caloriesKcalLabel: UILabel!
+    
+    @IBOutlet weak var middleLine: UIView!
+    
+    @IBOutlet weak var sugarLabel: UILabel!
+    @IBOutlet weak var sugarTotalLabel: UILabel!
+    @IBOutlet weak var sugarMgLabel: UILabel!
     
     var foodList: [FoodLibraries] = []
     var foodBaskets: [FoodBasket] = []
