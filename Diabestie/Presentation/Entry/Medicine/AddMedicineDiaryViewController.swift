@@ -25,20 +25,25 @@ class AddMedicineDiaryViewController: UIViewController {
         super.viewDidLoad()
         
         medicineList = MedicineLibraryRepository.shared.getAllMedicineLibrary()
-        
-        for (index, data ) in medicineList.enumerated() {
-            if let basket = self.baskets.first(where: {
-                data == $0.medicinelibrary
-            }) {
-                medicineList[index].ofMedicineBasket = basket
-            }
-        }
-        
-        medicineList.sort { (data, value) -> Bool in
-            return data.ofMedicineBasket != nil
-        }
-        
         addMedicineTableView.dataSource = self
+
+        DispatchQueue.main.async {
+            
+            for (index, data ) in self.medicineList.enumerated() {
+                if let basket = self.baskets.first(where: {
+                    data == $0.medicinelibrary
+                }) {
+                    self.medicineList[index].ofMedicineBasket = basket
+                }
+            }
+            
+            self.medicineList.sort { (data, value) -> Bool in
+                return data.ofMedicineBasket != nil
+            }
+            
+            self.addMedicineTableView.reloadData()
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
