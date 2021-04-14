@@ -757,13 +757,13 @@
                                                             <color key="tintColor" red="0.76865929369999997" green="0.76852315660000003" blue="0.77647858859999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDn-22-ufQ">
-                                                            <rect key="frame" x="11.999999999999996" y="8.9999999999999982" width="52.666666666666657" height="20.333333333333329"/>
+                                                            <rect key="frame" x="11.999999999999996" y="8.9999999999999982" width="49.666666666666657" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="19.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmR-Nc-JTj">
-                                                            <rect key="frame" x="12" y="29.333333333333329" width="44" height="20"/>
+                                                            <rect key="frame" x="11.999999999999996" y="29.333333333333329" width="42.666666666666657" height="20"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                                             <color key="textColor" name="charcoal_grey"/>
                                                             <nil key="highlightedColor"/>
