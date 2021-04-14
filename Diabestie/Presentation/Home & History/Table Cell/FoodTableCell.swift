@@ -48,32 +48,31 @@ class FoodTableCell: UITableViewCell {
     }
 
     func onDataSet(){
-        if let data = foodEntry {
-            
-            if isHistory {
+        
+        if isHistory {
+            if let data = foodEntry {
                 icChevron.isHidden = true
                 let nutrition = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
                 lblTime.text = data.time_log?.string(format: .HourMinutes)
                 lblSugar.text = "\(nutrition.sugar)"
                 lblCalories.text = "\(nutrition.calorie)"
             }
-
-            else {
-                var totalSugar = 0
-                var totalCalories = 0
-                for food in foodEntries {
-                    let nutrition = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: food)
-                    totalSugar += nutrition.sugar
-                    totalCalories += nutrition.calorie
-                }
-                
-                let latestEntry = foodEntries.last
-                lblTime.text = latestEntry!.time_log?.string(format: .HourMinutes)
-                lblSugar.text = "\(totalSugar)"
-                lblCalories.text = "\(totalCalories)"
+        } else {
+            print("HELO")
+            var totalSugar = 0
+            var totalCalories = 0
+            for food in foodEntries {
+                let nutrition = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: food)
+                totalSugar += nutrition.sugar
+                totalCalories += nutrition.calorie
             }
-
+            
+            let latestEntry = foodEntries.last
+            lblTime.text = latestEntry!.time_log?.string(format: .HourMinutes)
+            lblSugar.text = "\(totalSugar)"
+            lblCalories.text = "\(totalCalories)"
         }
+        
     }
     
 }

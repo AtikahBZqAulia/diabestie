@@ -94,6 +94,7 @@ extension MedicineTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
         collectionView.dataSource = self
 
         collectionView?.register(UINib(nibName: MedicineTableCellItem.identifier, bundle: nil), forCellWithReuseIdentifier: MedicineTableCellItem.identifier)
+        collectionView.reloadData()
         
     }
     
@@ -126,7 +127,6 @@ extension MedicineTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
             cell.medicineItem = medicineLibrary?[indexPath.row]
             
         }
-                
         cell.backgroundColor = .red
         return cell
     }
