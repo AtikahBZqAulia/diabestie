@@ -44,6 +44,8 @@ class FoodTableCell: UITableViewCell {
             }
             
             let nutriton = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
+
+            lblTime.text = foodEntry?.time_log?.string(format: .HourMinutes)
             lblSugar.text = "\(nutriton.sugar)"
             lblCalories.text = "\(nutriton.calorie)"
         }
