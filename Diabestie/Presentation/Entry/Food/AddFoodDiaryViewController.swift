@@ -62,10 +62,11 @@ class AddFoodDiaryViewController: UIViewController {
         FoodEntryRepository.shared.insertFoodEntry(eatTime: selectedCategory , timeLog: self.timeLog, foodBasket: baskets)
         FoodLibraryRepository.shared.reseFoodLibrary()
         
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
     @IBAction func undwindFoodSegue(_ sender: UIStoryboardSegue){
+        validateData()
         self.foodEntryTableView.reloadData()
     }
     

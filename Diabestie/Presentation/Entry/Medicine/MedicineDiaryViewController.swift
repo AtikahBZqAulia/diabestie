@@ -38,6 +38,7 @@ class MedicineDiaryViewController: UIViewController {
     
     @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
         print("SEGUE \(medicineBasket)")
+        validateData()
         self.medicineTableView.reloadData()
         
     }
