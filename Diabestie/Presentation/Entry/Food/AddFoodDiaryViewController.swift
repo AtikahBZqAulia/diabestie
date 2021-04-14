@@ -30,7 +30,7 @@ class AddFoodDiaryViewController: UIViewController {
             validateData()
         }
     }
-    var eatTime = 0
+    
     var timeLog = Date()
     
     var foodEntry : FoodEntries? {
@@ -59,7 +59,7 @@ class AddFoodDiaryViewController: UIViewController {
         }
         
         print("BASKTES FOOD \(baskets)")
-        FoodEntryRepository.shared.insertFoodEntry(eatTime: eatTime , timeLog: self.timeLog, foodBasket: baskets)
+        FoodEntryRepository.shared.insertFoodEntry(eatTime: selectedCategory , timeLog: self.timeLog, foodBasket: baskets)
         FoodLibraryRepository.shared.reseFoodLibrary()
         
         self.navigationController?.dismiss(animated: true, completion: nil)
