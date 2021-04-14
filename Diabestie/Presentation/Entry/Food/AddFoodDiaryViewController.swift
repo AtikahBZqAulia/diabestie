@@ -173,6 +173,9 @@ extension AddFoodDiaryViewController: UITableViewDataSource{
                 cell.foodSugar.text = "\(foodData.foodlibrary?.sugar ?? 0) mg sugar"
                 cell.stepperValue.text = "\(foodData.qty)"
 
+                saveButton.isEnabled = true
+                saveButton.tintColor = .blue
+                
                 return cell
             }
             

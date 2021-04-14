@@ -58,6 +58,7 @@ class CoreDataManager {
                 password: Constants.globalUserPasword
             )
         }
+        
 //        preloadFoodLibraryData()
         preloadFoodLibraryFromAPI()
         preloadMedicineLibraryData()
@@ -74,45 +75,15 @@ class CoreDataManager {
         }
         
     }
-    var dataProvider: DataProvider!
-    
-    lazy var fetchedResultsController: NSFetchedResultsController<FoodLibraries> = {
-          let fetchRequest = NSFetchRequest<FoodLibraries>(entityName:"FoodLibraries")
-          fetchRequest.sortDescriptors = [NSSortDescriptor(key: "food_name", ascending:true)]
-          
-          let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                      managedObjectContext: dataProvider.viewContext,
-                                                      sectionNameKeyPath: nil, cacheName: nil)
-//          controller.delegate = self
-          
-          do {
-              try controller.performFetch()
-          } catch {
-              let nserror = error as NSError
-              fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-          }
-          
-          return controller
-      }()
     
     func preloadFoodLibraryFromAPI(){
         
-        dataProvider = DataProvider(persistentContainer: CoreDataStack.shared.persistentContainer, repository: ApiRepository())
-        dataProvider.fetchFilms { (error) in
-                   // Handle Error by displaying it in UI
-            print("ERRPR \(error)")
-               }
-        //Fetch data from API on NEtworking/FoodLibraryAPIFetch
+        let dataProvider = DataProvider(persistentContainer: persistentContainer, repository: ApiRepository())
+        dataProvider.fetchFoodApi { (error) in
+            self.preloadFoodLibraryData()
+            print("Error fetching data \(String(describing:error))")
+        }
         
-//        DataProvider.init(persistentContainer: CoreDataStack.shared.persistentContainer, repository: ApiRepository.init()).fetchFilms { (error) in
-//            print("ERROR \(error)")
-//        }
-      
-//        FoodManager(persistentContainer: CoreDataManager.sharedManager.persistentContainer).fetchFoods { (foodLibraries) in
-////            foodLibraries.forEach { (data) in
-////                FoodLibraryRepository.shared.insertFoodLibrary(name: data.name ?? "", calories: data.calories ?? 0, weight: data.weight ?? 0, sugar: data.sugar ?? 0)
-////            }
-//        }
     }
     
     func preloadMedicineLibraryData(){
@@ -124,10 +95,10 @@ class CoreDataManager {
     }
         
     func preloadEntries(){
-      
         
         preloadMedicineEntriesData()
         preloadFoodEntriesData()
+        
     }
     
     func preloadMedicineEntriesData() {
