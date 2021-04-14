@@ -96,7 +96,7 @@ extension HistoryViewController {
             let startDate = data.value(forKey: "updated_at") as! Date
             let endDate = value.value(forKey: "updated_at") as! Date
 
-            return startDate < endDate
+            return startDate > endDate
         })
         
     }
