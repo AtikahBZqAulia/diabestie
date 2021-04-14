@@ -58,6 +58,20 @@ class FoodBasketRepository {
         
     }
     
+    func getFoodEntryTotalNutrition(entry: [FoodBasket]) -> (sugar: Int, calorie:Int){
+            
+            var totalSugar = 0
+            var totalCalorie = 0
+            
+            
+            entry.forEach({ (basket) in
+                
+                totalSugar += Int(basket.foodlibrary?.sugar ?? 0) * Int(basket.qty)
+                totalCalorie += Int(basket.foodlibrary?.calories ?? 0) * Int(basket.qty)
+            })
+            
+            return (totalSugar, totalCalorie)
+    }
     
     func getAllFoodBasket() -> [FoodBasket] {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
