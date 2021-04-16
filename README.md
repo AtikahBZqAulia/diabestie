@@ -1,6 +1,6 @@
 # Diabestie 
 
-Diabestie is an iOS App that ....
+Diabestie is an iOS App that aims to help diabetes patients maintain their nutritional balance. 
 
 
 # Starting the project

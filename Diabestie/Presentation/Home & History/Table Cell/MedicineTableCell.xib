@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineTableCell" rowHeight="123" id="8V2-cf-5Lb" userLabel="MedicineTableCell" customClass="MedicineTableCell" customModule="Diabestie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8V2-cf-5Lb" id="jCC-nA-ZiW">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1K-St-VQp" customClass="DesignableView" customModule="Diabestie" customModuleProvider="target">
+                        <rect key="frame" x="16" y="10" width="382" height="113"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LjB-ID-y7b">
+                                <rect key="frame" x="12" y="8" width="358" height="24"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pills.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7Pz-wl-UCd">
+                                        <rect key="frame" x="4" y="2" width="20" height="19.5"/>
+                                        <color key="tintColor" name="purple_medicine"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="gNV-i6-YLd"/>
+                                            <constraint firstAttribute="height" constant="20" id="gfv-oY-cbJ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medicine Intake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MU3-sh-VCf">
+                                        <rect key="frame" x="30" y="2" width="106.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" name="purple_medicine"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZJ-W8-OVc">
+                                        <rect key="frame" x="300" y="3.5" width="38" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="charcoal_grey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UVf-Ux-fpN">
+                                        <rect key="frame" x="338" y="3.5" width="20" height="17"/>
+                                        <color key="tintColor" name="charcoal_grey"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="8w0-Gd-yTG"/>
+                                            <constraint firstAttribute="height" constant="20" id="UEQ-Rq-Ny8"/>
+                                        </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7Pz-wl-UCd" secondAttribute="bottom" constant="2" id="0gg-cA-wks"/>
+                                    <constraint firstItem="RZJ-W8-OVc" firstAttribute="centerY" secondItem="UVf-Ux-fpN" secondAttribute="centerY" id="62S-9v-AF6"/>
+                                    <constraint firstItem="MU3-sh-VCf" firstAttribute="leading" secondItem="7Pz-wl-UCd" secondAttribute="trailing" constant="6" id="9hS-ML-z2U"/>
+                                    <constraint firstItem="MU3-sh-VCf" firstAttribute="bottom" secondItem="7Pz-wl-UCd" secondAttribute="bottom" id="EA4-GK-NLd"/>
+                                    <constraint firstAttribute="trailing" secondItem="UVf-Ux-fpN" secondAttribute="trailing" id="G6l-S6-TGf"/>
+                                    <constraint firstItem="7Pz-wl-UCd" firstAttribute="top" secondItem="LjB-ID-y7b" secondAttribute="top" constant="2" id="MgN-yb-cdz"/>
+                                    <constraint firstItem="UVf-Ux-fpN" firstAttribute="leading" secondItem="RZJ-W8-OVc" secondAttribute="trailing" id="QuQ-Z3-HHO"/>
+                                    <constraint firstItem="RZJ-W8-OVc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MU3-sh-VCf" secondAttribute="trailing" constant="10" id="SVg-xg-vOU"/>
+                                    <constraint firstItem="7Pz-wl-UCd" firstAttribute="leading" secondItem="LjB-ID-y7b" secondAttribute="leading" constant="4" id="fzg-Uk-Lx2"/>
+                                    <constraint firstItem="UVf-Ux-fpN" firstAttribute="centerY" secondItem="7Pz-wl-UCd" secondAttribute="centerY" id="oBG-0O-2cH"/>
+                                    <constraint firstItem="MU3-sh-VCf" firstAttribute="top" secondItem="7Pz-wl-UCd" secondAttribute="top" id="zaP-jE-fXj"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" keyboardDismissMode="onDrag" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="idV-fl-DyS">
+                                <rect key="frame" x="12" y="40" width="358" height="61"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="H4k-aE-Zkk">
+                                    <size key="itemSize" width="128" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LjB-ID-y7b" firstAttribute="top" secondItem="h1K-St-VQp" secondAttribute="top" constant="8" id="6fK-jr-XQX"/>
+                            <constraint firstItem="idV-fl-DyS" firstAttribute="top" secondItem="LjB-ID-y7b" secondAttribute="bottom" constant="8" id="JYz-td-SBW"/>
+                            <constraint firstAttribute="trailing" secondItem="idV-fl-DyS" secondAttribute="trailing" constant="12" id="Wkb-Cg-h82"/>
+                            <constraint firstItem="LjB-ID-y7b" firstAttribute="leading" secondItem="h1K-St-VQp" secondAttribute="leading" constant="12" id="haG-3u-Hut"/>
+                            <constraint firstAttribute="trailing" secondItem="LjB-ID-y7b" secondAttribute="trailing" constant="12" id="m3g-GZ-v8K"/>
+                            <constraint firstAttribute="bottom" secondItem="idV-fl-DyS" secondAttribute="bottom" constant="12" id="vYg-XU-ywf"/>
+                            <constraint firstItem="idV-fl-DyS" firstAttribute="leading" secondItem="h1K-St-VQp" secondAttribute="leading" constant="12" id="vbt-lr-gNs"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="gray_background"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="h1K-St-VQp" secondAttribute="trailing" constant="16" id="Jg3-oO-dab"/>
+                    <constraint firstItem="h1K-St-VQp" firstAttribute="leading" secondItem="jCC-nA-ZiW" secondAttribute="leading" constant="16" id="n4W-EM-zJn"/>
+                    <constraint firstItem="h1K-St-VQp" firstAttribute="top" secondItem="jCC-nA-ZiW" secondAttribute="top" constant="10" id="o0h-u6-80v"/>
+                    <constraint firstAttribute="bottom" secondItem="h1K-St-VQp" secondAttribute="bottom" id="wuB-mf-QpY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="collectionView" destination="idV-fl-DyS" id="my3-g6-br7"/>
+                <outlet property="icChevron" destination="UVf-Ux-fpN" id="pJs-bs-ED2"/>
+                <outlet property="lblCategory" destination="MU3-sh-VCf" id="0iH-wa-xSK"/>
+                <outlet property="lblTime" destination="RZJ-W8-OVc" id="5Zi-fn-REA"/>
+            </connections>
+            <point key="canvasLocation" x="-468.11594202898556" y="100.78125"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="pills.fill" catalog="system" width="128" height="106"/>
+        <namedColor name="charcoal_grey">
+            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray_background">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="purple_medicine">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

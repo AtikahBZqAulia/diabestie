@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6eo-Ca-O4L">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Blood Sugar Entry-->
+        <scene sceneID="Ajr-H7-LXg">
+            <objects>
+                <viewController storyboardIdentifier="AddBloodSugarDiaryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6eo-Ca-O4L" customClass="AddBloodSugarDiaryViewController" customModule="Diabestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ctD-28-3J6">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hJW-28-pEi">
+                                <rect key="frame" x="0.0" y="112" width="390" height="698"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddBloodSugarCategoryTableCell" rowHeight="58" id="VXo-aJ-xr5" userLabel="AddBloodSugarCategoryTableCell" customClass="AddBloodSugarCategoryTableCell" customModule="Diabestie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="390" height="58"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VXo-aJ-xr5" id="IXz-lF-prm">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7X7-fa-Rhw">
+                                                    <rect key="frame" x="20" y="0.0" width="149" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58" id="0Tj-KT-BNG"/>
+                                                    </constraints>
+                                                    <color key="textColor" name="black"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <datePicker contentMode="scaleAspectFit" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="e9i-AI-l3Q">
+                                                    <rect key="frame" x="197" y="0.0" width="188.33333333333337" height="58"/>
+                                                    <color key="tintColor" name="blue_blue"/>
+                                                    <locale key="locale" localeIdentifier="en_ID"/>
+                                                    <connections>
+                                                        <action selector="onDateChanged:" destination="VXo-aJ-xr5" eventType="valueChanged" id="4aZ-hg-U8J"/>
+                                                    </connections>
+                                                </datePicker>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYY-sy-Uuh">
+                                                    <rect key="frame" x="132" y="17" width="25" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="Mu4-eZ-fYq"/>
+                                                        <constraint firstAttribute="height" constant="24" id="ZI6-Fp-gXv"/>
+                                                    </constraints>
+                                                    <color key="tintColor" name="blue_blue"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="e9i-AI-l3Q" secondAttribute="bottom" id="1UJ-xa-NSO"/>
+                                                <constraint firstItem="e9i-AI-l3Q" firstAttribute="top" secondItem="IXz-lF-prm" secondAttribute="top" id="3MY-Er-gv1"/>
+                                                <constraint firstItem="7X7-fa-Rhw" firstAttribute="leading" secondItem="IXz-lF-prm" secondAttribute="leading" constant="20" symbolic="YES" id="9ZC-S1-wVI"/>
+                                                <constraint firstItem="7X7-fa-Rhw" firstAttribute="leading" secondItem="IXz-lF-prm" secondAttribute="leadingMargin" id="FWL-W5-uSb"/>
+                                                <constraint firstAttribute="trailing" secondItem="e9i-AI-l3Q" secondAttribute="trailing" constant="20" symbolic="YES" id="bBZ-ug-7Kf"/>
+                                                <constraint firstItem="pYY-sy-Uuh" firstAttribute="top" secondItem="IXz-lF-prm" secondAttribute="topMargin" constant="6" id="eF7-To-KwD"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pYY-sy-Uuh" secondAttribute="bottom" constant="6" id="hqk-Nh-X1M"/>
+                                                <constraint firstItem="pYY-sy-Uuh" firstAttribute="leading" secondItem="IXz-lF-prm" secondAttribute="leadingMargin" constant="112" id="ke9-OZ-fIe"/>
+                                                <constraint firstItem="7X7-fa-Rhw" firstAttribute="top" secondItem="IXz-lF-prm" secondAttribute="top" id="nkf-Fw-wmM"/>
+                                                <constraint firstAttribute="bottom" secondItem="7X7-fa-Rhw" secondAttribute="bottom" id="qrf-Kd-SoR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bloodSugarCategoryTextField" destination="7X7-fa-Rhw" id="iMa-bN-H2l"/>
+                                            <outlet property="datePicker" destination="e9i-AI-l3Q" id="CUv-1q-HAe"/>
+                                            <outlet property="plusButton" destination="pYY-sy-Uuh" id="gsX-ym-wXa"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddBloodSugarTableCell" rowHeight="58" id="jXU-hL-vNv" userLabel="AddBloodSugarTableCell" customClass="AddBloodSugarTableCell" customModule="Diabestie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="86" width="390" height="58"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jXU-hL-vNv" id="9zP-QR-V60">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Sugar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLp-qs-D7f">
+                                                    <rect key="frame" x="20" y="19" width="94" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="mg/dL" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jum-Q9-js8">
+                                                    <rect key="frame" x="321.33333333333331" y="12" width="48.333333333333314" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jum-Q9-js8" firstAttribute="top" secondItem="9zP-QR-V60" secondAttribute="topMargin" constant="1" id="6ow-nN-bKz"/>
+                                                <constraint firstItem="tLp-qs-D7f" firstAttribute="leading" secondItem="9zP-QR-V60" secondAttribute="leadingMargin" id="I3h-Rb-tsW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tLp-qs-D7f" secondAttribute="bottom" constant="7" id="NU0-gd-fyL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jum-Q9-js8" secondAttribute="trailing" constant="0.33000000000000002" id="c9O-Hl-67p"/>
+                                                <constraint firstItem="tLp-qs-D7f" firstAttribute="top" secondItem="9zP-QR-V60" secondAttribute="topMargin" constant="8" id="gIU-ol-LZ2"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jum-Q9-js8" secondAttribute="bottom" constant="1" id="k8J-gH-nMx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bloodSugarTextField" destination="jum-Q9-js8" id="ryT-bJ-nxR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6eo-Ca-O4L" id="XMV-uz-CX1"/>
+                                    <outlet property="delegate" destination="6eo-Ca-O4L" id="KkF-Z2-Ikv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MPQ-SI-Hbo"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hJW-28-pEi" firstAttribute="top" secondItem="MPQ-SI-Hbo" secondAttribute="top" constant="24" id="IZs-kp-OR8"/>
+                            <constraint firstItem="hJW-28-pEi" firstAttribute="bottom" secondItem="MPQ-SI-Hbo" secondAttribute="bottom" id="Lvt-uh-jcH"/>
+                            <constraint firstItem="hJW-28-pEi" firstAttribute="trailing" secondItem="MPQ-SI-Hbo" secondAttribute="trailing" id="YA3-3m-960"/>
+                            <constraint firstItem="hJW-28-pEi" firstAttribute="leading" secondItem="MPQ-SI-Hbo" secondAttribute="leading" id="m8g-9c-01q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Blood Sugar Entry" id="zxR-Hd-O2R">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="Am6-WS-AW1">
+                            <color key="tintColor" name="blue_blue"/>
+                            <connections>
+                                <action selector="backToPreviousPage:" destination="6eo-Ca-O4L" id="oCP-0X-Kcu"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="uof-xV-cTL">
+                            <color key="tintColor" name="charcoal_grey"/>
+                            <connections>
+                                <action selector="onSaveButtonTap:" destination="6eo-Ca-O4L" id="hCH-SW-97M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="saveButton" destination="uof-xV-cTL" id="C4r-Fq-OuH"/>
+                        <segue destination="rsh-ub-uB3" kind="unwind" identifier="unwindToHome" unwindAction="unwind:" id="EIM-aG-7Ot"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h0D-tu-ja0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rsh-ub-uB3" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="367.69230769230768" y="-227.48815165876775"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue_blue">
+            <color red="0.12941176470588237" green="0.29019607843137257" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="charcoal_grey">
+            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
