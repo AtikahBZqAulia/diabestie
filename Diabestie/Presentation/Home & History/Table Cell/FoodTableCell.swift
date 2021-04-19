@@ -18,6 +18,7 @@ class FoodTableCell: UITableViewCell {
     @IBOutlet weak var lblCalories: UILabel!
     @IBOutlet weak var lblTitleCalories: UILabel!
     @IBOutlet weak var lblTitleSugar: UILabel!
+    @IBOutlet weak var lblCategory: UILabel!
     
     var isHistory: Bool = false
 
@@ -51,8 +52,8 @@ class FoodTableCell: UITableViewCell {
         
         if isHistory {
             if let data = foodEntry {
-                icChevron.isHidden = true
                 let nutrition = FoodEntryRepository.shared.getFoodEntryTotalNutrition(entry: data)
+                lblCategory.text = Constants.mealCategoryList [Int(data.eat_time)]
                 lblTime.text = data.time_log?.string(format: .HourMinutes)
                 lblSugar.text = "\(nutrition.sugar)"
                 lblCalories.text = "\(nutrition.calorie)"

@@ -56,8 +56,8 @@
                             <constraint firstAttribute="height" constant="20" id="DCW-7r-q0J"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="239" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xt-aa-eA9">
-                        <rect key="frame" x="242" y="19" width="32" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="239" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xt-aa-eA9">
+                        <rect key="frame" x="237" y="19" width="32" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="P1N-JQ-oKd"/>
                             <constraint firstAttribute="height" constant="22" id="hor-iK-h4v"/>
@@ -72,12 +72,12 @@
                     <constraint firstAttribute="bottom" secondItem="6Xt-aa-eA9" secondAttribute="bottom" constant="19" id="2qv-hx-p5n"/>
                     <constraint firstItem="Y0p-o3-1Zt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6Z9-wv-LET"/>
                     <constraint firstItem="H5f-15-Lnx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="9Mf-9z-62G"/>
-                    <constraint firstItem="H5f-15-Lnx" firstAttribute="leading" secondItem="6Xt-aa-eA9" secondAttribute="trailing" id="Alh-dc-hhA"/>
                     <constraint firstAttribute="bottom" secondItem="xY4-Vt-Ymd" secondAttribute="bottom" constant="9" id="C7G-Sj-1Cu"/>
                     <constraint firstAttribute="bottom" secondItem="H5f-15-Lnx" secondAttribute="bottom" constant="19" id="EQN-nC-fC2"/>
                     <constraint firstItem="xY4-Vt-Ymd" firstAttribute="top" secondItem="Y0p-o3-1Zt" secondAttribute="bottom" constant="0.5" id="NJ7-yB-zR3"/>
                     <constraint firstItem="xY4-Vt-Ymd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="S6O-Il-4VB"/>
                     <constraint firstItem="6Xt-aa-eA9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="X7D-vA-CEM"/>
+                    <constraint firstItem="H5f-15-Lnx" firstAttribute="leading" secondItem="6Xt-aa-eA9" secondAttribute="trailing" constant="5" id="a0N-CP-Bu0"/>
                     <constraint firstItem="wxY-Nk-g1X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="fTQ-Ut-gXy"/>
                     <constraint firstAttribute="bottom" secondItem="wxY-Nk-g1X" secondAttribute="bottom" constant="20" symbolic="YES" id="n2J-9G-zTl"/>
                     <constraint firstAttribute="trailing" secondItem="wxY-Nk-g1X" secondAttribute="trailing" constant="16" id="ttz-Qs-dfN"/>

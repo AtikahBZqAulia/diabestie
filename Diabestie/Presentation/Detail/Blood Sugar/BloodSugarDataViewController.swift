@@ -35,14 +35,14 @@ extension BloodSugarDataViewController: UITableViewDataSource {
         
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.textLabel?.font = .systemFont(ofSize: 21, weight: .regular)
-        header.textLabel?.textColor = .charcoalGrey
+        header.textLabel?.textColor = .secondaryLabel
         header.textLabel?.text =  header.textLabel?.text?.capitalized
         
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section:Int) -> String?
     {
-        return "Blood Sugar Level Data"
+        return "Blood Sugar Entries"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
