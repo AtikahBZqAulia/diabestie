@@ -90,7 +90,7 @@ class BarChart: UIView {
     private func bottomTextLayer() -> CALayer{
         let bottomTextLayer: CALayer = CALayer()
         for (index, data) in self.presenter.bottomTitleText.enumerated() {
-            let xPos = CGFloat(index) * (self.frame.height/3)
+            let xPos = CGFloat(index) * (self.frame.width/5)
             bottomTextLayer.addTextLayer(frame: CGRect.init(x: xPos + 16, y: 220, width: 20, height: 20), color: UIColor.charcoalGrey.cgColor, fontSize: 12, text: data, animated: true, oldFrame: CGRect.init())
         }
         
@@ -108,15 +108,7 @@ class BarChart: UIView {
         
         // Show the main bar
         mainLayer.addRectangleLayer(frame: entry.barFrame, color: cgColor, animated: animated, oldFrame: oldEntry?.barFrame)
-        
-        // Show an Int value above the bar
-        //        mainLayer.addTextLayer(frame: entry.textValueFrame, color: cgColor, fontSize: 14, text: entry.data.textValue, animated: animated, oldFrame: oldEntry?.textValueFrame)
-        
-        // Show a title below the bar
-        //        mainLayer.addTextLayer(frame: entry.bottomTitleFrame, color: cgColor, fontSize: 14, text: "\(Int(entry.data.time))", animated: animated, oldFrame: oldEntry?.bottomTitleFrame)
-        
-        // Show a title on the right of the bar
-        //        mainLayer.addTextLayer(frame: entry.bottomTitleFrame, color: cgColor, fontSize: 14, text: entry.data.title, animated: animated, oldFrame: oldEntry?.bottomTitleFrame)
+
     }
     
     private func showHorizontalLines() {

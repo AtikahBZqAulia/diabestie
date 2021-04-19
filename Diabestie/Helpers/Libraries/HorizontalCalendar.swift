@@ -33,27 +33,6 @@ public class HorizontalCalendar: UIView {
         return label
     }()
     
-//    private lazy var arrow: UIImageView = { [unowned self] in
-//        let image = UIImageView()
-//        image.image = UIImage(named: "icon-arrow-down")
-//        image.transform = CGAffineTransform(rotationAngle: .pi)
-//        return image
-//    }()
-    
-//    private lazy var todayButton: UIButton = { [unowned self] in
-//        let button = UIButton(type: .system)
-//        button.setTitle("Go to Today", for: .normal)
-//        button.setTitleColor(HorizontalCalendar.textDark, for: .normal)
-//        button.titleLabel?.font = .systemFont(ofSize: fontMedium)
-//        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
-//        button.layer.cornerRadius = 5
-//        button.tintColor = .red
-//        button.layer.borderWidth = 1
-//        button.layer.borderColor = border.cgColor
-//        button.isHidden = true
-//        return button
-//    }()
-//
     private lazy var weekDays: UIView = { [unowned self] in
         let stackView = UIStackView()
         stackView.addArrangedSubview(WeekDayLabel(with: "S", isDark: false))
