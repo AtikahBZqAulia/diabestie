@@ -39,9 +39,9 @@ class BasicBarChartPresenter {
             let yPosition = viewHeight - bottomSpace - entryHeight
             
             //Known issues
-            //Will break in landscape mode / different size, need a further checkup!
-            let origin = CGPoint(x: CGFloat(entry.time * 14), y: yPosition)
-            
+            //Will not accurate in landscape mode / different size, need a further checkup!
+            let xPos = (CGFloat(viewWidth * CGFloat(entry.time)) / 30)
+            let origin = CGPoint(x: xPos, y: yPosition)
             let barEntry = BarChartEntry(origin: origin, barWidth: barWidth, barHeight: entryHeight, space: space, data: entry)
             
             result.append(barEntry)
@@ -64,10 +64,10 @@ class BasicBarChartPresenter {
             
             let yPosition = viewHeight - bottomSpace -  CGFloat(height) * (viewHeight - bottomSpace)
             
-            let length = viewWidth - 36
+            let length = viewWidth
             let lineSegment = LineSegment(
                 startPoint: CGPoint(x: 0, y: yPosition),
-                endPoint: CGPoint(x: length, y: yPosition)
+                endPoint: CGPoint(x: length - 80, y: yPosition)
             )
             let line = ThresholdHorizontalLine(
                 segment: lineSegment,
@@ -93,10 +93,10 @@ class BasicBarChartPresenter {
         for lineInfo in horizontalLineInfos {
             let yPosition = viewHeight - bottomSpace -  lineInfo.value * (viewHeight - bottomSpace)
             
-            let length = viewWidth - 36
+            let length = viewWidth - 80
             let lineSegment = LineSegment(
                 startPoint: CGPoint(x: 0, y: yPosition),
-                endPoint: CGPoint(x: length, y: yPosition)
+                endPoint: CGPoint(x: length , y: yPosition)
             )
             let line = HorizontalLine(
                 segment: lineSegment,
@@ -114,15 +114,15 @@ class BasicBarChartPresenter {
         var result: [VerticalLine] = []
         
         let verticalLineInfos = [
-            (value: CGFloat(0.0), isDashed: false),
-            (value: CGFloat(0.5), isDashed: true),
-            (value: CGFloat(1.0), isDashed: true),
-            (value: CGFloat(1.5), isDashed: true),
-            (value: CGFloat(2.0), isDashed: false)
+            (false),
+            (true),
+            (true),
+            (true),
+            (false)
         ]
         
         for (index, lineInfo) in verticalLineInfos.enumerated() {
-            let xPos = CGFloat(index) * (viewHeight/3)
+            let xPos = CGFloat(index) * (viewWidth/4 - 20)
             
             let lineSegment = LineSegment(
                 startPoint: CGPoint(x: xPos, y: viewHeight),
@@ -130,7 +130,7 @@ class BasicBarChartPresenter {
             )
             let line = VerticalLine(
                 segment: lineSegment,
-                isDashed: lineInfo.isDashed,
+                isDashed: lineInfo,
                 width: 0.5)
             result.append(line)
         }

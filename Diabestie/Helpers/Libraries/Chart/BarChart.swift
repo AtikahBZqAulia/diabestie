@@ -11,7 +11,6 @@ import UIKit
 class BarChart: UIView {
     
     private let mainLayer: CALayer = CALayer()
-    private let scrollView: UIScrollView = UIScrollView()
     private var animated = false
     private var showThresholdData = false
     private let presenter = BasicBarChartPresenter(barWidth: 10, space: 20, bottomTitleText: ["00", "06", "12","18"])
@@ -21,11 +20,11 @@ class BarChart: UIView {
         didSet {
             mainLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
             
-            scrollView.contentSize = CGSize(width: self.frame.size.width, height: self.frame.size.height)
-            mainLayer.frame = CGRect(x: 16, y: 0, width: self.frame.size.width, height: scrollView.contentSize.height)
+            mainLayer.frame = CGRect(x: 16, y: 0, width: self.frame.size.width, height: self.frame.size.height)
             
             showHorizontalLines()
             showVerticalLines()
+            bottomTextLayer()
             
             if showThresholdData {
                 showThresholdLines()
@@ -73,28 +72,17 @@ class BarChart: UIView {
     
     private func setupView() {
         
-        scrollView.layer.addSublayer(mainLayer)
-        self.layer.addSublayer(bottomTextLayer())
-        self.addSubview(scrollView)
-        
-        scrollView.scrollsToTop = true
-        
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        
+        self.layer.addSublayer(mainLayer)
     }
     
-    private func bottomTextLayer() -> CALayer{
-        let bottomTextLayer: CALayer = CALayer()
+    private func bottomTextLayer(){
+
         for (index, data) in self.presenter.bottomTitleText.enumerated() {
-            let xPos = CGFloat(index) * (self.frame.height/3)
-            bottomTextLayer.addTextLayer(frame: CGRect.init(x: xPos + 16, y: 220, width: 20, height: 20), color: UIColor.charcoalGrey.cgColor, fontSize: 12, text: data, animated: true, oldFrame: CGRect.init())
+            let xPos = CGFloat(index) * (self.frame.width/4-20)
+                        
+            mainLayer.addTextLayer(frame: CGRect.init(x: xPos, y: 220, width: 20, height: 20), color: UIColor.charcoalGrey.cgColor, fontSize: 12, text: data, animated: true, oldFrame: CGRect.init())
         }
         
-        return bottomTextLayer
     }
     
     override func layoutSubviews() {
@@ -108,15 +96,7 @@ class BarChart: UIView {
         
         // Show the main bar
         mainLayer.addRectangleLayer(frame: entry.barFrame, color: cgColor, animated: animated, oldFrame: oldEntry?.barFrame)
-        
-        // Show an Int value above the bar
-        //        mainLayer.addTextLayer(frame: entry.textValueFrame, color: cgColor, fontSize: 14, text: entry.data.textValue, animated: animated, oldFrame: oldEntry?.textValueFrame)
-        
-        // Show a title below the bar
-        //        mainLayer.addTextLayer(frame: entry.bottomTitleFrame, color: cgColor, fontSize: 14, text: "\(Int(entry.data.time))", animated: animated, oldFrame: oldEntry?.bottomTitleFrame)
-        
-        // Show a title on the right of the bar
-        //        mainLayer.addTextLayer(frame: entry.bottomTitleFrame, color: cgColor, fontSize: 14, text: entry.data.title, animated: animated, oldFrame: oldEntry?.bottomTitleFrame)
+
     }
     
     private func showHorizontalLines() {
@@ -125,7 +105,7 @@ class BarChart: UIView {
                 $0.removeFromSuperlayer()
             }
         })
-        let lines = presenter.computeHorizontalLines(viewHeight: self.frame.height, viewWidth: self.frame.width - CGFloat(20))
+        let lines = presenter.computeHorizontalLines(viewHeight: self.frame.height, viewWidth: self.frame.width)
         lines.forEach { (line) in
             mainLayer.addLineLayer(lineSegment: line.segment, color: UIColor.charcoalGrey.cgColor, width: line.width, isDashed: false, animated: false, oldSegment: nil)
         }
@@ -139,7 +119,7 @@ class BarChart: UIView {
                 $0.removeFromSuperlayer()
             }
         })
-        let lines = presenter.computeLineThreshold(viewHeight: self.frame.height, viewWidth: self.frame.width - CGFloat(20))
+        let lines = presenter.computeLineThreshold(viewHeight: self.frame.height, viewWidth: self.frame.width)
         lines.forEach { (line) in
             mainLayer.addLineLayer(lineSegment: line.segment, color: line.color, width: line.width, isDashed: true, animated: false, oldSegment: nil)
         }
@@ -170,7 +150,7 @@ class BarChart: UIView {
             
             let yPosition = self.frame.height - 40 -  line.value * (self.frame.height - 40 - 10)
             
-            mainLayer.addTextLayer(frame: CGRect.init(x: self.frame.width - 65, y: yPosition - 10, width: 50, height: 20), color: UIColor.charcoalGrey.cgColor, fontSize: 12, text: line.text, animated: true, oldFrame: CGRect.init())
+            mainLayer.addTextLayer(frame: CGRect.init(x: self.frame.width - 70, y: yPosition - 10, width: 50, height: 20), color: UIColor.charcoalGrey.cgColor, fontSize: 12, text: line.text, animated: true, oldFrame: CGRect.init())
         }
     }
     
